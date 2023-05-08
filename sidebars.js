@@ -215,16 +215,6 @@ const sidebars = {
         'contribute/contribution-process',
       ],
     },
-    {
-      type: 'category',
-      label: 'Run a node on Sui',
-      items: [
-        'contribute/nodes/full-node',
-        'contribute/nodes/validator',
-        'contribute/nodes/database-snapshots',
-        'contribute/nodes/logging',
-      ],
-    },
   ],
 };
 
