@@ -68,7 +68,7 @@ const config = {
               },
               {
                 type: "doc",
-                docId: "build/create-smart-contracts/write-move-packages",
+                docId: "build/create-smart-contracts/smart-contracts",
                 label: "Smart Contracts with Move",
               },
               {
@@ -89,12 +89,12 @@ const config = {
               },
               {
                 type: "doc",
-                docId: "reference/core-concepts/objects",
+                docId: "reference/core-concepts/how-sui-works",
                 label: "Core Concepts",
               },
               {
                 type: "doc",
-                docId: "reference/economics/sui-token",
+                docId: "reference/economics/sui-tokenomics",
                 label: "Economics",
               },
               {
@@ -203,6 +203,7 @@ const config = {
         ],
         copyright: `© ${new Date().getFullYear()} Sui Foundation | Documentation distributed under <a href="https://github.com/sui-foundation/sui-docs/blob/main/LICENSE">CC BY 4.0</a>`
       },
+      
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
