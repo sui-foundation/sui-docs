@@ -53,92 +53,19 @@ const config = {
             label: "Learn",
           },
           {
-            type: "dropdown",
+            type: "doc",
+            docId: "build/quickstart/about",
             label: "Build",
-            items: [
-              {
-                type: "doc",
-                docId: "build/quickstart/about",
-                label: "Quickstart",
-              },
-              {
-                type: "doc",
-                docId: "build/setup/connect-to-a-network",
-                label: "Environment Setup",
-              },
-              {
-                type: "doc",
-                docId: "build/create-smart-contracts/smart-contracts",
-                label: "Smart Contracts with Move",
-              },
-              {
-                type: "doc",
-                docId: "build/program-with-objects/object-basics",
-                label: "Program with Objects",
-              },
-            ]
           },
           {
-            type: "dropdown",
+            type: "doc",
+            docId: "reference/sui-framework/sui-framework-reference",
             label: "Reference",
-            items: [
-              {
-                type: "doc",
-                docId: "reference/sui-framework/sui-framework-reference",
-                label: "Sui Framework",
-              },
-              {
-                type: "doc",
-                docId: "reference/core-concepts/how-sui-works",
-                label: "Core Concepts",
-              },
-              {
-                type: "doc",
-                docId: "reference/economics/sui-tokenomics",
-                label: "Economics",
-              },
-              {
-                type: "doc",
-                docId: "reference/cryptography/keys-and-addresses",
-                label: "Cryptography",
-              },
-              {
-                type: "doc",
-                docId: "reference/json-rpc/json-rpc-api",
-                label: "JSON-RPC",
-              },
-              {
-                type: "doc",
-                docId: "reference/sdk/ts-js-sdk",
-                label: "SDKs",
-              },
-              {
-                type: "doc",
-                docId: "reference/sui-wallet-kit/introduction",
-                label: "Sui Wallet Kit",
-              },
-              {
-                type: "doc",
-                docId: "reference/deepbook/pools",
-                label: "DeepBook",
-              },
-            ]
           },
           {
-            type: "dropdown",
+            type: "doc",
+            docId: "contribute/contribution-process",
             label: "Contribute",
-            items: [
-              {
-                type: "doc",
-                docId: "contribute/improve-documentation",
-                label: "Improve Documentation",
-              },
-              {
-                type: "doc",
-                docId: "contribute/nodes/full-node",
-                label: "Run a node on Sui",
-              },
-            ]
           },
         ],
       },
