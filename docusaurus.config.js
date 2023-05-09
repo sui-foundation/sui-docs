@@ -54,7 +54,6 @@ const config = {
           },
           {
             type: "dropdown",
-            docId: "build/quickstart/about",
             label: "Build",
             items: [
               {
@@ -81,7 +80,6 @@ const config = {
           },
           {
             type: "dropdown",
-            docId: "Reference",
             label: "Reference",
             items: [
               {
@@ -123,7 +121,6 @@ const config = {
           },
           {
             type: "dropdown",
-            docId: "contribute/improve-documentation",
             label: "Contribute",
             items: [
               {
