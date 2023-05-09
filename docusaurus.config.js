@@ -117,6 +117,11 @@ const config = {
                 docId: "reference/sui-wallet-kit/introduction",
                 label: "Sui Wallet Kit",
               },
+              {
+                type: "doc",
+                docId: "reference/deepbook/pools",
+                label: "DeepBook",
+              },
             ]
           },
           {

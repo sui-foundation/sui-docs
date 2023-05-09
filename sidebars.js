@@ -216,6 +216,30 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'DeepBook',
+      items: [
+        {
+          type: 'category',
+          label: 'DeepBook Design',
+          items: [
+            'reference/deepbook/pools',
+            'reference/deepbook/orders',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'DeepBook SDK',
+          items: [
+            'reference/deepbook/trade-and-swap',
+            'reference/deepbook/routing-a-swap',
+            'reference/deepbook/query-the-pool',
+
+          ],
+        },
+      ],
+    },
   ],
   contributeSidebar: [
     {
