@@ -64,7 +64,7 @@ const config = {
               {
                 type: "doc",
                 docId: "build/setup/connect-to-a-network",
-                label: "Envrionment setup",
+                label: "Environment Setup",
               },
               {
                 type: "doc",
