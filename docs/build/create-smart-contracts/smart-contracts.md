@@ -14,7 +14,7 @@ blockchains with vastly different data and execution models.
 
 The documentation for the original Move language is available in the [Move GitHub](https://github.com/move-language/move) repository and includes a [tutorial](https://github.com/move-language/move/blob/main/language/documentation/tutorial/README.md) and a [book](https://github.com/move-language/move/blob/main/language/documentation/book/src/SUMMARY.md) describing language features in detail. These are invaluable resources to deepen your understanding of the Move language but not strict prerequisites to following the Sui tutorial. Further, Sui Move differs in some ways from Move, which is explored here.
 
-You can use Sui Move to define, create, and manage programmable [Sui objects](../objects.md) representing user-level assets. Sui's object system is implemented by adding new functionality to Move while also imposing additional restrictions, creating a dialect of Move (a.k.a. _Sui Move_) that makes certain parts of the original Move documentation not applicable to smart contract development in Sui. Consequently, it's best to follow this tutorial and the relevant Move documentation links within.
+You can use Sui Move to define, create, and manage programmable [Sui objects](../../learn/core-concepts/objects.md) representing user-level assets. Sui's object system is implemented by adding new functionality to Move while also imposing additional restrictions, creating a dialect of Move (a.k.a. _Sui Move_) that makes certain parts of the original Move documentation not applicable to smart contract development in Sui. Consequently, it's best to follow this tutorial and the relevant Move documentation links within.
 
 Before looking at the Move code included with Sui, let's talk briefly about Move code organization, which applies both to code included with
 Sui and the custom code developers write.
@@ -23,7 +23,7 @@ Sui and the custom code developers write.
 
 The main unit of Move code organization (and distribution) is a _package_. A package consists of a set of _modules_ defined in separate
 files with the `.move` extension. These files include Move functions and type definitions. A package must include the `Move.toml` manifest file
-describing package configuration, such as package metadata and package dependencies. See [Move.toml](manifest.md) for more information about package manifest files in Sui Move. Packages also include an auto-generated `Move.lock` file. The `Move.lock` file is similar in format to the package manifest, but is not meant for users to edit directly. See [Move.lock](lock-file.md) for more information about the lock file in Sui Move.
+describing package configuration, such as package metadata and package dependencies. See [Move.toml](move-toml.md) for more information about package manifest files in Sui Move. Packages also include an auto-generated `Move.lock` file. The `Move.lock` file is similar in format to the package manifest, but is not meant for users to edit directly. See [Move.lock](./move-lock.md) for more information about the lock file in Sui Move.
 
 The minimal package source directory structure looks as follows and contains the manifest file, the lock file, and the `sources` subdirectory where one or more module files are located:
 
@@ -37,7 +37,7 @@ my_move_package
 
 See [Package Layout and Manifest Syntax](https://github.com/move-language/move/blob/main/language/documentation/book/src/packages.md#package-layout-and-manifest-syntax) for more information on package layout.
 
-It's now time to look at some Sui Move code. You can either keep reading for an introductory description of the main Sui Move language constructs or you can jump straight into the code by [writing a simple Sui Move package](write-package.md), and checking out additional code [examples](../../explore/examples.md).
+It's now time to look at some Sui Move code. You can either keep reading for an introductory description of the main Sui Move language constructs or you can jump straight into the code by [writing a simple Sui Move package](write-move-packages.md), and checking out additional code [examples](../../build/quickstart/examples.md).
 
 ## First look at Move source code
 
@@ -101,7 +101,7 @@ computations (more generally known as _gas_) - in this case, the concrete type u
 struct SUI has drop {}
 ```
 
-The [Write a Sui Move Package](write-package.md) topic shows how to define and instantiate custom structs.
+The [Write a Sui Move Package](write-move-packages.md) topic shows how to define and instantiate custom structs.
 
 ### Move functions
 
@@ -118,7 +118,7 @@ instance of the `Coin` struct. The Move compiler allows direct access to fields 
 
 You can read more about Move [references](https://github.com/move-language/move/blob/main/language/documentation/book/src/references.md#references) in the Move book.
 
-The [Write a Sui Move Package](write-package.md) topic shows how to call Move functions from other functions and how
+The [Write a Sui Move Package](write-move-packages.md) topic nshows how to call Move functions from other functions and how
 to define the new ones.
 
 The Sui dialect of the Move language also defines _entry functions_. These must satisfy a certain set of properties and you can call them directly from Sui (e.g., from a Sui application written in a different language).
@@ -148,4 +148,4 @@ More concretely, the `transfer` function is `public`, has no return value, and h
 - `recipient` - The [address](https://github.com/move-language/move/blob/main/language/documentation/book/src/address.md) of the intended recipient
 - `_ctx` - A mutable reference to an instance of the `TxContext` struct (in this particular case, this parameter is not actually used in the function's body as indicated by its name starting with `_`). Because it is unused, the parameter could be removed. The mutable reference to the `TxContext` is optional for entry functions.
 
-[Calling Move code](../cli-client.md#calling-move-code) describes how to call the `transfer` function from the Sui CLI client.
+[Calling Move code](../setup/cli/client-cli.md#calling-move-code) describes how to call the `transfer` function from the Sui CLI client.

@@ -161,7 +161,7 @@ The prior example shows the on-chain representation of the first three versions 
 
 Sui smart contracts are organized into [upgradeable](../build/package-upgrades.md) packages and, as a result, multiple versions of any given package can exist on chain. Before someone can use an on-chain package, you must [publish](../build/move/debug-publish.md#publishing-a-package) its first, original version. When you upgrade a package, you create a new version of that package. Each upgrade of a package is based on the immediately preceding version of that package in the versions history. In other words, you can upgrade the \_n_th version of a package from only the \_n_th - 1 version. For example, you can upgrade a package from version 1 to 2, but afterwards you can upgrade that package only from version 2 to 3; you're not allowed to upgrade from version 1 to 3.
 
-There is a notion of versioning in package [manifest](../build/move/manifest.md) files, existing in both the [package section](../build/move/manifest.md#package-section) and in the [dependencies section](../build/move/manifest.md#dependencies-section). For example, consider the manifest code that follows:
+There is a notion of versioning in package [manifest](../../build/create-smart-contracts/move-toml.md) files, existing in both the [package section](../../../build/create-smart-contracts/move-toml.md#package-section) and in the [dependencies section](../../../build/create-smart-contracts/move-toml.md#dependencies-section). For example, consider the manifest code that follows:
 
 ```toml
 [package]

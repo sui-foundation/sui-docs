@@ -30,7 +30,7 @@ Each of these policies, in the order listed, is a superset of the previous one i
 
 When you publish a package, by default it adopts the most relaxed, compatible policy. You can publish a package as part of a transaction block that can change the policy before the transaction block successfully completes, making the package available on chain for the first time at the desired policy level, rather than at the default one.
 
-You can change the current policy by calling one of the functions in `sui::package` (`only_additive_upgrades`, `only_dep_upgrades`, `make_immutable`) on the package's [`UpgradeCap`](./custom-upgrade-policy.md#upgradecap) and a policy can become only more restrictive. For example, after you call `sui::package::only_dep_upgrades` to restrict the policy to become additive, calling `sui::package::only_additive_upgrades` on the `UpgradeCap` of the same package results in an error.
+You can change the current policy by calling one of the functions in `sui::package` (`only_additive_upgrades`, `only_dep_upgrades`, `make_immutable`) on the package's [`UpgradeCap`](custom-upgrade-policies.md#upgradecap) and a policy can become only more restrictive. For example, after you call `sui::package::only_dep_upgrades` to restrict the policy to become additive, calling `sui::package::only_additive_upgrades` on the `UpgradeCap` of the same package results in an error.
 
 ## Upgrade overview
 

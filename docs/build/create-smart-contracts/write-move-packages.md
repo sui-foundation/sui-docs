@@ -3,7 +3,7 @@ title: Write Move Packages
 slug: /write-move-packages
 ---
 
-Before you can build a Sui Move package and run its code, you must first [install Sui binaries](../install.md#install-or-update-sui-binaries) for your operating system.
+Before you can build a Sui Move package and run its code, you must first [install Sui binaries](../setup/cli/install-sui.md#install-or-update-sui-binaries) for your operating system.
 
 ### Create the package
 
@@ -13,7 +13,7 @@ To begin, open a terminal or console at the location you plan to store your pack
 sui move new my_first_package
 ```
 
-Running the previous command creates a directory with the name you provide (`my_first_package`). The command populates the new directory with a skeleton Sui Move project that consists of a `sources` directory and a [`Move.toml` manifest](manifest.md). Open the manifest with a text editor to review its contents:
+Running the previous command creates a directory with the name you provide (`my_first_package`). The command populates the new directory with a skeleton Sui Move project that consists of a `sources` directory and a [`Move.toml` manifest](move-toml.md). Open the manifest with a text editor to review its contents:
 
 ```shell
 cat my_first_package/Move.toml

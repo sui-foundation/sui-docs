@@ -5,7 +5,7 @@ slug: /immutable-objects
 
 Chapters 1 and 2 describe how to create and use objects owned by an address. This chapter describes how to create and use immutable objects.
 
-Objects in Sui can have different types of [ownership](../objects.md#object-ownership), with two broad categories: immutable objects and mutable objects. An immutable object is an object that can't be mutated, transferred or deleted. Immutable objects have no owner, so anyone can use them.
+Objects in Sui can have different types of [ownership](./object-basics.md#object-ownership), with two broad categories: immutable objects and mutable objects. An immutable object is an object that can't be mutated, transferred or deleted. Immutable objects have no owner, so anyone can use them.
 
 ### Create immutable object
 

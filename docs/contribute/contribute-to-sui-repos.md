@@ -5,8 +5,6 @@ slug: /contribute-to-sui-repos
 
 This page describes how to contribute to Sui, and provides additional information about participating in the Sui community.
 
-You can find answers to common questions in our [FAQ](../contribute/faq.md).
-
 ## Join the community
 
 To connect with the Sui community, join our [Discord](https://discord.gg/sui).
@@ -60,5 +58,5 @@ You now have a fork of the Sui repo set up in your local workspace. You can make
 
 - Read the [Sui Smart Contract Platform](../../paper/sui.pdf) white paper.
 - Implementing [logging](../contribute/observability.md) in Sui to observe the behavior of your development.
-- Find related [research papers](../contribute/research-papers.md).
+<!-- - Find related [research papers](../contribute/research-papers.md). -->
 - See and adhere to our [code of conduct](../contribute/code-of-conduct.md).

@@ -10,16 +10,16 @@ To learn more about the motivations behind creating Sui Move, see [Why We Create
 
 In general, Move code written for other systems will work in Sui with these exceptions:
 
- * [Global Storage operators](https://move-language.github.io/move/global-storage-operators.html)
- * [Key Abilities](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#key)
+- [Global Storage operators](https://move-language.github.io/move/global-storage-operators.html)
+- [Key Abilities](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#key)
 
 Here is a summary of key differences:
 
- 1. Sui uses its own [object-centric global storage](#object-centric-global-storage)
- 1. Addresses [represent Object IDs](#addresses-represent-object-ids)
- 1. Sui objects have [globally unique IDs](#object-with-key-ability-globally-unique-ids)
- 1. Sui has [module initializers (init)](#module-initializers)
- 1. Sui [entry points take object references as input](#entry-points-take-object-references-as-input)
+1.  Sui uses its own [object-centric global storage](#object-centric-global-storage)
+1.  Addresses [represent Object IDs](#addresses-represent-object-ids)
+1.  Sui objects have [globally unique IDs](#object-with-key-ability-globally-unique-ids)
+1.  Sui has [module initializers (init)](#module-initializers)
+1.  Sui [entry points take object references as input](#entry-points-take-object-references-as-input)
 
 Find a detailed description of each change below.
 
@@ -47,14 +47,14 @@ You can take advantage of the _key_ ability in Move to annotate a Sui object. In
 
 As described in [Object-centric global storage](#object-centric-global-storage), Sui Move modules are published into Sui storage. A special initializer function optionally defined in a module is executed (once) at the time of module publication by the Sui runtime for the purpose of pre-initializing module-specific data (e.g., creating singleton objects). The initializer function must have the following properties in order to be executed at publication:
 
- * Name `init`
- * Single parameter of `&mut TxContext` type
- * No return values
- * Private
+- Name `init`
+- Single parameter of `&mut TxContext` type
+- No return values
+- Private
 
 ## Entry points take object references as input
 
-Sui offers entry functions that can be called directly from Sui, in addition to functions callable from other functions. See [Entry functions](../build/move/index.md#entry-functions).
+Sui offers entry functions that can be called directly from Sui, in addition to functions callable from other functions. See [Entry functions](../../build/create-smart-contracts/smart-contracts.md#entry-functions).
 
 ## Conclusion
 

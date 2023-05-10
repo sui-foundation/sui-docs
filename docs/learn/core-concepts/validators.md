@@ -5,7 +5,7 @@ slug: /about-validators
 
 The Sui network is operated by a set of independent _validators_, each running its own instance of the Sui software on a separate machine (or a sharded cluster of machines operated by the same entity). A validator participates in the network by handling read and write requests sent by clients. This section focuses on the latter.
 
-To learn how to set up and run a Sui Validator node, including how staking and rewards work, see [Sui Validator Node](../build/validator-node.md).
+To learn how to set up and run a Sui Validator node, including how staking and rewards work, see [Sui Validator Node](../../contribute/nodes/validator.md).
 
 Sui uses Delegated Proof-of-Stake (DPoS) to determine which validators operate the network and their voting power. Validators are incentivized to participate in good faith via a share of transaction fees, staking rewards, and slashing stake and staking rewards in case of misbehavior.
 
@@ -54,5 +54,5 @@ Now, once this is done Sui can execute all certificates that have their locks se
 
 ## Further reading
 
-- Transactions take objects as input and produce objects as output&mdash;check out the [objects](../../learn/objects.md) section to learn more about the structure and attributes of objects.
-- Sui supports several different transaction types&mdash;see the [transactions](../../learn/transactions.md) section for full details.
+- Transactions take objects as input and produce objects as output&mdash;check out the [objects](../../learn/core-concepts/objects.md) section to learn more about the structure and attributes of objects.
+- Sui supports several different transaction types&mdash;see the [transactions](../../learn/core-concepts/transactions.md) section for full details.

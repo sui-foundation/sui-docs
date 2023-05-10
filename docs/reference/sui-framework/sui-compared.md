@@ -3,12 +3,12 @@ title: Comparison
 slug: /sui-compared
 ---
 
-This page summarizes how Sui compares with existing blockchains and is intended for potential adopters of Sui to decide whether it fits their use cases. See [How Sui Works](how-sui-works.md) for an introduction to the Sui architecture.
+This page summarizes how Sui compares with existing blockchains and is intended for potential adopters of Sui to decide whether it fits their use cases. See [How Sui Works](../../learn/core-concepts/how-sui-works.md) for an introduction to the Sui architecture.
 
 Here are Sui's key features:
 
 - [Causal order vs. total order](#causal-order-vs-total-order) enables massively parallel execution
-- [Sui's variant of Move](../build/move/index.md) and its object-centric data model make composable objects/NFTs possible
+- [Sui's variant of Move](../../build/create-smart-contracts/smart-contracts.md) and its object-centric data model make composable objects/NFTs possible
 - The blockchain-oriented [Move programming language](https://github.com/MystenLabs/awesome-move) eases the developer experience
 
 ## Traditional blockchains
@@ -23,9 +23,9 @@ Yet it is inherently sequential: increments to the chain are added one at a time
 
 A large number transactions do not have complex interdependencies with each other, since they operate on disconnected parts of the state. Often financial users just want to send an asset to a recipient, and the only data required to gauge whether this simple transaction is admissible is a fresh view of the sender's address. Hence Sui takes the approach of only taking a lock - or "stopping the world" - for the relevant piece of data rather than the whole chain -- in this case, the address of the sender, which can only send one transaction at a time.
 
-Sui further expands this approach to more involved transactions that may explicitly depend on multiple elements under their sender's control, using an [object model](../learn/objects.md) and leveraging [Sui Move](../build/move/index.md)'s strong ownership model. By requiring that dependencies be explicit, Sui applies a "multi-lane" approach to transaction validation, making sure those independent transaction flows can progress without impediment from the others.
+Sui further expands this approach to more involved transactions that may explicitly depend on multiple elements under their sender's control, using an [object model](../../learn/core-concepts/objects.md) and leveraging [Sui Move](../../../build/create-smart-contracts/smart-contracts.md)'s strong ownership model. By requiring that dependencies be explicit, Sui applies a "multi-lane" approach to transaction validation, making sure those independent transaction flows can progress without impediment from the others.
 
-This doesn't mean that Sui as a platform never orders transactions with respect to each other, or that it allows owners to affect only their owned microcosm of objects. Sui also processes transactions that have an effect on some shared state in a rigorous, consensus-ordered manner. They're just not the default use case. See the [State-of-the-art consensus](#state-of-the-art-consensus) section for details on the [Narwhal and Bullshark consensus engine](architecture/consensus.md).
+This doesn't mean that Sui as a platform never orders transactions with respect to each other, or that it allows owners to affect only their owned microcosm of objects. Sui also processes transactions that have an effect on some shared state in a rigorous, consensus-ordered manner. They're just not the default use case. See the [State-of-the-art consensus](#state-of-the-art-consensus) section for details on the [Narwhal and Bullshark consensus engine](../../learn/core-concepts/consensus-engine.md).
 
 ## A collaborative approach to transaction submission
 
@@ -57,7 +57,7 @@ Unlike most existing blockchain systems (and as the reader may have guessed from
 
 ## State-of-the-art consensus
 
-[Narwhal and Bullshark](architecture/consensus.md) represent the latest variant of decades of work on multi-proposer, high-throughput consensus algorithms that reaches throughputs more than 130,000 transactions per second on a WAN, with production cryptography, permanent storage, and a scaled-out primary-worker architecture.
+[Narwhal and Bullshark](../../learn/core-concepts/consensus-engine.md) represent the latest variant of decades of work on multi-proposer, high-throughput consensus algorithms that reaches throughputs more than 130,000 transactions per second on a WAN, with production cryptography, permanent storage, and a scaled-out primary-worker architecture.
 
 The [Narwhal mempool](https://github.com/MystenLabs/narwhal) offers a high-throughput data availability engine and a scaled architecture, splitting the disk I/O and networking requirements across several workers. And Bullshark is a zero-message overhead consensus algorithm, leveraging graph traversals.
 
@@ -126,6 +126,6 @@ Sui uses the state commitment that arrives upon epoch change. Sui requires a sin
 
 ## Conclusion
 
-In summary, Sui offers many performance and usability gains at the cost of some complexity in less simple use cases. Direct sender transactions excel in Sui. And complex smart contracts may benefit from shared objects where more than one user can mutate those objects (following smart contract specific rules). In this case, Sui totally orders all transactions involving shared objects using a [consensus](architecture/consensus.md) protocol.
+In summary, Sui offers many performance and usability gains at the cost of some complexity in less simple use cases. Direct sender transactions excel in Sui. And complex smart contracts may benefit from shared objects where more than one user can mutate those objects (following smart contract specific rules). In this case, Sui totally orders all transactions involving shared objects using a [consensus](../../learn/core-concepts/consensus-engine.md) protocol.
 
 Sui uses a novel peer-reviewed consensus protocol based on [Narwhal and Bullshark](https://github.com/MystenLabs/narwhal), which provides a DAG-based mempool and efficient Byzantine Fault Tolerant (BFT) consensus. This is state-of-the-art in terms of both performance and robustness.

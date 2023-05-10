@@ -7,7 +7,7 @@ Learn how to set up, configure, and use the Sui Client Command Line Interface (C
 
 ## Set up
 
-The Sui Client CLI installs when you install Sui. See the [Install Sui](install.md) topic for prerequisites and installation instructions.
+The Sui Client CLI installs when you install Sui. See the [Install Sui](./install-sui.md) topic for prerequisites and installation instructions.
 
 ## Using the Sui client
 
@@ -46,7 +46,7 @@ Use `sui client -h` to see a list of supported commands.
 
 Use `sui help <command>` to see more information on each command.
 
-You can start the client in two modes: interactive shell or command line interface [Configure Sui client](../build/connect-sui-network.md#configure-sui-client).
+You can start the client in two modes: interactive shell or command line interface [Configure Sui client](../connect-to-a-network.md#configure-sui-client).
 
 ### Interactive shell
 
@@ -445,8 +445,8 @@ To include multiple object IDs, enclose the IDs in double quotes. For example,
 
 You must publish packages to the Sui [distributed ledger](../learn/how-sui-works.md#architecture) for the code you developed to be available in Sui. To publish packages with the Sui client, use the `publish` command.
 
-Refer to the [Move developer documentation](move/index.md) for a
-description on how to [write a simple Move code package](move/write-package.md),
+Refer to the [Move developer documentation](../../create-smart-contracts/smart-contracts.md) for a
+description on how to [write a simple Move code package](../../create-smart-contracts/write-move-packages.md#write-package.md),
 which you can then publish using the Sui client `publish` command.
 
 **Important:** You must remove all calls to functions in the `debug` module from no-test code before you can publish the new module (test code is marked with the `#[test]` annotation).
@@ -524,7 +524,7 @@ initializers](move/debug-publish.md#module-initializers) for more details.
 You might notice that the gas object that was used to pay for
 publishing was updated as well.
 
-**Important:** If the publishing attempt results in an error regarding verification failure, [build your package locally](../build/move/build-test.md#building-a-package) (using the `sui move build` command) to get a more verbose error message.
+**Important:** If the publishing attempt results in an error regarding verification failure, [build your package locally](../../create-smart-contracts/build-and-test.md#building-a-package) (using the `sui move build` command) to get a more verbose error message.
 
 ## Verify source
 

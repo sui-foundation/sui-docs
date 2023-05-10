@@ -37,7 +37,7 @@ The `UID` type is internal to Sui, and you most likely won't need to deal with i
 
 ### Create Sui object
 
-After you define a Sui object type you can create or instantiate a Sui object. To create a new Sui object from its type, you must assign an initial value to each of the fields, including `id`. The only way to create a new `UID` for a Sui object is to call `object::new`. The `new` function takes the current transaction context as an argument to generate unique IDs. The transaction context is of type `&mut TxContext` and should be passed down from an [entry function](../move/index.md#entry-functions). You can call `Entry` functions directly from a transaction.
+After you define a Sui object type you can create or instantiate a Sui object. To create a new Sui object from its type, you must assign an initial value to each of the fields, including `id`. The only way to create a new `UID` for a Sui object is to call `object::new`. The `new` function takes the current transaction context as an argument to generate unique IDs. The transaction context is of type `&mut TxContext` and should be passed down from an [entry function](../create-smart-contracts/smart-contracts.md#entry-functions). You can call `Entry` functions directly from a transaction.
 
 To define a constructor for `ColorObject`:
 
@@ -72,7 +72,7 @@ All of the APIs for adding objects to persistent storage are defined in the [`tr
 public fun transfer<T: key>(obj: T, recipient: address)
 ```
 
-This places `obj` in global storage along with the metadata that records `recipient` as the owner of the object. In Sui, every object must have an owner. The owner can be either an address, another object, or "shared". See [Object ownership](../../learn/objects.md#object-ownership) for more details.
+This places `obj` in global storage along with the metadata that records `recipient` as the owner of the object. In Sui, every object must have an owner. The owner can be either an address, another object, or "shared". See [Object ownership](../../learn/core-concepts/objects.md#object-ownership) for more details.
 
 In core Move, you call `move_to<T>(a: address, t: T)` to add the entry `(a, T) -> t` to the global storage. But the schema of Sui Move's global storage is different, so you can use the `Transfer` APIs instead of `move_to` or the other [global storage operators](https://github.com/move-language/move/blob/main/language/documentation/book/src/global-storage-operators.md) in core Move. You can't use these operators in Sui Move.
 
@@ -104,7 +104,7 @@ public fun get_color(self: &ColorObject): (u8, u8, u8) {
 
 Find the full code in the Sui repo under `sui_programmability/examples/objects_tutorial/sources/` in [color_object.move](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/objects_tutorial/sources/color_object.move).
 
-To compile the code, make sure you have [installed Sui](../install.md) so that `sui` is in your `PATH`. In the code root directory `(../examples/objects_tutorial/)` (where `Move.toml` is), run:
+To compile the code, make sure you have [installed Sui](../setup/cli/install-sui.md) so that `sui` is in your `PATH`. In the code root directory `(../examples/objects_tutorial/)` (where `Move.toml` is), run:
 
 ```
 sui move build
@@ -112,9 +112,9 @@ sui move build
 
 ### Writing unit tests
 
-After you define the `create` function, you can test it in Sui Move using unit tests without having to go all the way through sending Sui transactions. Since [Sui manages global storage separately outside of Move](../../learn/sui-move-diffs.md#object-centric-global-storage), there is no direct way to retrieve objects from global storage within Move. This poses a question: after calling the `create` function, how do you check that the object is properly transferred?
+After you define the `create` function, you can test it in Sui Move using unit tests without having to go all the way through sending Sui transactions. Since [Sui manages global storage separately outside of Move](../../learn/about-sui/how-sui-move-differs.md#object-centric-global-storage), there is no direct way to retrieve objects from global storage within Move. This poses a question: after calling the `create` function, how do you check that the object is properly transferred?
 
-To assist easy testing in Sui Move, Sui provides a comprehensive testing framework in the [test_scenario](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/test/test_scenario.move) module that allows us to interact with objects put into the global storage. This allows us to test the behavior of any function directly in Sui Move unit tests. A lot of this is also covered in our [Move testing](../move/build-test.md#sui-specific-testing) topic.
+To assist easy testing in Sui Move, Sui provides a comprehensive testing framework in the [test_scenario](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/test/test_scenario.move) module that allows us to interact with objects put into the global storage. This allows us to test the behavior of any function directly in Sui Move unit tests. A lot of this is also covered in our [Move testing](../create-smart-contracts/build-and-test.md#sui-specific-testing) topic.
 
 The `test_scenario` emulates a series of Sui transactions, each sent from a particular address. You can start the first transaction using the `test_scenario::begin` function that takes the address of the user sending this transaction as an argument, and returns an instance of the `Scenario` struct representing a test scenario.
 
@@ -179,7 +179,7 @@ sui move test
 
 ### On-chain Interactions
 
-To call `create` in actual transactions, you need to start Sui and the Sui Client CLI. Follow the [Sui CLI client guide](../cli-client.md) to start the Sui network and set up the client.
+To call `create` in actual transactions, you need to start Sui and the Sui Client CLI. Follow the [Sui CLI client guide](../setup/cli/client-cli.md) to start the Sui network and set up the client.
 
 Before you start, check the active address on the client as that address eventually owns the object):
 
@@ -274,4 +274,4 @@ You can also request the content of the object in json format by adding the `--j
 $ sui client object $OBJECT --json
 ```
 
-To continue learning about programming with objects in Sui, see [Using Objects](ch2-using-objects.md).
+To continue learning about programming with objects in Sui, see [Using Objects](using-objects.md).

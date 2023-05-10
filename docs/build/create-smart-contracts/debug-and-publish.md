@@ -35,10 +35,10 @@ Alternatively, any call to `abort` or assertion failure also prints the stacktra
 
 ## Publishing a package
 
-For functions in a Sui Move package to actually be callable from Sui (rather than an emulated Sui execution scenario), you have to publish the package to the Sui [distributed ledger](../../learn/how-sui-works.md), where it is represented as an immutable Sui object.
+For functions in a Sui Move package to actually be callable from Sui (rather than an emulated Sui execution scenario), you have to publish the package to the Sui [distributed ledger](../../learn/core-concepts/how-sui-works.md), where it is represented as an immutable Sui object.
 
 At this point, however, the `sui move` command does not support package publishing. In fact, it is not clear if it even makes sense to accommodate package publishing, which happens once per package creation, in the context of a unit testing framework. Instead, you can use the Sui CLI client to
-[publish](../cli-client.md#publish-packages) Move code and to [call](../cli-client.md#calling-move-code) that code. See the [Sui CLI client documentation](../cli-client.md) for information on how to publish the package created in this tutorial.
+[publish](../setup/cli/client-cli.md#publish-packages) Move code and to [call](../setup/cli/client-cli.md#calling-move-code) that code. See the [Sui CLI client documentation](../setup/cli/client-cli.md) for information on how to publish the package created in this tutorial.
 
 ### Module initializers
 

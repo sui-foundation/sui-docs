@@ -17,11 +17,6 @@ const sidebars = {
       items: [
         {
           type: 'link',
-          label: 'Sui Core Concepts',
-          href: '/objects',
-        },
-        {
-          type: 'link',
           label: 'Connect to Sui',
           href: '/connect-to-a-network',
         },
@@ -39,11 +34,6 @@ const sidebars = {
           type: 'link',
           label: 'Running a Node on Sui',
           href: '/full-node',
-        },
-        {
-          type: 'link',
-          label: 'Sui Economics',
-          href: '/sui-token',
         },
       ],
     },

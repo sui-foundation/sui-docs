@@ -14,7 +14,7 @@ introducing latency.
 
 [Causal order](https://www.scattered-thoughts.net/writing/causal-ordering/) is a representation of the relationship between transactions and the objects they produce, laid out as dependencies. Validators cannot execute a transaction dependent on objects created by a prior transaction that has not finished. Rather than total order, Sui uses causal order (a partial order).
 
-For more information, see [Causal order vs total order](sui-compared.md#causal-order-vs-total-order).
+For more information, see [Causal order vs total order](../../reference/sui-framework/sui-compared.md#causal-order-vs-total-order).
 
 ### Certificate
 
@@ -24,7 +24,7 @@ A certificate is the mechanism proving a transaction was approved or certified. 
 
 Operation of the Sui network is temporally partitioned into non-overlapping, fixed-duration epochs. During a particular epoch, the set of validators participating in the network is fixed.
 
-For more information, see [Epochs](architecture/validators.md#epochs).
+For more information, see [Epochs](../../contribute/nodes/validator.md#epochs).
 
 ### Equivocation
 
@@ -47,7 +47,7 @@ certifies the transaction, all of the other honest validators will too eventuall
 
 Genesis is the initial act of creating accounts and gas objects for a Sui network. Sui provides a `genesis` command that allows users to create and inspect the genesis object setting up the network for operation.
 
-For more information, see [Genesis](../build/sui-local-network.md#genesis).
+For more information, see [Genesis](../../build/setup/local-network.md#genesis).
 
 ### Multi-writer objects
 
@@ -67,7 +67,7 @@ Further, mutable objects are divided into these categories:
 
 Immutable objects do not need this distinction because they have no owner.
 
-For more information, see [Sui Objects](../learn/objects.md).
+For more information, see [Sui Objects](../../learn/core-concepts/objects.md).
 
 ### Proof-of-stake
 
@@ -75,7 +75,7 @@ For more information, see [Sui Objects](../learn/objects.md).
 
 ### Single-writer objects
 
-Single-writer objects are owned by one address. In Sui, transactions affecting only single-writer objects owned by the same address may proceed with only a verification of the sender’s address, greatly speeding transaction times. These are _simple transactions_. See [Single-Writer Apps](single-writer-apps.md) for example applications of this simple transaction model.
+Single-writer objects are owned by one address. In Sui, transactions affecting only single-writer objects owned by the same address may proceed with only a verification of the sender’s address, greatly speeding transaction times. These are _simple transactions_. See [Single-Writer Apps](../../learn/core-concepts/single-writer-apps.md) for example applications of this simple transaction model.
 
 ### Smart contract
 
@@ -93,7 +93,7 @@ SUI is the native token to the Sui network.
 
 [Total order](https://en.wikipedia.org/wiki/Total_order) refers to the ordered presentation of the history of all transactions processed by a traditional blockchain up to a given time. This is maintained by many blockchain systems, as the only way to process transactions. In contrast, Sui uses a causal (partial) order wherever possible and safe.
 
-For more information, see [Causal order vs total order](sui-compared.md#causal-order-vs-total-order).
+For more information, see [Causal order vs total order](../../reference/sui-framework/sui-compared.md#causal-order-vs-total-order).
 
 ### Transaction
 
@@ -103,13 +103,13 @@ More _complex transactions_ affecting objects that are shared or owned by multip
 
 ### Transfer
 
-A transfer is switching the owner address of a token to a new one via command in Sui. This is accomplished via the [Sui CLI client](../build/cli-client.md) command line interface. It is one of the more common of many commands available in the CLI client.
+A transfer is switching the owner address of a token to a new one via command in Sui. This is accomplished via the [Sui CLI client](../../build/setup/cli/client-cli.md) command line interface. It is one of the more common of many commands available in the CLI client.
 
-For more information, see [Transferring objects](../build/cli-client.md#transferring-objects).
+For more information, see [Transferring objects](../../build/setup/cli/client-cli.md#transferring-objects).
 
 ### Validator
 
 A validator in Sui plays a passive role analogous to the more active role of validators and minors in other blockchains. In Sui, validators do not continuously participate in the consensus protocol but are called into action only when receiving a transaction or
 certificate.
 
-For more information, see [Validators](architecture/validators.md).
+For more information, see [Validators](../../contribute/nodes/validator.md).

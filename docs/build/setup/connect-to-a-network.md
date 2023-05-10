@@ -3,14 +3,14 @@ title: Connect to Sui
 slug: /connect-to-a-network
 ---
 
-Sui has Mainnet, Devnet, and Testnet networks available. You can use one of the test networks, Devnet or Testnet, to experiment with the version of Sui running on that network. You can also spin up a [local Sui network](sui-local-network.md) for local development.
+Sui has Mainnet, Devnet, and Testnet networks available. You can use one of the test networks, Devnet or Testnet, to experiment with the version of Sui running on that network. You can also spin up a [local Sui network](local-network.md) for local development.
 
 The Sui Testnet and Devnet networks consist of:
 
-- Four validator nodes operated by Mysten Labs. Clients send transactions and read requests via this endpoint: `https://fullnode.<SUI-NETWORK-VERSION>.sui.io:443` using [JSON-RPC](../build/json-rpc.md).
+- Four validator nodes operated by Mysten Labs. Clients send transactions and read requests via this endpoint: `https://fullnode.<SUI-NETWORK-VERSION>.sui.io:443` using [JSON-RPC](../../reference/json-rpc/json-rpc-api.md).
 - A public network [Sui Explorer](https://suiexplorer.com/) for browsing transaction history.
 
-You can [request test SUI tokens](#request-test-tokens) through the Sui [devnet-faucet](https://discordapp.com/channels/916379725201563759/971488439931392130) and [testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channels, depending on which version of the network you use. If connected to Localnet, use cURL to request tokens from your [local faucet](sui-local-network.md#use-the-local-faucet). The coins on these networks have no financial value. For obvious reasons, there is no faucet service for Mainnet.
+You can [request test SUI tokens](#request-test-tokens) through the Sui [devnet-faucet](https://discordapp.com/channels/916379725201563759/971488439931392130) and [testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channels, depending on which version of the network you use. If connected to Localnet, use cURL to request tokens from your [local faucet](local-network.md#use-the-local-faucet). The coins on these networks have no financial value. For obvious reasons, there is no faucet service for Mainnet.
 
 See announcements about Sui in the [#announcements](https://discord.com/channels/916379725201563759/925109817834631189) Discord channel.
 
@@ -20,7 +20,7 @@ See the [terms of service](https://sui.io/terms/) for using Sui networks.
 
 Sui provides the following tools to interact with Sui networks:
 
-- [Sui command line interface (CLI)](../build/cli-client.md)
+- [Sui command line interface (CLI)](../setup/cli/client-cli.md)
   - Create and manage your private keys
   - Create example NFTs
   - Call and publish Move modules
@@ -28,7 +28,7 @@ Sui provides the following tools to interact with Sui networks:
 
 ## Environment set up
 
-First, [Install Sui](../build/install.md#install-sui-binaries). After you install Sui, [request SUI test tokens](#request-gas-tokens) through Discord for the network you are using: [Devnet](https://discordapp.com/channels/916379725201563759/971488439931392130) or [Testnet](https://discord.com/channels/916379725201563759/1037811694564560966). If connected to Localnet, use cURL to request tokens from your [local faucet](sui-local-network.md#use-the-local-faucet).
+First, [Install Sui](../../build/setup/cli/install-sui.md#install-sui-binaries). After you install Sui, [request SUI test tokens](#request-gas-tokens) through Discord for the network you are using: [Devnet](https://discordapp.com/channels/916379725201563759/971488439931392130) or [Testnet](https://discord.com/channels/916379725201563759/1037811694564560966). If connected to Localnet, use cURL to request tokens from your [local faucet](local-network.md#use-the-local-faucet).
 
 To check whether Sui is already installed, run the following command:
 
@@ -118,7 +118,7 @@ To switch the active network, run the following command:
 sui client switch --env <ALIAS>
 ```
 
-If you encounter an issue, delete the Sui configuration directory (`~/.sui/sui_config`) and reinstall the latest [Sui binaries](../build/install.md#install-sui-binaries).
+If you encounter an issue, delete the Sui configuration directory (`~/.sui/sui_config`) and reinstall the latest [Sui binaries](../../build/setup/cli/install-sui.md#install-sui-binaries).
 
 ## Validating
 
@@ -129,11 +129,11 @@ In the following sections, the object IDs, addresses, and authority signatures u
 1.  Join [Discord](https://discord.gg/sui).
     If you try to join the Sui Discord channel using a newly created Discord account you may need to wait a few days for validation.
 1.  Get your Sui client address: `sui client active-address`
-1.  Request test SUI tokens in the Sui [#devnet-faucet](https://discord.com/channels/916379725201563759/971488439931392130) or [#testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channel. Send the following message to the relevant channel with your client address: `!faucet <YOUR-CLIENT-ADDRESS>`. If you have a local network, programmatically request tokens from your [local faucet](sui-local-network.md#use-the-local-faucet).
+1.  Request test SUI tokens in the Sui [#devnet-faucet](https://discord.com/channels/916379725201563759/971488439931392130) or [#testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channel. Send the following message to the relevant channel with your client address: `!faucet <YOUR-CLIENT-ADDRESS>`. If you have a local network, programmatically request tokens from your [local faucet](local-network.md#use-the-local-faucet).
 
 ## Publish a Move module
 
-This section describes how to publish a sample Move package using code developed in the [Sui Move tutorial](../build/move/write-package.md). The instructions assume that you installed Sui in the default location.
+This section describes how to publish a sample Move package using code developed in the [Sui Move tutorial](../../build/create-smart-contracts/write-move-packages.md/write-package.md). The instructions assume that you installed Sui in the default location.
 
 ```shell
 sui client publish <your-sui-repo>/sui_programmability/examples/move_tutorial --gas-budget 30000
@@ -235,7 +235,7 @@ Array [
 The package publish operation creates several objects:
 
 - A package object (with ID `0x0c1c...305a` in the example output).
-- A `Forge` object (with ID `0xa8e0...d0a9` in the example output) as a result of running a [module initializer](../build/move/debug-publish.md#module-initializers) for the one (and only) module of this package.
+- A `Forge` object (with ID `0xa8e0...d0a9` in the example output) as a result of running a [module initializer](../create-smart-contracts/debug-and-publish.md#module-initializers) for the one (and only) module of this package.
 - An `UpgradeCap` object (with ID `0x72ba...a860` in the example output) for use in future package upgrades.
 
 You can check the details of each object using the `sui client object <OBJECT-ID>` command or by using the Sui Explorer.
@@ -355,5 +355,5 @@ To see your object in the current [Sui Explorer](https://suiexplorer.com/), past
 
 Related topics:
 
-- [Create Smart Contracts with Move](../build/move/index.md)
-- [Programming with Objects](../build/programming-with-objects/index.md)
+- [Create Smart Contracts with Move](../../build/create-smart-contracts/smart-contracts.md)
+- [Programming with Objects](../../build/program-with-objects/using-objects.md)

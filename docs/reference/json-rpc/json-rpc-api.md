@@ -3,13 +3,13 @@ title: JSON-RPC API
 slug: /json-rpc-api
 ---
 
-Welcome to the guide for making remote procedure calls (RPC) to the Sui network. This document walks you through how to connect and interact with the Sui network using the Sui JSON-RPC API. Use the RPC layer to send your dApp transactions to [Sui validators](../learn/architecture/validators.md) for verification.
+Welcome to the guide for making remote procedure calls (RPC) to the Sui network. This document walks you through how to connect and interact with the Sui network using the Sui JSON-RPC API. Use the RPC layer to send your dApp transactions to [Sui validators](../../contribute/nodes/validator.md) for verification.
 
 This guide is useful for developers interested in Sui network interactions via API and should be used in conjunction with the [SuiJSON format](sui-json.md) for aligning JSON inputs with Move Call arguments.
 
-For a similar guide on Sui network interactions via CLI, refer to the [Sui Client CLI](cli-client.md) documentation.
+For a similar guide on Sui network interactions via CLI, refer to the [Sui Client CLI](setup/cli/client-cli.md) documentation.
 
-Follow the instructions to [install Sui binaries](install.md#install-sui-binaries).
+Follow the instructions to [install Sui binaries](../../build/setup/cli/install-sui.md#install-sui-binaries).
 
 ## Connect to a Sui network
 
@@ -106,7 +106,7 @@ curl --location --request POST $SUI_RPC_HOST \
 
 `signature` is a Base64 encoded `flag || signature || pubkey`.
 
-Native transfer by `sui_transferObject` supports any object that allows for public transfers. Some objects cannot be transferred natively and require a [Move call](#sui_movecall). See [Transactions](../learn/transactions.md#native-transaction) for more information about native transfers.
+Native transfer by `sui_transferObject` supports any object that allows for public transfers. Some objects cannot be transferred natively and require a [Move call](#sui_movecall). See [Transactions](../../learn/core-concepts/transactions.md#native-transaction) for more information about native transfers.
 
 ### Invoke Move functions
 
@@ -116,7 +116,7 @@ The example command in this section demonstrate how to call Move functions.
 
 Execute a Move call transaction by calling the specified function in
 the module of a given package (smart contracts in Sui are written in
-the [Move](move/index.md) language):
+the [Move](../../build/create-smart-contracts/smart-contracts.md) language):
 
 ```shell
 curl --location --request POST $SUI_RPC_HOST \
@@ -140,12 +140,12 @@ curl --location --request POST $SUI_RPC_HOST \
 
 Arguments are passed in, and type is inferred from the function
 signature. Gas usage is capped by the `gas_budget`. The `transfer`
-function is described in more detail in the [Sui CLI client](cli-client.md#calling-move-code) documentation.
+function is described in more detail in the [Sui CLI client](../../build/setup/cli/client-cli.md#calling-move-code) documentation.
 
 The `transfer` function in the `Coin` module serves the same
 purpose as ([`sui_transferObject`](#sui_TransferObject)). It is used for illustration purposes, as a native transfer is more efficient.
 
-To learn more about which `args` a Move call accepts, see [SuiJSON](sui-json.md).
+To learn more about which `args` a Move call accepts, see [SuiJSON](../json-rpc/sui-json-rpc.md).
 
 ### Publish a Move package
 

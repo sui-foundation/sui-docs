@@ -21,8 +21,8 @@ pub struct GasData {
 ```
 
 - `payment` is a vector of gas coin. It accepts only SUI coins, and the coins must be unique. On execution, Sui merges the coins together into a single coin object, specifically the first one. After execution, Sui deletes all of the coins except the first coin that holds the balance of the coins combined minus the gas cost for the transaction.
-- `owner` is the single owner of all coins used, either the sender, or the sponsor for [sponsored transactions](../learn/sponsored-transactions.md).
-- `price` defines how much users will pay for a single unit of execution. A unit of execution is an abstract concept internal to the implementation. A higher price uses more gas than a lower price. At a later point, `price` helps define the priority of executing the transaction. The value for `price` must be greater than or equal to the [Reference Gas Price](../learn/tokenomics/gas-pricing.md), which is the minimum amount the system accepts for a transaction.
+- `owner` is the single owner of all coins used, either the sender, or the sponsor for [sponsored transactions](../../learn/core-concepts/sponsored-transactions.md).
+- `price` defines how much users will pay for a single unit of execution. A unit of execution is an abstract concept internal to the implementation. A higher price uses more gas than a lower price. At a later point, `price` helps define the priority of executing the transaction. The value for `price` must be greater than or equal to the [Reference Gas Price](../../learn/economics/gas-pricing.md), which is the minimum amount the system accepts for a transaction.
 - `budget` is the maximum amount a user pays for a transaction. The value for `budget` is expressed in MIST, a fractional unit of SUI. Each MIST equals 10^-9 SUI - 1 SUI equals 1 Billion MIST. The sum of all coins in `payment` must be greater than or equal to the amount specified for `budget`.
 
 Note that the current release handles `payment` and `budget` dofferently than previous releases (prior to release .28).

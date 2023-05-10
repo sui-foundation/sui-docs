@@ -112,6 +112,6 @@ Sui has some limits on transactions and data used in transactions, such as a max
 
 ## Further reading
 
-- See the [Move tutorial](move/index.md) to develop Sui smart contracts.
-- Transactions take objects as input and produce objects as output--learn about the [objects](objects.md), their structure and attributes.
-- Transactions are executed by Sui [validators](../learn/architecture/validators.md).
+- See the [Move tutorial](../../build/create-smart-contracts/smart-contracts.md) to develop Sui smart contracts.
+- Transactions take objects as input and produce objects as output--learn about the [objects](../core-concepts/objects.md), their structure and attributes.
+- Transactions are executed by Sui [validators](../../contribute/nodes/validator.md).

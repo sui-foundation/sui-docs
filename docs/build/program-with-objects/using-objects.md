@@ -3,9 +3,9 @@ title: Using Objects
 slug: /using-objects
 ---
 
-The [Object Basics](./ch1-object-basics.md) chapter covered how to define, create and take ownership of a Sui object in Sui Move. This chapter describes how to use objects that you own in Sui Move calls.
+The [Object Basics](./object-basics.md) chapter covered how to define, create and take ownership of a Sui object in Sui Move. This chapter describes how to use objects that you own in Sui Move calls.
 
-Sui authentication mechanisms ensure only you can use objects owned by you in Sui Move calls. To use an object in Sui Move calls, pass them as parameters to an [entry function](../move/index.md#entry-functions). Similar to Rust, there are a few ways to pass parameters, as described in the following sections.
+Sui authentication mechanisms ensure only you can use objects owned by you in Sui Move calls. To use an object in Sui Move calls, pass them as parameters to an [entry function](../create-smart-contracts/smart-contracts.md#entry-functions). Similar to Rust, there are a few ways to pass parameters, as described in the following sections.
 
 ### Pass objects by reference
 
@@ -94,7 +94,7 @@ test_scenario::end(scenario_val);
 
 You can also pass objects by value into an entry function. By doing so, the object is moved out of Sui storage. It is then up to the Sui Move code to decide where this object should go.
 
-Since every [Sui object struct type](./ch1-object-basics.md#define-sui-object) must include `UID` as its first field, and the [UID struct](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/object.move) does not have the `drop` ability, the Sui object struct type cannot have the [drop](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#drop) ability either. Hence, any Sui object cannot be arbitrarily dropped and must be either consumed (for example, transferred to another owner) or deleted by [unpacking](https://move-book.com/advanced-topics/struct.html#destructing-structures), as described in the following sections.
+Since every [Sui object struct type](./object-basics.md#define-sui-object) must include `UID` as its first field, and the [UID struct](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/object.move) does not have the `drop` ability, the Sui object struct type cannot have the [drop](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#drop) ability either. Hence, any Sui object cannot be arbitrarily dropped and must be either consumed (for example, transferred to another owner) or deleted by [unpacking](https://move-book.com/advanced-topics/struct.html#destructing-structures), as described in the following sections.
 
 There are two ways to handle a pass-by-value Sui object in Move:
 
@@ -147,7 +147,7 @@ test_scenario::next_tx(scenario, &owner);
 test_scenario::end(scenario_val);
 ```
 
-The first part of the example repeats the example used in [Object Basics](./ch1-object-basics.md#writing-unit-tests), and creates a new `ColorObject` and puts it in the owner's account. The second transaction gets tested. It retrieves the object from the storage and then delete it. Since the object is deleted, there is no need (in fact, it is impossible) to return it to the storage. The last part of the test checks that the object is indeed no longer in the global storage and hence cannot be retrieved from there.
+The first part of the example repeats the example used in [Object Basics](./object-basics.md#writing-unit-tests), and creates a new `ColorObject` and puts it in the owner's account. The second transaction gets tested. It retrieves the object from the storage and then delete it. Since the object is deleted, there is no need (in fact, it is impossible) to return it to the storage. The last part of the test checks that the object is indeed no longer in the global storage and hence cannot be retrieved from there.
 
 #### Option 2. Transfer the object
 
@@ -200,7 +200,7 @@ test_scenario::end(scenario_val);
 
 ### On-chain interactions
 
-Next, try this out on-chain. Assuming you followed the instructions in [Object Basics](./ch1-object-basics.md#on-chain-interactions), you should have a published package and a new object created.
+Next, try this out on-chain. Assuming you followed the instructions in [Object Basics](./object-basics.md#on-chain-interactions), you should have a published package and a new object created.
 
 To transfer it to another address, first check the addresses available:
 
@@ -208,7 +208,7 @@ To transfer it to another address, first check the addresses available:
 sui client addresses
 ```
 
-Choose an address other than the active address. If you have only one address, create another address using the [Sui Client CLI](../cli-client.md#create-a-new-account-address).
+Choose an address other than the active address. If you have only one address, create another address using the [Sui Client CLI](../setup/cli/client-cli.md#create-a-new-account-address).
 
 For this example, the recipient address is: `0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446`. Save it as a variable for convenience:
 

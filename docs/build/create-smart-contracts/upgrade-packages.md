@@ -3,7 +3,7 @@ title: Upgrade Move Packages
 slug: /upgrade-packages
 ---
 
-Sui smart contracts are represented by immutable package objects consisting of a collection of Move modules. Because the packages are immutable, transactions can safely access smart contracts without full consensus (fast-path transactions). If someone could change these packages, they would become [shared objects](../learn/objects.md#shared), which would require full consensus before completing a transaction.
+Sui smart contracts are represented by immutable package objects consisting of a collection of Move modules. Because the packages are immutable, transactions can safely access smart contracts without full consensus (fast-path transactions). If someone could change these packages, they would become [shared objects](../../learn/core-concepts/objects.md#shared), which would require full consensus before completing a transaction.
 
 The inability to change package objects, however, becomes a problem when considering the iterative nature of code development. Builders require the ability to update their code and pull changes from other developers while still being able to reap the benefits of fast-path transactions. Fortunately, the Sui network provides a method of upgrading your packages while still retaining their immutable properties.
 

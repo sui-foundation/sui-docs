@@ -8,13 +8,13 @@ The topics in this section provide information and guidance to help you start bu
 
 ## Get started
 
-To get started, see [Install](../build/install.md) to learn about prerequisites and steps to install Sui binaries.
+To get started, see [Install](../../build/setup/cli/install-sui.md) to learn about prerequisites and steps to install Sui binaries.
 
-After you install Sui, learn how to use the [Sui Client CLI](cli-client.md). You can use the client to interact with a Sui Full node or your own [local network](../build/cli-client.md#genesis).
+After you install Sui, learn how to use the [Sui Client CLI](../setup/cli/client-cli.md). You can use the client to interact with a Sui Full node or your own [local network](../setup/cli/client-cli.md#genesis).
 
 ## Smart contracts
 
-Learn how to [Write Smart Contracts with Move](../build/move/index.md), including how to write, build, test, and publish Sui Move packages.
+Learn how to [Write Smart Contracts with Move](../../build/create-smart-contracts/smart-contracts.md), including how to write, build, test, and publish Sui Move packages.
 
 ## Programming with Objects
 
@@ -38,8 +38,8 @@ See examples and tutorials built on Sui.
 
 ## Tutorials
 
-View the [Tic Tac Toe tutorial](../explore/tutorials.md) to learn how to create a Tic Tac Toe game on Sui.
+View the [Tic Tac Toe tutorial](../quickstart/tutorials.md) to learn how to create a Tic Tac Toe game on Sui.
 
 ## Sui examples
 
-View [example](../explore/examples.md) Sui projects that help you learn how to work with Sui.
+View [example](../../build/quickstart/examples.md) Sui projects that help you learn how to work with Sui.

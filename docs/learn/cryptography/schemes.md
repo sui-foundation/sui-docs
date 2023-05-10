@@ -4,7 +4,7 @@ sidebar_label: Signature Schemes
 slug: /signature-schemes
 ---
 
-Move contracts in Sui support verifications for several signature schemes on-chain. Note that not all signatures supported in on-chain verification are supported as user signature verification. See [Sui Signatures](sui-signatures.md#user-signature) for valid signature schemes for transaction authorization.
+Move contracts in Sui support verifications for several signature schemes on-chain. Note that not all signatures supported in on-chain verification are supported as user signature verification. See [Sui Signatures](./signatures.md#user-signature) for valid signature schemes for transaction authorization.
 
 This topic covers:
 
