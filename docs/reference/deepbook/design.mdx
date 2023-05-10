@@ -1,14 +1,47 @@
 ---
-title: DeepBook Orders
-slug: /deepbook-orders
-
+title: DeepBook Design
+slug: /deepbook-design
 ---
 
-## Order Book Structure
+## Pools
+
+At the center of DeepBook is a hyper-efficient per-current pair shared-object Pool structure. This architecture maximally utilizes Sui's Narwhal and Bullshark engine to minimize contention and achieve high throughput.
+
+For each base and quote asset trading pair, a globally shared Pool is created to 1) bookkeep open orders on the order book and 2) handle placement, cancelation, and settlement of orders. Under this architecture, transactions involving different trading pairs can be easily parallelized to maximize throughput.
+
+```rust
+struct Pool<phantom BaseAsset, phantom QuoteAsset> has key {
+    // The key to the following Critbit Tree are order prices.
+    id: UID,
+    // All open bid orders.
+    bids: CritbitTree<TickLevel>,
+    // All open ask orders.
+    asks: CritbitTree<TickLevel>,
+    // Order id of the next bid order, starting from 0.
+    next_bid_order_id: u64,
+    // Order id of the next ask order, starting from 1<<63.
+    next_ask_order_id: u64,
+    // Map from order id to price level for fast retrieval of orders upon canceling of orders.
+    usr_open_orders: Table<ID, Table<u64, Order>>,
+    // taker_fee_rate should be strictly greater than maker_rebate_rate.
+    // The difference between taker_fee_rate and maker_rabate_rate goes to the protocol.
+    // 10^9 scaling
+    taker_fee_rate: u64,
+    // 10^9 scaling
+    maker_rebate_rate: u64,
+    tick_size: u64,
+    lot_size: u64,
+    // other pool info
+    base_custodian: Custodian<BaseAsset>,
+    quote_custodian: Custodian<QuoteAsset>,
+}
+```
+
+### Order Book Structure
 
 DeepBook adopts a hyper-efficient approach to store orders. Each Pool stores the unfilled maker orders. Taker orders are filled instantaneously within the same transaction the order is submitted. Bid and ask orders are stored separately, each with a two-level nested Crit-bit Tree. The first level Crit-bit Tree is ordered using the price of the maker order, and the second level Crit-bit Tree is ordered using the order id of the maker order.
 
-## Placing Orders
+### Placing Orders
 
 DeepBook supports the placement of market orders and limit orders. DeepBook also supports a few configurations of limit orders, which will be covered in the API section. When users submit a market order, it is matched against the existing maker orders on the order book instantaneously in the same transaction upon submission of the market order. When users submit a limit order, the limit order is first matched against the existing maker orders as a taker order. If the order cannot be fully filled, the remaining quantity can either be injected as a maker order or be dropped, depending on the configuration of the limit order. See the API section for further details.
 
@@ -31,11 +64,13 @@ struct Order has store, drop {
 }
 ```
 
-## Order Matching
+## Orders
+
+### Order Matching
 
 Order matching occurs when a taker order is submitted to the CLOB without a centralized entity or crank involvement. Taker orders are matched against the existing maker orders in the CLOB in the same transaction the taker order is submitted.
 
-## Order Tracking
+### Order Tracking
 
 DeepBook supports efficient tracking of maker orders. Each unfilled maker order is associated with a unique u64 order id, and users can query the order status using the order id together with the Sui RPC call. Users can also subscribe to the event stream emitted by DeepBook related to changes in order status. DeepBook currently supports the following events, `OrderPlaced`, `OrderFilled` and `OrderCanceled`.
 
