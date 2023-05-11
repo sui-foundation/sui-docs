@@ -3,7 +3,7 @@ title: 构建并测试Move软件包
 slug: /build-and-test
 ---
 
-If you followed the previous topic, you have a basic module that you need to build.
+如果您已完成之前的主题，您应该已经有了用于构建所需的基本模块
 
 ## 构建软件包
 
