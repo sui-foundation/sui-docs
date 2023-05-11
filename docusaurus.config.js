@@ -70,48 +70,6 @@ const config = {
             type: "doc",
             docId: "reference/sui-framework/sui-framework-reference",
             label: "Reference",
-            items: [
-              {
-                type: "doc",
-                docId: "reference/sui-framework/sui-framework-reference",
-                label: "Sui Framework",
-              },
-              {
-                type: "doc",
-                docId: "reference/core-concepts/objects",
-                label: "Core Concepts",
-              },
-              {
-                type: "doc",
-                docId: "reference/economics/sui-token",
-                label: "Economics",
-              },
-              {
-                type: "doc",
-                docId: "reference/cryptography/keys-and-addresses",
-                label: "Cryptography",
-              },
-              {
-                type: "doc",
-                docId: "reference/json-rpc/json-rpc-api",
-                label: "JSON-RPC",
-              },
-              {
-                type: "doc",
-                docId: "reference/sdk/ts-js-sdk",
-                label: "SDKs",
-              },
-              {
-                type: "doc",
-                docId: "reference/sui-wallet-kit/introduction",
-                label: "Sui Wallet Kit",
-              },
-              {
-                type: "doc",
-                docId: "reference/deepbook/design",
-                label: "DeepBook",
-              },
-            ]
           },
           {
             type: "doc",
