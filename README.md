@@ -12,7 +12,8 @@ We're glad that you want to contribute!
 
 ## Contributors
 
-This current repo was migrated and built from the [Sui monorepo](https://github.com/MystenLabs/sui). Current contributors can be found [here](https://github.com/sui-foundation/sui-docs/graphs/contributors). Past contributors can be found [here](CONTRIBUTORS.md).
+- The contributors to this repo can be found [here](https://github.com/sui-foundation/sui-docs/graphs/contributors).
+- This repo was migrated and built from the [Sui monorepo](https://github.com/MystenLabs/sui). Past contributors can be found [here](CONTRIBUTORS.md).
 
 ## [Code of conduct](https://docs.sui.io/contribute/code-of-conduct)
 
