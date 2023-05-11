@@ -15,7 +15,7 @@ Finally, Sui’s [Storage mechanics](https://docs.sui.io/learn/tokenomics/storag
 
 The information on net gas fees displays in [Sui Explorer](https://suiexplorer.com/) for each transaction block:
 
-![Gas Fees displayed on Sui Explorer](../../../static/img/gas-fees-explorer.png "The Gas Fees section displayed on Sui Explorer")
+![Gas Fees displayed on Sui Explorer](/static/img/gas-fees-explorer.png "The Gas Fees section displayed on Sui Explorer")
 _The Gas Fees section for a transaction block displayed on Sui Explorer_
 
 ### Gas Prices
