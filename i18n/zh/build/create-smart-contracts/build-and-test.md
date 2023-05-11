@@ -1,5 +1,5 @@
 ---
-title: Build and Test Move Packages
+title: 构建并测试Move软件包
 slug: /build-and-test
 ---
 
