@@ -4,7 +4,7 @@ sidebar_label: Signature Schemes
 slug: /signature-schemes
 ---
 
-Move contracts in Sui support verifications for several signature schemes on-chain. Note that not all signatures supported in on-chain verification are supported as user signature verification. See [Sui Signatures](sui-signatures.md#user-signature) for valid signature schemes for transaction authorization.
+Move contracts in Sui support verifications for several signature schemes on-chain. Note that not all signatures supported in on-chain verification are supported as user signature verification. See [Sui Signatures](./signatures.md#user-signature) for valid signature schemes for transaction authorization.
 
 This topic covers:
 
@@ -51,6 +51,8 @@ Public key in hex: $PK
 2. Call the verify method in Move. All inputs are represented in bytes in hex format:
 
 ```move
+    use sui::ed25519;
+
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
@@ -76,10 +78,12 @@ Public key in hex: $PK
 2. Call the verify method in Move.
 
 ```move
+    use sui::ecdsa_k1;
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
-    let verify = ecdsa_k1::secp256k1_verify(&sig, &pk, &msg);
+    // The last param 1 represents the hash function used is SHA256, the default hash function used when signing in CLI.    assert!(verify == true, 0);
+    let verify = ecdsa_k1::secp256k1_verify(&sig, &pk, &msg, 1);
     assert!(verify == true, 0);
 ```
 
@@ -104,8 +108,8 @@ Public key in hex: $PK
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
-    let recovered = ecdsa_k1::secp256k1_ecrecover(&sig, &msg);
-    assert!(pk == recovered, 0);
+    // The last param 1 represents the hash function used is SHA256, the default hash function used when signing in CLI.
+    let recovered = ecdsa_k1::secp256k1_ecrecover(&sig, &msg, 1);    assert!(pk == recovered, 0);
 ```
 
 #### Secp256r1 non-recoverable signature (64 bytes)
@@ -126,10 +130,13 @@ Public key in hex: $PK
 2. Call the verify method in Move.
 
 ```move
+    use sui::ecdsa_r1;
+
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
-    let verify = ecdsa_r1::secp256r1_verify(&sig, &pk, &msg);
+    // The last param 1 represents the hash function used is SHA256, the default hash function used when signing in CLI.
+    let verify = ecdsa_r1::secp256r1_verify(&sig, &pk, &msg, 1);
     assert!(verify == true, 0);
 ```
 
@@ -151,10 +158,13 @@ Public key in hex: $PK
 2. Call the ecrecover method in Move and check equality.
 
 ```move
+    use sui::ecdsa_r1;
+
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
-    let recovered = ecdsa_r1::secp256r1_ecrecover(&sig, &msg);
+    // The last param 1 represents the hash function used is SHA256, the default hash function used when signing in CLI.
+    let recovered = ecdsa_r1::secp256r1_ecrecover(&sig, &msg, 1);
     assert!(pk == recovered, 0);
 ```
 
@@ -176,6 +186,8 @@ Public key in hex: $PK
 2. Call the verify method in Move.
 
 ```move
+    use sui::bls12381;
+
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
@@ -201,6 +213,8 @@ Public key in hex: $PK
 2. Call the verify method in Move.
 
 ```move
+    use sui::bls12381;
+
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";

@@ -3,18 +3,16 @@ title: Tutorials
 slug: /tutorials
 ---
 
-
 This tutorial demonstrates the end-to-end process for starting a
-Sui network locally, connecting to it through the [Sui CLI client](../build/cli-client.md), publishing a TicTacToe game written in [Move](../build/move/index.md) on Sui,
-and playing it to the end.
+Sui network locally, connecting to it through the [Sui CLI client](../setup/cli/client-cli.md), publishing a TicTacToe game written in [Move](../quickstart/tutorials.md) on Sui, and playing it to the end.
 
 ## Set up
 
-1. [Install Sui binaries](../build/install.md#install-sui-binaries) and
-   [download Sui source code](../build/install.md#source-code).
-1. [Create Sui genesis](../build/cli-client.md#genesis) by running the
+1. [Install Sui binaries](../setup/cli/install-sui.md#install-sui-binaries) and
+   [download Sui source code](../setup/cli/install-sui.md#source-code).
+1. [Create Sui genesis](../setup/cli/client-cli.md#genesis) by running the
    `sui genesis` command.
-1. [Start the Sui network](../build/cli-client.md#starting-the-network) by
+1. [Start the Sui network](../setup/cli/client-cli.md#starting-the-network) by
    running the `sui start` command.
 
 After completing these steps, you have a running local Sui instance and
@@ -30,10 +28,12 @@ gas units) times the price of gas in the SUI currency (i.e. the gas price).
 When you complete the setup steps, you can either use the following script to publish and run the sample code, or perform each step manually. Using the script is optional. To manually run each step, follow the steps starting in the [Gather addresses and gas objects](#gather-addresses-and-gas-objects) section.
 
 ## Quick script
+
 If you prefer not to enter command step by step, or need to go through it multiple
 times (such as when you change some Move source code), the following automated script
 may be useful to save some time.
 Run this script from the project repo root.
+
 ```sh
 #!/bin/bash
 # a bash script to automate the process of publishing the game package
@@ -96,6 +96,7 @@ export PLAYER_O=0x4ab708d1a4160fa0fdbf359691764e16380444ddb48d2b8856a169594a9baa
 ```
 
 Next, determine the gas objects associated with each address:
+
 ```bash
 sui client gas $ADMIN
 ```
@@ -117,9 +118,11 @@ export O_GAS=0x51ec7820e82035a5de7b4f3ba2a3813ea099dca1867876f4177a1fa1d1efe022
 ```
 
 ## Publish the TicTacToe game on Sui
+
 To keep this tutorial simple, use the TicTacToe game example from [tic_tac_toe.move](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/games/sources/tic_tac_toe.move).
 
 To publish the game, run the publish command and specify the path to the location of the game package:
+
 ```shell
 $ sui client publish ./sui/sui_programmability/examples/games --gas $ADMIN_GAS --gas-budget 30000
 ```
@@ -136,6 +139,7 @@ The newly published package object: (A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17, S
 List of objects created by running module initializers: []
 Updated Gas : Coin { id: 38B89FE9F4A4823F1406938E87A8767CBD7F0B93, value: 92939 }
 ```
+
 The package successfully published. Some gas was charged: the initial gas value was 100000, now it's 92939. The newly published package has the ID `A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17`. Note that this ID is different than ID for the package you publish.
 
 ```bash
@@ -143,11 +147,13 @@ export PACKAGE=A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17
 ```
 
 ## Playing TicTacToe
+
 As mentioned earlier, the game requires three participants: Admin, PlayerX and PlayerO. At a high level, the game works as follows:
- 1. The admin creates a game and specifies the addresses of the two players. This also creates two capability objects and grants each of the addresses permission to participate in the same game.
- 1. Each player takes turns to send a *Mark* object to the admin that indicates their move.
- 1. The admin receives the marks (in practice, this is done through monitoring events), and positions the mark on the game board.
- 1. (2) and (3) repeat until the game ends.
+
+1.  The admin creates a game and specifies the addresses of the two players. This also creates two capability objects and grants each of the addresses permission to participate in the same game.
+1.  Each player takes turns to send a _Mark_ object to the admin that indicates their move.
+1.  The admin receives the marks (in practice, this is done through monitoring events), and positions the mark on the game board.
+1.  (2) and (3) repeat until the game ends.
 
 Because the admin owns the game board, each individual player cannot place a mark directly on it. The players don't own the object so can't mutate it. Each mark placement consists of two steps. Each player first sends a mark, and then the admin places the mark. View an example game play in the [tic_tac_toe_tests](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/games/tests/tic_tac_toe_tests.move) file.
 
@@ -208,9 +214,10 @@ Type: 0xa613a7ff8cb03e0dfc0d157e232bba50c5f19d17::TicTacToe::TicTacToe
 ```
 
 There are two `MarkMintCap` objects (for capability of minting a mark for each player) and a TicTacToe object (the game object). Take a look at each of the `Owner` fields, and you will see that:
- 1. `MarkMintCap` Object `5851B7EA07B93E68696BC0CF811D2E266DFB880D` is owned by PLAYER_O.
- 1. `MarkMintCap` Object `A6D3B507D4533822E690291166891D42694A2721` is owned by PLAYER_X.
- 1. `TicTacToe` Object `F1B8161BD97D3CD6627E739AD675089C5ACFB452` is owned by ADMIN.
+
+1.  `MarkMintCap` Object `5851B7EA07B93E68696BC0CF811D2E266DFB880D` is owned by PLAYER_O.
+1.  `MarkMintCap` Object `A6D3B507D4533822E690291166891D42694A2721` is owned by PLAYER_X.
+1.  `TicTacToe` Object `F1B8161BD97D3CD6627E739AD675089C5ACFB452` is owned by ADMIN.
 
 Add the above three object IDs to these environment variables:
 
@@ -294,6 +301,7 @@ Created Objects:
 ```
 
 Note, in this second call, the second argument comes from the created objects in the first call.
+
 ```shell
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0x7A16D266DAD41145F34649258BC1F744D147BF2F --gas $ADMIN_GAS --gas-budget 1000
 ```
@@ -367,11 +375,14 @@ Created Objects:
 ```
 
 Now run:
+
 ```shell
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0x4F7391F172063D87013DD9DC95B8BD45C35FD2D9 --gas $ADMIN_GAS --gas-budget 1000
 ...
 ```
+
 The gameboard now looks like:
+
 ```
 O|_|X
 O|X|_
@@ -397,11 +408,13 @@ AA7A6624E16E5E447801462FF6614013FC4AD156 SequenceNumber(1) o#e5e1b15f03531db118e
 ```
 
 And then finally the admin places the winning mark:
+
 ```shell
    $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0xAA7A6624E16E5E447801462FF6614013FC4AD156 --gas $ADMIN_GAS --gas-budget 1000
 ```
 
 With output:
+
 ```shell
 ----- Certificate ----
 ...
@@ -414,11 +427,13 @@ Mutated Objects:
 ```
 
 Cool! The last transaction created a new object. To find out what object was created:
+
 ```shell
 $ sui client object 54B58C0D5B14A269B1CD424B3CCAB1E315C43343
 ```
 
 See output resembling:
+
 ```shell
 Owner: AddressOwner(k#0x011a285261b9f8d10a0c7ecb4c0dbe6d396825768dba38c3056809472736e521)
 Version: 1

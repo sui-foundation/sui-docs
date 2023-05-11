@@ -239,7 +239,7 @@ Sui supports the following API operations related to transferring SUI between ad
 
 ## Signing Transactions
 
-Please refer to [Sui Signatures](../learn/cryptography/sui-signatures.md) for more details on signature validity requirements.
+Please refer to [Sui Signatures](../../learn/cryptography/signatures.md) for more details on signature validity requirements.
 
 ## SUI Staking
 
@@ -324,4 +324,3 @@ public entry fun request_withdraw_stake(
    );
 }
 ```
-

@@ -3,11 +3,11 @@ title: Sui Full Node
 slug: /full-node
 ---
 
-**Note:** These instructions are for advanced users. If you just need a local development environment, you should instead follow the instructions in [Create a Local Sui Network](sui-local-network.md) to create a local Full node, validators, and faucet.
+**Note:** These instructions are for advanced users. If you just need a local development environment, you should instead follow the instructions in [Create a Local Sui Network](../../build/setup/local-network.md) to create a local Full node, validators, and faucet.
 
 Sui Full nodes validate blockchain activities, including transactions, checkpoints, and epoch changes. Each Full node stores and services the queries for the blockchain state and history.
 
-This role enables [validators](../learn/architecture/validators.md) to focus on servicing and processing transactions. When a validator commits a new set of transactions (or a block of transactions), the validator pushes that block to all connected Full nodes that then service the queries from clients.
+This role enables [validators](../../contribute/nodes/validator.md) to focus on servicing and processing transactions. When a validator commits a new set of transactions (or a block of transactions), the validator pushes that block to all connected Full nodes that then service the queries from clients.
 
 ## Features
 
@@ -55,7 +55,7 @@ Suggested minimum hardware to run a Sui Full node:
 Sui recommends running Sui Full nodes on Linux. Sui supports the Ubuntu and
 Debian distributions. You can also run a Sui Full node on macOS.
 
-Make sure to update [Rust](../build/install.md#rust).
+Make sure to update [Rust](../../build/setup/cli/install-sui.md#rust).
 
 Use the following command to install additional Linux dependencies.
 
@@ -117,7 +117,7 @@ You must get the latest source files from the Sui GitHub repository.
 
 Open a Terminal or Console to the `sui` directory you downloaded in the previous steps to complete the following:
 
-1.  Install the required [Prerequisites](../build/install.md#prerequisites).
+1.  Install the required [Prerequisites](../../build/setup/cli/install-sui.md#prerequisites).
 1.  Make a copy of the [Full node YAML template](https://github.com/MystenLabs/sui/blob/main/crates/sui-config/data/fullnode-template.yaml):
     ```shell
     cp crates/sui-config/data/fullnode-template.yaml fullnode.yaml
@@ -169,11 +169,11 @@ At this point, your Sui Full node is ready to connect to the Sui network.
     ```shell
     cargo run --release --bin sui-node -- --config-path fullnode.yaml
     ```
-1.  Optional: [Publish/subscribe](event_api.md#subscribe-to-sui-events) to notifications using JSON-RPC via websocket.
+1.  Optional: [Publish/subscribe](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events) to notifications using JSON-RPC via websocket.
 
 If your setup is successful, your Sui Full node is now connected to the appropriate network.
 
-Your Full node serves the read endpoints of the [Sui JSON-RPC API](../build/json-rpc.md#sui-json-rpc-api) at: `http://127.0.0.1:9000`.
+Your Full node serves the read endpoints of the [Sui JSON-RPC API](../../reference/json-rpc/json-rpc-api.md) at: `http://127.0.0.1:9000`.
 
 ### Troubleshooting
 
@@ -202,7 +202,7 @@ Sui Explorer displays information about the selected network.
 
 ## Monitoring
 
-Monitor your Full node using the instructions at [Logging, Tracing, Metrics, and Observability](../contribute/observability.md).
+Monitor your Full node using the instructions at [Logging, Tracing, Metrics, and Observability](../../reference/sui-framework/observability.md).
 
 The default metrics port is `9184`. To change the port, edit your `fullnode.yaml` file.
 

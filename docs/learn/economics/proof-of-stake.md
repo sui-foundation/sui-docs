@@ -12,7 +12,7 @@ Within each epoch, operations are processed by a fixed set of validators, each w
 
 ## Economic model
 
-This section covers how the different components of the Sui economy interact with each other in order to introduce Sui’s Delegated Proof-of-Stake system. As a complementary reference, see the Staking and Tokenomics diagram in the [Sui Tokenomics](../tokenomics/index.md) overview.
+This section covers how the different components of the Sui economy interact with each other in order to introduce Sui’s Delegated Proof-of-Stake system. As a complementary reference, see the Staking and Tokenomics diagram in the [Sui Tokenomics](../economics/sui-tokenomics.md) overview.
 
 The Sui economic model works as follows:
 
@@ -20,7 +20,7 @@ At the beginning of each epoch, three important things happen:
 
 - SUI holders stake (some) of their tokens to validators and a new [committee](../architecture/validators#committees) is formed.
 - The reference gas prices are set as described in Sui’s [gas price mechanism](gas-pricing.md).
-- The [storage fund’s](storage-fund.md) size is adjusted using the previous epoch’s net inflow.
+- The [storage fund’s](./sui-storage-fund.md) size is adjusted using the previous epoch’s net inflow.
 
 Following these actions, the protocol computes the total amount of stake as the sum of staked SUI plus the storage fund. Call the share of user stake $\alpha$.
 

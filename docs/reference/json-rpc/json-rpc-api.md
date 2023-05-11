@@ -3,25 +3,25 @@ title: JSON-RPC API
 slug: /json-rpc-api
 ---
 
-Welcome to the guide for making remote procedure calls (RPC) to the Sui network. This document walks you through how to connect and interact with the Sui network using the Sui JSON-RPC API. Use the RPC layer to send your dApp transactions to [Sui validators](../learn/architecture/validators.md) for verification.
+Welcome to the guide for making remote procedure calls (RPC) to the Sui network. This document walks you through how to connect and interact with the Sui network using the Sui JSON-RPC API. Use the RPC layer to send your dApp transactions to [Sui validators](../../contribute/nodes/validator.md) for verification.
 
-This guide is useful for developers interested in Sui network interactions via API and should be used in conjunction with the [SuiJSON format](sui-json.md) for aligning JSON inputs with Move Call arguments.
+This guide is useful for developers interested in Sui network interactions via API and should be used in conjunction with the [SuiJSON format](sui-json-format.md) for aligning JSON inputs with Move Call arguments.
 
-For a similar guide on Sui network interactions via CLI, refer to the [Sui Client CLI](cli-client.md) documentation.
+For a similar guide on Sui network interactions via CLI, refer to the [Sui Client CLI](../../build/setup/cli/client-cli.md) documentation.
 
-Follow the instructions to [install Sui binaries](install.md#install-sui-binaries).
+Follow the instructions to [install Sui binaries](../../build/setup/cli/install-sui.md#install-sui-binaries).
 
 ## Connect to a Sui network
 
-You can connect to a Sui Full node on a Sui network. Follow the guidance in the [Connect to a Sui Network](../build/connect-sui-network.md) topic to start making RPC calls to the Sui network.
+You can connect to a Sui Full node on a Sui network. Follow the guidance in the [Connect to a Sui Network](../../build/setup/connect-to-a-network.md) topic to start making RPC calls to the Sui network.
 
-To configure your own Sui Full node, see [Configure a Sui Full node](fullnode.md).
+To configure your own Sui Full node, see [Configure a Sui Full node](../../contribute/nodes/full-node.md).
 
 ## Sui SDKs
 
 You can sign transactions and interact with the Sui network using any of the following:
 
-- [Sui Rust SDK](rust-sdk.md), a collection of Rust language JSON-RPC wrapper and crypto utilities.
+- [Sui Rust SDK](../sdk/rust-sdk.md), a collection of Rust language JSON-RPC wrapper and crypto utilities.
 - [Sui TypeScript SDK](https://github.com/MystenLabs/sui/tree/main/sdk/typescript) and [reference files](https://www.npmjs.com/package/@mysten/sui.js).
 - [Sui API Reference](https://docs.sui.io/sui-jsonrpc) for all available methods.
 
@@ -106,7 +106,7 @@ curl --location --request POST $SUI_RPC_HOST \
 
 `signature` is a Base64 encoded `flag || signature || pubkey`.
 
-Native transfer by `sui_transferObject` supports any object that allows for public transfers. Some objects cannot be transferred natively and require a [Move call](#sui_movecall). See [Transactions](../learn/transactions.md#native-transaction) for more information about native transfers.
+Native transfer by `sui_transferObject` supports any object that allows for public transfers. Some objects cannot be transferred natively and require a [Move call](#sui_movecall). See [Transactions](../../learn/core-concepts/transactions.md#native-transaction) for more information about native transfers.
 
 ### Invoke Move functions
 
@@ -116,7 +116,7 @@ The example command in this section demonstrate how to call Move functions.
 
 Execute a Move call transaction by calling the specified function in
 the module of a given package (smart contracts in Sui are written in
-the [Move](move/index.md) language):
+the [Move](../../build/create-smart-contracts/smart-contracts.md) language):
 
 ```shell
 curl --location --request POST $SUI_RPC_HOST \
@@ -140,12 +140,12 @@ curl --location --request POST $SUI_RPC_HOST \
 
 Arguments are passed in, and type is inferred from the function
 signature. Gas usage is capped by the `gas_budget`. The `transfer`
-function is described in more detail in the [Sui CLI client](cli-client.md#calling-move-code) documentation.
+function is described in more detail in the [Sui CLI client](../../build/setup/cli/client-cli.md#calling-move-code) documentation.
 
 The `transfer` function in the `Coin` module serves the same
 purpose as ([`sui_transferObject`](#sui_TransferObject)). It is used for illustration purposes, as a native transfer is more efficient.
 
-To learn more about which `args` a Move call accepts, see [SuiJSON](sui-json.md).
+To learn more about which `args` a Move call accepts, see [SuiJSON](../json-rpc/sui-json-rpc.md).
 
 ### Publish a Move package
 
@@ -167,7 +167,7 @@ curl --location --request POST $SUI_RPC_HOST \
 ```
 
 This endpoint performs proper verification and linking to make
-sure the package is valid. If some modules have [initializers](move/debug-publish.md#module-initializers), these initializers execute in Move (which means new Move objects can be created in the process of publishing a Move package). Gas budget is required because of the need to execute module initializers.
+sure the package is valid. If some modules have [initializers](../../build/create-smart-contracts/debug-and-publish.md#module-initializers), these initializers execute in Move (which means new Move objects can be created in the process of publishing a Move package). Gas budget is required because of the need to execute module initializers.
 
 To publish a Move module, you also need to include `{{vector_of_compiled_modules}}` along with the `{{vector_of_dependency_ids}}`. To generate the values for these fields, use the `sui move` command. The `sui move` command supports printing the bytecode as base64 and dependency object IDs:
 

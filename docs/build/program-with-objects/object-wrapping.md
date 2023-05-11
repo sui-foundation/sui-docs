@@ -78,7 +78,7 @@ public entry fun transfer_object(object: Object, recipient: address) {
 }
 ```
 
-You can also enable a swap/trade between your object and others' objects. For example, define a function that takes two objects from two addresses and swaps their ownership. But this doesn't work in Sui! Recall from [Using Objects](ch2-using-objects.md) that only object owners can send a transaction to mutate the object. So one person cannot send a transaction that would swap their own object with someone else's object.
+You can also enable a swap/trade between your object and others' objects. For example, define a function that takes two objects from two addresses and swaps their ownership. But this doesn't work in Sui! Recall from [Using Objects](using-objects.md) that only object owners can send a transaction to mutate the object. So one person cannot send a transaction that would swap their own object with someone else's object.
 
 Sui supports multi-signature (multi-sig) transactions so that two people can sign the same transaction for this type of use case. But a multi-sig transaction doesn't work in this scenario.
 

@@ -3,7 +3,7 @@ title: How Sui Works
 slug: /how-sui-works
 ---
 
-This document is written for engineers, developers, and technical readers knowledgeable about blockchain. It does not assume deep programming language or distributed systems expertise. See the [Sui white paper](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) for a much deeper explanation of how Sui works. See [How Sui Differs from Other Blockchains](sui-compared.md) for a high-level overview of the differences between Sui and other blockchain systems.
+This document is written for engineers, developers, and technical readers knowledgeable about blockchain. It does not assume deep programming language or distributed systems expertise. See the [Sui white paper](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) for a much deeper explanation of how Sui works. See [How Sui Differs from Other Blockchains](../../reference/sui-framework/sui-compared.md) for a high-level overview of the differences between Sui and other blockchain systems.
 
 ## Overview
 
@@ -19,15 +19,15 @@ In a world where the cost of bandwidth is diminishing steadily, Sui is creating 
 
 Become familiar with these key Sui concepts:
 
-- [Objects](../learn/objects.md) - Sui has programmable objects created and managed by Move packages (a.k.a. smart contracts). Move packages themselves are also objects. Thus, Sui objects can be partitioned into two categories: mutable data values and immutable packages.
-- [Transactions](../learn/transactions.md) - All updates to the Sui ledger happen via a transaction. This section describes the transaction types supported by Sui and explains how their execution changes the ledger.
-- [Validators](../learn/architecture/validators.md) - The Sui network is operated by a set of independent validators, each running its own instance of the Sui software on a separate machine (or a cluster of machines operated by the same entity).
+- [Objects](../../learn/core-concepts/objects.md) - Sui has programmable objects created and managed by Move packages (a.k.a. smart contracts). Move packages themselves are also objects. Thus, Sui objects can be partitioned into two categories: mutable data values and immutable packages.
+- [Transactions](../../learn/core-concepts/transactions.md) - All updates to the Sui ledger happen via a transaction. This section describes the transaction types supported by Sui and explains how their execution changes the ledger.
+- [Validators](.../../contribute/nodes/validator.md) - The Sui network is operated by a set of independent validators, each running its own instance of the Sui software on a separate machine (or a cluster of machines operated by the same entity).
 
 ## Architecture
 
-Sui is a distributed ledger that stores a collection of programmable [objects](../learn/objects.md), each with a globally unique ID. Every object is owned by a single _address_, and each address can own an arbitrary number of objects.
+Sui is a distributed ledger that stores a collection of programmable [objects](../../learn/core-concepts/objects.md), each with a globally unique ID. Every object is owned by a single _address_, and each address can own an arbitrary number of objects.
 
-The ledger is updated via a [transaction](../learn/transactions.md) sent by a particular address. A transaction can create, destroy, and write objects, as well as transfer them to other addresses.
+The ledger is updated via a [transaction](../../learn/core-concepts/transactions.md) sent by a particular address. A transaction can create, destroy, and write objects, as well as transfer them to other addresses.
 
 Structurally, a transaction contains a set of input object references and a pointer to a Sui Move code object that already exists in the ledger. Executing a transaction produces updates to the input objects and (if applicable) a set of freshly created objects along with their owner addresses. A transaction with address _A_ as a sender can accept either (a) objects owned by _A_, (b) shared objects, or (c) objects that are owned by other objects which satisfy case (a) or case (b).
 
@@ -37,9 +37,9 @@ The validators on the Sui blockchain do not require consensus to process transac
 
 This section is written for a technical audience wishing to gain more insight into how Sui achieves its main performance and security objectives.
 
-Sui assumes the typical blockchain transaction is a user-to-user transfer or asset manipulation and optimizes for that scenario. As a result, Sui distinguishes between two types of assets:(i) owned objects that can be modified only by their specific owner and hence should never be under contention, and (ii) shared objects that have no specific owners and can be modified by more than one user. This distinction allows for a design that achieves very low latency by foregoing [consensus](architecture/consensus.md) for simple transactions involving only owned objects.
+Sui assumes the typical blockchain transaction is a user-to-user transfer or asset manipulation and optimizes for that scenario. As a result, Sui distinguishes between two types of assets:(i) owned objects that can be modified only by their specific owner and hence should never be under contention, and (ii) shared objects that have no specific owners and can be modified by more than one user. This distinction allows for a design that achieves very low latency by foregoing [consensus](../../learn/core-concepts/consensus-engine.md) for simple transactions involving only owned objects.
 
-In Sui, [consensus](architecture/consensus.md) is only required when the transaction involves shared objects. For this, Sui employs the [Narwhal DAG-based mempool](https://arxiv.org/abs/2105.11827) and an efficient Byzantine Fault Tolerant (BFT) consensus via Bullshark. When shared objects are involved, the Sui validators play a similar role to validators in other blockchains and totally order transactions accessing shared objects.
+In Sui, [consensus](../../learn/core-concepts/consensus-engine.md) is only required when the transaction involves shared objects. For this, Sui employs the [Narwhal DAG-based mempool](https://arxiv.org/abs/2105.11827) and an efficient Byzantine Fault Tolerant (BFT) consensus via Bullshark. When shared objects are involved, the Sui validators play a similar role to validators in other blockchains and totally order transactions accessing shared objects.
 
 Because Sui focuses on managing specific objects rather than a single aggregation of states, it also reports on them in a unique way: (i) every object in Sui has a unique version number, and (ii) every new version is created from a transaction that may involve several dependencies, themselves versioned objects.
 
@@ -76,7 +76,7 @@ Finally, note that the role of quorum driver does not require access to any priv
 
 ## Transactions on shared objects
 
-Many use-cases require _shared_ objects that can be manipulated by two or more addresses at once--such as an auction with open bidding, or a central limit order book that accepts arbitrary trades. In such cases, Sui must sequence transactions that manipulate the same shared object using a [consensus](architecture/consensus.md) protocol. Sui uses [Narwhal](https://arxiv.org/abs/2105.11827) for high-throughput, horizontally scalable transaction dissemination and [Bullshark](https://arxiv.org/abs/2209.05633) for zero message overhead consensus.
+Many use-cases require _shared_ objects that can be manipulated by two or more addresses at once--such as an auction with open bidding, or a central limit order book that accepts arbitrary trades. In such cases, Sui must sequence transactions that manipulate the same shared object using a [consensus](../../learn/core-concepts/consensus-engine.md) protocol. Sui uses [Narwhal](https://arxiv.org/abs/2105.11827) for high-throughput, horizontally scalable transaction dissemination and [Bullshark](https://arxiv.org/abs/2209.05633) for zero message overhead consensus.
 
 For transactions involving one or more shared objects, the process is as described above up to step (4), where instead:
 
@@ -85,7 +85,7 @@ For transactions involving one or more shared objects, the process is as describ
 
 ## Scalability
 
-As mentioned, Sui does not impose a total order on the transactions containing only owned objects. Instead, transactions are [causally ordered](sui-compared.md#causal-order-vs-total-order). If a transaction `T1` produces an output object `O1` used as input object in a transaction `T2`, a validator must execute `T1` before it executes `T2`. Note that `T2` does not need to use these objects directly for a causal relationship to exist, e.g., `T1` might produce output objects that are then used by `T3`, and `T2` might use `T3`'s output objects. However, transactions with no causal relationship can be processed by Sui validators in any order. This insight allows Sui to massively parallelize execution, and shard it across multiple machines.
+As mentioned, Sui does not impose a total order on the transactions containing only owned objects. Instead, transactions are [causally ordered](../../reference/sui-framework/sui-compared.md#causal-order-vs-total-order). If a transaction `T1` produces an output object `O1` used as input object in a transaction `T2`, a validator must execute `T1` before it executes `T2`. Note that `T2` does not need to use these objects directly for a causal relationship to exist, e.g., `T1` might produce output objects that are then used by `T3`, and `T2` might use `T3`'s output objects. However, transactions with no causal relationship can be processed by Sui validators in any order. This insight allows Sui to massively parallelize execution, and shard it across multiple machines.
 
 Sui employs the [state-of-the-art Bullshark consensus protocol](https://arxiv.org/abs/2209.05633) to totally order transactions involving shared objects. The consensus sub-system also scales in the sense that it can sequence more transactions by adding more machines per validator.
 
@@ -96,5 +96,5 @@ Sui smart contracts are written in Sui Move, a dialect of the [Move language](ht
 Find a more thorough explanation of Move’s features in:
 
 - the [Move Programming Language book](https://github.com/move-language/move/blob/main/language/documentation/book/src/introduction.md)
-- Sui-specific [Move instructions](../build/move/index.md) and [differences](sui-move-diffs.md) on this site
+- Sui-specific [Move instructions](../../build/create-smart-contracts/smart-contracts.md) and [differences](../about-sui/how-sui-move-differs.md) on this site
 - the [Sui whitepaper](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) and its formal description of Move in the context of Sui

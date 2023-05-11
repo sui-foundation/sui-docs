@@ -8,11 +8,11 @@ Use a Sui local network to test your dApps against the latest changes to Sui, an
 
 ## Prerequisites
 
-Install the necessary [prerequisites](../build/install.md#prerequisites) for Sui.
+Install the necessary [prerequisites](../../build/setup/cli/install-sui.md#prerequisites) for Sui.
 
 ## Install Sui
 
-Use the steps in this section to install the `sui-test-validator` to run a local network. To install Sui to build or for other purposes, use the steps in the [Install Sui](install.md) topic.
+Use the steps in this section to install the `sui-test-validator` to run a local network. To install Sui to build or for other purposes, use the steps in the [Install Sui](../setup/cli/install-sui.md) topic.
 
 If you previously installed Sui, do one of the following:
 

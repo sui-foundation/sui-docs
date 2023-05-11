@@ -25,7 +25,7 @@ Raw tx_bytes to execute: $TX_BYTES
 
 ## Sign the serialized data
 
-You can sign the data using the device and programming language you choose. Sui accepts signatures for pure ed25519, ECDSA secp256k1, ECDSA secp256r1 and native MultiSig. To learn more about the requirements of the signatures, see [Sui Signatures](sui-signatures.md).
+You can sign the data using the device and programming language you choose. Sui accepts signatures for pure ed25519, ECDSA secp256k1, ECDSA secp256r1 and native MultiSig. To learn more about the requirements of the signatures, see [Sui Signatures](signatures.md).
 
 This example uses the `keytool` command to sign, using the Ed25519 key corresponding to the provided address stored in `sui.keystore`. This commands outputs the signature, the public key, and the flag encoded in Base64. This command is backed by [fastcrypto](https://crates.io/crates/fastcrypto).
 

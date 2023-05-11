@@ -32,7 +32,7 @@ resulting in a single signature payload, making it indistinguishable from a sing
 
 # Example Workflow
 
-Here we demonstrate the steps to create a MultiSig transaction in Sui using CLI and then submit it using the Sui CLI against a local network. A transaction can be a transfer of an object, publish or upgrade a package, pay Sui, etc. To learn how to set up a local network, see [Sui Local Network](../build/sui-local-network.md)
+Here we demonstrate the steps to create a MultiSig transaction in Sui using CLI and then submit it using the Sui CLI against a local network. A transaction can be a transfer of an object, publish or upgrade a package, pay Sui, etc. To learn how to set up a local network, see [Sui Local Network](../../build/setup/local-network.md)
 
 ## Step 1: Add keys to Sui keystore
 
@@ -78,7 +78,7 @@ $ADDR_3    | $PK_3              |   3
 
 ## Step 3: Send objects to a MultiSig address
 
-This example requests gas from a local network using the default URL following the guidance in [Sui Local Network](../build/sui-local-network.md).
+This example requests gas from a local network using the default URL following the guidance in [Sui Local Network](../../build/setup/local-network.md).
 
 ```shell
 curl --location --request POST 'http://127.0.0.1:9123/gas' --header 'Content-Type: application/json' --data-raw "{ \"FixedAmountRequest\": { \"recipient\": \"$MULTISIG_ADDR\" } }"

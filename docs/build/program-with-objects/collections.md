@@ -3,7 +3,7 @@ title: Collections
 slug: /collections
 ---
 
-The previous chapter, [Dynamic Fields](ch5-dynamic-fields.md), introduced a way to extend existing objects with _dynamic fields_. Note that it's possible to delete an object that still has (potentially non-`drop`) dynamic fields. This might not be a concern when adding a small number of statically known additional fields to an object, but is particularly undesirable for _on-chain collection types_ which could be holding unboundedly many key-value pairs as dynamic fields.
+The previous chapter, [Dynamic Fields](dynamic-fields.md), introduced a way to extend existing objects with _dynamic fields_. Note that it's possible to delete an object that still has (potentially non-`drop`) dynamic fields. This might not be a concern when adding a small number of statically known additional fields to an object, but is particularly undesirable for _on-chain collection types_ which could be holding unboundedly many key-value pairs as dynamic fields.
 
 This chapter describes two such collections -- `Table` and `Bag` -- built using dynamic fields, but with additional support to count the number of entries they contain, and protect against accidental deletion when non-empty.
 
@@ -11,7 +11,7 @@ The types and function discussed in this section are built into the Sui framewor
 
 ### Current Limitations
 
-Collections are built on top of [dynamic fields](ch5-dynamic-fields.md), and so are subject to its [limitations](ch5-dynamic-fields.md#current-limitations). Additionally, the following functionality is planned, but not currently supported:
+Collections are built on top of [dynamic fields](dynamic-fields.md), and so are subject to its [limitations](dynamic-fields.md#current-limitations). Additionally, the following functionality is planned, but not currently supported:
 
 - `sui::bag::contains<K: copy + drop + store>(bag: &Bag, k: K): bool` which checks whether a key-value pair exists in `bag` with key `k: K` and a value of any type (in addition to `contain_with_type` which performs a similar check, but requires passing a specific value type).
 

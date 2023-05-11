@@ -37,7 +37,7 @@ An individual Move unit test is encapsulated in a public function that has no pa
 sui move test
 ```
 
-If you execute this command for the package created in [write a package](write-package.md), you see the following output. Unsurprisingly,
+If you execute this command for the package created in [write a package](write-move-packages.md), you see the following output. Unsurprisingly,
 the test result has an `OK` status because there are no tests written yet to fail.
 
 ```shell
@@ -158,7 +158,7 @@ sui move test -h
 ### Sui-specific testing
 
 The previous testing example is largely _pure Move_ and isn't specific to Sui beyond using some Sui packages, such as `sui::tx_context` and `sui::transfer`. While this style of testing is already useful for writing Move code for Sui, you might also want to test additional Sui-specific features. In particular, a Move call in Sui is encapsulated in a Sui
-[transaction](../transactions.md), and you might want to test interactions between different transactions within a single test (for example, one transaction creating an
+[transaction](../../learn/core-concepts/transactions.md), and you might want to test interactions between different transactions within a single test (for example, one transaction creating an
 object and the other one transferring it).
 
 Sui-specific testing is supported through the [test_scenario module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/test/test_scenario.move)
@@ -168,7 +168,7 @@ The `test_scenario` module provides a scenario that emulates a series of Sui tra
 
 An instance of the `Scenario` struct contains a per-address object pool emulating Sui object storage, with helper functions provided to manipulate objects in the pool. After the first transaction finishes, subsequent test transactions start with the `test_scenario::next_tx` function. This function takes an instance of the `Scenario` struct representing the current scenario and an address of a user as arguments.
 
-Update your `my_module.move` file to include [entry functions](index.md#entry-functions) callable from Sui that implement sword creation and transfer. With these in place, you can then add a multi-transaction test that uses the `test_scenario` module to test these new capabilities. Put these functions after the accessors (Part 5 in comments).
+Update your `my_module.move` file to include [entry functions](./smart-contracts.md#entry-functions) callable from Sui that implement sword creation and transfer. With these in place, you can then add a multi-transaction test that uses the `test_scenario` module to test these new capabilities. Put these functions after the accessors (Part 5 in comments).
 
 ```rust
     public entry fun sword_create(magic: u64, strength: u64, recipient: address, ctx: &mut TxContext) {
@@ -191,7 +191,7 @@ Update your `my_module.move` file to include [entry functions](index.md#entry-fu
     }
 ```
 
-The code of the new functions uses struct creation and Sui-internal modules (`TxContext` and `Transfer`) in a way similar to what you have seen in the previous sections. The important part is for the entry functions to have correct signatures as described in [Write Smart Contracts with Sui Move](index.md#entry-functions).
+The code of the new functions uses struct creation and Sui-internal modules (`TxContext` and `Transfer`) in a way similar to what you have seen in the previous sections. The important part is for the entry functions to have correct signatures as described in [Write Smart Contracts with Sui Move](./smart-contracts.md#entry-functions).
 
 With the new entry functions included, add another test function to make sure they behave as expected.
 
@@ -248,7 +248,7 @@ the sword they now own to the final owner. In _pure Move_ there is no notion of 
 
 > **Important:** Transaction effects, such as object creation and transfer become visible only after a given transaction completes. For example, if the second transaction in the running example created a sword and transferred it to the administrator's address, it would only become available for retrieval from the administrator's address (via `test_scenario`, `take_from_sender`, or `take_from_address` functions) in the third transaction.
 
-The final owner executes the fourth and final transaction that retrieves the sword object from storage and checks if it has the expected properties. Remember, as described in [testing a package](build-test.md#testing-a-package), in the _pure Move_ testing scenario, after an object is available in Move code (after creation or retrieval from emulated storage), it cannot simply disappear.
+The final owner executes the fourth and final transaction that retrieves the sword object from storage and checks if it has the expected properties. Remember, as described in [testing a package](#testing-a-package), in the _pure Move_ testing scenario, after an object is available in Move code (after creation or retrieval from emulated storage), it cannot simply disappear.
 
 In the _pure Move_ testing function, the function transfers the sword object to the fake address to handle the diappearing problem. The `test_scenario` package provides a more elegant solution, however, which is closer to what happens when Move code actually executes in the context of Sui - the package simply returns the sword to the object pool using the `test_scenario::return_to_sender` function.
 

@@ -1,7 +1,7 @@
 ---
 title: Hashing in Sui
 sidebar_label: Hashing
-slug: /intent-signing
+slug: /hashing
 ---
 
 ## Overview

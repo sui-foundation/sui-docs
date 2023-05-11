@@ -41,7 +41,7 @@ The `pk` bytes is the bytes representation of the public key corresponding to th
 
 ## Signature Requirements
 
-The signature must commit to the hash of the intent message of the transaction data, which can be constructed by appending the 3-byte intent before the BCS serialized transaction data. To learn more on what is an intent and how to construct an intent message, see [Sui Intent signing](sui-intent-signing.md).
+The signature must commit to the hash of the intent message of the transaction data, which can be constructed by appending the 3-byte intent before the BCS serialized transaction data. To learn more on what is an intent and how to construct an intent message, see [Sui Intent signing](./intent-signing.md).
 
 When invoking the signing API, you must first hash the intent message of the transaction data to 32 bytes using Blake2b. This external hashing is distinct from the hashing performed inside the signing API. To be compatible with existing standards and hardware secure modules (HSMs), the signing algorithms perform additional hashing internally. For ECDSA Secp256k1 and Secp256r1, you must use SHA-2 SHA256 as the internal hash function. For pure Ed25519, you must use SHA-512.
 
@@ -58,7 +58,7 @@ An accepted pure Ed25519 signature must follow:
 1.  The signature must be produced according to [RFC 8032](https://www.rfc-editor.org/rfc/rfc8032.html#section-5.1.6). The internal hash used is SHA-512.
 1.  The signature must be valid according to [ZIP215](https://github.com/zcash/zips/blob/main/zip-0215.rst).
 
-See an concrete example for offline signing using CLI [here](../cryptography/sui-offline-signing.md).
+See an concrete example for offline signing using CLI [here](../cryptography/offline-signing.md).
 
 # Authority Signature
 
@@ -74,7 +74,7 @@ The Protocol keypair provides authority signatures on user-signed transactions i
 
 Note that with the BLS scheme, one can aggregate independent signatures resulting in a single BLS signature payload. We also accompany the aggregated signature with a bitmap to denote which of the validators signed. This effectively reduces the authorities' signature size from (2f + 1) × BLS_sig size to just one BLS_sig payload, which in turn has significant network cost benefits resulting in compressed transaction certificates independently on the validators set size.
 
-To counter potential rogue key attacks on BLS12381 aggregated signatures, proof of knowledge of the secret key (KOSK) is used during authority registration. When an authority requests to be added to the validator set, a proof of possession is submitted and verified. See [here](sui-intent-signing.md) on how to create a Proof of Possession. Unlike most standards, our proof of knowledge scheme commits to the address as well, which offers an extra protection against adversarial reuse of a validator;s BLS key from another malicious validator.
+To counter potential rogue key attacks on BLS12381 aggregated signatures, proof of knowledge of the secret key (KOSK) is used during authority registration. When an authority requests to be added to the validator set, a proof of possession is submitted and verified. See [here](./intent-signing.md) on how to create a Proof of Possession. Unlike most standards, our proof of knowledge scheme commits to the address as well, which offers an extra protection against adversarial reuse of a validator;s BLS key from another malicious validator.
 
 ## Account Keypair
 

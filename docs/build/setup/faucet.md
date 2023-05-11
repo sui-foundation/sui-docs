@@ -8,7 +8,7 @@ Sui faucet is a helpful tool where Sui developers can get free test SUI tokens t
 
 ## Prerequisites
 
-To request tokens from the faucet, you must own a wallet address that can receive the SUI tokens. You can generate an address via the [Sui CLI tool](../build/cli-client.md#active-address) or the [Sui wallet](https://github.com/MystenLabs/mysten-app-docs/blob/main/mysten-sui-wallet.md).
+To request tokens from the faucet, you must own a wallet address that can receive the SUI tokens. You can generate an address via the [Sui CLI tool](../setup/cli/client-cli.md#active-address) or the [Sui wallet](https://github.com/MystenLabs/mysten-app-docs/blob/main/mysten-sui-wallet.md).
 
 ## 1. Request test tokens through Discord
 

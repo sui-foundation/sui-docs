@@ -126,7 +126,7 @@ For title capitalization, follow these guidelines:
 Use inline code in a sentence to refer to functions and other code pieces. Use codeblocks to show larger sections of a program. All code should be written exactly as it appears in a code editor, so that other people can copy and paste it from documentation directly into a code editor. Do not use images to show code.
 
 ### Inline code
-Use backticks (`) around individual code within a sentence, which will format it as code in markdown. Do not use quotes, emphasis, or any other formatting to distinguish code from surrounding text.
+Use backticks (\`) around individual code within a sentence, which will format it as code in markdown. Do not use quotes, emphasis, or any other formatting to distinguish code from surrounding text.
 
 **Example**
 
@@ -140,7 +140,7 @@ The `display::new<T>` call creates a `Display`.
 ### Codeblocks
 Use the text before a codeblock to describe what the codeblock does. Use text after the codeblock to point out particular elements in the code and how they work. Do not use codeblocks as a substitute for descriptive text. Codeblocks help readers understand descriptive text in the documentation.
 
-Initiate a codeblock in markdown with three backticks (```).
+Initiate a codeblock in markdown with three backticks (\`\`\`).
 
 **Example**
 ```

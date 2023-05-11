@@ -3,7 +3,7 @@ title: Event Query and Subscription
 slug: /event-query-and-subscription
 ---
 
-Sui [Full nodes](fullnode.md) support publish / subscribe using [JSON-RPC](json-rpc.md) notifications via the WebSocket API. You can use this service with Sui client to filter and subscribe to a real-time event stream generated from Move or from the Sui network.
+Sui [Full nodes](../../contribute/nodes/full-node.md) support publish / subscribe using [JSON-RPC](../../reference/json-rpc/json-rpc-api.md) notifications via the WebSocket API. You can use this service with Sui client to filter and subscribe to a real-time event stream generated from Move or from the Sui network.
 
 The client provides an [event filter](#event-filters) to limit the scope of events. Sui returns a notification with the event data and subscription ID for each event that matches the filter.
 

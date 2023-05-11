@@ -122,7 +122,7 @@ txb.transferObjects([mintMany[0], mintMany[1]], txb.pure(address));
 
 ## Use the gas coin
 
-With Programmable Transaction blocks, you can use the gas payment coin to construct coins with a set balance using `splitCoin`. This is useful for Sui payments, and avoids the need for up-front coin selection. You can use `txb.gas` to access the gas coin in a transaction block, and it is valid as input for any arguments, as long as it is used [by-reference](../build/programming-with-objects/ch2-using-objects.md#pass-objects-by-reference). Practically speaking, this means you can also add to the gas coin with `mergeCoins` and borrow it for Move functions with `moveCall`.
+With Programmable Transaction blocks, you can use the gas payment coin to construct coins with a set balance using `splitCoin`. This is useful for Sui payments, and avoids the need for up-front coin selection. You can use `txb.gas` to access the gas coin in a transaction block, and it is valid as input for any arguments, as long as it is used [by-reference](../../build/program-with-objects/using-objects.md#pass-objects-by-reference). Practically speaking, this means you can also add to the gas coin with `mergeCoins` and borrow it for Move functions with `moveCall`.
 
 You can also transfer the gas coin using `transferObjects`, in the event that you want to transfer all of your coin balance to another address.
 

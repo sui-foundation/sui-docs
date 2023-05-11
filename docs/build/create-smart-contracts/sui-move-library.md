@@ -30,7 +30,7 @@ This call fully consumes the object, making it no longer accessible in the curre
 
 ### Owned by another object
 
-An object can be owned by another object when you add the former as a [dynamic object field](../programming-with-objects/ch5-dynamic-fields.md) of the latter. While external tools can read the dynamic object field value at its original ID, from Move's perspective, you can only access it through the field on its owner using the `dynamic_object_field` APIs:
+An object can be owned by another object when you add the former as a [dynamic object field](../program-with-objects/dynamic-fields.md) of the latter. While external tools can read the dynamic object field value at its original ID, from Move's perspective, you can only access it through the field on its owner using the `dynamic_object_field` APIs:
 
 ```rust
 use sui::dynamic_object_field as ofield;
@@ -78,7 +78,7 @@ To make an object `obj` shared, call `share_object`:
 transfer::share_object(obj);
 ```
 
-After this call, `obj` stays mutable, but becomes shared by everyone so that anyone can send a transaction to mutate this object. However, you cannot transfer or embed a shared object in another object as a field. For more details, see the [shared objects](../../learn/objects.md#shared) documentation.
+After this call, `obj` stays mutable, but becomes shared by everyone so that anyone can send a transaction to mutate this object. However, you cannot transfer or embed a shared object in another object as a field. For more details, see the [shared objects](../../learn/core-concepts/objects.md#shared) documentation.
 
 ## Transaction context
 
@@ -100,5 +100,5 @@ sui::tx_context::sender(ctx)
 ## Next steps
 
 Now that you are familiar with the Move language and the Sui Move dialect, as well as with how to develop and test Sui Move code, you are ready to start learning from larger
-[examples](../../explore/examples.md) of Move programs. The examples include implementations of Tic Tac Toe and (Hero), a more
+[examples](../../build/quickstart/examples.md) of Move programs. The examples include implementations of Tic Tac Toe and (Hero), a more
 developed variant of the fantasy game developed in this tutorial.

@@ -7,9 +7,9 @@ slug: /rust-sdk
 
 The [Sui SDK](https://github.com/MystenLabs/sui/tree/main/crates/sui-sdk) is a collection of Rust language JSON-RPC wrapper and crypto utilities you can use to interact with Sui.
 
-Use the [`SuiClient`](cli-client.md) to create an HTTP or a WebSocket client (`SuiClient::new`). See the [JSON-RPC](json-rpc.md#sui-json-rpc-methods) documentation for the list of available methods.
+Use the [`SuiClient`](../../build/setup/cli/client-cli.md) to create an HTTP or a WebSocket client (`SuiClient::new`). See the [JSON-RPC](../json-rpc/json-rpc-api.md#sui-json-rpc-methods) documentation for the list of available methods.
 
-**Note:** The WebSocket client supports only [subscription](event_api.md#subscribe-to-sui-events); use the HTTP client for other API methods.
+**Note:** The WebSocket client supports only [subscription](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events); use the HTTP client for other API methods.
 
 ## References
 
@@ -109,7 +109,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
 ## Example 3 - Event subscription
 
-Use the WebSocket client to [subscribe to events](event_api.md#subscribe-to-sui-events).
+Use the WebSocket client to [subscribe to events](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events).
 
 ```rust
 use futures::StreamExt;
@@ -128,4 +128,4 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 ```
 
-**Note:** The Event subscription service requires a running Sui Full node. To learn more, see [Full node setup](fullnode.md#fullnode-setup).
+**Note:** The Event subscription service requires a running Sui Full node. To learn more, see [Full node setup](../../contribute/nodes/full-node.md#fullnode-setup).
