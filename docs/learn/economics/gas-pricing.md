@@ -9,7 +9,9 @@ This delivers a good user experience to Sui users, who can focus on using the Su
 
 A unique feature of Sui’s gas price mechanism is that users pay separate fees for transaction execution and for storing the data associated with each transaction. The gas fees associated with an arbitrary transaction $\tau$ equal:
 
-$GasFees[\tau] \ = \ ComputationUnits[\tau] \times ComputationPrice[\tau] \ + \ StorageUnits[\tau] \times StoragePrice$
+$$
+GasFees[\tau] \ = \ ComputationUnits[\tau] \times ComputationPrice[\tau] \ + \ StorageUnits[\tau] \times StoragePrice
+$$
 
 The gas functions $ComputationUnits[\tau]$ and $StorageUnits[\tau]$ measure the amount of computation and storage resources, respectively, required to process and store the data associated with $\tau$. The gas prices $ComputationPrice[\tau]$ and $StoragePrice$ translate the cost of computation and storage, respectively, into SUI units. The decoupling between gas units and gas prices is useful since SUI’s market price will fluctuate over time depending on demand and supply fluctuations.
 
@@ -17,7 +19,9 @@ The gas functions $ComputationUnits[\tau]$ and $StorageUnits[\tau]$ measure the 
 
 The computation gas price $ComputationPrice[\tau]$ captures the cost of one unit of computation in SUI units. This price is set at the transaction level and submitted by the user as the transaction's gas price. Conceptually, it is useful to think about this gas price in two parts:
 
-$ComputationPrice[\tau] \ = \ ReferencePrice \ + \ Tip[\tau]$
+$$
+ComputationPrice[\tau] \ = \ ReferencePrice \ + \ Tip[\tau]
+$$
 
 The Sui network is designed so that a single $ReferencePrice$ exists throughout each epoch, with the $ReferencePrice$ being updated at each epoch boundary by Sui's validators. Hence, in practice, when a user submits a gas price above the $ReferencePrice$, it is useful to think of the difference as a tip paid to the network in order to get higher priority. During moments of regular network operations, users are not expected to pay tips and the vast majority of transactions will have gas prices equal to $ReferencePrice$.
 

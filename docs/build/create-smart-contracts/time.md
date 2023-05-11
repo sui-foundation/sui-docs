@@ -11,7 +11,7 @@ To access a prompt timestamp, you must pass a read-only reference of `sui::clock
 
 Extract a unix timestamp in milliseconds from an instance of `Clock` using
 
-```
+```rust
 module sui::clock {
     public fun timestamp_ms(clock: &Clock): u64;
 }
@@ -19,12 +19,12 @@ module sui::clock {
 
 The example below demonstrates an entry function that emits an event containing a timestamp from the `Clock`:
 
-```
+```rust
 module example::clock {
     use sui::clock::{Self, Clock};
     use sui::event;
 
-    struct TimeEvent has copy, drop, store { 
+    struct TimeEvent has copy, drop, store {
         timestamp_ms: u64
     }
 
@@ -44,15 +44,15 @@ sui client call --package <EXAMPLE> --module 'clock' --function 'access' --args 
 
 **Expect the `Clock` timestamp to change every 2 to 3 seconds**, at the rate the network commits checkpoints.
 
-Successive calls to `sui::clock::timestamp_ms` in the same transaction always produce the same result (transactions are considered to take effect instantly), but timestamps from `Clock` are otherwise monotonic across transactions that touch the same shared objects:  Successive transactions seeing a greater or equal timestamp to their predecessors.
+Successive calls to `sui::clock::timestamp_ms` in the same transaction always produce the same result (transactions are considered to take effect instantly), but timestamps from `Clock` are otherwise monotonic across transactions that touch the same shared objects: Successive transactions seeing a greater or equal timestamp to their predecessors.
 
-Any transaction that requires access to a `Clock` must go through [consensus](/learn/architecture/consensus) because the only available instance is a [shared object](/learn/objects#shared). As a result, this technique is not suitable for transactions that must use the single-owner fast-path (see [Epoch timestamps](#epoch-timestamps) for a single-owner-compatible source of timestamps).
+Any transaction that requires access to a `Clock` must go through [consensus](../../learn/core-concepts/consensus-engine.md) because the only available instance is a [shared object](../../learn/core-concepts/objects.md#shared). As a result, this technique is not suitable for transactions that must use the single-owner fast-path (see [Epoch timestamps](#epoch-timestamps) for a single-owner-compatible source of timestamps).
 
-**Transactions that use the clock must accept it as an immutable reference** (not a mutable reference or value).  This prevents contention, as transactions that access the `Clock` can only read it, so do not need to be sequenced relative to each other.  Validators refuse to sign transactions that do not meet this requirement and packages that include entry functions that accept a `Clock` or `&mut Clock` fail to publish.
+**Transactions that use the clock must accept it as an immutable reference** (not a mutable reference or value). This prevents contention, as transactions that access the `Clock` can only read it, so do not need to be sequenced relative to each other. Validators refuse to sign transactions that do not meet this requirement and packages that include entry functions that accept a `Clock` or `&mut Clock` fail to publish.
 
-The following functions test 'Clock'-dependent code by manually creating (and sharing) a `Clock` object and incrementing its timestamp. This is possible only in test code: 
+The following functions test 'Clock'-dependent code by manually creating (and sharing) a `Clock` object and incrementing its timestamp. This is possible only in test code:
 
-```
+```rust
 module sui::clock {
     #[test_only]
     public fun create_for_testing(ctx: &mut TxContext);
@@ -64,7 +64,7 @@ module sui::clock {
 
 The next example presents a simple test that creates a `Clock`, increments it, and then checks its value:
 
-```
+```rust
 module example::clock_tests {
     use sui::clock::{Self, Clock};
     use sui::test_scenario as ts;
@@ -92,17 +92,17 @@ module example::clock_tests {
 
 You can use the following function to access the timestamp for the start of the current epoch for all transactions (including ones that do not go through consensus):
 
-```
+```rust
 module sui::tx_context {
     public fun epoch_timestamp_ms(ctx: &TxContext): u64;
 }
 ```
 
-The preceding function returns the point in time when the current epoch started, as a millisecond granularity unix timestamp in a `u64`.  **This value changes roughly once every 24 hours**, when the epoch changes.
+The preceding function returns the point in time when the current epoch started, as a millisecond granularity unix timestamp in a `u64`. **This value changes roughly once every 24 hours**, when the epoch changes.
 
 Tests based on `sui::test_scenario` can use `later_epoch` (following code), to exercise time-sensitive code that uses `epoch_timestamp_ms` (previous code):
 
-```
+```rust
 module sui::test_scenario {
     public fun later_epoch(
         scenario: &mut Scenario,

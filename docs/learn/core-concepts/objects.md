@@ -46,7 +46,7 @@ Now back to the topic of object owned by another object. When an object is owned
 
 You can't mutate an immutable object, and an immutable object doesn't have an exclusive owner. Anyone can use an immutable object in a Sui Move call.
 
-All Sui Move packages are immutable objects: you can't change a Sui Move package after you publish it. You can convert a Sui Move object into an immutable object using the [_freeze_object_](../build/move/sui-move-library#immutable) operation. You can only pass an immutable object in Sui Move calls as a read-only reference (`&T`).
+All Sui Move packages are immutable objects: you can't change a Sui Move package after you publish it. You can convert a Sui Move object into an immutable object using the [_freeze_object_](../../build/create-smart-contracts/sui-move-library.md#immutable) operation. You can only pass an immutable object in Sui Move calls as a read-only reference (`&T`).
 
 ### Shared
 

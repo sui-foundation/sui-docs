@@ -56,7 +56,7 @@ You now have a fork of the Sui repo set up in your local workspace. You can make
 
 ## Further reading
 
-- Read the [Sui Smart Contract Platform](../../paper/sui.pdf) white paper.
-  - Implementing [logging](../reference/sui-framework//observability.md) in Sui to observe the behavior of your development.
+- Read the [Sui Smart Contract Platform](https://github.com/MystenLabs/sui/blob/main/doc/paper/tokenomics.pdf/) white paper.
+  - Implementing [logging](../contribute/nodes/observability.md) in Sui to observe the behavior of your development.
   - Find related [research papers](../reference/sui-framework/research-papers.md).
 - See and adhere to our [code of conduct](../contribute/code-of-conduct.md).

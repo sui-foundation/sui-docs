@@ -10,7 +10,7 @@ The topics in this section provide information and guidance to help you start bu
 
 To get started, see [Install](../../build/setup/cli/install-sui.md) to learn about prerequisites and steps to install Sui binaries.
 
-After you install Sui, learn how to use the [Sui Client CLI](../setup/cli/client-cli.md). You can use the client to interact with a Sui Full node or your own [local network](../setup/cli/client-cli.md#genesis).
+After you install Sui, learn how to use the [Sui Client CLI](../setup/cli/client-cli.md). You can use the client to interact with a Sui Full node or your own [local network](../setup/local-network.md).
 
 ## Smart contracts
 
@@ -18,7 +18,7 @@ Learn how to [Write Smart Contracts with Move](../../build/create-smart-contract
 
 ## Programming with Objects
 
-Read about [Programming with Objects](../build/programming-with-objects/), including the basics, working with objects, immutable objects, object ownership, and more.
+Read about [Programming with Objects](../program-with-objects/object-basics.md), including the basics, working with objects, immutable objects, object ownership, and more.
 
 ## Sui Full node
 

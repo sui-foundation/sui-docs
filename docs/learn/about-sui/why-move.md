@@ -11,7 +11,6 @@ First, note Move is based upon the well-supported [Rust](https://www.rust-lang.o
 
 - [Sui Move announcement](https://sui.io/resources-move/why-we-created-sui-move/)
 - [Sui source code](https://github.com/MystenLabs/sui)
-- [`rustdoc` output](../../build/setup/cli/install-sui.md#rustdoc)
 - [Sui Move by Example](https://examples.sui.io)
 
 ## Move resources
@@ -19,7 +18,7 @@ First, note Move is based upon the well-supported [Rust](https://www.rust-lang.o
 This section aggregates links to external resources on the Move programming language. See also our [Smart Contracts with Move](../../build/create-smart-contracts/smart-contracts.md) page and [Move Programming with Objects](../../build/program-with-objects/using-objects.md) tutorial series for key Move resources in this site.
 
 - [Move & Sui podcast](https://zeroknowledge.fm/228-2/) on Zero Knowledge where programmable objects are described in detail.
-- Original [Move Book](https://move-book.com/index.html) written by a member of the Sui team.
+- Original [Move Book](https://move-language.github.io/move/) written by a member of the Sui team.
 - [Core Move](https://github.com/move-language/move/tree/main/language/documentation) documentation, including:
 - [Tutorial](https://github.com/move-language/move/blob/main/language/documentation/tutorial/README.md) - A step-by-step guide through writing a Move module.
 - [Book](https://github.com/move-language/move/blob/main/language/documentation/book/src/introduction.md) - A summary with pages on [various topics](https://github.com/move-language/move/tree/main/language/documentation/book/src).

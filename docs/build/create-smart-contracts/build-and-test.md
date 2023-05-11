@@ -112,15 +112,15 @@ To get the test to work, add the following line to the beginning of the testing 
 [Transfer module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move):
 
 ```rust
-        use sui::transfer;
+use sui::transfer;
 ```
 
 With the `Transfer` module imported, add the following lines to the end of the test function (after the `!assert` call) to transfer ownership of the sword to a freshly created dummy address:
 
 ```rust
-        // Create a dummy address and transfer the sword
-        let dummy_address = @0xCAFE;
-        transfer::transfer(sword, dummy_address);
+// Create a dummy address and transfer the sword
+let dummy_address = @0xCAFE;
+transfer::transfer(sword, dummy_address);
 ```
 
 Run the test command again. Now the output shows a single successful test has run:

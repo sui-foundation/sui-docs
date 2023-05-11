@@ -1,3 +1,8 @@
+---
+title: Dependency Overrides
+slug: /dependency-overrides
+---
+
 One of the main features of the Move programming language used to program Sui smart contracts is code reuse. Packages implementing commonly used functionality, such as various cryptographic algorithms, can be simply reused by other developers that require this kind of functionality in their projects. As part of the package's lifecycle, its developers have the ability to [upgrade](./upgrade-packages.md) a package to a newer version (e.g., to fix bugs or provide additional functionality), possibly multiple times. This naturally leads to a situation where some "user" packages may depend on one version of a "library" package while other "user" packages may depend on another.
 
 A package might depend on another package _directly_ or _indirectly_ (also called _transitively_). A direct dependency is specified in the "user" package's [manifest](./move-toml.md) file and its version is directly controlled by the developer of the "user" package. Clearly these directly dependent packages might have dependencies of their own, and these dependencies become indirect dependencies of the "user" package if they are not also specified in the "user" package's manifest file.

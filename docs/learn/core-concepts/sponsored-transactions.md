@@ -15,7 +15,7 @@ You can use Sui Sponsored transactions to:
 
 ## Potential Risks Using Sponsored Transactions
 
-The most significant potential risk when using sponsored transactions is [equivocation](../learn/sui-glossary#equivocation). In some cases under certain conditions, a sponsored transaction can result in all associated owned objects, including gas in a locked state when examined by Sui validators. To avoid double spending, validators lock objects as they validate transactions. An equivocation occurs when an owned object’s pair (`ObjectID`, `SequenceNumber`) is concurrently used in multiple non-finalized transactions.
+The most significant potential risk when using sponsored transactions is [equivocation](../../reference/sui-framework/sui-glossary.md#equivocation). In some cases under certain conditions, a sponsored transaction can result in all associated owned objects, including gas in a locked state when examined by Sui validators. To avoid double spending, validators lock objects as they validate transactions. An equivocation occurs when an owned object’s pair (`ObjectID`, `SequenceNumber`) is concurrently used in multiple non-finalized transactions.
 
 To equivocate, either the user or the sponsor signs and submits another transaction that attempts to manipulate an owned object in the original transaction. Because only the object owner can use an owned object, only the user and sponsor can cause this condition.
 

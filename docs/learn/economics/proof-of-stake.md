@@ -18,7 +18,7 @@ The Sui economic model works as follows:
 
 At the beginning of each epoch, three important things happen:
 
-- SUI holders stake (some) of their tokens to validators and a new [committee](../architecture/validators#committees) is formed.
+- SUI holders stake (some) of their tokens to validators and a new [committee](../../contribute/nodes/validator.md#committees) is formed.
 - The reference gas prices are set as described in Sui’s [gas price mechanism](gas-pricing.md).
 - The [storage fund’s](./sui-storage-fund.md) size is adjusted using the previous epoch’s net inflow.
 
@@ -31,9 +31,13 @@ At the end of each epoch: The protocol distributes stake rewards to participants
 - The total amount of stake rewards is calculated as the sum of computation fees accrued throughout the epoch plus the epoch’s stake reward subsidies. The latter component is temporary in that it will only exist in the network's first years and disappear in the long run as the amount of SUI in circulation reaches its total supply.
 - The total amount of stake rewards is distributed across various entities. Importantly, remember that the storage fund is taken into account in the calculation of the epoch’s total stake. However, the storage fund is not owned by any entities in the way that staked SUI is. Instead, Sui’s economic model distributes the stake rewards accruing to the storage fund – a share $(1-\alpha)$ of the total stake rewards – to validators in order to compensate them for their storage costs. Of these rewards, a share $\gamma$ is paid out to validators while the remaining $(1-\gamma)$ is used to reinvest in the fund’s capital. Finally, let $\beta_v$ represent the share of stake managed by a validator $v$ that is owned by itself while $(1-\beta_v)$ represents the share owned by third-party stakers. Validators keep the full rewards accruing to their own stake but keep only a commission $\delta_v\\%$ on SUI tokens staked by users as a fee for managing that stake. The split of stake rewards for the user staking pool staking at validator $v$ and for the validator itself equal:
 
-$$ UserStakeRewards_v \ = \Big[ \alpha(1-\delta_v)(1-\beta_v)\Big]\mu_v\sigma_v \times StakeRewards $$
+$$
+UserStakeRewards_v \ = \Big[ \alpha(1-\delta_v)(1-\beta_v)\Big]\mu_v\sigma_v \times StakeRewards
+$$
 
-$$ ValidatorRewards_v \ = \ \Bigg[\alpha\Big(\beta_v+\delta_v(1-\beta_v)\Big)\mu_v\sigma_v+(1-\alpha)\frac{\gamma}{N}\Bigg] \times StakeRewards $$
+$$
+ValidatorRewards_v \ = \ \Bigg[\alpha\Big(\beta_v+\delta_v(1-\beta_v)\Big)\mu_v\sigma_v+(1-\alpha)\frac{\gamma}{N}\Bigg] \times StakeRewards
+$$
 
 The $\mu_v$ variable captures the output of the [tallying rule](gas-pricing.md#tallying-rule) computed as part of the [gas price mechanism](gas-pricing.md) and corresponds to $\mu_v\geq1$ for performant validators and $\mu_v<1$ for non-performant validators. This variable ensures that validators have "skin in the game" and are incentivized to operate Sui efficiently. The $\sigma_v$ parameter captures each validator's share of total stake.
 

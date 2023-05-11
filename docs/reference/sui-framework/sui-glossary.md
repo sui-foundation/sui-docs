@@ -47,7 +47,7 @@ certifies the transaction, all of the other honest validators will too eventuall
 
 Genesis is the initial act of creating accounts and gas objects for a Sui network. Sui provides a `genesis` command that allows users to create and inspect the genesis object setting up the network for operation.
 
-For more information, see [Genesis](../../build/setup/local-network.md#genesis).
+For more information, see [Genesis](../../build/setup/cli/client-cli.md#customize-genesis).
 
 ### Multi-writer objects
 

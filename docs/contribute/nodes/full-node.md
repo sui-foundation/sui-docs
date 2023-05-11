@@ -202,7 +202,7 @@ Sui Explorer displays information about the selected network.
 
 ## Monitoring
 
-Monitor your Full node using the instructions at [Logging, Tracing, Metrics, and Observability](../../reference/sui-framework/observability.md).
+Monitor your Full node using the instructions at [Logging, Tracing, Metrics, and Observability](../../contribute/nodes/observability.md).
 
 The default metrics port is `9184`. To change the port, edit your `fullnode.yaml` file.
 
@@ -221,7 +221,7 @@ docker-compose down --volumes
 
 ### Update from source
 
-If you followed the instructions for [Building from Source](#building-from-source), use the following steps to update your Full node:
+If you followed the instructions for [Building from Source](#setting-up-a-full-node-from-source), use the following steps to update your Full node:
 
 1.  Shut down your running Full node.
 1.  `cd` into your local Sui repository:

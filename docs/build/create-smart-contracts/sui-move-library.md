@@ -64,7 +64,7 @@ You can find more examples of how objects can be transferred and owned in
 
 To make an object `obj` immutable, call `freeze_object`:
 
-```
+```rust
 transfer::freeze_object(obj);
 ```
 
@@ -74,7 +74,7 @@ After this call, `obj` becomes immutable, meaning you can't mutate or delete it.
 
 To make an object `obj` shared, call `share_object`:
 
-```
+```rust
 transfer::share_object(obj);
 ```
 
@@ -86,14 +86,14 @@ The `TxContext` module provides a few important APIs that operate based on the c
 
 To create a new ID for a new object:
 
-```
+```rust
 // Assume `ctx` has type `&mut TxContext`.
 let info = sui::object::new(ctx);
 ```
 
 To obtain the current transaction sender's address:
 
-```
+```rust
 sui::tx_context::sender(ctx)
 ```
 

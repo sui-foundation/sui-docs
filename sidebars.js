@@ -131,7 +131,11 @@ const sidebars = {
         'build/create-smart-contracts/custom-upgrade-policies',
         'build/create-smart-contracts/dependency-overrides',
         'build/create-smart-contracts/sui-move-library',
-        'build/create-smart-contracts/the-move-book',      
+        {
+          type: 'link',
+          label: 'Move Book',
+          href: 'https://move-language.github.io/move/',
+        },
       ],
     },
     {
@@ -158,7 +162,6 @@ const sidebars = {
         'reference/sui-framework/sui-security',
         'reference/sui-framework/sui-compared',
         'reference/sui-framework/sui-glossary',
-        'reference/sui-framework/observability',
         'reference/sui-framework/research-papers',
       ],
     },
@@ -166,9 +169,13 @@ const sidebars = {
       type: 'category',
       label: 'JSON-RPC',
       items: [
-        'reference/json-rpc/sui-json-format',
-        'reference/json-rpc/sui-json-rpc',
         'reference/json-rpc/json-rpc-api',
+        {
+          type: 'link',
+          label: 'SuiJSON',
+          href: 'https://docs.sui.io/reference/sui-json',
+        },
+        'reference/json-rpc/sui-json-rpc',
       ],
     },
     {
@@ -176,7 +183,11 @@ const sidebars = {
       label: 'SDKs',
       items: [
         'reference/sdk/rust-sdk',
-        'reference/sdk/ts-js-sdk',
+        {
+          type: 'link',
+          label: 'Typescript/Javascript SDK',
+          href: 'https://github.com/MystenLabs/sui/tree/main/sdk/typescript',
+        },      
       ],
     },
     {
@@ -237,6 +248,16 @@ const sidebars = {
         'contribute/localize-sui-docs',
         'contribute/code-of-conduct',
         'contribute/style-guide',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Run a node on Sui',
+      items: [
+        'contribute/nodes/full-node',
+        'contribute/nodes/validator',
+        'contribute/nodes/database-snapshots',
+        'contribute/nodes/observability',
       ],
     },
   ],

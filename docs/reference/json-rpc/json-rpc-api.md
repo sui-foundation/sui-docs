@@ -171,13 +171,13 @@ sure the package is valid. If some modules have [initializers](../../build/creat
 
 To publish a Move module, you also need to include `{{vector_of_compiled_modules}}` along with the `{{vector_of_dependency_ids}}`. To generate the values for these fields, use the `sui move` command. The `sui move` command supports printing the bytecode as base64 and dependency object IDs:
 
-```
+```shell
 sui move <move-module-path> build --dump-bytecode-as-base64
 ```
 
 Assuming that the location of the package's sources is in the `PATH_TO_PACKAGE` environment variable an example command resembles the following:
 
-```
+```shell
 sui move $PATH_TO_PACKAGE/my_move_package build --dump-bytecode-as-base64
 
 {
