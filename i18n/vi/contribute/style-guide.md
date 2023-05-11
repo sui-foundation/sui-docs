@@ -139,7 +139,7 @@ The `display::new<T>` call creates a `Display`.
 ### Codeblocks
 Use the text before a codeblock to describe what the codeblock does. Use text after the codeblock to point out particular elements in the code and how they work. Do not use codeblocks as a substitute for descriptive text. Codeblocks help readers understand descriptive text in the documentation.
 
-Initiate a codeblock in markdown with three backticks (```).
+Column One Column Two Column Three Column Four Metric name 10 X Text string.
 
 **Example**
 ```
@@ -176,7 +176,7 @@ There are three grammatical moods:
 #### Verb moods
 Use indicative verbs most of the time in conceptual content.
 
-Use imperative verbs for tasks, procedures, and instructions.
+Reference Style Guides Write the Docs Style Guide article GitLab Style Guide - managed as a community project Digital Ocean Style Guide SUSE Style Guide Microsoft Style Guide Google Developer Style Guide CDN Language and Style Reference
 
 **Example**
 
@@ -256,7 +256,7 @@ Use sentence casing for section headers.
 ## This is a section heading
 ```
 
-## Images / Graphics
+## title: This is a Topic Title
 Only use images and screenshots to supplement and help explain text. Images do not replace text. Readers should be able to understand the documentation without the images. However, images can help readers understand the text more clearly.
 
 ### Image format
