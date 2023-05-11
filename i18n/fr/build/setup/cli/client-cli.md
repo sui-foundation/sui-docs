@@ -331,7 +331,7 @@ sui client merge-coin --primary-coin 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2b
 sui client split-coin [OPTIONS] --coin-id <COIN_ID> --gas-budget <GAS_BUDGET> (--amounts <AMOUNTS>... | --count <COUNT>)
 
 OPTIONS:
-        --amounts <AMOUNTS>...       Specific amounts to split out from the coin
+        --amounts <AMOUNTS>... Specific amounts to split out from the coin
         --coin-id <COIN_ID>          Coin to Split, in 32 bytes Hex string
         --count <COUNT>              Count of equal-size coins to split into
         --gas <GAS>                  ID of the gas object for gas payment, in 32 bytes Hex string If
