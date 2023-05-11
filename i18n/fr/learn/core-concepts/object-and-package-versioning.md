@@ -7,8 +7,8 @@ You reference every object stored on chain by an ID and **version**. When a tran
 
 ```
 (I, v0) => ...
-(I, v1) => ...  # v0 < v1
-(I, v2) => ...  # v1 < v2
+(I, v1) => ... # v0 < v1
+(I, v2) => ... # v1 < v2
 ```
 
 Despite appearing multiple times in the store, only one version of the object is available to transactions -- the latest version (`v2` in the previous example) -- and only one transaction can modify the object at that version to create a new version, guaranteeing a linear history (`v1` was created in a state where `I` was at `v0`, and `v2` was created in a state where `I` was at `v1`).
