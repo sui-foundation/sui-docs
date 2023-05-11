@@ -13,7 +13,15 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: [
+      "en",
+      "el",
+      "fr",
+      "ko",
+      "tr",
+      "vi",
+      "zh",
+    ],
   },
 
   presets: [
@@ -108,6 +116,10 @@ const config = {
             type: "doc",
             docId: "contribute/contribution-process",
             label: "Contribute",
+          },
+          {
+            type: "localeDropdown",
+            position: "right",
           },
         ],
       },
