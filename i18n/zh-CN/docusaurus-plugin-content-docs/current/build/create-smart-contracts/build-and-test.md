@@ -3,7 +3,7 @@ title: 建構以及測試Move套件
 slug: /build-and-test
 ---
 
-如果你已經完成之前的主題, 你應該有了你需要用來建構的基本模組
+如果你已經完成之前的主題, 你應該有需要用來建構的基本模組
 
 ## Building your package
 
@@ -13,7 +13,7 @@ Make sure your terminal or console is is in the directory that contains your pac
 sui move build
 ```
 
-一个成功的构建会返回类似以下的响应
+A successful build returns a response similar to the following:
 
 ```shell
 UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
@@ -26,7 +26,7 @@ If the build fails, you can use the verbose error messaging in output to trouble
 
 Now that you have designed your asset and its accessor functions, it's time to test the package code before publishing.
 
-## 測試你的套件
+## 測試套件
 
 Sui includes support for the [Move testing framework](https://github.com/move-language/move/blob/main/language/documentation/book/src/unit-testing.md) that enables you to write unit tests that analyzes Move code much like test frameworks for other languages (e.g., the built-in [Rust testing framework](https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html) or the [JUnit framework](https://junit.org/) for Java).
 
