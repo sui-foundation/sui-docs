@@ -420,7 +420,7 @@ The command parameters include:
   that the ID of the genesis Sui package containing the GAS module is
   defined in its manifest file, and is equal to `0x2`.)
 - `--args` - a list of function arguments formatted as
-  [SuiJSON](sui-json.md) values (hence the preceding `0x` in address
+  [SuiJSON](../../../reference/json-rpc/sui-json-format.md) values (hence the preceding `0x` in address
   and object ID):
   - ID of the gas object representing the `c` parameter of the `transfer`
     function
@@ -443,10 +443,10 @@ To include multiple object IDs, enclose the IDs in double quotes. For example,
 
 ## Publish packages
 
-You must publish packages to the Sui [distributed ledger](../learn/how-sui-works.md#architecture) for the code you developed to be available in Sui. To publish packages with the Sui client, use the `publish` command.
+You must publish packages to the Sui [distributed ledger](../../../learn/core-concepts/how-sui-works.md#architecture) for the code you developed to be available in Sui. To publish packages with the Sui client, use the `publish` command.
 
 Refer to the [Move developer documentation](../../create-smart-contracts/smart-contracts.md) for a
-description on how to [write a simple Move code package](../../create-smart-contracts/write-move-packages.md#write-package.md),
+description on how to [write a simple Move code package](../../create-smart-contracts/write-move-packages.md#create-the-package),
 which you can then publish using the Sui client `publish` command.
 
 **Important:** You must remove all calls to functions in the `debug` module from no-test code before you can publish the new module (test code is marked with the `#[test]` annotation).
@@ -518,8 +518,7 @@ command (similar to `0x2` used for built-in packages in the
 Another object created as a result of package publishing is a
 user-defined object (of type `Forge`) created inside the initializer
 function of the (only) module included in the published package - see
-the part of Move developer documentation concerning [module
-initializers](move/debug-publish.md#module-initializers) for more details.
+the part of Move developer documentation concerning [module initializers](../../create-smart-contracts/debug-and-publish.md#module-initializers) for more details.
 
 You might notice that the gas object that was used to pay for
 publishing was updated as well.

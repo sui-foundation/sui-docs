@@ -41,7 +41,7 @@ As with transactions, note that the process of sharing a certificate with valida
 
 ## The role of Narwhal and Bullshark
 
-Sui takes advantage of [Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus](consensus.md) and the Tusk successor [Bullshark](https://arxiv.org/abs/2201.05677). Narwhal/Bullshark (N/B) are also being implemented in Sui so that when Byzantine agreement is required it uses a high-throughput DAG-based consensus to manage shared locks while execution on different shared objects is parallelized.
+Sui takes advantage of [Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus](../core-concepts/consensus-engine.md) and the Tusk successor [Bullshark](https://arxiv.org/abs/2201.05677). Narwhal/Bullshark (N/B) are also being implemented in Sui so that when Byzantine agreement is required it uses a high-throughput DAG-based consensus to manage shared locks while execution on different shared objects is parallelized.
 
 Narwhal enables the parallel ordering of transactions into batches that are collected into concurrently proposed blocks, and Bullshark defines an algorithm for executing the DAG that these blocks form. N/B combined builds a DAG of blocks, concurrently proposed, and creates an order between those blocks as a byproduct of the building of the DAG. But that order is overlaid on top of the causal order of Sui transactions (the "payload" of Narwhal/Bullshark here), and does not substitute for it:
 

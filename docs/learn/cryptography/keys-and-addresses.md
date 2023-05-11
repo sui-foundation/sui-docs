@@ -3,8 +3,7 @@ title: Keys and Addresses
 slug: /keys-and-addresses
 ---
 
-Sui Wallet adheres to widely accepted wallet specifications in the cryptocurrency industry, including [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) (and its variation, [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md)) and its variation [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md), [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), and [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki), to facilitate key management for users. At present, Sui supports pure Ed25519, ECDSA Secp256k1, ECDSA Secp256r1, and [MultiSig](sui-multisig.md) for signed transactions.
-
+Sui Wallet adheres to widely accepted wallet specifications in the cryptocurrency industry, including [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) (and its variation, [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md)) and its variation [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md), [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), and [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki), to facilitate key management for users. At present, Sui supports pure Ed25519, ECDSA Secp256k1, ECDSA Secp256r1, and [MultiSig](multisig.md) for signed transactions.
 
 ## Key Derivation Scheme
 
@@ -29,9 +28,9 @@ The `account` level is usually used for logically separating user accounts and c
 It is generally accepted that, while account-based currencies define only the first three levels, UTXO-based currencies add change and address level definitions. Because Sui's object-oriented data model is neither UTXO nor account-based (it in fact combines both), it employs all five levels for maximum compatibility.
 | Scheme | Path | Comments |
 |---|---|---|
-|  Ed25519 |  `m/44'/784'/{account}'/{change}'/{address}'` |  Each level of the derivation path is hardened. |
-| ECDSA Secp256k1  | `m/54'/784'/{account}'/{change}/{address}`  | The first three levels are hardened.  |
-| ECDSA Secp256r1  | `m/74'/784'/{account}'/{change}/{address}`  | The first three levels are hardened.  |
+| Ed25519 | `m/44'/784'/{account}'/{change}'/{address}'` | Each level of the derivation path is hardened. |
+| ECDSA Secp256k1 | `m/54'/784'/{account}'/{change}/{address}` | The first three levels are hardened. |
+| ECDSA Secp256r1 | `m/74'/784'/{account}'/{change}/{address}` | The first three levels are hardened. |
 
 ## Mnemonics Support
 
@@ -39,9 +38,9 @@ After Sui defines the deterministic way to derive the master key from a seed, BI
 
 ## Address Format
 
-For deriving a 32-byte Sui address, Sui hashes the signature scheme flag 1-byte concatenated with public key bytes using the [BLAKE2b](https://www.blake2.net/) (256 bits output) hashing function. Sui address currently supports pure Ed25519, Secp256k1, Secp256r1, and MultiSig with corresponding flag bytes of 0x00, 0x01, 0x02, and 0x03, respectively. 
+For deriving a 32-byte Sui address, Sui hashes the signature scheme flag 1-byte concatenated with public key bytes using the [BLAKE2b](https://www.blake2.net/) (256 bits output) hashing function. Sui address currently supports pure Ed25519, Secp256k1, Secp256r1, and MultiSig with corresponding flag bytes of 0x00, 0x01, 0x02, and 0x03, respectively.
 
-## Example 
+## Example
 
 Sui Wallet and SDKs provide a flexible interface to sign transactions with various signing schemes.
 
@@ -49,13 +48,14 @@ In TypeScript:
 
 ```typescript
 const keypair = Ed25519Keypair.deriveKeypair(
-    TEST_MNEMONIC,
-    `m/44'/784'/0'/0'/0'`,
+  TEST_MNEMONIC,
+  `m/44'/784'/0'/0'/0'`
 );
 const address = keypair.getPublicKey().toSuiAddress();
 ```
 
-In CLI: 
+In CLI:
+
 ```bash
 sui keytool import "TEST_MNEMONIC" ed25519 "m/44'/784'/0'/0'/0'"
 sui client new-address ed25519 "m/44'/784'/0'/0'/0'"

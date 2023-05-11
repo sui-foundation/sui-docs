@@ -109,7 +109,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
 ## Example 3 - Event subscription
 
-Use the WebSocket client to [subscribe to events](event_api.md#subscribe-to-sui-events).
+Use the WebSocket client to [subscribe to events](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events).
 
 ```rust
 use futures::StreamExt;
@@ -128,4 +128,4 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 ```
 
-**Note:** The Event subscription service requires a running Sui Full node. To learn more, see [Full node setup](fullnode.md#fullnode-setup).
+**Note:** The Event subscription service requires a running Sui Full node. To learn more, see [Full node setup](../../contribute/nodes/full-node.md#fullnode-setup).

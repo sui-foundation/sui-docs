@@ -4,7 +4,7 @@ sidebar_label: Single-Writer Apps
 slug: /single-writer-apps
 ---
 
-This page lists applications that can work in the single-writer model defined as [simple transactions](how-sui-works.md#simple-transactions) in Sui.
+This page lists applications that can work in the single-writer model defined as [simple transactions](../core-concepts/how-sui-works.md#simple-transactions) in Sui.
 
 Apart from the obvious single-writer friendly applications (such as simple peer-to-peer asset transfer), note that some proposals that typically require shared objects have been transformed to variants that require only a shared object as a final step and not for every action, such as voting and lotteries and DeFi Oracle price quotes submission.
 

@@ -3,7 +3,7 @@ title: Gas Changes
 slug: /gas-changes
 ---
 
-To learn more about gas fees in the context of Sui Tokenomics, see [Gas in Sui](../learn/tokenomics/gas-in-sui.md).
+To learn more about gas fees in the context of Sui Tokenomics, see [Gas in Sui](../../learn/economics//gas-in-sui.md).
 
 This topic provides a summary of the changes to the Sui Gas model for Sui Mainnet.
 

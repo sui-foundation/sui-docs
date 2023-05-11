@@ -22,7 +22,7 @@ Read about [Programming with Objects](../build/programming-with-objects/), inclu
 
 ## Sui Full node
 
-Learn how to set up and run a [Sui Full node](fullnode.md).
+Learn how to set up and run a [Sui Full node](../../contribute/nodes/full-node.md).
 
 ## Limits on transactions, objects, and data
 

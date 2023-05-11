@@ -158,6 +158,8 @@ const sidebars = {
         'reference/sui-framework/sui-security',
         'reference/sui-framework/sui-compared',
         'reference/sui-framework/sui-glossary',
+        'reference/sui-framework/observability',
+        'reference/sui-framework/research-papers',
       ],
     },
     {

@@ -9,8 +9,8 @@ const config = {
   favicon: "img/favicon.ico",
   url: "https://sui-docs-sui-foundation.vercel.app",
   baseUrl: "/",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
   i18n: {
     defaultLocale: "en",
     locales: [

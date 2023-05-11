@@ -13,7 +13,7 @@ Sui is written in [Rust](https://www.rust-lang.org) and supports smart contracts
 
 Sui has a native token called SUI, with a fixed supply. The SUI token is used to pay for gas, and users can stake their SUI tokens with validators in a [Delegated Proof-of-Stake](https://learn.bybit.com/blockchain/delegated-proof-of-stake-dpos/) model within an epoch. The voting power of validators within this epoch is a function of the amount of SUI in their staking pool, including both validator and user SUI tokens. In any epoch, the set of validators is [Byzantine fault tolerant](https://pmg.csail.mit.edu/papers/osdi99.pdf). At the end of the epoch, fees collected through all transactions processed are distributed to validators according to their contribution to the operation of the network. Validators can in turn share some of the fees as rewards to users that stake their SUI with them.
 
-<!-- Sui is backed by a number of state-of-the-art [peer-reviewed works](../contribute/research-papers.md) and years of open source development. -->
+Sui is backed by a number of state-of-the-art [peer-reviewed works](../../reference/sui-framework//research-papers.md) and years of open source development.
 
 ## Transactions
 

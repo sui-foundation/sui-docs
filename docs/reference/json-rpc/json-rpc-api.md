@@ -5,23 +5,23 @@ slug: /json-rpc-api
 
 Welcome to the guide for making remote procedure calls (RPC) to the Sui network. This document walks you through how to connect and interact with the Sui network using the Sui JSON-RPC API. Use the RPC layer to send your dApp transactions to [Sui validators](../../contribute/nodes/validator.md) for verification.
 
-This guide is useful for developers interested in Sui network interactions via API and should be used in conjunction with the [SuiJSON format](sui-json.md) for aligning JSON inputs with Move Call arguments.
+This guide is useful for developers interested in Sui network interactions via API and should be used in conjunction with the [SuiJSON format](sui-json-format.md) for aligning JSON inputs with Move Call arguments.
 
-For a similar guide on Sui network interactions via CLI, refer to the [Sui Client CLI](setup/cli/client-cli.md) documentation.
+For a similar guide on Sui network interactions via CLI, refer to the [Sui Client CLI](../../build/setup/cli/client-cli.md) documentation.
 
 Follow the instructions to [install Sui binaries](../../build/setup/cli/install-sui.md#install-sui-binaries).
 
 ## Connect to a Sui network
 
-You can connect to a Sui Full node on a Sui network. Follow the guidance in the [Connect to a Sui Network](../build/connect-sui-network.md) topic to start making RPC calls to the Sui network.
+You can connect to a Sui Full node on a Sui network. Follow the guidance in the [Connect to a Sui Network](../../build/setup/connect-to-a-network.md) topic to start making RPC calls to the Sui network.
 
-To configure your own Sui Full node, see [Configure a Sui Full node](fullnode.md).
+To configure your own Sui Full node, see [Configure a Sui Full node](../../contribute/nodes/full-node.md).
 
 ## Sui SDKs
 
 You can sign transactions and interact with the Sui network using any of the following:
 
-- [Sui Rust SDK](rust-sdk.md), a collection of Rust language JSON-RPC wrapper and crypto utilities.
+- [Sui Rust SDK](../sdk/rust-sdk.md), a collection of Rust language JSON-RPC wrapper and crypto utilities.
 - [Sui TypeScript SDK](https://github.com/MystenLabs/sui/tree/main/sdk/typescript) and [reference files](https://www.npmjs.com/package/@mysten/sui.js).
 - [Sui API Reference](https://docs.sui.io/sui-jsonrpc) for all available methods.
 
@@ -167,7 +167,7 @@ curl --location --request POST $SUI_RPC_HOST \
 ```
 
 This endpoint performs proper verification and linking to make
-sure the package is valid. If some modules have [initializers](move/debug-publish.md#module-initializers), these initializers execute in Move (which means new Move objects can be created in the process of publishing a Move package). Gas budget is required because of the need to execute module initializers.
+sure the package is valid. If some modules have [initializers](../../build/create-smart-contracts/debug-and-publish.md#module-initializers), these initializers execute in Move (which means new Move objects can be created in the process of publishing a Move package). Gas budget is required because of the need to execute module initializers.
 
 To publish a Move module, you also need to include `{{vector_of_compiled_modules}}` along with the `{{vector_of_dependency_ids}}`. To generate the values for these fields, use the `sui move` command. The `sui move` command supports printing the bytecode as base64 and dependency object IDs:
 

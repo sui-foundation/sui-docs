@@ -58,4 +58,4 @@ Sui offers entry functions that can be called directly from Sui, in addition to 
 
 ## Conclusion
 
-In summary, Sui takes advantage of Move’s security and flexibility and enhances it with the features described above to vastly improve throughput, reduce delays in finality, and make Sui Move programming easier. Now see [how Sui works](how-sui-works.md). For full details, see the [Sui Smart Contracts Platform](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) white paper.
+In summary, Sui takes advantage of Move’s security and flexibility and enhances it with the features described above to vastly improve throughput, reduce delays in finality, and make Sui Move programming easier. Now see [how Sui works](../core-concepts/how-sui-works.md). For full details, see the [Sui Smart Contracts Platform](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) white paper.

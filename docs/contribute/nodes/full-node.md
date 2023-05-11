@@ -202,7 +202,7 @@ Sui Explorer displays information about the selected network.
 
 ## Monitoring
 
-<!-- Monitor your Full node using the instructions at [Logging, Tracing, Metrics, and Observability](../contribute/observability.md). -->
+Monitor your Full node using the instructions at [Logging, Tracing, Metrics, and Observability](../../reference/sui-framework/observability.md).
 
 The default metrics port is `9184`. To change the port, edit your `fullnode.yaml` file.
 
