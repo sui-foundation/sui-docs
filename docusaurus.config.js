@@ -20,7 +20,8 @@ const config = {
       "ko",
       "tr",
       "vi",
-      "zh",
+      "zh-CN",
+      "zh-TW",
     ],
   },
 
