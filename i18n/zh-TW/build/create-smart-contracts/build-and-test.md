@@ -5,7 +5,7 @@ slug: /build-and-test
 
 If you followed the previous topic, you have a basic module that you need to build.
 
-## Building your package
+## 构建软件包
 
 Make sure your terminal or console is is in the directory that contains your package (`my_first_package` if you're following along). Use the following command to build your package:
 
