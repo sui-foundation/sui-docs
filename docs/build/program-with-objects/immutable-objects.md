@@ -7,6 +7,7 @@ Chapters 1 and 2 describe how to create and use objects owned by an address. Thi
 
 Objects in Sui can have different types of [ownership](../../learn/core-concepts/objects.md#object-ownership), with two broad categories: immutable objects and mutable objects. An immutable object is an object that can't be mutated, transferred or deleted. Immutable objects have no owner, so anyone can use them.
 
+
 ### Create immutable object
 
 To convert an object into an immutable object, call the following function in the [transfer module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move):

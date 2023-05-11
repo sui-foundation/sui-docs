@@ -12,6 +12,7 @@ To get started, see [Install](../../build/setup/cli/install-sui.md) to learn abo
 
 After you install Sui, learn how to use the [Sui Client CLI](../setup/cli/client-cli.md). You can use the client to interact with a Sui Full node or your own [local network](../setup/local-network.md).
 
+
 ## Smart contracts
 
 Learn how to [Write Smart Contracts with Move](../../build/create-smart-contracts/smart-contracts.md), including how to write, build, test, and publish Sui Move packages.
