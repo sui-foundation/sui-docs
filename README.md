@@ -10,7 +10,9 @@ We're glad that you want to contribute!
 - Style guide (hyperlink)
 - Localization (hyperlink)
 
-## [Contributors](https://github.com/sui-foundation/sui-docs/graphs/contributors)
+## Contributors
+
+This current repo was migrated and built from the [Sui monorepo](https://github.com/MystenLabs/sui). Current contributors can be found [here](https://github.com/sui-foundation/sui-docs/graphs/contributors). Past contributors can be found [here](https://github.com/sui-foundation/sui-docs/blob/main/CONTRIBUTORS.md).
 
 ## [Code of conduct](https://docs.sui.io/contribute/code-of-conduct)
 
