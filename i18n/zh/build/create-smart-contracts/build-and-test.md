@@ -1,9 +1,9 @@
 ---
-title: 构建并测试Move软件包
+title: 建構以及測試Move套件
 slug: /build-and-test
 ---
 
-If you followed the previous topic, you have a basic module that you need to build.
+如果你已經完成之前的主題, 你應該有了你需要用來建構的基本模組
 
 ## Building your package
 
@@ -13,7 +13,7 @@ Make sure your terminal or console is is in the directory that contains your pac
 sui move build
 ```
 
-A successful build returns a response similar to the following:
+一个成功的构建会返回类似以下的响应
 
 ```shell
 UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
