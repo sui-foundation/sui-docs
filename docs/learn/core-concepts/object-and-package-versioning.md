@@ -27,7 +27,9 @@ You must reference address-owned transaction inputs at a specific ID and version
 
 If `F + 1` validators sign one transaction that takes an object as input, and a different `F + 1` validators sign a different transaction that takes the same object as input, that object (and all the other inputs to both transactions) are **equivocated** meaning they cannot be used for any further transactions in that epoch. This is because neither transaction can form a quorum without relying on a signature from a validator that has already committed the object to a different transaction, which it cannot get. All locks are reset at the end of the epoch, which frees the objects again.
 
+:::info
 Only an object's owner can equivocate it, but this is not a desirable thing to do. You can avoid equivocation by carefully managing the versions of address-owned input objects.
+:::
 
 ### Immutable objects
 
@@ -43,7 +45,7 @@ Shared transaction inputs that you reference immutably participate in scheduling
 
 The `make_wrapped` function in the following example creates an `Inner` object, wrapped in an `Outer` object, which is sent back to the transaction sender.
 
-```
+```rust
 module example::wrapped {
     use sui::object::{Self, UID};
     use sui::transfer;
@@ -79,7 +81,7 @@ You can't access wrapped objects by their ID in the object store, you must acces
 
 Wrapped objects can eventually become "unwrapped", meaning that they are once again accessible at their ID:
 
-```
+```rust
 module example::wrapped {
     // ...
 

@@ -19,7 +19,7 @@ The Sui Move API supports the following cryptographic hash functions:
 
 The SHA2-256 and SHA3-256 hash functions are available in the Move Standard Library in the `std::hash` module. Below is an example of how to use the SHA2-256 hash function in a smart contract:
 
-```move
+```rust
 module test::hashing_std {
     use std::hash;
     use sui::object::{Self, UID};
@@ -46,7 +46,7 @@ module test::hashing_std {
 
 The Keccak256 and Blake2b-256 hash functions are available through the `sui::hash` module in the Sui Move Library. An example of how to use the Keccak256 hash function in a smart contract is shown below. Notice that here, the input to the hash function is given as a reference. This is the case for both Keccak256 and Blake2b-256.
 
-```move
+```rust
 module test::hashing_sui {
     use sui::hash;
     use sui::object::{Self, UID};

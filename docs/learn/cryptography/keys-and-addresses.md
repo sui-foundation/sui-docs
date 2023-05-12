@@ -17,7 +17,11 @@ BIP-32 defines the hierarchical deterministic wallet structure to logically asso
 
 ## Key Derivation Path
 
-BIP-44 further defines the five levels of the derivation path with their exact meanings: `m / purpose' / coin_type' / account' / change / address_index`. In this structure, the slashes indicate new levels, or children, in the hierarchy.
+BIP-44 further defines the five levels of the derivation path with their exact meanings:
+
+`m / purpose' / coin_type' / account' / change / address_index`.
+
+In this structure, the slashes indicate new levels, or children, in the hierarchy.
 
 The `purpose` level is generally set to 44, corresponding to the BIP number. In Sui, however, the purpose level distinguishes different signing schemes: 44 is set for Ed25519, 54 for ECDSA Secp256k1 and 74 for Secp256r1. While it is non-standard to set the purpose level to a value that is not 44, it is common to use the purpose field to distinguish different signing schemes. BIP-49 and BIP-84, for example, are used to identify script types in Bitcoin. Sui chose 54 to indicate ECDSA Secp256k1 because there is no existing BIP under 54, avoiding confusion with any Bitcoin standard.
 
@@ -26,11 +30,12 @@ The `coin_type` value is managed with a repository of all other cryptocurrencies
 The `account` level is usually used for logically separating user accounts and creating specific account categories.
 
 It is generally accepted that, while account-based currencies define only the first three levels, UTXO-based currencies add change and address level definitions. Because Sui's object-oriented data model is neither UTXO nor account-based (it in fact combines both), it employs all five levels for maximum compatibility.
-| Scheme | Path | Comments |
-|---|---|---|
-| Ed25519 | `m/44'/784'/{account}'/{change}'/{address}'` | Each level of the derivation path is hardened. |
-| ECDSA Secp256k1 | `m/54'/784'/{account}'/{change}/{address}` | The first three levels are hardened. |
-| ECDSA Secp256r1 | `m/74'/784'/{account}'/{change}/{address}` | The first three levels are hardened. |
+
+| Scheme          | Path                                         | Comments                                       |
+| --------------- | -------------------------------------------- | ---------------------------------------------- |
+| Ed25519         | `m/44'/784'/{account}'/{change}'/{address}'` | Each level of the derivation path is hardened. |
+| ECDSA Secp256k1 | `m/54'/784'/{account}'/{change}/{address}`   | The first three levels are hardened.           |
+| ECDSA Secp256r1 | `m/74'/784'/{account}'/{change}/{address}`   | The first three levels are hardened.           |
 
 ## Mnemonics Support
 

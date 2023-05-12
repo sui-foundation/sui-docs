@@ -31,7 +31,9 @@ struct ColorObject has key {
 
 The `ColorObject` represents a Sui object type that you can use to create Sui objects that can eventually be stored on the Sui network.
 
-**Important:** In both core Move and Sui Move, the [key ability](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#key) denotes a type that can appear as a key in global storage. However, the structure of global storage is a bit different: core Move uses a (type, `address`)-indexed map, whereas Sui Move uses a map keyed by object IDs.
+:::caution
+In both core Move and Sui Move, the [key ability](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#key) denotes a type that can appear as a key in global storage. However, the structure of global storage is a bit different: core Move uses a (type, `address`)-indexed map, whereas Sui Move uses a map keyed by object IDs.
+:::
 
 The `UID` type is internal to Sui, and you most likely won't need to deal with it directly. For curious readers, it contains the "unique ID" that defines an object on the Sui network. It is unique in the sense that no two values of type `UID` will ever have the same underlying set of bytes.
 
@@ -92,7 +94,9 @@ public entry fun create(red: u8, green: u8, blue: u8, ctx: &mut TxContext) {
 }
 ```
 
-**Note:** Naming convention: Constructors are typically named `new`, which returns an instance of the struct type. The `create` function is typically defined as an entry function that constructs the struct and transfers it to the desired owner (most commonly the sender).
+:::tip
+Naming convention: Constructors are typically named `new`, which returns an instance of the struct type. The `create` function is typically defined as an entry function that constructs the struct and transfers it to the desired owner (most commonly the sender).
+:::
 
 You can also add a getter to `ColorObject` that returns the color values so that modules outside of `ColorObject` are able to read their values:
 
@@ -106,7 +110,7 @@ Find the full code in the Sui repo under `sui_programmability/examples/objects_t
 
 To compile the code, make sure you have [installed Sui](../setup/cli/install-sui.md) so that `sui` is in your `PATH`. In the code root directory `(../examples/objects_tutorial/)` (where `Move.toml` is), run:
 
-```
+```shell
 sui move build
 ```
 
@@ -135,7 +139,8 @@ let scenario = &mut scenario_val;
 };
 ```
 
-:::note There is a "`;`" after "`}`". You must include `;` to sequence a series of expressions, and even the block `{ ... }` is an expression. Refer to the [Move book](https://move-book.com/syntax-basics/expression-and-scope.html) for a detailed explanation.
+:::info
+There is a "`;`" after "`}`". You must include `;` to sequence a series of expressions, and even the block `{ ... }` is an expression. Refer to the [Move book](https://move-book.com/syntax-basics/expression-and-scope.html) for a detailed explanation.
 :::
 
 After the first transaction completes (**and only after the first transaction completes**), address `@0x1` owns the object. First, make sure it's not owned by anyone else:
@@ -152,7 +157,9 @@ test_scenario::next_tx(scenario, not_owner);
 `test_scenario::next_tx` switches the transaction sender to `@0x2`, which is a new address different from the previous one.
 `test_scenario::has_most_recent_for_sender` checks whether an object with the given type actually exists in the global storage owned by the current sender of the transaction. This code asserts that you should not be able to remove such an object, because `@0x2` does not own any object.
 
-**Note:** The second parameter of `assert!` is the error code. In non-test code, you usually define a list of dedicated error code constants for each type of error that could happen in production. For unit tests, it's usually unnecessary because there are too many assertions. The stack trace upon error is sufficient to tell where the error happened. You can just put `0` for assertions in unit tests.
+:::hint
+The second parameter of `assert!` is the error code. In non-test code, you usually define a list of dedicated error code constants for each type of error that could happen in production. For unit tests, it's usually unnecessary because there are too many assertions. The stack trace upon error is sufficient to tell where the error happened. You can just put `0` for assertions in unit tests.
+:::
 
 Finally, check that `@0x1` owns the object and the object value is consistent:
 
@@ -174,7 +181,7 @@ You can find the full code in [color_object.move](https://github.com/MystenLabs/
 
 To run the test, run the following in the code root directory:
 
-```
+```shell
 sui move test
 ```
 
@@ -184,19 +191,19 @@ To call `create` in actual transactions, you need to start Sui and the Sui Clien
 
 Before you start, check the active address on the client as that address eventually owns the object):
 
-```
+```shell
 $ sui client active-address
 ```
 
 To publish the code on-chain, use the following command:
 
-```
+```sh
 $ sui client publish $ROOT/sui_programmability/examples/objects_tutorial --gas-budget 10000
 ```
 
 or from the root of the package folder:
 
-```
+```sh
 $ sui client publish --gas-budget 10000
 ```
 
@@ -204,7 +211,12 @@ These examples assume that the path to the root of the repository containing Sui
 
 You can find the published package object ID in the **Transaction Effects** output:
 
-```
+<details>
+  <summary>
+  Show output
+  </summary>>
+
+```sh
 Transaction Kind : Publish
 ----- Transaction Effects ----
 Status : Success
@@ -214,11 +226,13 @@ Mutated Objects:
   - ID: 0x1b879f00b03357c95a908b7fb568712f5be862c5cb0a5894f62d06e9098de6dc , Owner: Account Address ( 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 )
 ```
 
+</details>
+
 Note that the exact data you see differs from the examples in this topic.
 
 The first hex string with the `Immutable` owner is the package's `objectID` (`0x79b81364676f2f700e8a5acc71ca66eef753f1e536e4480a24278f02499e8cc5`). For convenience, save it to an environment variable:
 
-```
+```sh
 export PACKAGE=0x79b81364676f2f700e8a5acc71ca66eef753f1e536e4480a24278f02499e8cc5
 ```
 
@@ -232,7 +246,12 @@ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --f
 
 In the **Transaction Effects** portion of the output, you see an object included in the list of **Created Objects**:
 
-```
+<details>
+  <summary>
+  Show output
+  </summary>>
+
+```sh
 ----- Transaction Effects ----
 Status : Success
 Created Objects:
@@ -241,9 +260,11 @@ Mutated Objects:
   - ID: 0x7cd011b6dbe90a0520a8501d993e3666b9373456b588f97600fcae6e02f60aa3 , Owner: Account Address ( 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 )
 ```
 
+</details>
+
 To save the object ID as a variable, use:
 
-```
+```sh
 export OBJECT=0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446
 ```
 
@@ -255,7 +276,12 @@ sui client object $OBJECT
 
 This returns the metadata of the object, including its type:
 
-```
+<details>
+  <summary>
+  Show output
+  </summary>>
+
+```sh
 ----- Move Object (0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446[8]) -----
 Owner: Account Address ( 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 )
 Version: 8
@@ -269,9 +295,11 @@ id: 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446
 red: 0
 ```
 
+</details>
+
 You can also request the content of the object in json format by adding the `--json` parameter:
 
-```
+```sh
 $ sui client object $OBJECT --json
 ```
 

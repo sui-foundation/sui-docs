@@ -40,7 +40,9 @@ The Sui Client CLI supports the following commands:
 | `upgrade`           | Upgrade a Move module.                                                                                                                                                                                                                        |
 | `verify-source`     | Verify local Move packages against on-chain packages, and optionally their dependencies.                                                                                                                                                      |
 
-**Note:** The `clear`, `echo`, `env`, and `exit` commands exist only in the interactive shell.
+:::tip
+The `clear`, `echo`, `env`, and `exit` commands exist only in the interactive shell.
+:::tip
 
 Use `sui client -h` to see a list of supported commands.
 
@@ -180,7 +182,12 @@ sui client objects
 
 The response resembles the following:
 
-```
+<details>
+  <summary>
+  Show output
+  </summary>>
+
+```sh
                  Object ID                  |  Version   |                    Digest                    |   Owner Type    |               Object Type
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
  0x1aa482ad8c6240cda3097a4aa13ad5bfb27bf6052133c01f79c8b4ea0aaa0601 |     1      | OpU8HmueEaLzK6hkNSQkcahG8qo73ag4vJPG+g8EQBs= |  AddressOwner   |      0x2::coin::Coin<0x2::sui::SUI>
@@ -190,6 +197,8 @@ The response resembles the following:
  0xe638c76768804cebc0ab43e103999886641b0269a46783f2b454e2f8880b5255 |     1      | idJrGmd6ZkzJVQeKtu8XlUt2dA397GURgCUXJOLQhxI= |  AddressOwner   |      0x2::coin::Coin<0x2::sui::SUI>
 Showing 5 results.
 ```
+
+</details>
 
 To view the objects for a different address than the active address, specify the address to see objects for.
 
@@ -206,7 +215,12 @@ sui client object <OBJECT_ID>
 The result shows some basic information about the object, the owner,
 version, ID, if the object is immutable and the type of the object.
 
-```
+<details>
+  <summary>
+  Show output
+  </summary>>
+
+```sh
 ----- 0x2::coin::Coin<0x2::sui::SUI> (0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d[0x1]) -----
 Owner: Account Address ( 0xa3c00467938b392a12355397bdd3d319cea5c9b8f4fc9c51b46b8e15a807f030 )
 Version: 0x1
@@ -218,6 +232,8 @@ balance: 100000000000000
 id: 0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d
 ```
 
+</details>
+
 To view the JSON representation of the object, include `--json` in the command.
 
 ```shell
@@ -225,6 +241,11 @@ sui client object <OBJECT_ID> --json
 ```
 
 The response resembles the following:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```json
 {
@@ -250,6 +271,8 @@ The response resembles the following:
   }
 }
 ```
+
+</details>
 
 ## Transfer objects
 
@@ -366,7 +389,7 @@ sui client split-coin --coin-id 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464
 
 Use the `objects` command to view the new coin objects.
 
-```
+```sh
 sui client objects 0x08da15bee6a3f5b01edbbd402654a75421d81397
 ```
 
@@ -436,7 +459,9 @@ Note the third argument to the `transfer` function representing
 is a required argument for all functions callable from Sui and is
 auto-injected by the platform at the point of a function call.
 
-**Important:** If you use a shell that interprets square brackets ([ ]) as special characters (such as the `zsh` shell), you must enclose the brackets in single quotes. For example, instead of `[7,42]` you must use `'[7,42]'`.
+:::caution
+If you use a shell that interprets square brackets ([ ]) as special characters (such as the `zsh` shell), you must enclose the brackets in single quotes. For example, instead of `[7,42]` you must use `'[7,42]'`.
+:::
 
 To include multiple object IDs, enclose the IDs in double quotes. For example,
 `'["0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427","0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760"]'`
@@ -449,7 +474,9 @@ Refer to the [Move developer documentation](../../create-smart-contracts/smart-c
 description on how to [write a simple Move code package](../../create-smart-contracts/write-move-packages.md#create-the-package),
 which you can then publish using the Sui client `publish` command.
 
-**Important:** You must remove all calls to functions in the `debug` module from no-test code before you can publish the new module (test code is marked with the `#[test]` annotation).
+:::caution
+You must remove all calls to functions in the `debug` module from no-test code before you can publish the new module (test code is marked with the `#[test]` annotation).
+:::
 
 ```shell
 sui client objects 0x4e049913233eb918c11638af89d575beb99003d30a245ac74a02e26e45cb80ee
@@ -483,9 +510,16 @@ The publish might fail for other reasons, as well, based on dependency verificat
 
 If your package fails to publish because of an error in dependency verification, you must find and include the correct and verifiable source package for the failing dependency. If you fully understand the circumstances preventing your package from passing the dependency verification, and you appreciate the risk involved with skipping that verification, you can add the `--skip-dependency-verification` flag to the `sui client publish` command to bypass the dependency check.
 
-**Note:** If your package includes unpublished dependencies, you can add the `--with-unpublished-dependencies` flag to the `sui client publish` command to include modules from those packages in the published build.
+:::tip
+If your package includes unpublished dependencies, you can add the `--with-unpublished-dependencies` flag to the `sui client publish` command to include modules from those packages in the published build.
+:::
 
 If successful, your response resembles the following:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```shell
 ----- Certificate ----
@@ -510,6 +544,8 @@ swords_created: 0
 Updated Gas : Coin { id: 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427, value: 96929 }
 ```
 
+</details>
+
 Running this command created an object representing the published package.
 From now on, use the package object ID (`0x53e4567ccafa5f36ce84c80aa8bc9be64e0d5ae796884274aef3005ae6733809`) in the Sui client call
 command (similar to `0x2` used for built-in packages in the
@@ -523,7 +559,9 @@ the part of Move developer documentation concerning [module initializers](../../
 You might notice that the gas object that was used to pay for
 publishing was updated as well.
 
-**Important:** If the publishing attempt results in an error regarding verification failure, [build your package locally](../../create-smart-contracts/build-and-test.md#building-a-package) (using the `sui move build` command) to get a more verbose error message.
+:::tip
+If the publishing attempt results in an error regarding verification failure, [build your package locally](../../create-smart-contracts/build-and-test.md#building-a-package) (using the `sui move build` command) to get a more verbose error message.
+:::
 
 ## Verify source
 

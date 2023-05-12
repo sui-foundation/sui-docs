@@ -134,7 +134,7 @@ bytecode or source code for ahead of time. Sui calculates the digest as follows:
 
 Refer to the [implementation for digest calculation](https://github.com/MystenLabs/sui/blob/d8cb153d886d54752763fbdab631b062da7d894b/crates/sui-types/src/move_package.rs#L232-L251) for more information, but in most cases, you can rely on the Move toolchain to output the digest as part of the build, when passing the `--dump-bytecode-as-base64` flag:
 
-```
+```shell
 $ sui move build --dump-bytecode-as-base64
 FETCHING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
 INCLUDING DEPENDENCY Sui
@@ -179,7 +179,7 @@ Time to put everything into practice by writing a toy upgrade policy that only a
 
 Start by creating a new Move package for the upgrade policy:
 
-```
+```shell
 $ sui move new policy
 ```
 
@@ -343,6 +343,11 @@ sui client publish --gas-budget 100000000
 
 A successful publish returns the following:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```sh
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
@@ -422,6 +427,8 @@ Array [
 ]
 ```
 
+</details>
+
 Following best practices, use the Sui Client CLI to call `sui::package::make_immutable` on the `UpgradeCap` to make the policy immutable.
 
 ```sh
@@ -431,6 +438,11 @@ sui client call --gas-budget 10000000 \
     --function 'make_immutable' \
     --args '<POLICY-UPGRADE-CAP>'
 ```
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```sh
 ----- Transaction Digest ----
@@ -485,13 +497,15 @@ Array [
 ]
 ```
 
+</details>
+
 ### Creating a package for testing
 
 With a policy now available on chain, you need a package to upgrade. This topic creates a basic package and references it in the following scenarios, but you can use any package you might have available instead of creating a new one.
 
 If you don't have a package available, use the `sui move new` command to create the template for a new package called `example`.
 
-```
+```shell
 $ sui move new example
 ```
 
@@ -519,7 +533,7 @@ Create a new directory to store a Node.js project. You can use the `npm init` fu
 
 Open a terminal or console to the root of your Node.js project. Run the following command to add the Sui TypeScript SDK as a dependency:
 
-```
+```shell
 $ npm install @mysten/sui.js
 ```
 
@@ -639,6 +653,11 @@ $ node publish.js
 
 If the script is successful, the console prints the following response:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```sh
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
@@ -698,7 +717,11 @@ BUILDING example
 }
 ```
 
-**Note:** If you receive a `ReferenceError: fetch is not defined` error, use Node.js version 18 or greater.
+</details>
+
+:::tip
+If you receive a `ReferenceError: fetch is not defined` error, use Node.js version 18 or greater.
+:::
 
 Use the CLI to test that your newly published package works:
 
@@ -710,6 +733,11 @@ $ sui client call --gas-budget 10000000 \
 ```
 
 A successful call responds with the following:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```sh
 ----- Transaction Digest ----
@@ -776,6 +804,8 @@ Array [
     },
 ]
 ```
+
+</details>
 
 If you used the example package provided, notice you have an `Events` section that contains a field `x` with value `41`.
 
@@ -882,6 +912,11 @@ node upgrade.js
 
 If the script is successful (and today is Tuesday), your console displays the following response:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```sh
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
@@ -943,6 +978,8 @@ BUILDING example
 }
 ```
 
+</details>
+
 Use the Sui Client CLI to test the upgraded package (the package ID is **different** from the original version of your example package):
 
 ```sh
@@ -953,6 +990,11 @@ sui client call --gas-budget 10000000 \
 ```
 
 If successful, the console prints the following response:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```sh
 ----- Transaction Digest ----
@@ -1020,11 +1062,13 @@ Array [
 ]
 ```
 
+</details>
+
 Now, the `Events` section emitted for the `x` field has a value of `42` (changed from the original `41`).
 
 If you attempt the first upgrade before Tuesday or you change the constant again and try the upgrade the following day, the script receives a response that includes an error similar to the following, which indicates that the upgrade aborted with code `2` (`ENotAllowedDay`):
 
-```
+```shell
 ...
 status: {
         status: 'failure',

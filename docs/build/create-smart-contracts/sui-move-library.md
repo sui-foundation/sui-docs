@@ -47,7 +47,7 @@ let b: &B = ofield::borrow<u8, B>(&a.id, 0);
 
 If you pass the value of a dynamic object field as an input to an entry function in a transaction, that transaction fails. For instance, if you have a chain of ownership: address `Addr1` owns object `a`, object `a` has a dynamic object field containing object `b`, and `b` has a dynamic object field containing object `c`, then in order to use object `c` in a Move call, `Addr1` must sign the transaction and accept `a` as an input, and you must access `b` and `c` dynamically during transaction execution:
 
-```
+```rust
 use sui::dynamic_object_field as ofield;
 
 // Signer of ctx is Addr1

@@ -50,7 +50,9 @@ Sui guarantees transaction processing obeys [eventual consistency](https://en.wi
 - Eventual delivery - if one honest validator processes a transaction, all other honest validators will eventually do the same.
 - Convergence - two validators that have seen the same set of transactions share the same view of the system (reach the same state).
 
-But contrary to a typical blockchain, Sui does not stop the flow of transactions in order to witness the convergence until the end of an epoch.
+:::info
+Contrary to a typical blockchain, Sui does not stop the flow of transactions in order to witness the convergence until the end of an epoch.
+:::
 
 ## Transactions on single-owner objects
 
@@ -72,7 +74,9 @@ Submitting a Sui transaction involves the following steps. These are transparent
 
 While this may sound like a lot of steps, this process allows each validator to perform the operations above in parallel without coordination--observe that none of the preceding steps require validators to communicate with each other! This significantly reduces the communication cost of committing a transaction compared to a conventional blockchain that requires O(n^2) communication among validators before achieving transaction finality.
 
-Finally, note that the role of quorum driver does not require access to any private keys, and can safely be delegated to a third party, such as a Full node, an RPC provider, or a custodial wallet.
+:::info
+Note that the role of quorum driver does not require access to any private keys, and can safely be delegated to a third party, such as a Full node, an RPC provider, or a custodial wallet.
+:::
 
 ## Transactions on shared objects
 
@@ -87,7 +91,9 @@ For transactions involving one or more shared objects, the process is as describ
 
 As mentioned, Sui does not impose a total order on the transactions containing only owned objects. Instead, transactions are [causally ordered](../../reference/sui-framework/sui-compared.md#causal-order-vs-total-order). If a transaction `T1` produces an output object `O1` used as input object in a transaction `T2`, a validator must execute `T1` before it executes `T2`. Note that `T2` does not need to use these objects directly for a causal relationship to exist, e.g., `T1` might produce output objects that are then used by `T3`, and `T2` might use `T3`'s output objects. However, transactions with no causal relationship can be processed by Sui validators in any order. This insight allows Sui to massively parallelize execution, and shard it across multiple machines.
 
+:::info
 Sui employs the [state-of-the-art Bullshark consensus protocol](https://arxiv.org/abs/2209.05633) to totally order transactions involving shared objects. The consensus sub-system also scales in the sense that it can sequence more transactions by adding more machines per validator.
+:::
 
 ## Smart contract programming
 

@@ -130,7 +130,9 @@ You can also transfer the gas coin using `transferObjects`, in the event that yo
 
 If you need the transaction block bytes, instead of signing or executing the transaction block, you can use the `build` method on the transaction builder itself.
 
-**Important:** You might need to explicitly call `setSender()` on the transaction block to ensure that the `sender` field is populated. This is normally done by the signer before signing the transaction, but will not be done automatically if you’re building the transaction block bytes yourself.
+:::tip
+You might need to explicitly call `setSender()` on the transaction block to ensure that the `sender` field is populated. This is normally done by the signer before signing the transaction, but will not be done automatically if you’re building the transaction block bytes yourself.
+:::
 
 ```tsx
 const txb = new TransactionBlock();
@@ -184,7 +186,9 @@ txb.setGasPrice(gasPrice);
 
 By default, the gas budget is automatically derived by executing a dry-run of the transaction block beforehand. The dry run gas consumption is then used to determine a balance for the transaction. You can override this behavior by explicitly setting a gas budget for the transaction, by calling `setGasBudget` on the transaction builder.
 
-**Note:** The gas budget is represented in Sui, and should take the gas price of the transaction block into account.
+:::info
+The gas budget is represented in Sui, and should take the gas price of the transaction block into account.
+:::tip
 
 ```tsx
 txb.setGasBudget(gasBudgetAmount);
@@ -208,7 +212,9 @@ The Wallet Standard interface has been updated to support the `TransactionBlock`
 
 To serialize a transaction block for sending to a wallet, Sui recommends using the `txb.serialize()` function, which returns an opaque string representation of the transaction block that can be passed from the wallet standard dapp context to your wallet. This can then be converted back into a `TransactionBlock` using `TransactionBlock.from()`.
 
-**Important:** You should not build the transaction block from bytes in the dApp code. Using `serialize` instead of `build` allows you to build the transaction block bytes within the wallet itself. This allows the wallet to perform gas logic and coin selection as needed.
+:::tip
+You should not build the transaction block from bytes in the dApp code. Using `serialize` instead of `build` allows you to build the transaction block bytes within the wallet itself. This allows the wallet to perform gas logic and coin selection as needed.
+:::
 
 ```tsx
 // Within a dApp

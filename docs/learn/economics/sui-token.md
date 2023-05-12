@@ -5,7 +5,7 @@ slug: /sui-token
 
 Sui’s native asset is called SUI. The token uses the capitalized version of SUI to distinguish the token from the Sui platform.
 
-The total supply of SUI is capped at 10,000,000,000 (i.e. ten billion tokens). A share of SUI’s total supply will be liquid at Mainnet launch, with the remaining tokens vesting over the coming years or distributed as future stake reward subsidies.
+The total supply of SUI is capped at **10,000,000,000** (i.e. ten billion tokens). A share of SUI’s total supply will be liquid at Mainnet launch, with the remaining tokens vesting over the coming years or distributed as future stake reward subsidies.
 
 The SUI token serves four purposes on the Sui platform:
 

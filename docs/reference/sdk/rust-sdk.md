@@ -9,7 +9,9 @@ The [Sui SDK](https://github.com/MystenLabs/sui/tree/main/crates/sui-sdk) is a c
 
 Use the [`SuiClient`](../../build/setup/cli/client-cli.md) to create an HTTP or a WebSocket client (`SuiClient::new`). See the [JSON-RPC](../json-rpc/json-rpc-api.md#sui-json-rpc-methods) documentation for the list of available methods.
 
-**Note:** The WebSocket client supports only [subscription](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events); use the HTTP client for other API methods.
+:::tip
+The WebSocket client supports only [subscription](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events); use the HTTP client for other API methods.
+:::
 
 ## References
 
@@ -128,4 +130,6 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 ```
 
-**Note:** The Event subscription service requires a running Sui Full node. To learn more, see [Full node setup](../../contribute/nodes/full-node.md#fullnode-setup).
+:::info
+The Event subscription service requires a running Sui Full node. To learn more, see [Full node setup](../../contribute/nodes/full-node.md#fullnode-setup).
+:::

@@ -44,7 +44,9 @@ To restore from a snapshot, follow these steps:
    `sudo chown -R sui:sui  /opt/sui/db/authorities_db/full_node_db/live`
 1. Start the Sui node.
 
-**Note:** when you restore a Full node from a snapshot, write it to the path `/opt/sui/db/authorities_db/full_node_db/live`. To restore a Validator node, use the path `/opt/sui/db/authorities_db/live`
+:::tip
+when you restore a Full node from a snapshot, write it to the path `/opt/sui/db/authorities_db/full_node_db/live`. To restore a Validator node, use the path `/opt/sui/db/authorities_db/live`
+:::
 
 ## S3 buckets used per environment
 

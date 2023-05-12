@@ -1,5 +1,6 @@
 ---
 title: Contribute to Documentations
+sidebar_label: Docs Contribution
 slug: /contribution-process
 ---
 
@@ -19,8 +20,7 @@ Cloning the documentation locally is recommended when you are creating larger, m
 1. Once you have made all your changes, first rebase locally from `main` (`git rebase main`), create a local commit (`git commit -m “message”`) and then push all your changes to your forked repository (`git push`).
 1. To view your changes via `localhost`, enter `yarn` into a terminal at the root directory to build the project, then `yarn start` to view the changes on `localhost` to ensure that the website works as intended. To learn more `yarn`, including how to install it if you have not yet already done so, see here.
 
-
-## For Beginners 
+## For Beginners
 
 Editing the documentation via GitHub’s web interface is recommended if you are not familiar with working in an IDE, or for smaller changes.
 

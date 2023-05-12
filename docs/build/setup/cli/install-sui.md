@@ -88,7 +88,9 @@ After you install Rust, proceed to the prerequisites for your operating system.
 
 ## Linux prerequisites
 
-**Note:** The Linux instructions assume a distribution that uses the APT package manager. You might need to adjust the instructions to use other package managers.
+:::info
+The Linux instructions assume a distribution that uses the APT package manager. You might need to adjust the instructions to use other package managers.
+:::
 
 Install the prerequisites listed in this section. Use the following command to update `apt-get`:
 
@@ -303,8 +305,8 @@ sui client active-address
 
 1.  Request tokens in the [#devnet-faucet](https://discord.com/channels/916379725201563759/971488439931392130) channel using the syntax: `!faucet <YOUR_ADDRESS>`, for example:
     `shell
-  !faucet 0xa56612ad4f5dbc04c651e8d20f56af3316ee6793335707f29857bacabf9127d0
-  `
+!faucet 0xa56612ad4f5dbc04c651e8d20f56af3316ee6793335707f29857bacabf9127d0
+`
     A bot on the channel distributes tokens to your address.
 
 ## Source code
@@ -326,4 +328,3 @@ The following primary directories offer a good starting point for exploring Sui'
 - [sui-types](https://github.com/MystenLabs/sui/tree/main/crates/sui-types) - Sui object types, such as coins and gas
 - [explorer](https://github.com/MystenLabs/sui/tree/main/apps/explorer) - browser-based object explorer for the Sui network
 - [sui-network](https://github.com/MystenLabs/sui/tree/main/crates/sui-network) - networking interfaces
-

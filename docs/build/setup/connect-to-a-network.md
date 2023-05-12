@@ -54,13 +54,13 @@ If you receive the `sui-client` help output in the console, you already have a c
 
 The first time you start Sui client without having a client.yaml file, the console displays the following message:
 
-```
+```sh
 Config file ["<PATH-TO-FILE>/client.yaml"] doesn't exist, do you want to connect to a Sui Full node server [y/N]?
 ```
 
 Press **y** and then press **Enter**. The process then requests the RPC server URL:
 
-```
+```sh
 Sui Full node server URL (Defaults to Sui Devnet if not specified) :
 ```
 
@@ -68,13 +68,13 @@ Press **Enter** to connect to Sui Devnet. To use a custom RPC server, Sui Testne
 
 If you enter a URL, the process prompts for an alias for the environment:
 
-```
+```sh
 Environment alias for [<URL-ENTERED>] :
 ```
 
 Type an alias name and press **Enter**.
 
-```
+```sh
 Select key scheme to generate keypair (0 for ed25519, 1 for secp256k1, 2 for secp256r1):
 ```
 
@@ -82,7 +82,7 @@ Press **0**, **1**, or **2** to select a key scheme and the press **Enter**.
 
 Sui returns a message similar to the following (depending on the key scheme you selected) that includes the address and 24-word recovery phrase for the address:
 
-```
+```sh
 Generated new keypair for address with scheme "ed25519" [0xb9c83a8b40d3263c9ba40d551514fbac1f8c12e98a4005a0dac072d3549c2442]
 Secret Recovery Phrase : [cap wheat many line human lazy few solid bored proud speed grocery raise erode there idea inform culture cousin shed sniff author spare carpet]
 ```
@@ -140,6 +140,11 @@ sui client publish <your-sui-repo>/sui_programmability/examples/move_tutorial --
 ```
 
 The response resembles the following:
+
+<details>
+  <summary>
+  Show output
+  </summary>
 
 ```shell
 INCLUDING DEPENDENCY Sui
@@ -232,6 +237,8 @@ Array [
 ]
 ```
 
+</details>
+
 The package publish operation creates several objects:
 
 - A package object (with ID `0x0c1c...305a` in the example output).
@@ -268,6 +275,11 @@ sui client call --function sword_create --module my_module --package 0x<PACKAGE-
 ```
 
 The response resembles the following:
+
+<details>
+  <summary>
+  Show output
+  </summary>
 
 ```shell
 ----- Transaction Digest ----
@@ -345,6 +357,8 @@ Array [
     },
 ]
 ```
+
+</details>
 
 Go to the Sui Explorer to observe a newly created object. You should see a sword object created with `Magic` property of `42` and `Strength` property of `7` and transferred to the new owner.
 

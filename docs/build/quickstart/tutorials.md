@@ -34,6 +34,11 @@ times (such as when you change some Move source code), the following automated s
 may be useful to save some time.
 Run this script from the project repo root.
 
+<details>
+  <summary>
+  Quick script
+  </summary>
+
 ```sh
 #!/bin/bash
 # a bash script to automate the process of publishing the game package
@@ -76,6 +81,8 @@ sui client call --package $PACKAGE_ID --module tic_tac_toe --function create_gam
 
 # start playing the game ...
 ```
+
+</details>
 
 ## Gather addresses and gas objects
 
@@ -129,6 +136,11 @@ $ sui client publish ./sui/sui_programmability/examples/games --gas $ADMIN_GAS -
 
 The response resembles the following:
 
+<details>
+  <summary>
+  Show output
+  </summary>
+
 ```shell
 ----- Certificate ----
 Signed Authorities : ...
@@ -139,6 +151,8 @@ The newly published package object: (A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17, S
 List of objects created by running module initializers: []
 Updated Gas : Coin { id: 38B89FE9F4A4823F1406938E87A8767CBD7F0B93, value: 92939 }
 ```
+
+</details>
 
 The package successfully published. Some gas was charged: the initial gas value was 100000, now it's 92939. The newly published package has the ID `A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17`. Note that this ID is different than ID for the package you publish.
 
@@ -167,6 +181,11 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function create_game
 
 The response resembles the following:
 
+<details>
+  <summary>
+  Show output
+  </summary>
+
 ```shell
 ----- Certificate ----
 Signed Authorities : ...
@@ -187,6 +206,8 @@ F1B8161BD97D3CD6627E739AD675089C5ACFB452 SequenceNumber(1) o#1c92bdf7646cad2a653
 Mutated Objects:
 38B89FE9F4A4823F1406938E87A8767CBD7F0B93 SequenceNumber(2) o#26dbaf7ec2032a6270a45498ad46ac0b1ddbc361fcff20cadafaf5d39b8181b1
 ```
+
+</details>
 
 The preceding call created three objects. For each object, it printed out a tuple of three values (object_id, version, object_digest). Object ID is the important value here. Since there is no application here to display objects, you need a bit of object printing magic to figure out which object is which. Let's print out the metadata of each created object (replace the object ID with what you see on your screen):
 
@@ -221,7 +242,7 @@ There are two `MarkMintCap` objects (for capability of minting a mark for each p
 
 Add the above three object IDs to these environment variables:
 
-```
+```sh
 $ export XCAP=A6D3B507D4533822E690291166891D42694A2721
 export OCAP=5851B7EA07B93E68696BC0CF811D2E266DFB880D
 export GAME=F1B8161BD97D3CD6627E739AD675089C5ACFB452
@@ -230,7 +251,7 @@ export GAME=F1B8161BD97D3CD6627E739AD675089C5ACFB452
 By convention, PlayerX goes first. PlayerX wants to put a mark at the center of the gameboard ((1, 1)). This needs to take two steps. First PlayerX creates a Mark object with the placement intention and send it to the admin.
 Then call the `send_mark_to_game` function in `TicTacToe`, whose signature looks like this:
 
-```
+```rust
 public entry fun send_mark_to_game(cap: &mut MarkMintCap, game_address: address, row: u64, col: u64, ctx: &mut TxContext);
 ```
 
@@ -241,6 +262,11 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 ```
 
 And its output:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```shell
 ----- Certificate ----
@@ -261,6 +287,8 @@ Mutated Objects:
 ...
 ```
 
+</details>
+
 The above call created a Mark object, with ID `AE3CE9176F1A8C1F21D922722486DF667FA00394`, and it was sent to the admin.
 The admin can now place the mark on the gameboard. The function to place the mark looks like this:
 
@@ -276,7 +304,7 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark 
 
 The gameboard now looks like this (this won't be printed out, so keep it in your imagination):
 
-```
+```sh
 _|_|_
 _|X|_
  | |
@@ -290,6 +318,11 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 With output like:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```shell
 ----- Certificate ----
 ...
@@ -300,13 +333,22 @@ Created Objects:
 ...
 ```
 
-Note, in this second call, the second argument comes from the created objects in the first call.
+</details>
+
+:::info
+In this second call, the second argument comes from the created objects in the first call.
+:::
 
 ```shell
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0x7A16D266DAD41145F34649258BC1F744D147BF2F --gas $ADMIN_GAS --gas-budget 1000
 ```
 
 With output like:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```shell
 ----- Certificate ----
@@ -316,9 +358,11 @@ Status : Success { gas_used: 679 }
 ...
 ```
 
+</details>
+
 The gameboard now looks like this:
 
-```
+```sh
 O|_|_
 _|X|_
  | |
@@ -332,6 +376,11 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 With output like:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```shell
 ----- Certificate ----
 ...
@@ -342,6 +391,8 @@ Created Objects:
 ...
 ```
 
+</details>
+
 Then run:
 
 ```shell
@@ -350,7 +401,7 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark 
 
 The gameboard now looks like this:
 
-```
+```sh
 O|_|X
 _|X|_
  | |
@@ -364,6 +415,11 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 With output like:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```shell
 ----- Certificate ----
 ...
@@ -374,6 +430,8 @@ Created Objects:
 ...
 ```
 
+</details>
+
 Now run:
 
 ```shell
@@ -383,7 +441,7 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark 
 
 The gameboard now looks like:
 
-```
+```sh
 O|_|X
 O|X|_
  | |
@@ -397,6 +455,11 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 And its output:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```shell
 ----- Certificate ----
 ...
@@ -407,6 +470,8 @@ AA7A6624E16E5E447801462FF6614013FC4AD156 SequenceNumber(1) o#e5e1b15f03531db118e
 ...
 ```
 
+</details>
+
 And then finally the admin places the winning mark:
 
 ```shell
@@ -414,6 +479,11 @@ And then finally the admin places the winning mark:
 ```
 
 With output:
+
+<details>
+  <summary>
+  Show output
+  </summary>>
 
 ```shell
 ----- Certificate ----
@@ -426,6 +496,8 @@ Mutated Objects:
 ...
 ```
 
+</details>
+
 Cool! The last transaction created a new object. To find out what object was created:
 
 ```shell
@@ -434,6 +506,11 @@ $ sui client object 54B58C0D5B14A269B1CD424B3CCAB1E315C43343
 
 See output resembling:
 
+<details>
+  <summary>
+  Show output
+  </summary>>
+
 ```shell
 Owner: AddressOwner(k#0x011a285261b9f8d10a0c7ecb4c0dbe6d396825768dba38c3056809472736e521)
 Version: 1
@@ -441,6 +518,8 @@ ID: 54B58C0D5B14A269B1CD424B3CCAB1E315C43343
 Readonly: false
 Type: 0xa613a7ff8cb03e0dfc0d157e232bba50c5f19d17::TicTacToe::Trophy
 ```
+
+</details>
 
 PlayerX has received a Trophy object and hence won the game!
 

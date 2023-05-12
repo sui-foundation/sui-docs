@@ -50,7 +50,7 @@ Public key in hex: $PK
 
 2. Call the verify method in Move. All inputs are represented in bytes in hex format:
 
-```move
+```rust
     use sui::ed25519;
 
     let msg = x"$MSG";
@@ -77,7 +77,7 @@ Public key in hex: $PK
 
 2. Call the verify method in Move.
 
-```move
+```rust
     use sui::ecdsa_k1;
     let msg = x"$MSG";
     let pk = x"$PK";
@@ -104,7 +104,7 @@ Public key in hex: $PK
 
 2. Call the ecrecover method in Move and check equality.
 
-```move
+```rust
     let msg = x"$MSG";
     let pk = x"$PK";
     let sig = x"$SIG";
@@ -129,7 +129,7 @@ Public key in hex: $PK
 
 2. Call the verify method in Move.
 
-```move
+```rust
     use sui::ecdsa_r1;
 
     let msg = x"$MSG";
@@ -157,7 +157,7 @@ Public key in hex: $PK
 
 2. Call the ecrecover method in Move and check equality.
 
-```move
+```rust
     use sui::ecdsa_r1;
 
     let msg = x"$MSG";
@@ -185,7 +185,7 @@ Public key in hex: $PK
 
 2. Call the verify method in Move.
 
-```move
+```rust
     use sui::bls12381;
 
     let msg = x"$MSG";
@@ -212,7 +212,7 @@ Public key in hex: $PK
 
 2. Call the verify method in Move.
 
-```move
+```rust
     use sui::bls12381;
 
     let msg = x"$MSG";

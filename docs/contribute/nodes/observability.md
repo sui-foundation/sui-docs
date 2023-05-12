@@ -8,7 +8,9 @@ Good observability capabilities are key to the development and growth of Sui. Th
 
 The observability stack in Sui is based on the [Tokio tracing](https://tokio.rs/blog/2019-08-tracing) library. The rest of this document highlights specific aspects of achieving good observability through structured logging and metrics in Sui.
 
-**Note:** The output here is largely for the consumption of Sui operators, administrators, and developers. The content of logs and traces do not represent the authoritative, certified output of validators and are subject to potentially byzantine behavior.
+:::info
+The output here is largely for the consumption of Sui operators, administrators, and developers. The content of logs and traces do not represent the authoritative, certified output of validators and are subject to potentially byzantine behavior.
+:::
 
 ## Contexts, scopes, and tracing transaction flow
 
@@ -97,7 +99,7 @@ You can send this output to a tool or service for indexing, alerts, aggregation,
 
 The following example output shows certificate processing in the authority with span logging. Note the `START` and `END` annotations, and notice how `DB_UPDATE_STATE` which is nested is embedded within `PROCESS_CERT`. Also notice `elapsed_milliseconds`, which logs the duration of each span.
 
-```
+```sh
 {"v":0,"name":"sui","msg":"[PROCESS_CERT - START]","level":20,"hostname":"Evan-MLbook.lan","pid":51425,"time":"2022-03-08T22:48:11.241421Z","target":"sui_core::authority_server","line":67,"file":"sui_core/src/authority_server.rs","tx_digest":"t#d1385064287c2ad67e4019dd118d487a39ca91a40e0fd8e678dbc32e112a1493"}
 {"v":0,"name":"sui","msg":"[PROCESS_CERT - EVENT] Read inputs for transaction from DB","level":20,"hostname":"Evan-MLbook.lan","pid":51425,"time":"2022-03-08T22:48:11.246688Z","target":"sui_core::authority","line":393,"file":"sui_core/src/authority.rs","num_inputs":2,"tx_digest":"t#d1385064287c2ad67e4019dd118d487a39ca91a40e0fd8e678dbc32e112a1493"}
 {"v":0,"name":"sui","msg":"[PROCESS_CERT - EVENT] Finished execution of transaction with status Success { gas_used: 18 }","level":20,"hostname":"Evan-MLbook.lan","pid":51425,"time":"2022-03-08T22:48:11.246759Z","target":"sui_core::authority","line":409,"file":"sui_core/src/authority.rs","gas_used":18,"tx_digest":"t#d1385064287c2ad67e4019dd118d487a39ca91a40e0fd8e678dbc32e112a1493"}
@@ -125,7 +127,9 @@ SUI_TRACING_ENABLE=1 RUST_LOG="info,sui_core=trace" ./sui start
 1.  Run some transfers with Sui CLI client, or run the benchmarking tool.
 1.  Browse to `http://localhost:16686/` and select Sui as the service.
 
-**Note:** - Separate spans (that are not nested) are not connected as a single trace for now.
+:::info
+Separate spans (that are not nested) are not connected as a single trace for now.
+:::
 
 ### Live async inspection / Tokio Console
 
@@ -135,7 +139,9 @@ SUI_TRACING_ENABLE=1 RUST_LOG="info,sui_core=trace" ./sui start
 1.  Start Sui with `SUI_TOKIO_CONSOLE` set to 1.
 1.  Clone the console repo and `cargo run` to launch the console.
 
-**Note:** Adding Tokio-console support might significantly slow down Sui validators/gateways.
+:::tip
+Adding Tokio-console support might significantly slow down Sui validators/gateways.
+:::
 
 ### Memory profiling
 
@@ -154,7 +160,8 @@ To view the profile files, one needs to do the following, on the same platform a
 1.  Run `jeprof --svg sui-node jeprof.xxyyzz.heap` - select the heap profile based on
     timestamp and memory size in the filename.
 
-**Note:** With automatic memory profiling, it is no longer necessary to configure environment variables beyond those previously listed. It is possible to configure custom profiling options:
+:::tip
+With automatic memory profiling, it is no longer necessary to configure environment variables beyond those previously listed. It is possible to configure custom profiling options:
 
 - [Heap Profiling](https://github.com/jemalloc/jemalloc/wiki/Use-Case%3A-Heap-Profiling)
 - [heap profiling with jemallocator](https://gist.github.com/ordian/928dc2bd45022cddd547528f64db9174)
@@ -163,3 +170,4 @@ For example, set `_RJEM_MALLOC_CONF` to:
 `prof:true,lg_prof_interval:24,lg_prof_sample:19`
 
 The preceding setting means: turn on profiling, sample every 2^19 or 512KB bytes allocated, and dump out the profile every 2^24 or 16MB of memory allocated. However, the automatic profiling is designed to produce files that are better named and at less intervals, so overriding the default configuration is not usually recommended.
+:::

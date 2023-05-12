@@ -3,7 +3,9 @@ title: Sui Full Node
 slug: /full-node
 ---
 
-**Note:** These instructions are for advanced users. If you just need a local development environment, you should instead follow the instructions in [Create a Local Sui Network](../../build/setup/local-network.md) to create a local Full node, validators, and faucet.
+:::info
+These instructions are for advanced users. If you just need a local development environment, you should instead follow the instructions in [Create a Local Sui Network](../../build/setup/local-network.md) to create a local Full node, validators, and faucet.
+:::
 
 Sui Full nodes validate blockchain activities, including transactions, checkpoints, and epoch changes. Each Full node stores and services the queries for the blockchain state and history.
 
@@ -181,13 +183,13 @@ If you receive a `cannot find -lpq` error, you are missing the `libpq` library. 
 
 If you receive the following error:
 
-```
+```sh
 panicked at 'error binding to 0.0.0.0:9184: error creating server listener: Address already in use (os error 98)
 ```
 
 Then update the metrics address in your fullnode.yaml file to use port `9180`.
 
-```
+```sh
 metrics-address: "0.0.0.0:9180"
 ```
 

@@ -25,11 +25,17 @@ Find a detailed description of each change below.
 
 ## Object-centric global storage
 
-In core Move, global storage is part of the programming model and can be accessed through special operations, such as _move_to_, _move_from and_ many more[ global storage operators](https://move-language.github.io/move/global-storage-operators.html). Both resources and modules are stored in the core Move global storage. When you publish a module, it’s stored into a newly generated module address inside Move. When a new object (a.k.a. resource) is created, it's usually stored into some address, as well.
+In core Move, global storage is part of the programming model and can be accessed through special operations, such as `move_to`, `move_from` and many more[ global storage operators](https://move-language.github.io/move/global-storage-operators.html). Both resources and modules are stored in the core Move global storage. When you publish a module, it’s stored into a newly generated module address inside Move. When a new object (a.k.a. resource) is created, it's usually stored into some address, as well.
 
 But on-chain storage is expensive and limited (not optimized for storage and indexing). Current blockchains cannot scale to handle storage-heavy applications such as marketplaces and social apps.
 
-So there is no global storage in Sui Move. None of the global storage-related operations are allowed in Sui Move. (There is a bytecode verifier for this to detect violations.) Instead, storage happens exclusively within Sui. When you publish a module, the newly published module is stored in Sui storage, instead of Move storage. Similarly, newly created objects are stored in Sui storage. _This also means that when you need to read an object in Move, you cannot rely on global storage operations but instead Sui must explicitly pass all objects that need to be accessed into Move._
+So there is no global storage in Sui Move. None of the global storage-related operations are allowed in Sui Move. (There is a bytecode verifier for this to detect violations.) Instead, storage happens exclusively within Sui. When you publish a module, the newly published module is stored in Sui storage, instead of Move storage. Similarly, newly created objects are stored in Sui storage.
+
+:::info
+
+When you need to read an object in Move, you cannot rely on global storage operations but instead Sui must explicitly pass all objects that need to be accessed into Move.
+
+:::
 
 ## Addresses represent Object IDs
 
@@ -54,8 +60,10 @@ As described in [Object-centric global storage](#object-centric-global-storage),
 
 ## Entry points take object references as input
 
-Sui offers entry functions that can be called directly from Sui, in addition to functions callable from other functions. See [Entry functions](../../build/create-smart-contracts/smart-contracts.md#entry-functions).
+Sui offers entry functions that can be called directly from Sui, in addition to functions callable from other functions.
+See [Entry functions](../../build/create-smart-contracts/smart-contracts.md#entry-functions).
 
 ## Conclusion
 
-In summary, Sui takes advantage of Move’s security and flexibility and enhances it with the features described above to vastly improve throughput, reduce delays in finality, and make Sui Move programming easier. Now see [how Sui works](../core-concepts/how-sui-works.md). For full details, see the [Sui Smart Contracts Platform](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) white paper.
+In summary, Sui takes advantage of Move’s security and flexibility and enhances it with the features described above to vastly improve throughput, reduce delays in finality, and make Sui Move programming easier. Now see [how Sui works](../core-concepts/how-sui-works.md).
+For full details, see the [Sui Smart Contracts Platform](https://github.com/MystenLabs/sui/blob/main/doc/paper/sui.pdf) white paper.

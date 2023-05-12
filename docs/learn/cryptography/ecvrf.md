@@ -50,7 +50,7 @@ Output: 2b7e45821d80567761e8bb3fc519efe5ad80cdb4423227289f960319bbcf6eea1aef30c0
 
 The proof and output can be verified in a smart contract using `sui::ecvrf::ecvrf_verify` from the Sui Move framework:
 
-```move
+```rust
 module math::ecvrf_test {
     use sui::ecvrf;
     use sui::event;

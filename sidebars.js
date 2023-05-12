@@ -99,7 +99,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Environment setup',
+      label: 'Environment Setup',
       items: [
         'build/setup/connect-to-a-network',
         'build/setup/faucet',
@@ -214,11 +214,7 @@ const sidebars = {
       label: 'JSON-RPC',
       items: [
         'reference/json-rpc/json-rpc-api',
-        {
-          type: 'link',
-          label: 'SuiJSON',
-          href: 'https://docs.sui.io/reference/sui-json',
-        },
+        'reference/json-rpc/sui-json-format',
         'reference/json-rpc/sui-json-rpc',
       ],
     },
@@ -299,7 +295,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Run a node on Sui',
+      label: 'Run a Node on Sui',
       items: [
         'contribute/nodes/full-node',
         'contribute/nodes/validator',

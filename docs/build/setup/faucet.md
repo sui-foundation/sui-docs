@@ -25,7 +25,7 @@ You can request test tokens within [Sui Wallet](https://github.com/MystenLabs/my
 
 Use the following cURL command to request tokens directly from the faucet server:
 
-```
+```shell
 curl --location --request POST 'https://faucet.devnet.sui.io/gas' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -41,12 +41,10 @@ Replace `'https://faucet.devnet.sui.io/gas'` with `http://127.0.0.1:5003/gas` wh
 
 You can also access the faucet through the TS-SDK.
 
-```
-import { JsonRpcProvider, devnetConnection } from '@mysten/sui.js';
+```ts
+import { JsonRpcProvider, devnetConnection } from "@mysten/sui.js";
 // connect to Devnet
 const provider = new JsonRpcProvider(devnetConnection);
 // get tokens from the Devnet faucet server
-await provider.requestSuiFromFaucet(
-  '<YOUR SUI ADDRESS>'
-);
+await provider.requestSuiFromFaucet("<YOUR SUI ADDRESS>");
 ```

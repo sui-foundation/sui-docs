@@ -27,7 +27,7 @@ describing package configuration, such as package metadata and package dependenc
 
 The minimal package source directory structure looks as follows and contains the manifest file, the lock file, and the `sources` subdirectory where one or more module files are located:
 
-```
+```shell
 my_move_package
 ├── Move.lock
 ├── Move.toml
@@ -54,7 +54,9 @@ module sui::coin {
 
 Don't worry about the rest of the module contents for now; you can read more about [modules](https://github.com/move-language/move/blob/main/language/documentation/book/src/modules-and-scripts.md#modules) in the Move book later.
 
-**Important:** In Sui Move, package names are always in PascalCase, while the address alias is lowercase, for example `sui = 0x2` and `std = 0x1`. So: `Sui` = name of the imported package (Sui = sui framework), `sui` = address alias of `0x2`, `sui::sui` = module sui under the address `0x2`, and `sui::sui::SUI` = type in the module above.
+:::info
+In Sui Move, package names are always in PascalCase, while the address alias is lowercase, for example `sui = 0x2` and `std = 0x1`. So: `Sui` = name of the imported package (Sui = sui framework), `sui` = address alias of `0x2`, `sui::sui` = module sui under the address `0x2`, and `sui::sui::SUI` = type in the module above.
+:::
 
 When you define a module, specify the module name (`coin`) preceded by the name of the package where this module resides (`sui`). The combination of the package name and the module name uniquely identifies a module in Sui Move source code. The package name is globally unique, but different packages can contain modules with the same name. While module names are not unique, when they combine with their unique package name they result in a unique combination.
 
@@ -65,7 +67,7 @@ While you can't name different packages the same, you can upgrade a package on c
 In addition to having a presence at the source code level, as discussed in [Sui Move code organization](#move-code-organization), a
 package in Sui is also a Sui object and must have a unique numeric ID in addition to a unique name, which is assigned in the manifest file:
 
-```
+```toml
 [addresses]
 sui = "0x2"
 ```

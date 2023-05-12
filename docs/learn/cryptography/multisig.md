@@ -48,7 +48,7 @@ $SUI_BINARY keytool list
 
 The response resembles the following, but displays actual addresses and keys:
 
-```
+```sh
 Sui Address | Public Key (Base64) | Scheme
 --------------------------------------------------------------------------
 $ADDR_1     | $PK_1               | secp256r1
@@ -67,7 +67,7 @@ MultiSig address: $MULTISIG_ADDR
 
 The response resembles the following:
 
-```
+```sh
 Participating parties:
 Sui Address | Public Key (Base64)| Weight
 ------------------------------------------
@@ -86,7 +86,7 @@ curl --location --request POST 'http://127.0.0.1:9123/gas' --header 'Content-Typ
 
 The response resembles the following:
 
-```
+```sh
 {"transferred_gas_objects":[{"amount":200000,"id":"$OBJECT_ID", ...}]}
 ```
 
