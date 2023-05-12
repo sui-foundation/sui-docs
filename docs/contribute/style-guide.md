@@ -12,7 +12,7 @@ This document defines the styles, word and term usage, and content formatting fo
 
 ## Contribute to the style guide
 
-The style guide is a living document and should be updated as new cases or needs arise. To suggest updates to the style guide, please contact [Wayne Cunningham](mailto:wayne@sui.io?subject=Sui Style Guide Update), Sui Foundation Staff Technical Content Manager.
+The style guide is a living document and should be updated as new cases or needs arise. To suggest updates to the style guide, please contact the Sui Foundation using this address: author@sui.io.
 
 
 ## Accessibility
@@ -37,7 +37,6 @@ An image is not a substitute for text; images should only supplement text. Do no
 
 
 ## Acronyms
-
 Spell out a term or phrase on first use in a topic, followed by the acronym in parentheses. Then use the acronym for subsequent mentions.
 
 **Example**
@@ -45,45 +44,68 @@ Spell out a term or phrase on first use in a topic, followed by the acronym in p
 >You can mint non-fungible tokens (NFTs) using your Sui Wallet. To view an NFT after you mint it, click the NFTs tab of your wallet.
 
 
-## Alerts, notes, callouts
-
-Use alerts or notes to add emphasis to information. Use sentence case for the admonition type (Note, Warning) and include the colon in bold.
-
-### Important
-
-Use Important to convey information to help the reader avoid an error or unexpected outcome.
-
-**Example**
-
-> **Important:** You must clone the latest version of the Sui repo before you run the Docker script.
-
-**Markdown**
-
-```
-**Important:** You must clone the latest version of the Sui repo before you run the Docker script.
-```
+## Alerts
+Alerts  add emphasis to information. Use Admonitions, a Docusaurus feature, to indicate the alert is a Note, Tip, or Caution. The explanation in the alert must be a complete sentence and use sentence case.
 
 ### Note
-
 Use Note to add emphasis to information that the reader should know, but could be overlooked when scanning a topic or document. Provide information that prevents users from getting stuck.
 
 **Example**
-> Note: The system processes updates only once every 24 hours at UTC 00:00.
+
+:::note 
+
+The system processes updates only once every 24 hours at UTC 00:00.
+
+:::
 
 **Markdown**
 ```
-**Note:** The system processes updates only once every 24 hours at UTC 00:00.
+:::note 
+
+The system processes updates only once every 24 hours at UTC 00:00.
+
+:::
 ```
 
-### Warning
-Use Warning when the information could cause the user to lose data or to start over. If you instruct a user to delete something, warn them about what happens when they delete it.
+### Tip
+Use Tip to give the reader advice that might be helpful, such as a best practice.
 
 **Example**
-> Warning: Backup your configuration files before you delete your network.
- 
+
+:::tip 
+
+Change your home directory after installing the IDE.
+
+:::
+
 **Markdown**
 ```
-**Warning:** Backup your configuration files before you delete your network.
+:::tip 
+
+Change your home directory after installing the IDE.
+
+:::
+```
+
+### Caution
+Use Caution when the information could cause the user to lose data or to start over. If you instruct a user to delete something, warn them about what happens when they delete it.
+
+**Example**
+
+:::caution
+
+Backup your configuration files before you delete your network.
+
+:::
+
+**Markdown**
+```
+
+:::caution
+
+Backup your configuration files before you delete your network.
+
+:::
 ```
 
 ## Capitalization
