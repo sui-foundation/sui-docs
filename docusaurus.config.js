@@ -82,22 +82,18 @@ const config = {
         },
         items: [
           {
-            type: "default",
             to: "/learn",
             label: "Learn",
           },
           {
-            type: "default",
             to: "/build",
             label: "Build",
           },
           {
-            type: "default",
             to: "/reference",
             label: "Reference",
           },
           {
-            type: "default",
             to: "/contribute",
             label: "Contribute",
           },
