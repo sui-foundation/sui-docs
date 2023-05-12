@@ -36,6 +36,17 @@ const config = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/sui-foundation/sui-docs/tree/main/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "Latest",
+              path: "/",
+            },
+          },
+          onlyIncludeVersions: [
+            "current",
+            "1.0.0",
+          ],
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -93,6 +104,11 @@ const config = {
           {
             type: "localeDropdown",
             position: "right",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+            dropdownActiveClassDisabled: true,
           },
         ],
       },
