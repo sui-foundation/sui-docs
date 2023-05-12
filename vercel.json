@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/:path(.*)/learn", "destination": "/:path/about-sui" },
+    { "source": "/:path(.*)/build", "destination": "/:path/about-sui-move" },
+    { "source": "/:path(.*)/reference", "destination": "/:path/sui-framework-reference" },
+    { "source": "/:path(.*)/contribute", "destination": "/:path/contribution-process" }
+  ]
+}
