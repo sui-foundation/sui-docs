@@ -82,23 +82,23 @@ const config = {
         },
         items: [
           {
-            type: "doc",
-            docId: "learn/about-sui/about-sui",
+            type: "default",
+            to: "/learn",
             label: "Learn",
           },
           {
-            type: "doc",
-            docId: "build/quickstart/about",
+            type: "default",
+            to: "/build",
             label: "Build",
           },
           {
-            type: "doc",
-            docId: "reference/sui-framework/sui-framework-reference",
+            type: "default",
+            to: "/reference",
             label: "Reference",
           },
           {
-            type: "doc",
-            docId: "contribute/contribution-process",
+            type: "default",
+            to: "/contribute",
             label: "Contribute",
           },
           {
