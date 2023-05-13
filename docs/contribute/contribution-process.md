@@ -26,11 +26,11 @@ Editing the documentation via GitHub’s web interface is recommended if you are
 
 Before making any changes, you will have to fork this repository and make any edits in your own fork first. To fork the repo, click the `Fork` button in the upper-right of the docs' [GitHub repository](https://github.com/sui-foundation/sui-docs) to create a copy of the documentation.
 
-**Add New Page
+**Add New Page**
 
 Navigate to the `docs` directory, then navigate to the appropriate subdirectory and click the `Add file` button in the top-right. Select `create new file` to create a new file and edit it directly on GitHub’s web interface.
 
-**Change Existing Page
+**Change Existing Page**
 
 To change an existing page, navigate to the file you want to edit, click on the pencil icon in the top-right, and edit your changes there.
 
