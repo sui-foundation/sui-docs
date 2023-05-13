@@ -9,7 +9,7 @@ As open source software, Sui depends on community contributions. This page cover
 
 In order to make changes to the documentation, you can do so directly via forking and cloning the repository to your local machine and making changes from your preferred IDE of choice, or by the web interface on GitHub. This guide will cover both scenarios. All changes to the documentation must follow the style guide (hyperlink), as well as the review process and information on the editors throughout the process.
 
-# Set Up Environment Locally
+## Set Up Environment Locally
 
 Cloning the documentation locally is recommended when you are creating larger, more significant changes to the docs.
 
@@ -20,7 +20,7 @@ Cloning the documentation locally is recommended when you are creating larger, m
 1. To view your changes via `localhost`, enter `yarn` into a terminal at the root directory to build the project, then `yarn start` to view the changes on `localhost` to ensure that the website works as intended. To learn more `yarn`, including how to install it if you have not yet already done so, see here.
 
 
-# For Beginners 
+## For Beginners 
 
 Editing the documentation via GitHub’s web interface is recommended if you are not familiar with working in an IDE, or for smaller changes.
 
@@ -34,6 +34,6 @@ Navigate to the `docs` directory, then navigate to the appropriate subdirectory 
 
 To change an existing page, navigate to the file you want to edit, click on the pencil icon in the top-right, and edit your changes there.
 
-# Review Process
+## Review Process
 
 When you are all done creating your changes in your own fork (either locally or via the web interface), submit a PR to the [original documentation repository](https://github.com/sui-foundation/sui-docs). When you do so, you should be able to view the deployment on Vercel and double-check that everything is the way you want it to be. A reviewer will then take responsibility for providing clear and actionable feedback to your PR. As the owner of the pull request, it is your responsibility to modify your pull request to address the feedback that has been provided to you by the reviewer. Keep in mind that you may receive feedback from multiple reviewers. Once a reviewer has approved your PR it will be merged into `main` and your contributions will be made public for all to see!
