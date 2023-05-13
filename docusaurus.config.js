@@ -93,7 +93,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "reference/sui-framework/sui-framework-reference",
+            docId: "reference/move-by-example/intro",
             label: "Reference",
           },
           {
