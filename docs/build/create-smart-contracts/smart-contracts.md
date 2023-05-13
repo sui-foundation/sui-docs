@@ -4,7 +4,7 @@ sidebar_label: Sui Move
 slug: /smart-contracts
 ---
 
-Welcome to the Sui tutorial for building smart contracts with [Sui Move](../learn/why-move).
+Welcome to the Sui tutorial for building smart contracts with [Sui Move](../../learn/about-sui/why-move.md).
 This tutorial provides a brief explanation of the Sui Move language, and includes concrete examples to demonstrate how you can use Move in Sui.
 
 ## About Sui Move

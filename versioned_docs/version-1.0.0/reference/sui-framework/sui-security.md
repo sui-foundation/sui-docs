@@ -67,4 +67,4 @@ This mechanism ensures that validators are accountable to Sui users and can be r
 
 ## Further reading
 
-If you are looking for an in-depth technical explanation of the computer science behind Sui security, you may have a look at our white paper on the [Sui Smart Contracts Platform](../../paper/sui.pdf).
+If you are looking for an in-depth technical explanation of the computer science behind Sui security, you may have a look at our white paper on the [Sui Smart Contracts Platform](/doc/sui.pdf).
