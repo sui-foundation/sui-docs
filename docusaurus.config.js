@@ -13,7 +13,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  i18n: {
+/*  i18n: {
     defaultLocale: "en",
     locales: [
       "en",
@@ -25,7 +25,7 @@ const config = {
       "zh-CN",
       "zh-TW",
     ],
-  },
+  },*/
 
   presets: [
     [
@@ -102,14 +102,14 @@ const config = {
             label: "Contribute",
           },
           {
-            type: "localeDropdown",
-            position: "right",
-          },
-          {
             type: "docsVersionDropdown",
             position: "right",
             dropdownActiveClassDisabled: true,
           },
+/*          {
+            type: "localeDropdown",
+            position: "right",
+          },*/
         ],
       },
       footer: {

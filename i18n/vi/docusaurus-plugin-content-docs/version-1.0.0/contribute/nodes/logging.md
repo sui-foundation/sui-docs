@@ -1,5 +1,0 @@
----
-title: Logging
-slug: /logging
----
-
