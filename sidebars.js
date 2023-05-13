@@ -286,7 +286,6 @@ const sidebars = {
       label: 'Contribute',
       items: [
         'contribute/contribution-process',
-        'contribute/improve-documentation',
         'contribute/contribute-to-sui-repos',
         'contribute/submit-a-sip',
         'contribute/localize-sui-docs',
