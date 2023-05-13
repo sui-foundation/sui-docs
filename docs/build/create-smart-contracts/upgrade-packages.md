@@ -278,7 +278,7 @@ sui_package = "0x0"
 
 When your package is ready, you publish it:
 
-```shell
+```bash
 sui client publish --gas-budget <GAS-BUDGET-AMOUNT>
 ```
 
@@ -291,7 +291,7 @@ And receive the response:
   </summary>
 ```
 
-```shell
+```bash
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING MyFirstPackage
@@ -420,7 +420,7 @@ sui_package = "0x0"
 
 With the new manifest and code in place, it's time to use the `sui client upgrade` command to upgrade your package. Pass the `UpgradeCap` ID (the `<UPGRADE-CAP-ID>` value from the example) to the `--upgrade-capability` flag.
 
-```shell
+```bash
 sui client upgrade --gas-budget <GAS-BUDGET-AMOUNT> --upgrade-capability <UPGRADE-CAP-ID>
 ```
 
@@ -433,7 +433,7 @@ The console alerts you if the new package doesn't satisfy [requirements](#requir
   </summary>
 ```
 
-```shell
+```bash
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING MyFirstPackage

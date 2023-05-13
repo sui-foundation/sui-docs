@@ -20,13 +20,13 @@ The [fastcrypto](https://github.com/MystenLabs/fastcrypto) library provides a CL
 
 From the root of the `fastcrypto` repository, run the following command to generate a key pair:
 
-```shell
+```bash
 cargo run --bin ecvrf-cli keygen
 ```
 
 This outputs a secret key and a public key in hex format. The secret key is a 32-byte string and the public key is a 32-byte string:
 
-```shell
+```bash
 Secret key: c0cbc5bf0b2f992fe14fee0327463c7b03d14cbbcb38ce2584d95ee0c112b40b
 Public key: 928744da5ffa614d65dd1d5659a8e9dd558e68f8565946ef3d54215d90cba015
 ```
@@ -35,13 +35,13 @@ Public key: 928744da5ffa614d65dd1d5659a8e9dd558e68f8565946ef3d54215d90cba015
 
 To compute the VRF output and proof for the input string `Hello, World!`, which is `48656c6c6f2c20776f726c6421` in hexadecimal, with the key pair generated above we run the following command:
 
-```shell
+```bash
 cargo run --bin ecvrf-cli prove --input 48656c6c6f2c20776f726c6421 --secret-key c0cbc5bf0b2f992fe14fee0327463c7b03d14cbbcb38ce2584d95ee0c112b40b
 ```
 
 This should the 80 byte proof and VRF 64 byte output, both in hex format:
 
-```shell
+```bash
 Proof:  18ccf8bf316f00b387fc6e7b26f2d3ddadbf5e9c66d3a30986f12b208108551f9c6da87793a857d79261338a50430074b1dbc7f8f05e492149c51313381248b4229ebdda367146dbbbf95809c7fb330d
 Output: 2b7e45821d80567761e8bb3fc519efe5ad80cdb4423227289f960319bbcf6eea1aef30c023617d73f589f98272b87563c6669f82b51dafbeb5b9cf3b17c73437
 ```
@@ -68,12 +68,12 @@ module math::ecvrf_test {
 
 It can also be verfied using the CLI tool:
 
-```shell
+```bash
 cargo run --bin ecvrf-cli verify --output 2b7e45821d80567761e8bb3fc519efe5ad80cdb4423227289f960319bbcf6eea1aef30c023617d73f589f98272b87563c6669f82b51dafbeb5b9cf3b17c73437 --proof 18ccf8bf316f00b387fc6e7b26f2d3ddadbf5e9c66d3a30986f12b208108551f9c6da87793a857d79261338a50430074b1dbc7f8f05e492149c51313381248b4229ebdda367146dbbbf95809c7fb330d --input 48656c6c6f2c20776f726c6421 --public-key 928744da5ffa614d65dd1d5659a8e9dd558e68f8565946ef3d54215d90cba015
 ```
 
 which outputs
 
-```shell
+```bash
 Proof verified correctly!
 ```

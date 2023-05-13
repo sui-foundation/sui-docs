@@ -56,13 +56,13 @@ You can start the client in two modes: interactive shell or command line interfa
 
 To start the interactive shell:
 
-```shell
+```bash
 sui console
 ```
 
 The console command looks for the client configuration file `client.yaml` in the `~/.sui/sui_config` directory. If you have this file stored in a different directory, provide the updated path to the command to override this setting.
 
-```shell
+```bash
 sui console --client.config /workspace/config-files
 ```
 
@@ -78,7 +78,7 @@ You can use the client without the interactive shell. This is useful if
 you want to pipe the output of the client to another application or invoke client
 commands using scripts.
 
-```shell
+```bash
 USAGE:
     sui client [SUBCOMMAND]
 ```
@@ -86,7 +86,7 @@ USAGE:
 For example, the following command returns the list of
 account addresses available on the platform:
 
-```shell
+```bash
 sui client addresses
 ```
 
@@ -108,25 +108,25 @@ You can specify an active address or default address to use to execute commands.
 
 Sui sets a default address to use for commands. It uses the active address for commands that require an address. To view the current active address, use the `active-address` command.
 
-```shell
+```bash
 sui client active-address
 ```
 
 The response to the request resembles the following:
 
-```shell
+```bash
 0xa56612ad4f5dbc04c651e8d20f56af3316ee6793335707f29857bacabf9127d0
 ```
 
 To change the default address, use the `switch` command:
 
-```shell
+```bash
 sui client switch --address 0xa3c00467938b392a12355397bdd3d319cea5c9b8f4fc9c51b46b8e15a807f030
 ```
 
 The response resembles the following:
 
-```shell
+```bash
 Active address switched to 0xa3c00467938b392a12355397bdd3d319cea5c9b8f4fc9c51b46b8e15a807f030
 ```
 
@@ -139,13 +139,13 @@ All Sui transactions require a gas object for gas fees. If you don't specify a g
 You can't use the same gas object as part of a transaction and to pay for the same transaction.
 To see how much gas is in an account, use the `gas` command.
 
-```shell
+```bash
 sui client gas
 ```
 
 Specify an address to check an address other than the active address.
 
-```shell
+```bash
 sui client gas 0x4e049913233eb918c11638af89d575beb99003d30a245ac74a02e26e45cb80ee
 ```
 
@@ -155,7 +155,7 @@ Sui Client CLI includes 1 address by default. You can create new addresses for t
 
 ### Create a new account address
 
-```shell
+```bash
 sui client new-address secp256k1
 ```
 
@@ -163,7 +163,7 @@ You must specify the key scheme, one of `ed25519` or `secp256k1` or `secp256r1`.
 
 The command returns a new address and the 24-word recovery phrase for it.
 
-```shell
+```bash
 Created new keypair for address with scheme Secp256k1: [0x338567a5fe29132d68fade5172870d8ac1b607fd00eaace1e0aa42896d7f97d4]
 Secret Recovery Phrase : [guilty coast nephew hurt announce speak kiwi travel churn airport universe escape thrive switch lean lab giraffe gospel punch school dance cloud type gift]
 ```
@@ -178,7 +178,7 @@ Restart the Sui console after you save the changes to the client.yaml file.
 
 Use the `objects` command to view the objects an address owns.
 
-```shell
+```bash
 sui client objects
 ```
 
@@ -191,7 +191,7 @@ The response resembles the following:
   </summary>
 ```
 
-```sh
+```bash
                  Object ID                  |  Version   |                    Digest                    |   Owner Type    |               Object Type
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
  0x1aa482ad8c6240cda3097a4aa13ad5bfb27bf6052133c01f79c8b4ea0aaa0601 |     1      | OpU8HmueEaLzK6hkNSQkcahG8qo73ag4vJPG+g8EQBs= |  AddressOwner   |      0x2::coin::Coin<0x2::sui::SUI>
@@ -208,13 +208,13 @@ Showing 5 results.
 
 To view the objects for a different address than the active address, specify the address to see objects for.
 
-```shell
+```bash
 sui client objects 0x338567a5fe29132d68fade5172870d8ac1b607fd00eaace1e0aa42896d7f97d4
 ```
 
 To view more information about an object, use the `object` command and specify the `objectId`.
 
-```shell
+```bash
 sui client object <OBJECT_ID>
 ```
 
@@ -228,7 +228,7 @@ version, ID, if the object is immutable and the type of the object.
   </summary>
 ```
 
-```sh
+```bash
 ----- 0x2::coin::Coin<0x2::sui::SUI> (0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d[0x1]) -----
 Owner: Account Address ( 0xa3c00467938b392a12355397bdd3d319cea5c9b8f4fc9c51b46b8e15a807f030 )
 Version: 0x1
@@ -246,7 +246,7 @@ id: 0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d
 
 To view the JSON representation of the object, include `--json` in the command.
 
-```shell
+```bash
 sui client object <OBJECT_ID> --json
 ```
 
@@ -292,7 +292,7 @@ The response resembles the following:
 
 You can transfer mutable objects you own to another address using the command below
 
-```shell
+```bash
 sui client transfer [OPTIONS] --to <TO> --object-id <OBJECT_ID> --gas-budget <GAS_BUDGET>
 
 OPTIONS:
@@ -318,7 +318,7 @@ OPTIONS:
 To transfer an object to a recipient, you need the recipient's address,
 the object ID of the object to transfer, and, optionally, the ID of the coin object for the transaction fee payment. If not specified, the client uses a coin that meets the budget. Gas budget sets a cap for how much gas to spend.
 
-```shell
+```bash
 sui client transfer --to 0xcd2630011f6cb9aef960ed42d95b04e063c44a6143083ef89a35ea02b85c61b7 --object-id 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --gas-budget 1000
 ```
 
@@ -330,7 +330,7 @@ You can use the `merge-coin` command and `split-coin` command to consolidate or 
 
 ### Merge coins
 
-```shell
+```bash
 sui client merge-coin [OPTIONS] --primary-coin <PRIMARY_COIN> --coin-to-merge <COIN_TO_MERGE> --gas-budget <GAS_BUDGET>
 
 OPTIONS:
@@ -358,19 +358,19 @@ You need at least three coin objects to merge coins, two coins to merge and one 
 
 Use the following command to view the objects that the specified address owns.
 
-```shell
+```bash
 sui client objects 0x8f603d8a00ae87c43dc090e52bffc29a4b312c28ff3afd81c498caffa2a6b768
 ```
 
 Use the IDs returned from the previous command in the `merge-coin` command.
 
-```shell
+```bash
 sui client merge-coin --primary-coin 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --coin-to-merge 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760 --gas-budget 1000
 ```
 
 ### Split coins
 
-```shell
+```bash
 sui client split-coin [OPTIONS] --coin-id <COIN_ID> --gas-budget <GAS_BUDGET> (--amounts <AMOUNTS>... | --count <COUNT>)
 
 OPTIONS:
@@ -389,7 +389,7 @@ To split a coin you need at least 2 coin objects, one to split and one to pay fo
 
 Use the following command to view the objects the address owns.
 
-```shell
+```bash
 sui client objects 0xcd2630011f6cb9aef960ed42d95b04e063c44a6143083ef89a35ea02b85c61b7
 ```
 
@@ -397,19 +397,19 @@ Then use the IDs returned in the `split-coin` command.
 
 The following example splits one coin into three coins of different amounts, 1000, 5000, and 3000. The `--amounts` argument accepts a list of values.
 
-```shell
+```bash
 sui client split-coin --coin-id 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760 --amounts 1000 5000 3000 --gas-budget 1000
 ```
 
 Use the `objects` command to view the new coin objects.
 
-```sh
+```bash
 sui client objects 0x08da15bee6a3f5b01edbbd402654a75421d81397
 ```
 
 The following example splits a coin into three equal parts. To split a coin evenly, run the command without the `--amount` argument.
 
-```shell
+```bash
 sui client split-coin --coin-id 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760 --count 3 --gas-budget 1000
 ```
 
@@ -428,23 +428,23 @@ Please note that there is no real need to use a Move call to transfer
 coins as this can be accomplished with a built-in Sui client
 [command](#transfer-objects).
 
-```shell
+```bash
 sui client call --function transfer --module sui --package 0x2 --args 0x1b9c00a93345ce5f12bea9ffe04748d6696c30631735193aea95b8f9082c1062 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --gas-budget 1000
 ```
 
 You can also use environment variables:
 
-```shell
+```bash
 export OBJECT_ID=0x1b9c00a93345ce5f12bea9ffe04748d6696c30631735193aea95b8f9082c1062
 export RECIPIENT=0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427
 ```
 
-```shell
+```bash
 echo $OBJECT_ID
 echo $RECIPIENT
 ```
 
-```shell
+```bash
 sui client call --function transfer --module sui --package 0x2 --args $OBJECT_ID $RECIPIENT --gas-budget 1000
 ```
 
@@ -496,7 +496,7 @@ You must remove all calls to functions in the `debug` module from no-test code b
 
 :::
 
-```shell
+```bash
 sui client objects 0x4e049913233eb918c11638af89d575beb99003d30a245ac74a02e26e45cb80ee
 ```
 
@@ -504,7 +504,7 @@ The whole command to publish a package for address
 `0x338567a5fe29132d68fade5172870d8ac1b607fd00eaace1e0aa42896d7f97d4` resembles the following (assuming that the location of the package sources is in the `PATH_TO_PACKAGE`
 environment variable):
 
-```shell
+```bash
 sui client publish $PATH_TO_PACKAGE/my_move_package --gas 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --gas-budget 30000
 ```
 
@@ -515,7 +515,7 @@ The publish command accepts the path to your package as an optional positional p
 
 When you publish a package, the CLI verifies that the bytecode for dependencies found at their respective published addresses matches the bytecode you get when compiling that dependency from source code. If the bytecode for a dependency does not match, your package does not publish and you receive an error message indicating which package and module the mismatch was found in:
 
-```shell
+```bash
 Local dependency did not match its on-chain version at <address>::<package>::<module>
 ```
 
@@ -543,7 +543,7 @@ If successful, your response resembles the following:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 Transaction Hash: evmJUz0+a2oFMbsTza2U+vC9q2KHeDVVV9XUma8OXv8=
 Transaction Signature: 7Lqy/KQW86Tq81cUxLMW07AQw1S+D4QLFC9/jMNKrau81eABHpxG2lgaVaAh0c+d5ldYhp75SmpY0pxq0FSLBA==@BE/TaOYjyEtJUqF0Db4FEcVT4umrPmp760gFLQIGA1E=
@@ -607,7 +607,7 @@ If successful, the command returns a `0` exit code and prints `Source verificati
 
 You can provide a genesis configuration file using the `--config` flag to customize the genesis process.
 
-```shell
+```bash
 sui genesis --config <Path to genesis config file>
 ```
 

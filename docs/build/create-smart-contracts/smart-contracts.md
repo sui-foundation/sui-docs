@@ -27,7 +27,7 @@ describing package configuration, such as package metadata and package dependenc
 
 The minimal package source directory structure looks as follows and contains the manifest file, the lock file, and the `sources` subdirectory where one or more module files are located:
 
-```shell
+```bash
 my_move_package
 ├── Move.lock
 ├── Move.toml

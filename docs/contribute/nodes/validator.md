@@ -102,7 +102,7 @@ In practice, the process for submitting a gas price quote for the Gas Price Surv
 
 For example, to set the price quote for the next epoch to 42, run:
 
-```shell
+```bash
 sui client call --package 0x2 --module sui_system --function request_set_gas_price --args 0x5 \"42\" --gas-budget 1000
 ```
 
@@ -116,7 +116,7 @@ The protocol only computes the global Tallying Rule score at the epoch boundary 
 
 For example, to report a validator whose Sui address is `0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446` as bad or non-performant, run:
 
-```shell
+```bash
 sui client call --package 0x2 --module sui_system --function report_validator --args 0x5 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 --gas-budget 1000
 ```
 

@@ -9,13 +9,13 @@ Before you can build a Sui Move package and run its code, you must first [instal
 
 To begin, open a terminal or console at the location you plan to store your package. Use the `sui move new` command to create an empty Sui Move package with the name `my_first_package`:
 
-```shell
+```bash
 sui move new my_first_package
 ```
 
 Running the previous command creates a directory with the name you provide (`my_first_package`). The command populates the new directory with a skeleton Sui Move project that consists of a `sources` directory and a [`Move.toml` manifest](move-toml.md). Open the manifest with a text editor to review its contents:
 
-```shell
+```bash
 cat my_first_package/Move.toml
 [package]
 name = "my_first_package"
@@ -33,7 +33,7 @@ sui = "0000000000000000000000000000000000000000000000000000000000000002"
 
 You have a package now but it doesn't do anything. To make your package useful, you must add logic contained in `.move` source files that define _modules_. Use a text editor or the command line to create your first package source file named `my_module.move` in the `sources` directory of the package:
 
-```shell
+```bash
 touch my_first_package/sources/my_module.move
 ```
 

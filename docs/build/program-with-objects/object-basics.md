@@ -114,7 +114,7 @@ Find the full code in the Sui repo under `sui_programmability/examples/objects_t
 
 To compile the code, make sure you have [installed Sui](../setup/cli/install-sui.md) so that `sui` is in your `PATH`. In the code root directory `(../examples/objects_tutorial/)` (where `Move.toml` is), run:
 
-```shell
+```bash
 sui move build
 ```
 
@@ -189,7 +189,7 @@ You can find the full code in [color_object.move](https://github.com/MystenLabs/
 
 To run the test, run the following in the code root directory:
 
-```shell
+```bash
 sui move test
 ```
 
@@ -199,19 +199,19 @@ To call `create` in actual transactions, you need to start Sui and the Sui Clien
 
 Before you start, check the active address on the client as that address eventually owns the object):
 
-```shell
+```bash
 $ sui client active-address
 ```
 
 To publish the code on-chain, use the following command:
 
-```sh
+```bash
 $ sui client publish $ROOT/sui_programmability/examples/objects_tutorial --gas-budget 10000
 ```
 
 or from the root of the package folder:
 
-```sh
+```bash
 $ sui client publish --gas-budget 10000
 ```
 
@@ -226,7 +226,7 @@ You can find the published package object ID in the **Transaction Effects** outp
   </summary>
 ```
 
-```sh
+```bash
 Transaction Kind : Publish
 ----- Transaction Effects ----
 Status : Success
@@ -244,7 +244,7 @@ Note that the exact data you see differs from the examples in this topic.
 
 The first hex string with the `Immutable` owner is the package's `objectID` (`0x79b81364676f2f700e8a5acc71ca66eef753f1e536e4480a24278f02499e8cc5`). For convenience, save it to an environment variable:
 
-```sh
+```bash
 export PACKAGE=0x79b81364676f2f700e8a5acc71ca66eef753f1e536e4480a24278f02499e8cc5
 ```
 
@@ -252,7 +252,7 @@ The mutated object is the gas object used to pay for the transaction.
 
 You can call the function to create a color object:
 
-```shell
+```bash
 sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "create" --args 0 255 0
 ```
 
@@ -265,7 +265,7 @@ In the **Transaction Effects** portion of the output, you see an object included
   </summary>
 ```
 
-```sh
+```bash
 ----- Transaction Effects ----
 Status : Success
 Created Objects:
@@ -280,13 +280,13 @@ Mutated Objects:
 
 To save the object ID as a variable, use:
 
-```sh
+```bash
 export OBJECT=0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446
 ```
 
 To inspect this object and see what kind of object it is, use:
 
-```shell
+```bash
 sui client object $OBJECT
 ```
 
@@ -299,7 +299,7 @@ This returns the metadata of the object, including its type:
   </summary>
 ```
 
-```sh
+```bash
 ----- Move Object (0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446[8]) -----
 Owner: Account Address ( 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 )
 Version: 8
@@ -319,7 +319,7 @@ red: 0
 
 You can also request the content of the object in json format by adding the `--json` parameter:
 
-```sh
+```bash
 $ sui client object $OBJECT --json
 ```
 

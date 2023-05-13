@@ -25,7 +25,7 @@ Signature schemes covered:
 
 ### Set up fastcrypto CLI binary
 
-```shell
+```bash
 git@github.com:MystenLabs/fastcrypto.git
 cd fastcrypto/
 cargo build --bin sigs-cli
@@ -37,7 +37,7 @@ cargo build --bin sigs-cli
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme ed25519 --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK
@@ -64,7 +64,7 @@ Public key in hex: $PK
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme secp256k1 --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK
@@ -91,7 +91,7 @@ Public key in hex: $PK
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme secp256k1-rec --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK
@@ -116,7 +116,7 @@ Public key in hex: $PK
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme secp256r1 --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK
@@ -144,7 +144,7 @@ Public key in hex: $PK
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme secp256r1-rec --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK
@@ -172,7 +172,7 @@ Public key in hex: $PK
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme bls12381-minsig --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK
@@ -199,7 +199,7 @@ Public key in hex: $PK
 
 1. Generate a key and sign a message.
 
-```shell
+```bash
 target/debug/sigs-cli keygen --scheme bls12381-minpk --seed 0000000000000000000000000000000000000000000000000000000000000000
 Private key in hex: $SK
 Public key in hex: $PK

@@ -204,7 +204,7 @@ Next, try this out on-chain. Assuming you followed the instructions in [Object B
 
 To transfer it to another address, first check the addresses available:
 
-```shell
+```bash
 sui client addresses
 ```
 
@@ -212,19 +212,19 @@ Choose an address other than the active address. If you have only one address, c
 
 For this example, the recipient address is: `0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446`. Save it as a variable for convenience:
 
-```shell
+```bash
 export RECIPIENT=0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446
 ```
 
 Now, transfer the object to the address:
 
-```shell
+```bash
 $ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "transfer" --args \"$OBJECT\" \"$RECIPIENT\"
 ```
 
 Now let's see what objects the `RECIPIENT` owns:
 
-```shell
+```bash
 $ sui client objects $RECIPIENT
 ```
 
@@ -232,7 +232,7 @@ You should see the `ColorObject` listed. This means the transfer succeeded.
 
 To delete this object:
 
-```shell
+```bash
 $ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "delete" --args \"$OBJECT\"
 ```
 
@@ -240,13 +240,13 @@ The command returns an error indicating that the address is unable to lock the o
 
 To operate on this object, use the recipient address, `$RECIPIENT`:
 
-```shell
+```bash
 $ sui client switch --address $RECIPIENT
 ```
 
 And try the to delete the object again:
 
-```shell
+```bash
 $ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "delete" --args \"$OBJECT\"
 ```
 
@@ -254,7 +254,7 @@ In the `Transaction Effects` section of the output, you see a list of deleted ob
 
 This shows that the object was successfully deleted. If you run the command again:
 
-```shell
+```bash
 $ sui client objects $RECIPIENT
 ```
 

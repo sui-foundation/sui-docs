@@ -9,13 +9,13 @@ If you followed the previous topic, you have a basic module that you need to bui
 
 Make sure your terminal or console is is in the directory that contains your package (`my_first_package` if you're following along). Use the following command to build your package:
 
-```shell
+```bash
 sui move build
 ```
 
 A successful build returns a response similar to the following:
 
-```shell
+```bash
 UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
@@ -33,14 +33,14 @@ Sui includes support for the
 
 An individual Move unit test is encapsulated in a public function that has no parameters, no return values, and has the `#[test]` annotation. The testing framework executes such functions when you call the `sui move test` command from the package root (`my_move_package` directory as per our running example):
 
-```shell
+```bash
 sui move test
 ```
 
 If you execute this command for the package created in [write a package](write-move-packages.md), you see the following output. Unsurprisingly,
 the test result has an `OK` status because there are no tests written yet to fail.
 
-```shell
+```bash
 BUILDING Sui
 BUILDING MoveStdlib
 BUILDING my_first_package
@@ -76,13 +76,13 @@ The function passes the dummy context, `ctx`, to the `object::new` function as a
 
 Now that you have a test function, run the test command again:
 
-```shell
+```bash
 sui move test
 ```
 
 After running the test command, however, you get a compilation error instead of a test result:
 
-```shell
+```bash
 error[E06001]: unused value without 'drop'
    ┌─ ./sources/my_module.move:60:65
    │
@@ -125,7 +125,7 @@ transfer::transfer(sword, dummy_address);
 
 Run the test command again. Now the output shows a single successful test has run:
 
-```shell
+```bash
 BUILDING MoveStdlib
 BUILDING Sui
 BUILDING my_first_package
@@ -144,7 +144,7 @@ Use a filter string to run only a matching subset of the unit tests. With a filt
 
 Example:
 
-```shell
+```bash
 sui move test sword
 ```
 
@@ -152,7 +152,7 @@ The previous command runs all tests whose name contains `sword`.
 
 You can discover more testing options through:
 
-```shell
+```bash
 sui move test -h
 ```
 
@@ -261,7 +261,7 @@ In the _pure Move_ testing function, the function transfers the sword object to 
 
 Run the test command again to see two successful tests for our module:
 
-```shell
+```bash
 BUILDING Sui
 BUILDING MoveStdlib
 BUILDING my_first_package

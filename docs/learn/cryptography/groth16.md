@@ -43,7 +43,7 @@ component main = Main();
 
 We use the [Poseidon hash function](https://www.poseidon-hash.info) which is a ZK-friendly hash function. Assuming that the [circom compiler has been installed](https://docs.circom.io/getting-started/installation/), the above circuit is compiled using the following command:
 
-```shell
+```bash
 circom main.circom --r1cs --wasm
 ```
 

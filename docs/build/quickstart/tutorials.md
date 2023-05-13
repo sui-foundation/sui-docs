@@ -41,7 +41,7 @@ Run this script from the project repo root.
   </summary>
 ```
 
-```sh
+```bash
 #!/bin/bash
 # a bash script to automate the process of publishing the game package
 # this script should be run at root of the repo
@@ -92,7 +92,7 @@ sui client call --package $PACKAGE_ID --module tic_tac_toe --function create_gam
 
 In the new terminal session you started, use the following command in the Sui CLI client to view the addresses available:
 
-```shell
+```bash
 $ sui client addresses
 ```
 
@@ -134,7 +134,7 @@ To keep this tutorial simple, use the TicTacToe game example from [tic_tac_toe.m
 
 To publish the game, run the publish command and specify the path to the location of the game package:
 
-```shell
+```bash
 $ sui client publish ./sui/sui_programmability/examples/games --gas $ADMIN_GAS --gas-budget 30000
 ```
 
@@ -147,7 +147,7 @@ The response resembles the following:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 Signed Authorities : ...
 Transaction Kind : Publish
@@ -183,7 +183,7 @@ Now let's begin the game!
 
 First, create a game with the following command:
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function create_game --args $PLAYER_X $PLAYER_O --gas $ADMIN_GAS --gas-budget 1000
 ```
 
@@ -196,7 +196,7 @@ The response resembles the following:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 Signed Authorities : ...
 Transaction Kind : Call
@@ -254,7 +254,7 @@ There are two `MarkMintCap` objects (for capability of minting a mark for each p
 
 Add the above three object IDs to these environment variables:
 
-```sh
+```bash
 $ export XCAP=A6D3B507D4533822E690291166891D42694A2721
 export OCAP=5851B7EA07B93E68696BC0CF811D2E266DFB880D
 export GAME=F1B8161BD97D3CD6627E739AD675089C5ACFB452
@@ -269,7 +269,7 @@ public entry fun send_mark_to_game(cap: &mut MarkMintCap, game_address: address,
 
 The `cap` argument will be PlayerX's capability object (XCAP), and `game_address` argument will be the admin's address (ADMIN):
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_to_game --args $XCAP $ADMIN 1 1 --gas $X_GAS --gas-budget 1000
 ```
 
@@ -282,7 +282,7 @@ And its output:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 Signed Authorities : ...
 Transaction Kind : Call
@@ -314,13 +314,13 @@ public entry fun place_mark(game: &mut TicTacToe, mark: Mark, ctx: &mut TxContex
 
 The first argument is the game board, and the second argument is the mark the admin just received from the player. Call this function (replace the second argument with the Mark object ID above):
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0xAE3CE9176F1A8C1F21D922722486DF667FA00394 --gas $ADMIN_GAS --gas-budget 1000
 ```
 
 The gameboard now looks like this (this won't be printed out, so keep it in your imagination):
 
-```sh
+```bash
 _|_|_
 _|X|_
  | |
@@ -328,7 +328,7 @@ _|X|_
 
 PlayerO now tries to put a mark at (0, 0):
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_to_game --args $OCAP $ADMIN 0 0 --gas $O_GAS --gas-budget 1000
 ```
 
@@ -341,7 +341,7 @@ With output like:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 ...
 ----- Transaction Effects ----
@@ -361,7 +361,7 @@ In this second call, the second argument comes from the created objects in the f
 
 :::
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0x7A16D266DAD41145F34649258BC1F744D147BF2F --gas $ADMIN_GAS --gas-budget 1000
 ```
 
@@ -374,7 +374,7 @@ With output like:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 ...
 ----- Transaction Effects ----
@@ -388,7 +388,7 @@ Status : Success { gas_used: 679 }
 
 The gameboard now looks like this:
 
-```sh
+```bash
 O|_|_
 _|X|_
  | |
@@ -396,7 +396,7 @@ _|X|_
 
 PlayerX puts a mark at (0, 2):
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_to_game --args $XCAP $ADMIN 0 2 --gas $X_GAS --gas-budget 1000
 ```
 
@@ -409,7 +409,7 @@ With output like:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 ...
 ----- Transaction Effects ----
@@ -425,13 +425,13 @@ Created Objects:
 
 Then run:
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0x2875D50BD9021ED2009A1278C7CB6D4C876FFF6A --gas $ADMIN_GAS --gas-budget 1000
 ```
 
 The gameboard now looks like this:
 
-```sh
+```bash
 O|_|X
 _|X|_
  | |
@@ -439,7 +439,7 @@ _|X|_
 
 PlayerO places a mark at (1, 0):
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_to_game --args $OCAP $ADMIN 1 0 --gas $O_GAS --gas-budget 1000
 ```
 
@@ -452,7 +452,7 @@ With output like:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 ...
 ----- Transaction Effects ----
@@ -468,14 +468,14 @@ Created Objects:
 
 Now run:
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0x4F7391F172063D87013DD9DC95B8BD45C35FD2D9 --gas $ADMIN_GAS --gas-budget 1000
 ...
 ```
 
 The gameboard now looks like:
 
-```sh
+```bash
 O|_|X
 O|X|_
  | |
@@ -483,7 +483,7 @@ O|X|_
 
 This is a chance for PlayerX to win! X now mints the winning mark at (2, 0):
 
-```shell
+```bash
 $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_to_game --args $XCAP $ADMIN 2 0 --gas $X_GAS --gas-budget 1000
 ```
 
@@ -496,7 +496,7 @@ And its output:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 ...
 ----- Transaction Effects ----
@@ -512,7 +512,7 @@ AA7A6624E16E5E447801462FF6614013FC4AD156 SequenceNumber(1) o#e5e1b15f03531db118e
 
 And then finally the admin places the winning mark:
 
-```shell
+```bash
    $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark --args $GAME 0xAA7A6624E16E5E447801462FF6614013FC4AD156 --gas $ADMIN_GAS --gas-budget 1000
 ```
 
@@ -525,7 +525,7 @@ With output:
   </summary>
 ```
 
-```shell
+```bash
 ----- Certificate ----
 ...
 ----- Transaction Effects ----
@@ -542,7 +542,7 @@ Mutated Objects:
 
 Cool! The last transaction created a new object. To find out what object was created:
 
-```shell
+```bash
 $ sui client object 54B58C0D5B14A269B1CD424B3CCAB1E315C43343
 ```
 
@@ -555,7 +555,7 @@ See output resembling:
   </summary>
 ```
 
-```shell
+```bash
 Owner: AddressOwner(k#0x011a285261b9f8d10a0c7ecb4c0dbe6d396825768dba38c3056809472736e521)
 Version: 1
 ID: 54B58C0D5B14A269B1CD424B3CCAB1E315C43343

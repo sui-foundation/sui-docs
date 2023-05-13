@@ -64,7 +64,7 @@ Some other commands in the installation instructions also require cURL to run. I
 
 Use the following command to install Rust and Cargo on macOS or Linux:
 
-```shell
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
@@ -76,7 +76,7 @@ Sui uses the latest version of Cargo to build and manage dependencies. See the [
 
 Use the following command to update Rust with `rustup`:
 
-```shell
+```bash
 rustup update stable
 ```
 
@@ -96,7 +96,7 @@ The Linux instructions assume a distribution that uses the APT package manager. 
 
 Install the prerequisites listed in this section. Use the following command to update `apt-get`:
 
-```shell
+```bash
 sudo apt-get update
 ```
 
@@ -104,13 +104,13 @@ sudo apt-get update
 
 Install cURL with the following command:
 
-```shell
+```bash
 sudo apt install curl
 ```
 
 Verify that cURL installed correctly with the following command:
 
-```shell
+```bash
 curl --version
 ```
 
@@ -118,7 +118,7 @@ curl --version
 
 Run the following command to install Git, including the [Git CLI](https://cli.github.com/):
 
-```shell
+```bash
 sudo apt-get install git-all
 ```
 
@@ -128,7 +128,7 @@ For more information, see [Install Git on Linux](https://github.com/git-guides/i
 
 Use the following command to install CMake.
 
-```shell
+```bash
 sudo apt-get install cmake
 ```
 
@@ -138,7 +138,7 @@ To customize the installation, see [Installing CMake](https://cmake.org/install/
 
 Use the following command to install the GNU Compiler Collection, `gcc`:
 
-```shell
+```bash
 sudo apt-get install gcc
 ```
 
@@ -146,7 +146,7 @@ sudo apt-get install gcc
 
 Use the following command to install `libssl-dev`:
 
-```shell
+```bash
 sudo apt-get install libssl-dev
 ```
 
@@ -154,7 +154,7 @@ If the version of Linux you use doesn't support `libssl-dev`, find an equivalent
 
 (Optional) If you have OpenSSL you might also need to also install `pkg-config`:
 
-```shell
+```bash
 sudo apt-get install pkg-config
 ```
 
@@ -162,7 +162,7 @@ sudo apt-get install pkg-config
 
 Use the following command to install `libclang-dev`:
 
-```shell
+```bash
 sudo apt-get install libclang-dev
 ```
 
@@ -172,7 +172,7 @@ If the version of Linux you use doesn't support `libclang-dev`, find an equivale
 
 Use the following command to install `libpq-dev`:
 
-```shell
+```bash
 sudo apt-get install libpq-dev
 ```
 
@@ -182,7 +182,7 @@ If the version of Linux you use doesn't support `libpq-dev`, find an equivalent 
 
 Use the following command to install `build-essential`"
 
-```shell
+```bash
 sudo apt-get install build-essential
 ```
 
@@ -196,7 +196,7 @@ macOS includes a version of cURL you can use to install Brew. Use Brew to instal
 
 Use the following command to install [Brew](https://brew.sh/):
 
-```shell
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -204,7 +204,7 @@ Use the following command to install [Brew](https://brew.sh/):
 
 Use the following command to update the default [cURL](https://curl.se) on macOS:
 
-```shell
+```bash
 brew install curl
 ```
 
@@ -212,7 +212,7 @@ brew install curl
 
 Use the following command to install CMake:
 
-```shell
+```bash
 brew install cmake
 ```
 
@@ -222,7 +222,7 @@ To customize the installation, see [Installing CMake](https://cmake.org/install/
 
 Use the following command to install Git:
 
-```shell
+```bash
 brew install git
 ```
 
@@ -264,7 +264,7 @@ Sui requires the following additional tools on computers running Windows.
 
 Run the following command to install Sui binaries from the `devnet` branch:
 
-```shell
+```bash
 cargo install --locked --git https://github.com/MystenLabs/sui.git --branch devnet sui
 ```
 
@@ -272,7 +272,7 @@ The install process can take a while to complete. You can monitor installation p
 
 To update to the latest stable version of Rust:
 
-```shell
+```bash
 rustup update stable
 ```
 
@@ -286,7 +286,7 @@ To confirm that Sui installed correctly, type `sui` and press Enter. You should 
 
 The recommended IDE for Move development is [Visual Studio Code](https://code.visualstudio.com/) with the move-analyzer extension. Follow the Visual Studio Marketplace instructions to install the [move-analyzer extension](https://marketplace.visualstudio.com/items?itemName=move.move-analyzer), then install the move-analyzer language server passing `address32` using the `--features` flag and passing `sui-move` to the `branch` flag:
 
-```shell
+```bash
 cargo install --git https://github.com/move-language/move move-analyzer --branch sui-move --features "address32"
 ```
 
@@ -301,7 +301,7 @@ To request SUI test tokens in Discord:
 1.  Join the [Sui Discord](https://discord.com/invite/sui) If you haven’t already.
 1.  Identify your address through either the Sui Wallet browser extension or by running the following command and electing to connect to a Sui RPC server if prompted:
 
-```shell
+```bash
 sui client active-address
 ```
 
@@ -318,7 +318,7 @@ https://github.com/MystenLabs/sui
 
 Clone the Sui repository:
 
-```shell
+```bash
 git clone https://github.com/MystenLabs/sui.git --branch devnet
 ```
 

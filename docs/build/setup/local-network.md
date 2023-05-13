@@ -32,19 +32,19 @@ When you install `sui-test-validator` but don't have libpq installed, you might 
 
 To resolve this, use Brew to install `libpq` with the following command:
 
-```shell
+```bash
 brew install libpq
 ```
 
 Also add the path to your profile:
 
-```sh
+```bash
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"`
 ```
 
 If you still have an issue, run the following command:
 
-```shell
+```bash
 brew link --force libpq
 ```
 
@@ -89,7 +89,7 @@ Each time you start the `sui-test-validator`, the network starts as a new networ
 
 To customize your local Sui network, such as changing the port used, include additional parameters in the command to start `sui-test-validator`:
 
-```sh
+```bash
 OPTIONS:
         --epoch-duration-ms <EPOCH_DURATION_MS>
             The duration for epochs (defaults to one minute) [default: 60000]
@@ -143,13 +143,13 @@ If successful, the response resembles the following:
 
 You can use the Sui Client CLI with any Sui network. By default it connects to Sui Devnet. To connect to your local network, create a new environment alias named `local` that sets the RPC URL the client uses to your local network.
 
-```shell
+```bash
 sui client new-env --alias local --rpc http://127.0.0.1:9000
 ```
 
 Next, use the following command to set the active environment to the new `local` environment you created.
 
-```sh
+```bash
 sui client switch --env local
 ```
 
@@ -159,7 +159,7 @@ The command returns:
 
 You can check the current active environment with the following command:
 
-```sh
+```bash
 sui client active-env
 ```
 
@@ -171,7 +171,7 @@ The command returns:
 
 The Sui Client CLI uses the active address for command if you don't specify one. Use the following command to show the active address on your local network.
 
-```sh
+```bash
 sui client active-address
 ```
 
@@ -212,7 +212,7 @@ If successful, the response resembles the following:
   </summary>
 ```
 
-```shell
+```bash
 {
     "transferredGasObjects": [
         {
@@ -253,7 +253,7 @@ If successful, the response resembles the following:
 
 After yoo get coins from the faucet, use the following command to view the coin objects for the address:
 
-```shell
+```bash
 sui client gas
 ```
 
@@ -266,7 +266,7 @@ The response resembles the following, but with different IDs:
   </summary>
 ```
 
-```shell
+```bash
                              Object ID                              |  Gas Value
 --------------------------------------------------------------------------------
  0x1d790713c1c3441a307782597c088f11230c47e609af2cec97f393123ea4de45 |  200000000
@@ -287,13 +287,13 @@ To install and use the apps locally, you must first install [pnpm](https://pnpm.
 
 After you install `pnpm`, use the following command to install the required dependencies in your workspace:
 
-```shell
+```bash
 pnpm install
 ```
 
 After the installation completes, run the following command to install Sui Wallet and Sui Explorer:
 
-```shell
+```bash
 pnpm turbo build
 ```
 

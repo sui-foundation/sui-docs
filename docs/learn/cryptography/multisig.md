@@ -38,7 +38,7 @@ Here we demonstrate the steps to create a MultiSig transaction in Sui using CLI 
 
 Use the following command to generate a Sui address and key for each supported key scheme and add it to the `sui.keystore`, then list the keys.
 
-```shell
+```bash
 $SUI_BINARY client new-address ed25519
 $SUI_BINARY client new-address secp256k1
 $SUI_BINARY client new-address secp256r1
@@ -48,7 +48,7 @@ $SUI_BINARY keytool list
 
 The response resembles the following, but displays actual addresses and keys:
 
-```sh
+```bash
 Sui Address | Public Key (Base64) | Scheme
 --------------------------------------------------------------------------
 $ADDR_1     | $PK_1               | secp256r1
@@ -60,14 +60,14 @@ $ADDR_3     | $PK_3               | ed25519
 
 To create a MultiSig address, input a list of public keys to use for the MultiSig address and list their corresponding weights.
 
-```shell
+```bash
 $SUI_BINARY keytool multi-sig-address --pks $PK_1 $PK_2 $PK_3 --weights 1 2 3 --threshold 3
 MultiSig address: $MULTISIG_ADDR
 ```
 
 The response resembles the following:
 
-```sh
+```bash
 Participating parties:
 Sui Address | Public Key (Base64)| Weight
 ------------------------------------------
@@ -80,13 +80,13 @@ $ADDR_3    | $PK_3              |   3
 
 This example requests gas from a local network using the default URL following the guidance in [Sui Local Network](../../build/setup/local-network.md).
 
-```shell
+```bash
 curl --location --request POST 'http://127.0.0.1:9123/gas' --header 'Content-Type: application/json' --data-raw "{ \"FixedAmountRequest\": { \"recipient\": \"$MULTISIG_ADDR\" } }"
 ```
 
 The response resembles the following:
 
-```sh
+```bash
 {"transferred_gas_objects":[{"amount":200000,"id":"$OBJECT_ID", ...}]}
 ```
 
@@ -94,7 +94,7 @@ The response resembles the following:
 
 This section demonstrates how to use an object that belongs to a MultiSig address and serialize a transfer to be signed. Note that the tx*bytes can be \_ANY* serialized transaction data where the sender is the MultiSig address, simply use the `--serialize-output` flag for supported commands in `sui client -h` (e.g. `publish`, `upgrade`, `call`, `transfer`, `transfer-sui`, `pay`, `pay-all-sui`, `pay-sui`, `split`, `merge-coin`) to output the Base64 encoded transaction bytes.
 
-```shell
+```bash
 $SUI_BINARY client transfer --to $MULTISIG_ADDR --object-id $OBJECT_ID --gas-budget 1000 --serialize-output
 
 Raw tx_bytes to execute: $TX_BYTES
@@ -104,7 +104,7 @@ Raw tx_bytes to execute: $TX_BYTES
 
 Use the following code sample to sign the transaction with two keys in `sui.keystore`. You can do this with other tools as long as you serialize it to `flag || sig || pk`.
 
-```shell
+```bash
 $SUI_BINARY keytool sign --address $ADDR_1 --data $TX_BYTES
 
 Raw tx_bytes to execute: $TX_BYTES
@@ -120,7 +120,7 @@ Serialized signature (`flag || sig || pk` in Base64): $SIG_2
 
 This sample demonstrates how to combine the two signatures:
 
-```shell
+```bash
 $SUI_BINARY keytool multi-sig-combine-partial-sig --pks $PK_1 $PK_2 $PK_3 --weights 1 2 3 --threshold 3 --sigs $SIG_1 $SIG_2
 
 MultiSig address: $MULTISIG_ADDRESS # Informational
@@ -132,6 +132,6 @@ MultiSig serialized: $SERIALIZED_MULTISIG
 
 This sample demonstrates how to execute a transaction using MultiSig:
 
-```shell
+```bash
 $SUI_BINARY client execute-signed-tx --tx-bytes $TX_BYTES --signatures $SERIALIZED_MULTISIG
 ```
