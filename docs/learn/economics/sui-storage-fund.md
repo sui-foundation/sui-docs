@@ -20,7 +20,9 @@ More specifically, the storage fund has three key features:
 - The storage fund includes a _deletion option_ by which users obtain a storage fee rebate whenever they delete previously stored on-chain data. Note that, if a user deletes data, they obtain a partial refund of the storage fees paid originally. This feature is justified by the fact that storage fees exist to pay for storage throughout the data’s lifecycle. There is no reason to keep charging for storage once data is deleted, and so these fees are rebated.
 
 :::info
+
 The _deletion option_ should not be confused with deleting past transactions. Activity on Sui is finalized at each epoch boundary and past transactions are immutable and can never be reversed. The type of data that can be deleted is, for example, data corresponding to objects that are no longer live such as an NFT’s metadata, tickets that have been redeemed, auctions that have concluded, etc.
+
 :::
 
 ## Storage fund mechanics

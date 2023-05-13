@@ -137,7 +137,9 @@ Test result: OK. Total tests: 1; passed: 1; failed: 0
 ---
 
 :::tip
+
 Use a filter string to run only a matching subset of the unit tests. With a filter string provided, the `sui move test` checks the fully qualified (`<address>::<module_name>::<fn_name>`) name for a match.
+
 :::
 
 Example:
@@ -248,7 +250,9 @@ The initial owner then executes the third transaction (passed as an argument to 
 the sword they now own to the final owner. In _pure Move_ there is no notion of Sui storage; consequently, there is no easy way for the emulated Sui transaction to retrieve it from storage. This is where the `test_scenario` module helps - its `take_from_sender` function allows an object of a given type (`Sword`) that is owned by an address executing the current transaction to be available for Move code manipulation. For now, assume that there is only one such object. In this case, the test transfers the object it retrieves from storage to another address.
 
 :::tip
+
 Transaction effects, such as object creation and transfer become visible only after a given transaction completes. For example, if the second transaction in the running example created a sword and transferred it to the administrator's address, it would only become available for retrieval from the administrator's address (via `test_scenario`, `take_from_sender`, or `take_from_address` functions) in the third transaction.
+
 :::
 
 The final owner executes the fourth and final transaction that retrieves the sword object from storage and checks if it has the expected properties. Remember, as described in [testing a package](#testing-a-package), in the _pure Move_ testing scenario, after an object is available in Move code (after creation or retrieval from emulated storage), it cannot simply disappear.

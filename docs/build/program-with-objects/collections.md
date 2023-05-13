@@ -87,7 +87,9 @@ public fun remove<K: copy + drop + store, V: store>(
 These functions add, read, write, and remove entries from the collection, respectively, and all accept keys by value. `Table` has type parameters for `K` and `V` so it is not possible to call these functions with different instantiations of `K` and `V` on the same instance of `Table`, however `Bag` does not have these type parameters, and so does permit calls with different instantiations on the same instance.
 
 :::info
+
 Like with dynamic fields, it is an error to attempt to overwrite an existing key, or access or remove a non-existent key.
+
 :::
 
 The extra flexibility of `Bag`'s heterogeneity means the type system doesn't statically prevent attempts to add a value with one type, and then borrow or remove it at another type. This pattern fails at runtime, similar to the behavior for dynamic fields.

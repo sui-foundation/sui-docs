@@ -107,7 +107,9 @@ public fun borrow_mut<Name: copy + drop + store, Value: store>(
 Where `object` is the UID of the object the field is defined on and `name` is the field's name.
 
 :::info
+
 `sui::dynamic_object_field` has equivalent functions for object fields, but with the added constraint `Value: key + store`.
+
 :::
 
 To use these APIs with the `Parent` and `Child` types defined earlier:
@@ -132,7 +134,9 @@ The first function accepts a mutable reference to the `Child` object directly, a
 The second function accepts a mutable reference to the `Parent` object and accesses its dynamic field using `borrow_mut`, to pass to `mutate_child`. This can only be called on `Parent` objects that have a `b"child"` field defined. A `Child` object that has been added to a `Parent` _must_ be accessed via its dynamic field, so it can only by mutated using `mutate_child_via_parent`, not `mutate_child`, even if its ID is known.
 
 :::caution
+
 A transaction that attempts to borrow a field that does not exist will fail.
+
 :::
 
 The `Value` type passed to `borrow` and `borrow_mut` must match the type of the stored field, or the transaction will abort.

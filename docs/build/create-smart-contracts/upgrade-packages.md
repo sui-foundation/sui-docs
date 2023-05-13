@@ -247,7 +247,9 @@ To upgrade a package, your package must satisfy the following requirements:
   - You can change non-`public` function signatures, including `friend` and `entry` function signatures.
 
 :::tip
+
 If you have a package with a dependency, and that dependency is upgraded, your package does not automatically depend on the newer version. You must explicitly upgrade your own package to point to the new dependency.
+
 :::
 
 ## Upgrading

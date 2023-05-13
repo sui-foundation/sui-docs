@@ -9,7 +9,9 @@ Good observability capabilities are key to the development and growth of Sui. Th
 The observability stack in Sui is based on the [Tokio tracing](https://tokio.rs/blog/2019-08-tracing) library. The rest of this document highlights specific aspects of achieving good observability through structured logging and metrics in Sui.
 
 :::info
+
 The output here is largely for the consumption of Sui operators, administrators, and developers. The content of logs and traces do not represent the authoritative, certified output of validators and are subject to potentially byzantine behavior.
+
 :::
 
 ## Contexts, scopes, and tracing transaction flow
@@ -128,7 +130,9 @@ SUI_TRACING_ENABLE=1 RUST_LOG="info,sui_core=trace" ./sui start
 1.  Browse to `http://localhost:16686/` and select Sui as the service.
 
 :::info
+
 Separate spans (that are not nested) are not connected as a single trace for now.
+
 :::
 
 ### Live async inspection / Tokio Console
@@ -140,7 +144,9 @@ Separate spans (that are not nested) are not connected as a single trace for now
 1.  Clone the console repo and `cargo run` to launch the console.
 
 :::tip
+
 Adding Tokio-console support might significantly slow down Sui validators/gateways.
+
 :::
 
 ### Memory profiling
@@ -161,6 +167,7 @@ To view the profile files, one needs to do the following, on the same platform a
     timestamp and memory size in the filename.
 
 :::tip
+
 With automatic memory profiling, it is no longer necessary to configure environment variables beyond those previously listed. It is possible to configure custom profiling options:
 
 - [Heap Profiling](https://github.com/jemalloc/jemalloc/wiki/Use-Case%3A-Heap-Profiling)
@@ -170,4 +177,5 @@ For example, set `_RJEM_MALLOC_CONF` to:
 `prof:true,lg_prof_interval:24,lg_prof_sample:19`
 
 The preceding setting means: turn on profiling, sample every 2^19 or 512KB bytes allocated, and dump out the profile every 2^24 or 16MB of memory allocated. However, the automatic profiling is designed to produce files that are better named and at less intervals, so overriding the default configuration is not usually recommended.
+
 :::

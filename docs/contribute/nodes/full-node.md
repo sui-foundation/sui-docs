@@ -4,7 +4,9 @@ slug: /full-node
 ---
 
 :::info
+
 These instructions are for advanced users. If you just need a local development environment, you should instead follow the instructions in [Create a Local Sui Network](../../build/setup/local-network.md) to create a local Full node, validators, and faucet.
+
 :::
 
 Sui Full nodes validate blockchain activities, including transactions, checkpoints, and epoch changes. Each Full node stores and services the queries for the blockchain state and history.

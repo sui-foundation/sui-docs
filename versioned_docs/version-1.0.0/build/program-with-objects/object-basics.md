@@ -135,7 +135,10 @@ let scenario = &mut scenario_val;
 };
 ```
 
-:::note There is a "`;`" after "`}`". You must include `;` to sequence a series of expressions, and even the block `{ ... }` is an expression. Refer to the [Move book](https://move-book.com/syntax-basics/expression-and-scope.html) for a detailed explanation.
+:::note
+
+There is a "`;`" after "`}`". You must include `;` to sequence a series of expressions, and even the block `{ ... }` is an expression. Refer to the [Move book](https://move-book.com/syntax-basics/expression-and-scope.html) for a detailed explanation.
+
 :::
 
 After the first transaction completes (**and only after the first transaction completes**), address `@0x1` owns the object. First, make sure it's not owned by anyone else:

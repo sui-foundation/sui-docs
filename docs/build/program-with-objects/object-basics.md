@@ -32,7 +32,9 @@ struct ColorObject has key {
 The `ColorObject` represents a Sui object type that you can use to create Sui objects that can eventually be stored on the Sui network.
 
 :::caution
+
 In both core Move and Sui Move, the [key ability](https://github.com/move-language/move/blob/main/language/documentation/book/src/abilities.md#key) denotes a type that can appear as a key in global storage. However, the structure of global storage is a bit different: core Move uses a (type, `address`)-indexed map, whereas Sui Move uses a map keyed by object IDs.
+
 :::
 
 The `UID` type is internal to Sui, and you most likely won't need to deal with it directly. For curious readers, it contains the "unique ID" that defines an object on the Sui network. It is unique in the sense that no two values of type `UID` will ever have the same underlying set of bytes.
@@ -95,7 +97,9 @@ public entry fun create(red: u8, green: u8, blue: u8, ctx: &mut TxContext) {
 ```
 
 :::tip
+
 Naming convention: Constructors are typically named `new`, which returns an instance of the struct type. The `create` function is typically defined as an entry function that constructs the struct and transfers it to the desired owner (most commonly the sender).
+
 :::
 
 You can also add a getter to `ColorObject` that returns the color values so that modules outside of `ColorObject` are able to read their values:
@@ -140,7 +144,9 @@ let scenario = &mut scenario_val;
 ```
 
 :::info
+
 There is a "`;`" after "`}`". You must include `;` to sequence a series of expressions, and even the block `{ ... }` is an expression. Refer to the [Move book](https://move-book.com/syntax-basics/expression-and-scope.html) for a detailed explanation.
+
 :::
 
 After the first transaction completes (**and only after the first transaction completes**), address `@0x1` owns the object. First, make sure it's not owned by anyone else:
@@ -158,7 +164,9 @@ test_scenario::next_tx(scenario, not_owner);
 `test_scenario::has_most_recent_for_sender` checks whether an object with the given type actually exists in the global storage owned by the current sender of the transaction. This code asserts that you should not be able to remove such an object, because `@0x2` does not own any object.
 
 :::hint
+
 The second parameter of `assert!` is the error code. In non-test code, you usually define a list of dedicated error code constants for each type of error that could happen in production. For unit tests, it's usually unnecessary because there are too many assertions. The stack trace upon error is sufficient to tell where the error happened. You can just put `0` for assertions in unit tests.
+
 :::
 
 Finally, check that `@0x1` owns the object and the object value is consistent:

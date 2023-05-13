@@ -22,7 +22,9 @@ Raw tx_bytes to execute: $TX_BYTES
 ```
 
 :::tip
+
 All other CLI commands that craft a transaction (e.g., `sui client publish`, `sui client call`) also accept the `--serialize-output` flag and you can use them in the same way.
+
 :::
 
 ## Sign the serialized data

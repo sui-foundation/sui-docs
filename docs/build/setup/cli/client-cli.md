@@ -41,8 +41,10 @@ The Sui Client CLI supports the following commands:
 | `verify-source`     | Verify local Move packages against on-chain packages, and optionally their dependencies.                                                                                                                                                      |
 
 :::tip
+
 The `clear`, `echo`, `env`, and `exit` commands exist only in the interactive shell.
-:::tip
+
+:::
 
 Use `sui client -h` to see a list of supported commands.
 
@@ -460,7 +462,9 @@ is a required argument for all functions callable from Sui and is
 auto-injected by the platform at the point of a function call.
 
 :::caution
+
 If you use a shell that interprets square brackets ([ ]) as special characters (such as the `zsh` shell), you must enclose the brackets in single quotes. For example, instead of `[7,42]` you must use `'[7,42]'`.
+
 :::
 
 To include multiple object IDs, enclose the IDs in double quotes. For example,
@@ -475,7 +479,9 @@ description on how to [write a simple Move code package](../../create-smart-cont
 which you can then publish using the Sui client `publish` command.
 
 :::caution
+
 You must remove all calls to functions in the `debug` module from no-test code before you can publish the new module (test code is marked with the `#[test]` annotation).
+
 :::
 
 ```shell
@@ -511,7 +517,9 @@ The publish might fail for other reasons, as well, based on dependency verificat
 If your package fails to publish because of an error in dependency verification, you must find and include the correct and verifiable source package for the failing dependency. If you fully understand the circumstances preventing your package from passing the dependency verification, and you appreciate the risk involved with skipping that verification, you can add the `--skip-dependency-verification` flag to the `sui client publish` command to bypass the dependency check.
 
 :::tip
+
 If your package includes unpublished dependencies, you can add the `--with-unpublished-dependencies` flag to the `sui client publish` command to include modules from those packages in the published build.
+
 :::
 
 If successful, your response resembles the following:
@@ -560,7 +568,9 @@ You might notice that the gas object that was used to pay for
 publishing was updated as well.
 
 :::tip
+
 If the publishing attempt results in an error regarding verification failure, [build your package locally](../../create-smart-contracts/build-and-test.md#building-a-package) (using the `sui move build` command) to get a more verbose error message.
+
 :::
 
 ## Verify source

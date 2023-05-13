@@ -48,7 +48,9 @@ Objects IDs for `{{coin_object_id}}` and `{{gas_object_id}}` must
 be owned by the address specified for `{{owner_address}}` for the command to succeed. Use [`sui_getOwnedObjects`](#sui_getOwnedObjects) to return object IDs.
 
 :::tip
+
 As a security best practice, you should serialize data from the JSON-RPC service locally in the same location as the signer. This reduces the risk of trusting data from the service directly.
+
 :::
 
 #### Create an unsigned transaction to transfer a Sui coin from one address to another
@@ -195,5 +197,7 @@ REST publish endpoint.
 The command generates a package object that represents the published Move code. You can use the package ID as an argument for subsequent Move calls to functions defined in this package.
 
 :::tip
+
 If your package has dependencies that are unpublished, include the `--with-unpublished-dependencies` flag to have the modules in those packages added to the bytecode.
+
 :::

@@ -661,7 +661,9 @@ Refer to pages in the documentation set as “topic”s. A “guide” can compr
 > See the Install topic in the Validator guide for more information.
 
 :::info
+
 You can also just refer to a topic by title where it makes sense. See Installing Sui for more information.
+
 :::
 
 ### General considerations

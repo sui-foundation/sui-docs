@@ -720,7 +720,9 @@ BUILDING example
 </details>
 
 :::tip
+
 If you receive a `ReferenceError: fetch is not defined` error, use Node.js version 18 or greater.
+
 :::
 
 Use the CLI to test that your newly published package works:

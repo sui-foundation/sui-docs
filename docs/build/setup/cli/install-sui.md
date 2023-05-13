@@ -89,7 +89,9 @@ After you install Rust, proceed to the prerequisites for your operating system.
 ## Linux prerequisites
 
 :::info
+
 The Linux instructions assume a distribution that uses the APT package manager. You might need to adjust the instructions to use other package managers.
+
 :::
 
 Install the prerequisites listed in this section. Use the following command to update `apt-get`:

@@ -336,7 +336,9 @@ Created Objects:
 </details>
 
 :::info
+
 In this second call, the second argument comes from the created objects in the first call.
+
 :::
 
 ```shell
