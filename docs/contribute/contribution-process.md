@@ -1,5 +1,5 @@
 ---
-title: Sui Documentation Contribution Process
+title: Contribute to Documentations
 slug: /contribution-process
 ---
 
