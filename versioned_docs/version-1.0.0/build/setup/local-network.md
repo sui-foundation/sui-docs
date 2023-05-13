@@ -32,7 +32,7 @@ When you install `sui-test-validator` but don't have libpq installed, you might 
 
 To resolve this, use Brew to install `libpq` with the following command:
 
-```shell
+```bash
 brew install libpq
 ```
 
@@ -44,7 +44,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"`
 
 If you still have an issue, run the following command:
 
-```shell
+```bash
 brew link --force libpq
 ```
 
@@ -128,7 +128,7 @@ If successful, the response resembles the following:
 
 You can use the Sui Client CLI with any Sui network. By default it connects to Sui Devnet. To connect to your local network, create a new environment alias named `local` that sets the RPC URL the client uses to your local network.
 
-```shell
+```bash
 sui client new-env --alias local --rpc http://127.0.0.1:9000
 ```
 
@@ -223,7 +223,7 @@ If successful, the response resembles the following:
 
 After yoo get coins from the faucet, use the following command to view the coin objects for the address:
 
-```shell
+```bash
 sui client gas
 ```
 
@@ -246,13 +246,13 @@ To install and use the apps locally, you must first install [pnpm](https://pnpm.
 
 After you install `pnpm`, use the following command to install the required dependencies in your workspace:
 
-```shell
+```bash
 pnpm install
 ```
 
 After the installation completes, run the following command to install Sui Wallet and Sui Explorer:
 
-```shell
+```bash
 pnpm turbo build
 ```
 

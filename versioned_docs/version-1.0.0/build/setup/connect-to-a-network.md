@@ -32,7 +32,7 @@ First, [Install Sui](../../build/setup/cli/install-sui.md#install-sui-binaries).
 
 To check whether Sui is already installed, run the following command:
 
-```shell
+```bash
 which sui
 ```
 
@@ -46,7 +46,7 @@ If you previously ran `sui genesis` to create a local network, it created a Sui 
 
 To connect the Sui client to a network, run the following command:
 
-```shell
+```bash
 sui client
 ```
 
@@ -95,26 +95,26 @@ If you previously installed a Sui client that connected to a Sui network, or cre
 
 To check currently available environment aliases, run the following command:
 
-```sh
+```bash
 sui client envs
 ```
 
 The command outputs the available environment aliases, with `(active)` denoting the currently active network.
 
-```sh
+```bash
 localnet => http://0.0.0.0:9000 (active)
 devnet => https://fullnode.devnet.sui.io:443
 ```
 
 To add a new alias for a custom RPC endpoint, run the following command. Replace values in `<` `>` with values for your installation:
 
-```shell
+```bash
 sui client new-env --alias <ALIAS> --rpc <RPC-SERVER-URL>
 ```
 
 To switch the active network, run the following command:
 
-```shell
+```bash
 sui client switch --env <ALIAS>
 ```
 
@@ -135,13 +135,13 @@ In the following sections, the object IDs, addresses, and authority signatures u
 
 This section describes how to publish a sample Move package using code developed in the [Sui Move tutorial](../../build/create-smart-contracts/write-move-packages.md). The instructions assume that you installed Sui in the default location.
 
-```shell
+```bash
 sui client publish <your-sui-repo>/sui_programmability/examples/move_tutorial --gas-budget 30000
 ```
 
 The response resembles the following:
 
-```shell
+```bash
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING MyFirstPackage
@@ -248,13 +248,13 @@ This section describes how to call into functions defined in the package publish
 
 To demonstrate this, `<PLAYER-ADDRESS>` represents the address of the player to receive a sword. You can use an address of someone you know, or create another address for testing with the following Sui Client CLI command:
 
-```shell
+```bash
 sui client new-address ed25519
 ```
 
 The command returns the following message and a 24-word recovery phrase for the address:
 
-```shell
+```bash
 Created new keypair for address with scheme ED25519: [0xa01cd0c520f12a1e9d57bf3cc6ea0f8cf93e81e9fe46f7b4916c310a809dfddd]
 Secret Recovery Phrase : [sunny tip element salad frequent february amount notice chair kite race push noise ketchup that same cannon bench mirror please dinosaur indicate violin sunset]
 ```
@@ -263,13 +263,13 @@ To create a sword and transfer it to another player, use the following command t
 
 You must use the same format for the command and function parameters as the example shown.
 
-```shell
+```bash
 sui client call --function sword_create --module my_module --package 0x<PACKAGE-ID> --args \"0x<FORGE-ID>\" 42 7 \"0x<PLAYER-ADDRESS>\" --gas-budget 30000
 ```
 
 The response resembles the following:
 
-```shell
+```bash
 ----- Transaction Digest ----
 5JqthvBVVWgCaDy77G1XSjZjw6eysx6WVrcLYrKPDtmK
 ----- Transaction Data ----

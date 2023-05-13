@@ -112,13 +112,13 @@ To see nested spans visualized with [Jaeger](https://www.jaegertracing.io), do t
 
 1.  Run this to get a local Jaeger container:
 
-```shell
+```bash
 docker run -d -p6831:6831/udp -p6832:6832/udp -p16686:16686 jaegertracing/all-in-one:latest
 ```
 
 1.  Run Sui like this (trace enables the most detailed spans):
 
-```shell
+```bash
 SUI_TRACING_ENABLE=1 RUST_LOG="info,sui_core=trace" ./sui start
 ```
 

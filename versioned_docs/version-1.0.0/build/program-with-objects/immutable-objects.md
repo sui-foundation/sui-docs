@@ -121,44 +121,44 @@ This section introduced two new functions to interact with immutable objects in 
 
 First, view the objects you own:
 
-```shell
+```bash
 $ export ADDR=`sui client active-address`
 $ sui client objects $ADDR
 ```
 
 Publish the `ColorObject` code on-chain using the Sui Client CLI:
 
-```shell
+```bash
 sui client publish $ROOT/sui_programmability/examples/objects_tutorial --gas-budget 10000
 ```
 
 Set the package object ID to the `$PACKAGE` environment variable as described in previous chapters. Then create a new `ColorObject`:
 
-```shell
+```bash
 sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "create" --args 0 255 0
 ```
 
 Set the newly created object ID to `$OBJECT`. To view the objects in the current active address:
 
-```shell
+```bash
 $ sui client objects $ADDR
 ```
 
 You should see an object with the ID you used for `$OBJECT`. To turn it into an immutable object:
 
-```shell
+```bash
 $ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "freeze_object" --args \"$OBJECT\"
 ```
 
 View the list of objects again:
 
-```shell
+```bash
 $ sui client objects $ADDR
 ```
 
 `$OBJECT` is no longer listed. It's no longer owned by anyone. You can see that it's now immutable by querying the object information:
 
-```shell
+```bash
 $ sui client object $OBJECT
 ```
 

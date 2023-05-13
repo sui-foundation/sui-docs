@@ -59,7 +59,7 @@ Make sure to update [Rust](../../build/setup/cli/install-sui.md#rust).
 
 Use the following command to install additional Linux dependencies.
 
-```shell
+```bash
 sudo apt-get update \
 && sudo apt-get install -y --no-install-recommends \
 tzdata \
@@ -93,23 +93,23 @@ You must get the latest source files from the Sui GitHub repository.
    1. Go to the [Sui repository](https://github.com/MystenLabs/sui) on GitHub and click the **Fork** button in the top right-hand corner of the screen.
    1. Clone your personal fork of the Sui repository to your local machine
       (ensure that you insert your GitHub username into the URL):
-      ```shell
+      ```bash
       git clone https://github.com/<YOUR-GITHUB-USERNAME>/sui.git
       ```
 1. `cd` into your `sui` repository:
-   ```shell
+   ```bash
    cd sui
    ```
 1. Set up the Sui repository as a git remote:
-   ```shell
+   ```bash
    git remote add upstream https://github.com/MystenLabs/sui
    ```
 1. Sync your fork:
-   ```shell
+   ```bash
    git fetch upstream
    ```
 1. Check out the branch associated with the network version you want to run (for example, `devnet` to run a Devnet Full node):
-   ```shell
+   ```bash
    git checkout --track upstream/<BRANCH-NAME>
    ```
 
@@ -119,24 +119,24 @@ Open a Terminal or Console to the `sui` directory you downloaded in the previous
 
 1.  Install the required [Prerequisites](../../build/setup/cli/install-sui.md#prerequisites).
 1.  Make a copy of the [Full node YAML template](https://github.com/MystenLabs/sui/blob/main/crates/sui-config/data/fullnode-template.yaml):
-    ```shell
+    ```bash
     cp crates/sui-config/data/fullnode-template.yaml fullnode.yaml
     ```
 1.  Download the genesis blob for the network to use:
     - [Devnet genesis blob](https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob):
-      ```shell
+      ```bash
       curl -fLJO https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
       ```
     - [Testnet genesis blob](https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob):
-      ```shell
+      ```bash
       curl -fLJO https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob
       ```
     - [Mainnet genesis blob](https://github.com/MystenLabs/sui-genesis/raw/main/mainnet/genesis.blob)
-      ```shell
+      ```bash
       curl -fLJO https://github.com/MystenLabs/sui-genesis/raw/main/mainnet/genesis.blob
       ```
 1.  Testnet Full nodes only: Edit the `fullnode.yaml` file to include peer nodes for state synchronization. Append the following to the end of the current configuration:
-    ```shell
+    ```bash
     p2p-config:
       seed-peers:
         - address: /dns/ewr-tnt-ssfn-00.testnet.sui.io/udp/8084
@@ -166,7 +166,7 @@ At this point, your Sui Full node is ready to connect to the Sui network.
 
 1.  Open a Terminal or Console to the `sui` directory.
 1.  Start the Sui Full node:
-    ```shell
+    ```bash
     cargo run --release --bin sui-node -- --config-path fullnode.yaml
     ```
 1.  Optional: [Publish/subscribe](../../learn/core-concepts/event-query-and-subscription.md#subscribe-to-sui-events) to notifications using JSON-RPC via websocket.
@@ -215,7 +215,7 @@ Whenever Sui releases a new version, you must update your Full node with the rel
 Follow the instructions to [reset the environment](https://github.com/MystenLabs/sui/tree/main/docker/fullnode#reset-the-environment),
 namely by running the command:
 
-```shell
+```bash
 docker-compose down --volumes
 ```
 
@@ -225,33 +225,33 @@ If you followed the instructions for [Building from Source](#setting-up-a-full-n
 
 1.  Shut down your running Full node.
 1.  `cd` into your local Sui repository:
-    ```shell
+    ```bash
     cd sui
     ```
 1.  Remove the database and 'genesis.blob' file:
-    ```shell
+    ```bash
     rm -r suidb genesis.blob
     ```
 1.  Fetch the source from the latest release:
-    ```shell
+    ```bash
     git fetch upstream
     ```
 1.  Reset your branch:
-    ```shell
+    ```bash
     git checkout -B <BRANCH-NAME> --track upstream/<BRANCH-NAME>
     ```
 1.  Download the latest genesis blob:
     - [Devnet genesis blob](https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob):
-      ```shell
+      ```bash
       curl -fLJO https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
       ```
     - [Testnet genesis blob](https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob) - supported only when there is an active public Testnet network
-      ```shell
+      ```bash
       curl -fLJO https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob
       ```
 1.  Update your `fullnode.yaml` configuration file if needed.
 1.  Restart your Sui Full node:
-    ```shell
+    ```bash
     cargo run --release --bin sui-node -- --config-path fullnode.yaml
     ```
 

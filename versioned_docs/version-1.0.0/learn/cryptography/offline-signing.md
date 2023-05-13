@@ -15,7 +15,7 @@ You must serialize transaction data following [Binary Canonical Serialization](h
 
 The following example demonstrates how to serialize data for a transfer using the Sui CLI. This returns serialized transaction data in Base64. Submit the raw transaction to execute as `tx_bytes`.
 
-```shell
+```bash
 $SUI_BINARY client transfer-sui --to $ADDRESS --sui-coin-object-id $OBJECT_ID --gas-budget 1000 --serialize-output
 
 Raw tx_bytes to execute: $TX_BYTES
@@ -29,7 +29,7 @@ You can sign the data using the device and programming language you choose. Sui 
 
 This example uses the `keytool` command to sign, using the Ed25519 key corresponding to the provided address stored in `sui.keystore`. This commands outputs the signature, the public key, and the flag encoded in Base64. This command is backed by [fastcrypto](https://crates.io/crates/fastcrypto).
 
-```shell
+```bash
 $SUI_BINARY keytool sign --address $ADDRESS --data $TX_BYTES
 
 Signer address: $ADDRESS
@@ -48,7 +48,7 @@ To verify a signature against the cryptography library backing Sui when debuggin
 
 After you obtain the serialized signature, you can submit it using the execution transaction command. This command takes `--tx-bytes` as the raw transaction bytes to execute (see output of the `$SUI_BINARY client transfer` command above) and the serialized signature (Base64 encoded `flag || sig || pk`, see output of `$SUI_BINARY keytool sign`). This executes the signed transaction and returns the certificate and transaction effects if successful.
 
-```shell
+```bash
 $SUI_BINARY client execute-signed-tx --tx-bytes $TX_BYTES --signatures $SERIALIZED_SIG
 ----- Certificate ----
 Transaction Hash: $TX_ID

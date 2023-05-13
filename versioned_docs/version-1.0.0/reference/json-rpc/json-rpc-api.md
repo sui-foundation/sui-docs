@@ -34,7 +34,7 @@ The following sections demonstrate how to use the Sui JSON-RPC API with cURL com
 Sui RPC server supports OpenRPC’s [service discovery method](https://spec.open-rpc.org/#service-discovery-method).
 A `rpc.discover` method is added to provide documentation describing our JSON-RPC APIs service.
 
-```shell
+```bash
 curl --location --request POST $SUI_RPC_HOST \
 --header 'Content-Type: application/json' \
 --data-raw '{ "jsonrpc":"2.0", "method":"rpc.discover","id":1}'
@@ -51,7 +51,7 @@ be owned by the address specified for `{{owner_address}}` for the command to suc
 
 #### Create an unsigned transaction to transfer a Sui coin from one address to another
 
-```shell
+```bash
 curl --location --request POST $SUI_RPC_HOST \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -81,7 +81,7 @@ A response resembles the following:
 
 #### Sign a transaction using the Sui keytool
 
-```shell
+```bash
 sui keytool sign --address <owner_address> --data <tx_bytes>
 ```
 
@@ -89,7 +89,7 @@ The keytool creates a key and then returns the signature and public key informat
 
 #### Execute a transaction with a serialized signature
 
-```shell
+```bash
 curl --location --request POST $SUI_RPC_HOST \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -118,7 +118,7 @@ Execute a Move call transaction by calling the specified function in
 the module of a given package (smart contracts in Sui are written in
 the [Move](../../build/create-smart-contracts/smart-contracts.md) language):
 
-```shell
+```bash
 curl --location --request POST $SUI_RPC_HOST \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -149,7 +149,7 @@ To learn more about which `args` a Move call accepts, see [SuiJSON](../json-rpc/
 
 ### Publish a Move package
 
-```shell
+```bash
 curl --location --request POST $SUI_RPC_HOST \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -171,13 +171,13 @@ sure the package is valid. If some modules have [initializers](../../build/creat
 
 To publish a Move module, you also need to include `{{vector_of_compiled_modules}}` along with the `{{vector_of_dependency_ids}}`. To generate the values for these fields, use the `sui move` command. The `sui move` command supports printing the bytecode as base64 and dependency object IDs:
 
-```shell
+```bash
 sui move <move-module-path> build --dump-bytecode-as-base64
 ```
 
 Assuming that the location of the package's sources is in the `PATH_TO_PACKAGE` environment variable an example command resembles the following:
 
-```shell
+```bash
 sui move $PATH_TO_PACKAGE/my_move_package build --dump-bytecode-as-base64
 
 {

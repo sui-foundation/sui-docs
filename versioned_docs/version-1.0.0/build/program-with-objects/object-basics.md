@@ -229,7 +229,7 @@ The mutated object is the gas object used to pay for the transaction.
 
 You can call the function to create a color object:
 
-```shell
+```bash
 sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "create" --args 0 255 0
 ```
 
@@ -252,7 +252,7 @@ export OBJECT=0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446
 
 To inspect this object and see what kind of object it is, use:
 
-```shell
+```bash
 sui client object $OBJECT
 ```
 

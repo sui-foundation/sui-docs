@@ -337,13 +337,13 @@ module policy::day_of_week {
 
 Use the `sui client publish` command to publish the policy.
 
-```sh
+```bash
 sui client publish --gas-budget 100000000
 ```
 
 A successful publish returns the following:
 
-```sh
+```bash
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING policy
@@ -424,7 +424,7 @@ Array [
 
 Following best practices, use the Sui Client CLI to call `sui::package::make_immutable` on the `UpgradeCap` to make the policy immutable.
 
-```sh
+```bash
 sui client call --gas-budget 10000000 \
     --package 0x2 \
     --module 'package' \
@@ -432,7 +432,7 @@ sui client call --gas-budget 10000000 \
     --args '<POLICY-UPGRADE-CAP>'
 ```
 
-```sh
+```bash
 ----- Transaction Digest ----
 FqTdsEgFnyVqc3sFeu5EnBUziEDYbxhLUAaLv4FDjN6d
 ----- Transaction Data ----
@@ -633,13 +633,13 @@ console.log(result)
 
 Save your `publish.js` file, and then use Node.js to run the script:
 
-```sh
+```bash
 $ node publish.js
 ```
 
 If the script is successful, the console prints the following response:
 
-```sh
+```bash
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING example
@@ -702,7 +702,7 @@ BUILDING example
 
 Use the CLI to test that your newly published package works:
 
-```sh
+```bash
 $ sui client call --gas-budget 10000000 \
     --package '<EXAMPLE-PACKAGE-ID>' \
     --module 'example' \
@@ -711,7 +711,7 @@ $ sui client call --gas-budget 10000000 \
 
 A successful call responds with the following:
 
-```sh
+```bash
 ----- Transaction Digest ----
 Bx1GA8EsBjoLKvXV2GG92DC5Jt58dbytf6jFcLg18dDR
 ----- Transaction Data ----
@@ -876,13 +876,13 @@ console.log(result);
 
 If today is not Tuesday, wait until next Tuesday to run the script, when your policy allows you to perform upgrades. At that point, update your `example.move` so the event is emitted with a different constant and use Node.js to run the upgrade script:
 
-```sh
+```bash
 node upgrade.js
 ```
 
 If the script is successful (and today is Tuesday), your console displays the following response:
 
-```sh
+```bash
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
 BUILDING example
@@ -945,7 +945,7 @@ BUILDING example
 
 Use the Sui Client CLI to test the upgraded package (the package ID is **different** from the original version of your example package):
 
-```sh
+```bash
 sui client call --gas-budget 10000000 \
     --package '<UPGRADED-EXAMPLE-PACKAGE>' \
     --module 'example' \
@@ -954,7 +954,7 @@ sui client call --gas-budget 10000000 \
 
 If successful, the console prints the following response:
 
-```sh
+```bash
 ----- Transaction Digest ----
 EF2rQzWHmtjPvkqzFGyFvANA8e4ETULSBqDMkzqVoshi
 ----- Transaction Data ----

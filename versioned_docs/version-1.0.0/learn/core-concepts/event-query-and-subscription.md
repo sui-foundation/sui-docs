@@ -220,7 +220,7 @@ The following examples demonstrate how to create queries that use pagination for
 
 **Request**
 
-```shell
+```bash
 curl --location --request POST '127.0.0.1:9000' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -336,7 +336,7 @@ curl --location --request POST '127.0.0.1:9000' \
 
 **Request**
 
-```shell
+```bash
 curl --location --request POST '127.0.0.1:9000' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -414,7 +414,7 @@ curl --location --request POST '127.0.0.1:9000' \
 
 **Request**
 
-```shell
+```bash
 curl --location --request POST '127.0.0.1:9000' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -520,14 +520,14 @@ Sui provides a few operators for combining filters:
 
 The following example demonstrates how to subscribe to Move events (`MoveEvent`) that a `<PACKAGE-ID>::nft` package emits:
 
-```shell
+```bash
 >> {"jsonrpc":"2.0", "id": 1, "method": "sui_subscribeEvent", "params": [{"All":[{"EventType":"MoveEvent"}, {"Package":"<PACKAGE-MODULE-ID>"}, {"Module":"nft"}]}]}
 << {"jsonrpc":"2.0","result":3121662727959200,"id":1}
 ```
 
 To unsubscribe from this stream, use:
 
-```shell
+```bash
 >> {"jsonrpc":"2.0", "id": 1, "method": "sui_unsubscribeEvent", "params": [3121662727959200]}
 << {"jsonrpc":"2.0","result":true,"id":1}
 ```
