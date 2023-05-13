@@ -34,10 +34,12 @@ times (such as when you change some Move source code), the following automated s
 may be useful to save some time.
 Run this script from the project repo root.
 
+```mdx-code-block
 <details>
   <summary>
   Quick script
   </summary>
+```
 
 ```sh
 #!/bin/bash
@@ -82,7 +84,9 @@ sui client call --package $PACKAGE_ID --module tic_tac_toe --function create_gam
 # start playing the game ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 ## Gather addresses and gas objects
 
@@ -136,10 +140,12 @@ $ sui client publish ./sui/sui_programmability/examples/games --gas $ADMIN_GAS -
 
 The response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
   </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -152,7 +158,9 @@ List of objects created by running module initializers: []
 Updated Gas : Coin { id: 38B89FE9F4A4823F1406938E87A8767CBD7F0B93, value: 92939 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 The package successfully published. Some gas was charged: the initial gas value was 100000, now it's 92939. The newly published package has the ID `A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17`. Note that this ID is different than ID for the package you publish.
 
@@ -181,10 +189,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function create_game
 
 The response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
   </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -207,7 +217,9 @@ Mutated Objects:
 38B89FE9F4A4823F1406938E87A8767CBD7F0B93 SequenceNumber(2) o#26dbaf7ec2032a6270a45498ad46ac0b1ddbc361fcff20cadafaf5d39b8181b1
 ```
 
+```mdx-code-block
 </details>
+```
 
 The preceding call created three objects. For each object, it printed out a tuple of three values (object_id, version, object_digest). Object ID is the important value here. Since there is no application here to display objects, you need a bit of object printing magic to figure out which object is which. Let's print out the metadata of each created object (replace the object ID with what you see on your screen):
 
@@ -263,10 +275,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 And its output:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -287,7 +301,9 @@ Mutated Objects:
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 The above call created a Mark object, with ID `AE3CE9176F1A8C1F21D922722486DF667FA00394`, and it was sent to the admin.
 The admin can now place the mark on the gameboard. The function to place the mark looks like this:
@@ -318,10 +334,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 With output like:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -333,7 +351,9 @@ Created Objects:
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 :::info
 
@@ -347,10 +367,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function place_mark 
 
 With output like:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -360,7 +382,9 @@ Status : Success { gas_used: 679 }
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 The gameboard now looks like this:
 
@@ -378,10 +402,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 With output like:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -393,7 +419,9 @@ Created Objects:
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 Then run:
 
@@ -417,10 +445,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 With output like:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -432,7 +462,9 @@ Created Objects:
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 Now run:
 
@@ -457,10 +489,12 @@ $ sui client call --package $PACKAGE --module tic_tac_toe --function send_mark_t
 
 And its output:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -472,7 +506,9 @@ AA7A6624E16E5E447801462FF6614013FC4AD156 SequenceNumber(1) o#e5e1b15f03531db118e
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 And then finally the admin places the winning mark:
 
@@ -482,10 +518,12 @@ And then finally the admin places the winning mark:
 
 With output:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -498,7 +536,9 @@ Mutated Objects:
 ...
 ```
 
+```mdx-code-block
 </details>
+```
 
 Cool! The last transaction created a new object. To find out what object was created:
 
@@ -508,10 +548,12 @@ $ sui client object 54B58C0D5B14A269B1CD424B3CCAB1E315C43343
 
 See output resembling:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 Owner: AddressOwner(k#0x011a285261b9f8d10a0c7ecb4c0dbe6d396825768dba38c3056809472736e521)
@@ -521,7 +563,9 @@ Readonly: false
 Type: 0xa613a7ff8cb03e0dfc0d157e232bba50c5f19d17::TicTacToe::Trophy
 ```
 
+```mdx-code-block
 </details>
+```
 
 PlayerX has received a Trophy object and hence won the game!
 

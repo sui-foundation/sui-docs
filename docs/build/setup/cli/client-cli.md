@@ -184,10 +184,12 @@ sui client objects
 
 The response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
                  Object ID                  |  Version   |                    Digest                    |   Owner Type    |               Object Type
@@ -200,7 +202,9 @@ The response resembles the following:
 Showing 5 results.
 ```
 
+```mdx-code-block
 </details>
+```
 
 To view the objects for a different address than the active address, specify the address to see objects for.
 
@@ -217,10 +221,12 @@ sui client object <OBJECT_ID>
 The result shows some basic information about the object, the owner,
 version, ID, if the object is immutable and the type of the object.
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 ----- 0x2::coin::Coin<0x2::sui::SUI> (0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d[0x1]) -----
@@ -234,7 +240,9 @@ balance: 100000000000000
 id: 0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d
 ```
 
+```mdx-code-block
 </details>
+```
 
 To view the JSON representation of the object, include `--json` in the command.
 
@@ -244,10 +252,12 @@ sui client object <OBJECT_ID> --json
 
 The response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```json
 {
@@ -274,7 +284,9 @@ The response resembles the following:
 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 ## Transfer objects
 
@@ -524,10 +536,12 @@ If your package includes unpublished dependencies, you can add the `--with-unpub
 
 If successful, your response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 ----- Certificate ----
@@ -552,7 +566,9 @@ swords_created: 0
 Updated Gas : Coin { id: 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427, value: 96929 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 Running this command created an object representing the published package.
 From now on, use the package object ID (`0x53e4567ccafa5f36ce84c80aa8bc9be64e0d5ae796884274aef3005ae6733809`) in the Sui client call

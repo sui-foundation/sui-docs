@@ -141,10 +141,12 @@ sui client publish <your-sui-repo>/sui_programmability/examples/move_tutorial --
 
 The response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
   </summary>
+```
 
 ```shell
 INCLUDING DEPENDENCY Sui
@@ -237,7 +239,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 The package publish operation creates several objects:
 
@@ -276,10 +280,12 @@ sui client call --function sword_create --module my_module --package 0x<PACKAGE-
 
 The response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
   </summary>
+```
 
 ```shell
 ----- Transaction Digest ----
@@ -358,7 +364,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 Go to the Sui Explorer to observe a newly created object. You should see a sword object created with `Magic` property of `42` and `Strength` property of `7` and transferred to the new owner.
 

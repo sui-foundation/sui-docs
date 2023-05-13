@@ -52,6 +52,7 @@ Sui scales horizontally to meet the demands of applications. Network capacity gr
 
 By design, Sui validators (nodes) can effectively scale the network throughput infinitely to meet the demand of builders and creators. Sui can do for web3 what broadband internet did for web2.
 
+```mdx-code-block
 <details>
   <summary>
   Single-worker Sui validator achieving 120,000 token transfer transactions per second (TPS)
@@ -65,6 +66,7 @@ By design, Sui validators (nodes) can effectively scale the network throughput i
     </div>
   </div>
 </details>
+```
 
 ## A safe smart contract language accessible to mainstream developers
 

@@ -284,10 +284,12 @@ sui client publish --gas-budget <GAS-BUDGET-AMOUNT>
 
 And receive the response:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 INCLUDING DEPENDENCY Sui
@@ -380,7 +382,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 The result includes an **Object changes** section with two pieces of information you need for upgrading, an `UpgradeCap` ID and your package ID.
 
@@ -422,10 +426,12 @@ sui client upgrade --gas-budget <GAS-BUDGET-AMOUNT> --upgrade-capability <UPGRAD
 
 The console alerts you if the new package doesn't satisfy [requirements](#requirements), otherwise the compiler publishes the upgraded package to the network and returns its result:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 INCLUDING DEPENDENCY Sui
@@ -510,7 +516,9 @@ Array [
 
 ```
 
+```mdx-code-block
 </details>
+```
 
 The result provides a new ID for the upgraded package. As was the case before the upgrade, you need to include that information in your manifest so any of your other packages that depend on your `sui_package` know where to find the on-chain bytecode for verification. Edit your manifest once again to provide the upgraded package ID for the `published-at` value, and return the original `sui_package` ID value in the `[addresses]` section:
 

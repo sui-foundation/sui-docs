@@ -219,10 +219,12 @@ These examples assume that the path to the root of the repository containing Sui
 
 You can find the published package object ID in the **Transaction Effects** output:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 Transaction Kind : Publish
@@ -234,7 +236,9 @@ Mutated Objects:
   - ID: 0x1b879f00b03357c95a908b7fb568712f5be862c5cb0a5894f62d06e9098de6dc , Owner: Account Address ( 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 )
 ```
 
+```mdx-code-block
 </details>
+```
 
 Note that the exact data you see differs from the examples in this topic.
 
@@ -254,10 +258,12 @@ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --f
 
 In the **Transaction Effects** portion of the output, you see an object included in the list of **Created Objects**:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 ----- Transaction Effects ----
@@ -268,7 +274,9 @@ Mutated Objects:
   - ID: 0x7cd011b6dbe90a0520a8501d993e3666b9373456b588f97600fcae6e02f60aa3 , Owner: Account Address ( 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446 )
 ```
 
+```mdx-code-block
 </details>
+```
 
 To save the object ID as a variable, use:
 
@@ -284,10 +292,12 @@ sui client object $OBJECT
 
 This returns the metadata of the object, including its type:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 ----- Move Object (0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446[8]) -----
@@ -303,7 +313,9 @@ id: 0x44840a79dd5cf1f5efeff1379f5eece04c72db13512a2e31e8750f5176285446
 red: 0
 ```
 
+```mdx-code-block
 </details>
+```
 
 You can also request the content of the object in json format by adding the `--json` parameter:
 

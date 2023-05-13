@@ -120,10 +120,12 @@ curl --location --request POST 'http://127.0.0.1:9000' \
 
 If successful, the response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```bash
 {
@@ -133,7 +135,9 @@ If successful, the response resembles the following:
 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 ## Connect the Sui Client CLI to your local network
 
@@ -201,10 +205,12 @@ curl --location --request POST 'http://127.0.0.1:9123/gas' \
 
 If successful, the response resembles the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
 {
@@ -239,7 +245,9 @@ If successful, the response resembles the following:
 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 ### Check the gas coin objects for the active address
 
@@ -251,10 +259,12 @@ sui client gas
 
 The response resembles the following, but with different IDs:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```shell
                              Object ID                              |  Gas Value
@@ -267,7 +277,9 @@ The response resembles the following, but with different IDs:
 
 ```
 
+```mdx-code-block
 </details>
+```
 
 ## Install Sui Wallet and Sui Explorer locally
 

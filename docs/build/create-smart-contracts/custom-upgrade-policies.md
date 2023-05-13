@@ -343,10 +343,12 @@ sui client publish --gas-budget 100000000
 
 A successful publish returns the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 INCLUDING DEPENDENCY Sui
@@ -427,7 +429,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 Following best practices, use the Sui Client CLI to call `sui::package::make_immutable` on the `UpgradeCap` to make the policy immutable.
 
@@ -439,10 +443,12 @@ sui client call --gas-budget 10000000 \
     --args '<POLICY-UPGRADE-CAP>'
 ```
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 ----- Transaction Digest ----
@@ -497,7 +503,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 ### Creating a package for testing
 
@@ -653,10 +661,12 @@ $ node publish.js
 
 If the script is successful, the console prints the following response:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 INCLUDING DEPENDENCY Sui
@@ -717,7 +727,9 @@ BUILDING example
 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 :::tip
 
@@ -736,10 +748,12 @@ $ sui client call --gas-budget 10000000 \
 
 A successful call responds with the following:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 ----- Transaction Digest ----
@@ -807,7 +821,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 If you used the example package provided, notice you have an `Events` section that contains a field `x` with value `41`.
 
@@ -914,10 +930,12 @@ node upgrade.js
 
 If the script is successful (and today is Tuesday), your console displays the following response:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 INCLUDING DEPENDENCY Sui
@@ -980,7 +998,9 @@ BUILDING example
 }
 ```
 
+```mdx-code-block
 </details>
+```
 
 Use the Sui Client CLI to test the upgraded package (the package ID is **different** from the original version of your example package):
 
@@ -993,10 +1013,12 @@ sui client call --gas-budget 10000000 \
 
 If successful, the console prints the following response:
 
+```mdx-code-block
 <details>
   <summary>
   Show output
-  </summary>>
+  </summary>
+```
 
 ```sh
 ----- Transaction Digest ----
@@ -1064,7 +1086,9 @@ Array [
 ]
 ```
 
+```mdx-code-block
 </details>
+```
 
 Now, the `Events` section emitted for the `x` field has a value of `42` (changed from the original `41`).
 
