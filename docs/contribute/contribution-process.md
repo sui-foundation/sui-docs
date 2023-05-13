@@ -9,9 +9,9 @@ As open source software, Sui depends on community contributions. This page cover
 
 In order to make changes to the documentation, you can do so directly via forking and cloning the repository to your local machine and making changes from your preferred IDE of choice, or by the web interface on GitHub. This guide will cover both scenarios. All changes to the documentation must follow the style guide (hyperlink), as well as the review process and information on the editors throughout the process.
 
-# Cloning the Documentation Locally
+# Set Up Environment Locally
 
-### Cloning the documentation locally is recommended when you are creating larger, more significant changes to the docs.
+Cloning the documentation locally is recommended when you are creating larger, more significant changes to the docs.
 
 1. Click the fork button in the upper-right of the docs' [GitHub repository](https://github.com/sui-foundation/sui-docs) to create a copy of the documentation. This copy is known as a fork, and you are free to create any changes in your fork.
 1. Clone this repo locally via clicking the green `< > Code` button and copy the HTTPS link to your forked repo. Then in your directory enter `git clone https://github.com/github-username/sui-docs.git`, replacing `github-username` with your actual GitHub username.
@@ -19,25 +19,18 @@ In order to make changes to the documentation, you can do so directly via forkin
 1. Once you have made all your changes, first rebase locally from `main` (`git rebase main`), create a local commit (`git commit -m “message”`) and then push all your changes to your forked repository (`git push`).
 1. To view your changes via `localhost`, enter `yarn` into a terminal at the root directory to build the project, then `yarn start` to view the changes on `localhost` to ensure that the website works as intended. To learn more `yarn`, including how to install it if you have not yet already done so, see here.
 
-## Add New Page
 
-To add a new page, navigate to the `docs` directory, then navigate to the appropriate subdirectory and add a new `.md` page.
+# For Beginners 
 
-## Change Existing Page
-
-To change an existing page, navigate to the page you want to change and make your edits in the appropriate file.
-
-# Editing Documentation via GitHub Web Interface
-
-### Editing the documentation via GitHub’s web interface is recommended if you are not familiar with working in an IDE, or for smaller changes.
+Editing the documentation via GitHub’s web interface is recommended if you are not familiar with working in an IDE, or for smaller changes.
 
 Before making any changes, you will have to fork this repository and make any edits in your own fork first. To fork the repo, click the `Fork` button in the upper-right of the docs' [GitHub repository](https://github.com/sui-foundation/sui-docs) to create a copy of the documentation.
 
-## Add New Page
+**Add New Page
 
 Navigate to the `docs` directory, then navigate to the appropriate subdirectory and click the `Add file` button in the top-right. Select `create new file` to create a new file and edit it directly on GitHub’s web interface.
 
-## Change Existing Page
+**Change Existing Page
 
 To change an existing page, navigate to the file you want to edit, click on the pencil icon in the top-right, and edit your changes there.
 
