@@ -181,6 +181,27 @@ const config = {
         additionalLanguages: ['rust'],
       },
     }),
+
+  plugins: [
+    [
+      'client-redirects',
+      /** @type {import('@docusaurus/plugin-client-redirects').Options} */
+      {
+        createRedirects(existingPath) {
+          if (existingPath.endsWith('/learn')) {
+            return [existingPath.replace('/learn', '/about-sui')];
+          } else if (existingPath.endsWith('/build')) {
+            return [existingPath.replace('/learn', '/about-sui')];
+          } else if (existingPath.endsWith('/about-sui-move')) {
+            return [existingPath.replace('/learn', '/sui-framework-reference')];
+          } else if (existingPath.endsWith('/contribute')) {
+            return [existingPath.replace('/learn', '/contribution-process')];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
+      },
+    ],
+  ],
 };
 
 module.exports = config;
