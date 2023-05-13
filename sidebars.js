@@ -287,7 +287,11 @@ const sidebars = {
       items: [
         'contribute/contribution-process',
         'contribute/contribute-to-sui-repos',
-        'contribute/submit-a-sip',
+        {
+          type: 'link',
+          label: 'Submit a SIP',
+          href: 'https://sips.sui.io',
+        },
         'contribute/localize-sui-docs',
         'contribute/code-of-conduct',
         'contribute/style-guide',
