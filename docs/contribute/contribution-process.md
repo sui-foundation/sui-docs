@@ -9,7 +9,7 @@ As open source software, Sui depends on community contributions. This page cover
 
 In order to make changes to the documentation, you can do so directly via forking and cloning the repository to your local machine and making changes from your preferred IDE of choice, or by the web interface on GitHub. This guide will cover both scenarios. All changes to the documentation must follow the style guide (hyperlink), as well as the review process and information on the editors throughout the process.
 
-## Set Up Environment Locally
+## Set Up Local Environment
 
 Cloning the documentation locally is recommended when you are creating larger, more significant changes to the docs.
 
