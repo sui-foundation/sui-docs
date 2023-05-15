@@ -4,17 +4,9 @@ sidebar_label: Wallet Kit Provider
 slug: /wallet-kit-provider
 ---
 
-### Installation
+# `WalletKitProvider`
 
-To install the [React Sui Wallet Kit library from npm](https://www.npmjs.com/package/@mysten/wallet-kit), along with the Sui TypeScript SDK:
-
-```bash
-npm install @mysten/wallet-kit @mysten/sui.js
-```
-
-### Configuring the Sui Wallet Kit Provider
-
-After you install the `@mysten/wallet-kit` package, you need to wrap your application with the `WalletKitProvider`.
+The `WalletKitProvider` is used to setup the necessary context for you React application. It should be at the root of your application, so that you can use any of the Sui Wallet Kit components underneath it.
 
 ```tsx
 import { WalletKitProvider } from '@mysten/wallet-kit';
@@ -28,14 +20,16 @@ function App() {
 };
 ```
 
-### Rendering a Connect Button
+The `WalletKitProvider` creates an instance of Sui Wallet Kit Core internally, and manages all wallet state for you automatically.
 
-After you wrap your app with the `WalletKitProvider`, add a `ConnectButton` component that users can click to connect their wallet to your dApp.
+### Props
 
-```tsx
-import { ConnectButton } from "@mysten/wallet-kit";
+All props are optional.
 
-export function YourApp() {
-  return <ConnectButton />;
-}
-```
+- `adapters` - A list of wallet adapters that are used to provide wallets that are available to connect to. The default value is a list of all officially-supported wallet adapters. For more details, see [Wallet Adapters](../advanced/wallet-adapters).
+- `preferredWallets` - A list of wallets that are sorted to the top of the wallet list, if they are available to connect to. By default, wallets are sorted by the order they are loaded in.
+- `storageAdapter = localStorageAdapter` - Configures how the most recently connected to wallet is stored. Defaults to using `localStorage`.
+- `storageKey = "wallet-kit:last-wallet"` - The key to use to store the most recently connected wallet.
+- `enableUnsafeBurner = false` - Set to `true` to enable the `UnsafeBurnerWalletAdapter`, that you can use in development to test wallet features without requiring a wallet. Should not be set to `true` in a production environment, as the `UnsafeBurnerWalletAdapter` does not work in any non-test environment.
+- `disableAutoConnect = false` - When set to false, Sui Wallet Kit will automatically attempt to connect to the most recently-used wallet when it loads. When set to true, this behavior is disabled.
+- `features = ["sui:signAndExecuteTransaction"]` - A list of Wallet Standard features that are required for the dApp to function. This filters the list of wallets presented to users when selecting a wallet to connect from, ensuring that only wallets that meet the dApps requirements can connect.
