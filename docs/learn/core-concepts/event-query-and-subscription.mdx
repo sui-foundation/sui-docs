@@ -216,7 +216,7 @@ The Event Query API provides cursor-based pagination to make it easier to work w
 
 The following examples demonstrate how to create queries that use pagination for the results.
 
-### 1. Get all events an nft module emits, in descending time order
+### 1. Get all events an nft module emits, in descending time order {#example-step1}
 
 **Request**
 
@@ -332,7 +332,7 @@ curl --location --request POST '127.0.0.1:9000' \
 }
 ```
 
-### 2. Get all MintNFTEvent events
+### 2. Get all MintNFTEvent events {#example-step2}
 
 **Request**
 
@@ -410,7 +410,7 @@ curl --location --request POST '127.0.0.1:9000' \
 }
 ```
 
-### 3. Get all events and return 2 items per page in descending time order
+### 3. Get all events and return 2 items per page in descending time order {#example-step3}
 
 **Request**
 
@@ -485,7 +485,7 @@ curl --location --request POST '127.0.0.1:9000' \
 }
 ```
 
-## Subscribe to Sui events
+## Subscribe to Sui events {#subscribe-events}
 
 When you subscribe to the events described in the preceding sections, you can apply event filters to match the events you want to filter.
 
@@ -493,7 +493,7 @@ When you subscribe to the events described in the preceding sections, you can ap
 
 You can use `EventFilter` to filter the events included in your subscription to the event stream. `EventFilter` supports filtering on one attribute or a combination of attributes.
 
-### List of attributes that support filters
+### List of attributes that support filters {#attributes-supporting-filters}
 
 | Filter         | Description                                                      | Applicable to Event Type                                                                               | JSON-RPC Parameter Example                                                                |
 | -------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
@@ -516,7 +516,7 @@ Sui provides a few operators for combining filters:
 | All      | Combine a list of filters; returns true if all filters match the event  | `{"All":[{"EventType":"MoveEvent"}, {"Package":"<PACKAGE-ID>"}, {"Module":"nft"}]}`                 |
 | Any      | Combine a list of filters; returns true if any filter matches the event | `{"Any":[{"EventType":"MoveEvent"}, {"EventType":"TransferObject"}, {"EventType":"DeleteObject"}]}` |
 
-### Example using a combined filter
+### Example using a combined filter {#example-combined-filter}
 
 The following example demonstrates how to subscribe to Move events (`MoveEvent`) that a `<PACKAGE-ID>::nft` package emits:
 

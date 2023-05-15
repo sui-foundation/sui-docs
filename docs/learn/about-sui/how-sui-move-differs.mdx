@@ -23,7 +23,7 @@ Here is a summary of key differences:
 
 Find a detailed description of each change below.
 
-## Object-centric global storage
+## Object-centric global storage {#global-storage}
 
 In core Move, global storage is part of the programming model and can be accessed through special operations, such as `move_to`, `move_from` and many more[ global storage operators](https://move-language.github.io/move/global-storage-operators.html). Both resources and modules are stored in the core Move global storage. When you publish a module, it’s stored into a newly generated module address inside Move. When a new object (a.k.a. resource) is created, it's usually stored into some address, as well.
 
@@ -37,13 +37,13 @@ When you need to read an object in Move, you cannot rely on global storage opera
 
 :::
 
-## Addresses represent Object IDs
+## Addresses represent Object IDs {#object-ids}
 
 In Move, there is a special _address_ type. This type is used to represent addresses in core Move. Core Move needs to know the address of an account when dealing with the global storage. The _address_ type is 16 bytes, which is sufficient for the core Move security model.
 
 In Sui, since it doesn’t support global storage in Move, you don’t need the _address_ type to represent user accounts. Instead, use the _address_ type to represent the Object ID. Refer to the [object.move](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/object.move) file in Sui framework for an understanding of address use.
 
-## Object with key ability, globally unique IDs
+## Object with key ability, globally unique IDs {#global-unique-ids}
 
 You need a way to distinguish between objects that are internal to Sui Move and objects that can be stored in Sui storage. This is important because you need to be able to serialize/deserialize objects in the Move-Sui boundary, and this process makes assumptions on the shape of the objects.
 
@@ -58,7 +58,7 @@ As described in [Object-centric global storage](#object-centric-global-storage),
 - No return values
 - Private
 
-## Entry points take object references as input
+## Entry points take object references as input {#entry-points}
 
 Sui offers entry functions that can be called directly from Sui, in addition to functions callable from other functions.
 See [Entry functions](../../build/create-smart-contracts/smart-contracts.mdx#entry-functions).
