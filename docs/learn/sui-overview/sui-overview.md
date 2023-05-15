@@ -1,6 +1,6 @@
 ---
-title: About Sui
-slug: /about-sui
+title: Sui Overview
+slug: /sui-overview
 ---
 
 Sui is a [smart contract](../../reference/sui-framework/sui-glossary.md#smart-contract) platform maintained by a permissionless set of [validators](../../reference/sui-framework/sui-glossary.md#validator) that play a role similar to validators or miners in other blockchain systems.
