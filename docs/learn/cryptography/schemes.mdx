@@ -23,7 +23,7 @@ Signature schemes covered:
 
 ## Usage
 
-### Set up fastcrypto CLI binary
+### Set up fastcrypto CLI binary {#setup}
 
 ```bash
 git@github.com:MystenLabs/fastcrypto.git
@@ -31,9 +31,9 @@ cd fastcrypto/
 cargo build --bin sigs-cli
 ```
 
-### Sign with CLI and submit to on-chain Move method
+### Sign with CLI and submit to on-chain Move method {#signin-and-submit}
 
-#### Ed25519 signature (64 bytes)
+#### Ed25519 signature (64 bytes) {#Ed25519}
 
 1. Generate a key and sign a message.
 
@@ -60,7 +60,7 @@ Public key in hex: $PK
     assert!(verify == true, 0);
 ```
 
-#### Secp256k1 non-recoverable signature (64 bytes)
+#### Secp256k1 non-recoverable signature (64 bytes) {#Secp256k1-non-recoverable}
 
 1. Generate a key and sign a message.
 
@@ -87,7 +87,7 @@ Public key in hex: $PK
     assert!(verify == true, 0);
 ```
 
-#### Secp256k1 recoverable signature (65 bytes)
+#### Secp256k1 recoverable signature (65 bytes) {#Secp256k1-recoverable}
 
 1. Generate a key and sign a message.
 
@@ -112,7 +112,7 @@ Public key in hex: $PK
     let recovered = ecdsa_k1::secp256k1_ecrecover(&sig, &msg, 1);    assert!(pk == recovered, 0);
 ```
 
-#### Secp256r1 non-recoverable signature (64 bytes)
+#### Secp256r1 non-recoverable signature (64 bytes) {#Secp256r1-non-recoverable}
 
 1. Generate a key and sign a message.
 
@@ -140,7 +140,7 @@ Public key in hex: $PK
     assert!(verify == true, 0);
 ```
 
-#### Secp256r1 recoverable signature (65 bytes)
+#### Secp256r1 recoverable signature (65 bytes) {#Secp256r1-recoverable}
 
 1. Generate a key and sign a message.
 
@@ -168,7 +168,7 @@ Public key in hex: $PK
     assert!(pk == recovered, 0);
 ```
 
-#### BLS G1 signature (48 bytes, minSig setting)
+#### BLS G1 signature (48 bytes, minSig setting) {#bls61-signature-48}
 
 1. Generate a key and sign a message.
 
@@ -195,7 +195,7 @@ Public key in hex: $PK
     assert!(verify == true, 0);
 ```
 
-#### BLS G1 signature (96 bytes, minPk setting)
+#### BLS G1 signature (96 bytes, minPk setting) {#bls61-signature-96}
 
 1. Generate a key and sign a message.
 

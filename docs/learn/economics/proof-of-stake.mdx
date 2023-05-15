@@ -6,7 +6,7 @@ slug: /proof-of-stake
 
 The Sui platform relies on Delegated Proof-of-Stake to determine the set of validators who process transactions.
 
-## SUI token staking
+## SUI token staking {#staking}
 
 Within each epoch, operations are processed by a fixed set of validators, each with a specific amount of stake from SUI token holders. A validator's share of total stake is relevant in that it determines each validator’s share of voting power for processing transactions. Staking SUI implies the SUI tokens are locked for the entire epoch. SUI token holders are free to withdraw their SUI or to change their selected validator when the epoch changes.
 
@@ -47,6 +47,6 @@ Finally, note that the storage fund rewards accrue to all $N$ validators equally
 
 On net, this design encourages validators to operate with low gas price quotes – but not too low or else they receive slashed stake rewards. Consequently, Sui’s gas price mechanism and Delegated Proof-of-Stake system encourages a healthy competition for fair prices where validators set low gas fees while operating with viable business models.
 
-## Sui incentives
+## Sui incentives {#incentives}
 
 Sui’s economic model bestows Sui users with an important monitoring role. On the one hand, users want their transactions to be processed as quickly and efficiently as possible. User clients such as wallets encourage this by prioritizing communication with the most responsive validators. Such efficient operations are compensated with boosted rewards relative to less responsive validators. On the other hand, SUI token stakers receive the same boosted or penalized rewards as their selected validator. An unresponsive validator is thus doubly exposed to Sui’s incentives: they lose directly through slashed rewards and indirectly through reduced user stake in future epochs as stakers move their tokens to more responsive validators.

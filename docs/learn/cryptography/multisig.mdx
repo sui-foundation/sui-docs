@@ -34,7 +34,7 @@ resulting in a single signature payload, making it indistinguishable from a sing
 
 Here we demonstrate the steps to create a MultiSig transaction in Sui using CLI and then submit it using the Sui CLI against a local network. A transaction can be a transfer of an object, publish or upgrade a package, pay Sui, etc. To learn how to set up a local network, see [Sui Local Network](../../build/setup/local-network.mdx)
 
-## Step 1: Add keys to Sui keystore
+## Step 1: Add keys to Sui keystore {#step-1}
 
 Use the following command to generate a Sui address and key for each supported key scheme and add it to the `sui.keystore`, then list the keys.
 
@@ -56,7 +56,7 @@ $ADDR_2     | $PK_2               | secp256k1
 $ADDR_3     | $PK_3               | ed25519
 ```
 
-## Step 2: Create a MultiSig address
+## Step 2: Create a MultiSig address {#step-2}
 
 To create a MultiSig address, input a list of public keys to use for the MultiSig address and list their corresponding weights.
 
@@ -76,7 +76,7 @@ $ADDR_2    | $PK_2              |   2
 $ADDR_3    | $PK_3              |   3
 ```
 
-## Step 3: Send objects to a MultiSig address
+## Step 3: Send objects to a MultiSig address {#step-3}
 
 This example requests gas from a local network using the default URL following the guidance in [Sui Local Network](../../build/setup/local-network.mdx).
 
@@ -90,7 +90,7 @@ The response resembles the following:
 {"transferred_gas_objects":[{"amount":200000,"id":"$OBJECT_ID", ...}]}
 ```
 
-## Step 3: Serialize ANY transaction
+## Step 4: Serialize ANY transaction {#step-4}
 
 This section demonstrates how to use an object that belongs to a MultiSig address and serialize a transfer to be signed. Note that the tx*bytes can be \_ANY* serialized transaction data where the sender is the MultiSig address, simply use the `--serialize-output` flag for supported commands in `sui client -h` (e.g. `publish`, `upgrade`, `call`, `transfer`, `transfer-sui`, `pay`, `pay-all-sui`, `pay-sui`, `split`, `merge-coin`) to output the Base64 encoded transaction bytes.
 
@@ -100,7 +100,7 @@ $SUI_BINARY client transfer --to $MULTISIG_ADDR --object-id $OBJECT_ID --gas-bud
 Raw tx_bytes to execute: $TX_BYTES
 ```
 
-## Step 4: Sign the transaction with two keys
+## Step 5: Sign the transaction with two keys {#step-5}
 
 Use the following code sample to sign the transaction with two keys in `sui.keystore`. You can do this with other tools as long as you serialize it to `flag || sig || pk`.
 
@@ -116,7 +116,7 @@ Raw tx_bytes to execute: $TX_BYTES
 Serialized signature (`flag || sig || pk` in Base64): $SIG_2
 ```
 
-## Step 5: Combine individual signatures into a MultiSig
+## Step 6: Combine individual signatures into a MultiSig {#step-6}
 
 This sample demonstrates how to combine the two signatures:
 
@@ -128,7 +128,7 @@ MultiSig parsed: $HUMAN_READABLE_STRUCT # Informational
 MultiSig serialized: $SERIALIZED_MULTISIG
 ```
 
-## Step 6: Execute a transaction with MultiSig
+## Step 7: Execute a transaction with MultiSig {#step-7}
 
 This sample demonstrates how to execute a transaction using MultiSig:
 

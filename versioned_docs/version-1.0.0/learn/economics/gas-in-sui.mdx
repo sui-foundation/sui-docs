@@ -18,11 +18,11 @@ The information on net gas fees displays in [Sui Explorer](https://suiexplorer.c
 ![Gas Fees displayed on Sui Explorer](/img/gas-fees-explorer.png "The Gas Fees section displayed on Sui Explorer")
 _The Gas Fees section for a transaction block displayed on Sui Explorer_
 
-### Gas Prices
+### Gas Prices {#prices}
 
 The [Reference Gas Price](gas-pricing.mdx#computation-gas-prices) translates the real-time cost of executing a transaction into SUI units and is updated at each epoch boundary by the validator set. Similarly, the [Storage Price](gas-pricing.mdx#storage-gas-prices) translates the long-term cost of storing data on-chain into SUI units and is updated infrequently; often remaining constant for various consecutive epochs. During regular network operations, all Sui users should expect to pay the Reference Gas Price and Storage Price for computation and storage, respectively.
 
-### Gas Units
+### Gas Units {#units}
 
 **Computation Units**
 
@@ -53,7 +53,7 @@ Similarly, Sui transactions vary depending on the amount of new data written int
 
 Importantly, in Sui’s [Storage Fund](sui-storage-fund.mdx) model users pay upfront for the cost of storing data in perpetuity but can also get a partial rebate on previously stored data if that data is deleted. Hence, the amount of storage fees that a user pays can be split into a rebateable and non-rebateable amount. Initially, the rebateable amount equals 99% of the storage fees while the non-rebateable amount equals 1% of the storage fee.
 
-### Gas Budgets
+### Gas Budgets {#budgets}
 
 All transactions need to be submitted together with a Gas Budget. This provides a cap to the amount of Gas Fees a user will pay, especially since in some cases it may be hard to perfectly forecast how much a transaction will cost before it is submitted to the Sui Network.
 
@@ -69,7 +69,7 @@ Importantly, the minimum Gas Budget is 2,000 MIST. This ensures validators can b
 
 As mentioned above, the Storage Rebate currently equals 99% of the originally paid Storage Fees. Since the Gas Budget applies to the totality of Gas Fees, it will often be the case that a transaction will only go through if the Gas Budget is considerably higher than the Net Gas Fees that a user ultimately pays.
 
-### Gas Budget Examples
+### Gas Budget Examples {#examples}
 
 The following table provides some examples of gas accounting in the Sui network. Note that within the first two rows and within the last two rows, Computation Units are the same because transactions fall within the same buckets. However, the last two transactions are more complex than the first two and thus fall in a higher bucket. Finally, note that in the last transaction the storage rebate is large enough to fully offset the transactions Gas Fees and actually pays the user back a positive amount of SUI.
 
