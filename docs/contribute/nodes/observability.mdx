@@ -14,7 +14,7 @@ The output here is largely for the consumption of Sui operators, administrators,
 
 :::
 
-## Contexts, scopes, and tracing transaction flow
+## Contexts, scopes, and tracing transaction flow {#context-scope-trace}
 
 In a distributed and asynchronous system like Sui, one cannot rely on looking at individual logs over time in a single thread. To solve this problem, use the approach of structured logging. Structured logging offers a way to tie together logs, events, and blocks of functionality across threads and process boundaries.
 
@@ -110,7 +110,7 @@ The following example output shows certificate processing in the authority with 
 {"v":0,"name":"sui","msg":"[PROCESS_CERT - END]","level":20,"hostname":"Evan-MLbook.lan","pid":51425,"time":"2022-03-08T22:48:11.248688Z","target":"sui_core::authority_server","line":67,"file":"sui_core/src/authority_server.rs","tx_digest":"t#d1385064287c2ad67e4019dd118d487a39ca91a40e0fd8e678dbc32e112a1493","elapsed_milliseconds":2}
 ```
 
-### Jaeger (seeing distributed traces)
+### Jaeger (seeing distributed traces) {#jaeger}
 
 To see nested spans visualized with [Jaeger](https://www.jaegertracing.io), do the following:
 
@@ -135,7 +135,7 @@ Separate spans (that are not nested) are not connected as a single trace for now
 
 :::
 
-### Live async inspection / Tokio Console
+### Live async inspection / Tokio Console {#tokio-console}
 
 [Tokio-console](https://github.com/tokio-rs/console) is an awesome CLI tool designed to analyze and help debug Rust apps using Tokio, in real time! It relies on a special subscriber.
 
