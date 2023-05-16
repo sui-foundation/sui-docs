@@ -1,13 +1,13 @@
 ---
-title: About Sui
-slug: /about-sui
+title: Sui Overview
+slug: /sui-overview
 ---
 
 Sui is a [smart contract](../../reference/sui-framework/sui-glossary.mdx#smart-contract) platform maintained by a permissionless set of [validators](../../reference/sui-framework/sui-glossary.mdx#validator) that play a role similar to validators or miners in other blockchain systems.
 
 Sui offers scalability and unprecedented low-latency for simple use cases. Sui makes most transactions processable in parallel. This better utilizes processing resources and offers the option to increase throughput by adding more resources. Sui forgoes consensus to instead use simpler and lower-latency primitives for simple use cases, such as payment transactions and assets transfer. This is unprecedented in the blockchain world and enables a number of new latency-sensitive distributed applications ranging from gaming to retail payment at physical points of sale.
 
-Sui is written in [Rust](https://www.rust-lang.org) and supports smart contracts written in Sui Move&mdash;a powerful asset-centric adaptation of [Move](<https://golden.com/wiki/Move_(programming_language)-MNA4DZ6>) for the Sui blockchain&mdash;to define assets that may have an owner. Sui Move programs define operations on these assets, including: custom rules for their creation, the transfer of these assets to new owners, and operations that mutate assets. To learn about the differences between core Move and Sui move, see [How Sui Move differs from Core Move](../about-sui/how-sui-move-differs.mdx).
+Sui is written in [Rust](https://www.rust-lang.org) and supports smart contracts written in Sui Move&mdash;a powerful asset-centric adaptation of [Move](<https://golden.com/wiki/Move_(programming_language)-MNA4DZ6>) for the Sui blockchain&mdash;to define assets that may have an owner. Sui Move programs define operations on these assets, including: custom rules for their creation, the transfer of these assets to new owners, and operations that mutate assets. To learn about the differences between core Move and Sui move, see [How Sui Move differs from Core Move](../sui-overview/how-sui-move-differs.mdx).
 
 ## Sui tokens and validators
 
@@ -52,21 +52,13 @@ Sui scales horizontally to meet the demands of applications. Network capacity gr
 
 By design, Sui validators (nodes) can effectively scale the network throughput infinitely to meet the demand of builders and creators. Sui can do for web3 what broadband internet did for web2.
 
-```mdx-code-block
-<details>
-  <summary>
-  Single-worker Sui validator achieving 120,000 token transfer transactions per second (TPS)
-  </summary>
-  <div>
-    <div>
-    As of Mar. 19, 2022, an non-optimized single-worker Sui validator running on an 8-core M1 Macbook Pro can execute and commit 120,000 token transfer transactions per second (TPS). Throughput scales linearly with the number of cores–the same machine processes 25,000 TPS in a single core configuration.
-    <br/>
-    <br/>
-    This experiment uses a configuration where each client submits a batch of 100 transactions (such as transfers to 100 distinct recipients) with a single signature. This configuration captures the anticipated usage pattern of a highly scalable blockchain--for example, a custodial wallet or game server operating at scale will likely need to submit hundreds or thousands of on-chain transactions per second. With a batch size of 1, a validator running on the same machine can process 20,000 TPS with 8 cores, and exhibits the same linear growth in throughput as more cores are added.
-    </div>
-  </div>
-</details>
-```
+:::note
+
+As of Mar. 19, 2022, an non-optimized single-worker Sui validator running on an 8-core M1 Macbook Pro can execute and commit 120,000 token transfer transactions per second (TPS). Throughput scales linearly with the number of cores–the same machine processes 25,000 TPS in a single core configuration.
+
+:::
+
+This experiment uses a configuration where each client submits a batch of 100 transactions (such as transfers to 100 distinct recipients) with a single signature. This configuration captures the anticipated usage pattern of a highly scalable blockchain--for example, a custodial wallet or game server operating at scale will likely need to submit hundreds or thousands of on-chain transactions per second. With a batch size of 1, a validator running on the same machine can process 20,000 TPS with 8 cores, and exhibits the same linear growth in throughput as more cores are added.
 
 ## A safe smart contract language accessible to mainstream developers
 

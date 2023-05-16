@@ -6,9 +6,9 @@ const sidebars = {
       type: 'category',
       label: 'Sui',
       items: [
-        'learn/about-sui/about-sui',
-        'learn/about-sui/why-move',
-        'learn/about-sui/how-sui-move-differs',
+        'learn/sui-overview/sui-overview',
+        'learn/sui-overview/why-move',
+        'learn/sui-overview/how-sui-move-differs',
       ],
     },
     {

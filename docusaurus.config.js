@@ -88,7 +88,7 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "learn/about-sui/about-sui",
+            docId: "learn/sui-overview/sui-overview",
             label: "Learn",
           },
           {
