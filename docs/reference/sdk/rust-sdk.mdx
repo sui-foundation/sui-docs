@@ -33,7 +33,7 @@ Include the `branch` argument to use a specific branch of the Sui repository:
 sui-sdk = { git = "https://github.com/MystenLabs/sui", branch = "devnet" }
 ```
 
-## Example 1 - Get all objects owned by an address
+## Example 1 - Get all objects owned by an address {#example1}
 
 This code example prints a list of object summaries owned by the specified address.
 
@@ -56,7 +56,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
 You can verify the result with the [Sui Explorer](https://suiexplorer.com/) if you are using a Sui Devnet Full node.
 
-## Example 2 - Create and execute transaction
+## Example 2 - Create and execute transaction {#example2}
 
 Use this example to conduct a transaction in Sui using the Sui Devnet Full node:
 
@@ -109,7 +109,7 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 ```
 
-## Example 3 - Event subscription
+## Example 3 - Event subscription {#example3}
 
 Use the WebSocket client to [subscribe to events](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-to-sui-events).
 

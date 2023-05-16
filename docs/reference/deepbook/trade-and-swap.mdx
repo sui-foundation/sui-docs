@@ -7,7 +7,7 @@ slug: /trade-and-swap
 
 This section shows how to construct and execute a trade on the DeepBook protocol.
 
-## 1. Create a Pool
+## 1. Create a Pool {#create-pool}
 
 When we create a pool in DeepBook, we need to specify the BaseAsset, QuoteAsset, tick_size, and lot_size. We also need to pay a transaction fee (in SUI token) to creating pool.
 
@@ -69,15 +69,15 @@ public createPool(
 }
 ```
 
-## 2. Create an Order
+## 2. Create an Order {#create-order}
 
 There are two types of orders, `limit order` and `market order` in DeepBook.
 
 For limit order, users need to create a custodian account the first time they interact with a particular Pool and deposit assets to the Pool.
 
-### 2.1 Limit Order
+### 2.1 Limit Order {#limit-order}
 
-#### 2.1.1 Limit Order Type
+#### 2.1.1 Limit Order Type {#limit-order-type}
 
 There are four types of restrictions that you could put on limit orders;
 
@@ -97,7 +97,7 @@ Only fill if the entire order size can be filled as taker in the current transac
 
 Only proceed if the entire order size can be posted to the order book as maker in the current transaction. Otherwise, abort the entire transaction.
 
-#### 2.1.2 Custodian Account
+#### 2.1.2 Custodian Account {#custodian-account}
 
 Before placing a limit order, traders need to host a custodian account with asset deposited. Traders could generate a custodian account by invoking create_account and will get an AccountCap object authorizing them to access their custodian accounts. Note that the AccountCap object will be the key to the custodian account, and if you transfer this object to others, the new owner will have access to all the funds and orders in the custodian account.
 
@@ -145,7 +145,7 @@ async createAccount(
 }
 ```
 
-#### 2.1.3 Deposit Asset
+#### 2.1.3 Deposit Asset {#deposit-asset}
 
 Traders could deposit base/quote assets to their custodian account, so they could later use it for placing limit orders. We provide two functions to deposit base and quote assets, respectively.
 
@@ -257,7 +257,7 @@ public depositQuote(
 }
 ```
 
-#### 2.1.4 Place Limit Order
+#### 2.1.4 Place Limit Order {#limit-order}
 
 Ensure you have a custodian account with enough base/quote assets to trade. You can now place limit orders on DeepBook with the following functions:
 
@@ -340,7 +340,7 @@ public placeLimitOrder(
 }
 ```
 
-### 2.2 Place Market Order
+### 2.2 Place Market Order {#market-order}
 
 Placing a market order does **NOT** require a custodian account. The remaining order will be canceled if it can only be filled partially.
 
@@ -452,9 +452,9 @@ public async placeMarketOrder(
 }
 ```
 
-## 3. Cancel Order
+## 3. Cancel Order {#cancel-order}
 
-### 3.1 Cancel single order
+### 3.1 Cancel single order {#cancel-single-order}
 
 Cancel a limit order placed onto the CLOB. Abort if order_id is invalid or if the order is not submitted by the transaction sender.
 
@@ -512,7 +512,7 @@ public async cancelOrder(
 }
 ```
 
-### 3.2 Cancel all orders
+### 3.2 Cancel all orders {#cancel-all-orders}
 
 Cancel all limit orders under a certain account capacity
 
@@ -562,7 +562,7 @@ public async cancelAllOrders(
 }
 ```
 
-### 3.3 Batch cancel orders
+### 3.3 Batch cancel orders {#batch-cancel-orders}
 
 Cancel multiple limit orders to save gas costs. Abort if any of the order ids is invalid or is not submitted by the sender. Note that this function can reduce gas costs even further if the caller has multiple orders at the same price level and if orders with the same price are grouped in the vector.
 

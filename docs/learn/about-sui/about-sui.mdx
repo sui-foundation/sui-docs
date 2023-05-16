@@ -9,7 +9,7 @@ Sui offers scalability and unprecedented low-latency for simple use cases. Sui m
 
 Sui is written in [Rust](https://www.rust-lang.org) and supports smart contracts written in Sui Move&mdash;a powerful asset-centric adaptation of [Move](<https://golden.com/wiki/Move_(programming_language)-MNA4DZ6>) for the Sui blockchain&mdash;to define assets that may have an owner. Sui Move programs define operations on these assets, including: custom rules for their creation, the transfer of these assets to new owners, and operations that mutate assets. To learn about the differences between core Move and Sui move, see [How Sui Move differs from Core Move](../about-sui/how-sui-move-differs.mdx).
 
-## Sui tokens and validators
+## Sui tokens and validators {#tokens-and-validators}
 
 Sui has a native token called SUI, with a fixed supply. The SUI token is used to pay for gas, and users can stake their SUI tokens with validators in a [Delegated Proof-of-Stake](https://learn.bybit.com/blockchain/delegated-proof-of-stake-dpos/) model within an epoch. The voting power of validators within this epoch is a function of the amount of SUI in their staking pool, including both validator and user SUI tokens. In any epoch, the set of validators is [Byzantine fault tolerant](https://pmg.csail.mit.edu/papers/osdi99.pdf). At the end of the epoch, fees collected through all transactions processed are distributed to validators according to their contribution to the operation of the network. Validators can in turn share some of the fees as rewards to users that stake their SUI with them.
 
@@ -21,7 +21,7 @@ A transaction in Sui is a change to the blockchain. This may be a _simple transa
 
 More _complex transactions_ affecting objects that are shared or owned by multiple addresses, such as asset management and other DeFi use cases, go through the [Narwhal and Bullshark](https://github.com/MystenLabs/narwhal) DAG-based mempool and efficient Byzantine Fault Tolerant (BFT) consensus.
 
-## Parallel agreement - a breakthrough in system design
+## Parallel agreement - a breakthrough in system design {#parallelism}
 
 Sui scales horizontally with no upper bound to meet application demand while maintaining extremely low operating costs per transaction. Its system design breakthrough eliminates a critical bottleneck in existing blockchains: the need to achieve global consensus on a total-ordered list of transactions. This computation is wasteful given many transactions are not contending for the same resource against other transactions.
 
@@ -39,7 +39,7 @@ This breakthrough is possible only with Sui's novel data model. Thanks to its ob
 
 Sui is the only blockchain today that can scale with the growth of web3 while achieving industry-leading performance, cost, programmability, and usability. Sui is the first internet-scale programmable blockchain platform, a foundational layer for web3.
 
-## Unparalleled scalability, immediate settlement
+## Unparalleled scalability, immediate settlement {#scalability-immediate-settlement}
 
 Today, users of existing blockchains pay a considerable tax as network usage increases due to limited throughput. In addition, high latency limits the responsiveness of applications. These factors contribute to the poor user experiences that are all too common in web3:
 
@@ -68,7 +68,7 @@ By design, Sui validators (nodes) can effectively scale the network throughput i
 </details>
 ```
 
-## A safe smart contract language accessible to mainstream developers
+## A safe smart contract language accessible to mainstream developers {#safety}
 
 Sui Move smart contracts power Sui applications. Sui Move is a dialect of the Move programming language initially developed at Facebook for writing safe smart contracts. It is a platform-agnostic language that enables shared libraries, tooling, and developer communities across blockchains.
 
@@ -76,17 +76,17 @@ Sui Move's design prevents issues such as [reentrancy vulnerabilities](<https://
 
 Sui Move is well-positioned to become the de-facto execution environment not only for Sui but for every next-generation smart contract platform.
 
-## Ability to define rich and composable on-chain assets
+## Ability to define rich and composable on-chain assets {#composability}
 
 Sui’s scalability is not limited to transaction processing. Storage is also low-cost and horizontally scalable. This enables developers to define complex assets with rich attributes that live directly on-chain instead of introducing layers of indirection into off-chain storage to save on gas fees. Moving attributes on-chain unlocks the ability to implement application logic that uses these attributes in smart contracts, increasing composability and transparency for applications.
 
 Rich on-chain assets enable new applications and economies based on utility without relying solely on artificial scarcity. Developers can implement dynamic NFTs that can be upgraded, bundled, and grouped in an application-specific manner, such as changes in avatars and customizable items based on gameplay. This capability delivers stronger in-game economies as NFT behavior gets fully reflected on-chain, making NFTs more valuable and delivering more engaging feedback loops.
 
-## Better user experience for web3 apps
+## Better user experience for web3 apps {#user-experience}
 
 Sui aims to make Sui the most accessible smart contract platform, empowering developers to create great user experiences in web3. To usher in the next billion users, Sui empowers developers with various tools to take advantage of the power of the Sui blockchain. The Sui Development Kit (SDK) will enable developers to build without boundaries.
 
-## Build cool stuff
+## Build cool stuff {#build}
 
 Here are some cool things you can do now and some applications that will become possible over the next few weeks and months. Sui enables developers to define and build:
 

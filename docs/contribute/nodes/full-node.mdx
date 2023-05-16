@@ -89,7 +89,7 @@ source.
 
 Follow the instructions in the [Full node Docker Readme](https://github.com/MystenLabs/sui/tree/main/docker/fullnode#readme) to run a Sui Full node using Docker, including [resetting the environment](https://github.com/MystenLabs/sui/tree/main/docker/fullnode#reset-the-environment).
 
-### Setting up a local Sui repository
+### Setting up a local Sui repository {#local-sui-repo}
 
 You must get the latest source files from the Sui GitHub repository.
 
@@ -117,7 +117,7 @@ You must get the latest source files from the Sui GitHub repository.
    git checkout --track upstream/<BRANCH-NAME>
    ```
 
-### Setting up a Full node from source
+### Setting up a Full node from source {#from-source}
 
 Open a Terminal or Console to the `sui` directory you downloaded in the previous steps to complete the following:
 
@@ -195,7 +195,7 @@ Then update the metrics address in your fullnode.yaml file to use port `9180`.
 metrics-address: "0.0.0.0:9180"
 ```
 
-## Sui Explorer with your Full node
+## Sui Explorer with your Full node {#sui-explorer}
 
 [Sui Explorer](https://suiexplorer.com/) supports connections to custom RPC URLS and local networks. You can point the Explorer to your local Full node and see the transactions it syncs from the network.
 
@@ -214,7 +214,7 @@ The default metrics port is `9184`. To change the port, edit your `fullnode.yaml
 
 Whenever Sui releases a new version, you must update your Full node with the release to ensure compatibility with the network it connects to. For example, if you use Sui Testnet you should install the version of Sui running on Sui Testnet.
 
-### Update with Docker Compose
+### Update with Docker Compose {#docker-compose}
 
 Follow the instructions to [reset the environment](https://github.com/MystenLabs/sui/tree/main/docker/fullnode#reset-the-environment),
 namely by running the command:

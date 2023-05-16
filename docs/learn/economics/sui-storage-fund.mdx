@@ -9,7 +9,7 @@ Financially, on-chain data storage introduces a severe inter-temporal challenge:
 
 Sui’s economic design includes a storage fund that redistributes storage fees from past transactions to future validators. When users transact on Sui, they pay fees upfront for both computation and storage. The storage fees are deposited into a storage fund used to adjust the share of future stake rewards distributed to validators relative to the users that stake SUI with them. This design is intended to provide future Sui validators with viable business models.
 
-## Storage fund rewards
+## Storage fund rewards {#rewards}
 
 Sui’s Delegated Proof-of-Stake mechanism calculates total stake as the sum of user stake plus the SUI tokens deposited in the storage fund. Hence, the storage fund receives a proportional share of the overall stake rewards depending on its size relative to total stake. The majority of these stake rewards – a share $\gamma$ – are paid out to current validators to compensate for storage costs while the remaining $(1-\gamma)$ rewards are used to reinvest in the fund. In other words, stake rewards accruing to the storage fees submitted by past transactions are paid out to current validators to compensate them for data storage costs. When on-chain storage requirements are high, validators receive substantial additional rewards to compensate for their storage costs. Vice versa when storage requirements are low.
 
@@ -25,7 +25,7 @@ The _deletion option_ should not be confused with deleting past transactions. Ac
 
 :::
 
-## Storage fund mechanics
+## Storage fund mechanics {#mechanics}
 
 The storage fund’s size is fixed throughout each epoch with its size changing at the epoch boundary according to the net inflows accumulated throughout the epoch. Inflows and outflows correspond to:
 
@@ -35,7 +35,7 @@ The storage fund’s size is fixed throughout each epoch with its size changing 
 
 The key property of the rebate function is that it limits storage fund outflows to be always less than the original storage flow, at the individual transaction level. This mechanism guarantees that the storage fund is never depleted and that its size moves in line with the amount of data held in storage.
 
-## Storage fund incentives
+## Storage fund incentives {#incentives}
 
 The storage fund introduces various desirable incentives into the Sui economy:
 

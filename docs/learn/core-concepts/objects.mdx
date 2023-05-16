@@ -23,11 +23,11 @@ In addition to common metadata, objects have a category-specific, variable-sized
 
 Every object has a _owner_ field that indicates how this object is being owned. The ownership dictates how an object can be used in transactions. There are 4 different types of ownership:
 
-### Owned by an address
+### Owned by an address {#owned-by-address}
 
 This is the most common case for Move objects. A Move object upon creation in the Move code, can be [transferred](../../build/create-smart-contracts/sui-move-library.mdx) to an address. After the transfer, this object will be owned by that address. An object owned by an address can be used (i.e. passed as a Move call parameter) only by transactions signed by that owner address. Owned object can be passed as Move call parameter in any of the 3 forms: read-only reference (`&T`), mutable reference (`&mut T`) and by-value (`T`). It's important to note that even if an object is passed by read-only reference (`&T`) in a Move call, it's still required that only the owner of the object can make such a call. That is, the intention of the Move call is irrelevant when it comes to authenticate whether an object can be used in a transaction, the ownership is what matters.
 
-### Owned by another object
+### Owned by another object {#owned-by-object}
 
 An object can be owned by another object. It's important to distinguish this direct ownership from _object wrapping_. An object can be wrapped/embedded in another object when you have a field of one object's struct definition to be another object type. For example:
 
@@ -66,7 +66,7 @@ There are a few different ways to concisely refer to an object without specifyin
 - **Versioned ID:** an (ID, version) pair. Versioned ID describes the state of the object at a particular point in the object's history and is useful for asking what the value of the object was at some point in the past or determining how fresh some view of an object is now.
 - **Object Reference:** an (ID, version, object digest) triple. The object digest is the hash of the object's contents and metadata. An object reference provides an authenticated view of the object at a particular point in the object's history. Transactions require object inputs to be specified via object references to ensure the transaction's sender and a validator processing the transaction agree on the contents and metadata of the object.
 
-## The transaction-object DAG: Relating objects and transactions
+## The transaction-object DAG: Relating objects and transactions {#transaction-object-DAG}
 
 Transactions (and thus, certificates) take objects as input, read/write/mutate these inputs, and produce mutated or freshly created objects as output. And as discussed previously, each object knows the (hash of the) last transaction that produced it as an output. Thus, a natural way to represent the relationship between objects and transactions is a directed acyclic graph (DAG) where:
 
@@ -81,6 +81,6 @@ The set of objects that are available to be taken as input by a transaction are 
 
 When this DAG contains all committed transactions in the system, it forms a complete (and cryptographically auditable) view of the system's state and history. In addition, you can use the scheme above to construct a DAG of the relevant history for a subset of transactions or objects (e.g., the objects owned by a single address).
 
-## Limits on transactions, objects, and data
+## Limits on transactions, objects, and data {#limits}
 
 Sui has some limits on transactions and data used in transactions, such as a maximum size and number of objects used. To view the full list of limits in source code, see [Transaction input limits](https://github.com/MystenLabs/sui/blob/main/crates/sui-protocol-config/src/lib.rs#L154).

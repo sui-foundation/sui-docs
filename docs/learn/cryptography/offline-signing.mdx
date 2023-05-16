@@ -9,7 +9,7 @@ Sui supports offline signing, which is signing transactions using a device not c
 1.  Sign the serialized data. Put the serialized data in a location to sign (such as the wallet of your choice, or tools in other programming languages) and to produce a signature with the corresponding public key.
 1.  Execute the signed transaction.
 
-## Serialize data for a transfer
+## Serialize data for a transfer {#serialize}
 
 You must serialize transaction data following [Binary Canonical Serialization](https://crates.io/crates/bcs) (BCS). It is supported in [other languages](https://github.com/zefchain/serde-reflection#language-interoperability).
 
@@ -27,7 +27,7 @@ All other CLI commands that craft a transaction (e.g., `sui client publish`, `su
 
 :::
 
-## Sign the serialized data
+## Sign the serialized data {#sign}
 
 You can sign the data using the device and programming language you choose. Sui accepts signatures for pure ed25519, ECDSA secp256k1, ECDSA secp256r1 and native MultiSig. To learn more about the requirements of the signatures, see [Sui Signatures](signatures.mdx).
 
@@ -48,7 +48,7 @@ To ensure the signature produced offline matches with Sui's validity rules for t
 
 To verify a signature against the cryptography library backing Sui when debugging, see [sigs-cli](https://github.com/MystenLabs/fastcrypto/blob/4cf71bd8b3a373495beeb77ce81c27827516c218/fastcrypto-cli/src/sigs_cli.rs).
 
-## Execute the signed transaction
+## Execute the signed transaction {#execute}
 
 After you obtain the serialized signature, you can submit it using the execution transaction command. This command takes `--tx-bytes` as the raw transaction bytes to execute (see output of the `$SUI_BINARY client transfer` command above) and the serialized signature (Base64 encoded `flag || sig || pk`, see output of `$SUI_BINARY keytool sign`). This executes the signed transaction and returns the certificate and transaction effects if successful.
 
