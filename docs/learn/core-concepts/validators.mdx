@@ -39,7 +39,7 @@ Once the client forms a certificate, it submits it to the validators, which will
 If a client collects a quorum of signatures on the effects of the transaction then the client has a promise of finality. This means that this effects will persist on the shared database and actually be committed and visible to everyone by the end of the epoch. This does not mean that the latency is a full epoch, since the effects certificate can be used to convince anyone of the transactions finality as well as to access the effects and issue new transactions.
 As with transactions, note that the process of sharing a certificate with validators can be parallelized and (if desired) outsourced to a third-party service provider.
 
-## The role of Narwhal and Bullshark
+## The role of Narwhal and Bullshark {#narwhal-bullshark}
 
 Sui takes advantage of [Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus](../core-concepts/consensus-engine.mdx) and the Tusk successor [Bullshark](https://arxiv.org/abs/2201.05677). Narwhal/Bullshark (N/B) are also being implemented in Sui so that when Byzantine agreement is required it uses a high-throughput DAG-based consensus to manage shared locks while execution on different shared objects is parallelized.
 

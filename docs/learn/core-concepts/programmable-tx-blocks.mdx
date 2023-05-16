@@ -97,7 +97,7 @@ Sui supports following transactions:
   - Example: `txb.makeMoveVec({ objects: [txb.object(id1), txb.object(id2)] })`
 - `txb.publish(modules, dependencies)` - Publishes a Move package. Returns the upgrade capability object.
 
-## Passing transaction results as arguments
+## Passing transaction results as arguments {#arguments}
 
 You can use the result of a transaction as an argument in a subsequent transactions. Each transaction method on the transaction builder returns a reference to the transaction result.
 
@@ -120,13 +120,13 @@ const mintMany = txb.moveCall({ target: "0x2::nft::mint_many" });
 txb.transferObjects([mintMany[0], mintMany[1]], txb.pure(address));
 ```
 
-## Use the gas coin
+## Use the gas coin {#gas-coin}
 
 With Programmable Transaction blocks, you can use the gas payment coin to construct coins with a set balance using `splitCoin`. This is useful for Sui payments, and avoids the need for up-front coin selection. You can use `txb.gas` to access the gas coin in a transaction block, and it is valid as input for any arguments, as long as it is used [by-reference](../../build/program-with-objects/using-objects.mdx#pass-objects-by-reference). Practically speaking, this means you can also add to the gas coin with `mergeCoins` and borrow it for Move functions with `moveCall`.
 
 You can also transfer the gas coin using `transferObjects`, in the event that you want to transfer all of your coin balance to another address.
 
-## Get transaction block bytes
+## Get transaction block bytes {#block-bytes}
 
 If you need the transaction block bytes, instead of signing or executing the transaction block, you can use the `build` method on the transaction builder itself.
 
@@ -210,7 +210,7 @@ The list of coins used as gas payment will be merged down into a single gas coin
 txb.setGasPayment([coin1, coin2]);
 ```
 
-### Dapp / Wallet Integration
+### Dapp / Wallet Integration {#integration}
 
 The Wallet Standard interface has been updated to support the `TransactionBlock` kind directly. All `signTransaction` and `signAndExecuteTransaction` calls from dapps into wallets will be expected to provide a `TransactionBlock` class. This transaction block class can then be serialized and sent to your wallet for execution.
 

@@ -11,7 +11,7 @@ For a similar guide on Sui network interactions via CLI, refer to the [Sui Clien
 
 Follow the instructions to [install Sui binaries](../../build/setup/cli/install-sui.mdx#install-sui-binaries).
 
-## Connect to a Sui network
+## Connect to a Sui network {#connect-sui}
 
 You can connect to a Sui Full node on a Sui network. Follow the guidance in the [Connect to a Sui Network](../../build/setup/connect-to-a-network.mdx) topic to start making RPC calls to the Sui network.
 
@@ -25,7 +25,7 @@ You can sign transactions and interact with the Sui network using any of the fol
 - [Sui TypeScript SDK](https://github.com/MystenLabs/sui/tree/main/sdk/typescript) and [reference files](https://www.npmjs.com/package/@mysten/sui.js).
 - [Sui API Reference](https://docs.sui.io/sui-jsonrpc) for all available methods.
 
-## Sui JSON-RPC examples
+## Sui JSON-RPC examples {#examples-json-rpc}
 
 The following sections demonstrate how to use the Sui JSON-RPC API with cURL commands. See the [Sui API Reference](https://docs.sui.io/sui-jsonrpc) for the latest list of all available methods.
 
@@ -53,7 +53,7 @@ As a security best practice, you should serialize data from the JSON-RPC service
 
 :::
 
-#### Create an unsigned transaction to transfer a Sui coin from one address to another
+#### Create an unsigned transaction to transfer a Sui coin from one address to another {#unsigned-tx}
 
 ```bash
 curl --location --request POST $SUI_RPC_HOST \
@@ -83,7 +83,7 @@ A response resembles the following:
 }
 ```
 
-#### Sign a transaction using the Sui keytool
+#### Sign a transaction using the Sui keytool {#sign-tx-keytool}
 
 ```bash
 sui keytool sign --address <owner_address> --data <tx_bytes>
@@ -91,7 +91,7 @@ sui keytool sign --address <owner_address> --data <tx_bytes>
 
 The keytool creates a key and then returns the signature and public key information.
 
-#### Execute a transaction with a serialized signature
+#### Execute a transaction with a serialized signature {#serialized-sig}
 
 ```bash
 curl --location --request POST $SUI_RPC_HOST \
@@ -116,7 +116,7 @@ Native transfer by `sui_transferObject` supports any object that allows for publ
 
 The example command in this section demonstrate how to call Move functions.
 
-#### Execute a Move call transaction
+#### Execute a Move call transaction {#call-transaction}
 
 Execute a Move call transaction by calling the specified function in
 the module of a given package (smart contracts in Sui are written in

@@ -88,7 +88,7 @@ sui client call --package $PACKAGE_ID --module tic_tac_toe --function create_gam
 </details>
 ```
 
-## Gather addresses and gas objects
+## Gather addresses and gas objects {#gather-addresses}
 
 In the new terminal session you started, use the following command in the Sui CLI client to view the addresses available:
 
@@ -128,7 +128,7 @@ export X_GAS=0x3fd0e889ee56152cdbd5fa5b5dab78ddc66d127930f5173ae7b5a9ac3e17dd6d
 export O_GAS=0x51ec7820e82035a5de7b4f3ba2a3813ea099dca1867876f4177a1fa1d1efe022
 ```
 
-## Publish the TicTacToe game on Sui
+## Publish the TicTacToe game on Sui {#publish-tictactoe}
 
 To keep this tutorial simple, use the TicTacToe game example from [tic_tac_toe.move](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/games/sources/tic_tac_toe.move).
 
@@ -168,7 +168,7 @@ The package successfully published. Some gas was charged: the initial gas value 
 export PACKAGE=A613A7FF8CB03E0DFC0D157E232BBA50C5F19D17
 ```
 
-## Playing TicTacToe
+## Playing TicTacToe {#play-tictactoe}
 
 As mentioned earlier, the game requires three participants: Admin, PlayerX and PlayerO. At a high level, the game works as follows:
 

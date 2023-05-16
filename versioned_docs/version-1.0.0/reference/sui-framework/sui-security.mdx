@@ -34,7 +34,7 @@ A Sui transaction is valid and can proceed only if the owner of all owned assets
 
 A private signature key also corresponds to a public address on the Sui network that can be used to send a user assets or allow smart contracts to define custom access control logic. A user may have one or more addresses corresponding to multiple signature keys for convenience or privacy reasons. An address does not need any pre-registration, and sending an asset to an address automatically creates this address on the network. However, this means that users should be careful to check the recipient address of transfers, or parties involved in any other operations, as sending assets to an incorrect address may have irrevocable effects.
 
-### Smart contracts define asset types and their logic
+### Smart contracts define asset types and their logic {#smart-contracts}
 
 All assets have a type that is defined within a Sui Smart Contract. Sui provides a few system contracts, such as these used to manage the SUI native token, yet also allows anyone to write and submit custom smart contracts. A transaction on an asset type can call operations defined in only the smart contract that defined the asset type, and is constrained by the logic in the contract.
 
@@ -57,7 +57,7 @@ Sui validators provide facilities for users to read all assets they store, as we
 
 The public auditability of Sui also implies that all transactions and assets within Sui are publicly visible. Users that are mindful of their privacy may use multiple addresses to benefit from some degree of pseudonymity, or third-party custodial or non-custodial services. Specific smart contracts with additional cryptographic privacy protections can also be provided by third parties.
 
-### Censorship-resistance and openness
+### Censorship-resistance and openness {#censorship-resistance}
 
 Sui uses the established Delegated Proof-of Stake model to periodically determine its set of validators. Users can lock and delegate their SUI tokens in each epoch to determine the committee of validators that operate the Sui network in the next epoch. Anyone with over a minimum amount of delegated stake can operate a Sui validator.
 
