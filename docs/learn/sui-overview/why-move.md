@@ -7,7 +7,7 @@ In Sui, you write [Smart Contracts](../../build/create-smart-contracts/smart-con
 
 ## Sui Move
 
-First, note Move is based upon the well-supported [Rust](https://www.rust-lang.org/) programming language. And [Sui Move differs from core Move](../about-sui/how-sui-move-differs.md) in subtle yet distinct ways. Here are resources to ramp up on Sui Move:
+First, note Move is based upon the well-supported [Rust](https://www.rust-lang.org/) programming language. And [Sui Move differs from core Move](../sui-overview/how-sui-move-differs.md) in subtle yet distinct ways. Here are resources to ramp up on Sui Move:
 
 - [Why we created Sui Move](https://sui.io/resources-move/why-we-created-sui-move/)
 - [Sui source code](https://github.com/MystenLabs/sui)
