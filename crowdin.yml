@@ -7,4 +7,5 @@ files:
   - source: /docs/**/*
     ignore:
       - install-sui.mdx
+      - gas-in-sui.mdx
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
