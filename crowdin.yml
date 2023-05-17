@@ -5,4 +5,6 @@ languages_mapping:
 preserve_hierarchy: 1
 files:
   - source: /docs/**/*
+    ignore:
+      - install-sui.mdx
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
