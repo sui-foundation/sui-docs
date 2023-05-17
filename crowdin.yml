@@ -7,4 +7,5 @@ files:
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
     languages_mapping:
       two_letters_code:
-        es-ES: ESP
+        zh-CN: zh-CN
+        zh-TW: zh-TW
