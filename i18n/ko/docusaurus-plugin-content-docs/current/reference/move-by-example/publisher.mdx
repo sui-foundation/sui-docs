@@ -1,0 +1,61 @@
+---
+title: Publisher
+slug: /move-by-example/publisher
+---
+
+Publisher Object serves as a way to represent the publisher authority. The object itself does not imply any specific use case and has only two main functions: `package::from_module<T>` and `package::from_package<T>` which allow checking whether a type `T` belongs to a module or a package for which the `Publisher` object was created.
+
+We strongly advise to issue the `Publisher` object for most of the packages that define new Objects - it is required to set the "Display" as well as to allow the type to be traded in the "Kiosk" ecosystem.
+
+> Although `Publisher` itself is a utility, it enables the _"proof of ownership"_ functionality, for example, it is crucial for [the Object Display](object-display.mdx).
+
+To set up a Publisher, a One-Time-Witness (OTW) is required - this way we ensure the `Publisher` object is initialized only once for a specific module (but can be multiple for a package) as well as that the creation function is called in the publish transaction.
+
+```rust
+/// A simple package that defines an OTW and claims a `Publisher`
+/// object for the sender.
+module examples::owner {
+    use sui::tx_context::TxContext;
+    use sui::package;
+
+    /// OTW is a struct with only `drop` and is named
+    /// after the module - but uppercased. See "One Time
+    /// Witness" page for more details.
+    struct OWNER has drop {}
+
+    /// Some other type to use in a dummy check
+    struct ThisType {}
+
+    /// After the module is published, the sender will receive
+    /// a `Publisher` object. Which can be used to set Display
+    /// or manage the transfer policies in the `Kiosk` system.
+    fun init(otw: OWNER, ctx: &mut TxContext) {
+        package::claim_and_keep(otw, ctx)
+    }
+}
+
+/// A module that utilizes the `Publisher` object to give a token
+/// of appreciation and a `TypeOwnerCap` for the owned type.
+module examples::type_owner {
+    use sui::object::{Self, UID};
+    use sui::tx_context::TxContext;
+    use sui::package::{Self, Publisher};
+
+    /// Trying to claim ownership of a type with a wrong `Publisher`.
+    const ENotOwner: u64 = 0;
+
+    /// A capability granted to those who want an "objective"
+    /// confirmation of their ownership :)
+    struct TypeOwnerCap<phantom T> has key, store {
+        id: UID
+    }
+
+    /// Uses the `Publisher` object to check if the caller owns the type `T`.
+    public fun prove_ownership<T>(
+        publisher: &Publisher, ctx: &mut TxContext
+    ): TypeOwnerCap<T> {
+        assert!(package::from_package<T>(publisher), ENotOwner);
+        TypeOwnerCap<T> { id: object::new(ctx) }
+    }
+}
+```
