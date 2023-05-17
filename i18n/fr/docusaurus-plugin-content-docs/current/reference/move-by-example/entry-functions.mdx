@@ -1,0 +1,32 @@
+---
+title: Entry functions
+slug: /move-by-example/entry-functions
+---
+
+An `entry` function visibility modifier allows a function to be called directly (eg in transaction). It is combinable with other visibility modifiers, such as `public` (which allows calling from other modules) and `public(friend)` for calling from _friend_ modules.
+
+```rust
+module examples::object {
+    use sui::transfer;
+    use sui::object::{Self, UID};
+    use sui::tx_context::TxContext;
+
+    struct Object has key {
+        id: UID
+    }
+
+    /// If function is defined as public - any module can call it.
+    /// Non-entry functions are also allowed to have return values.
+    public fun create(ctx: &mut TxContext): Object {
+        Object { id: object::new(ctx) }
+    }
+
+    /// Entrypoints can't have return values as they can only be called
+    /// directly in a transaction and the returned value can't be used.
+    /// However, `entry` without `public` disallows calling this method from
+    /// other Move modules.
+    entry fun create_and_transfer(to: address, ctx: &mut TxContext) {
+        transfer::transfer(create(ctx), to)
+    }
+}
+```
