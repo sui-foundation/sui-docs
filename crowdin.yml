@@ -8,4 +8,5 @@ files:
     ignore:
       - install-sui.mdx
       - gas-in-sui.mdx
+      - sui-json-format.mdx
     translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
