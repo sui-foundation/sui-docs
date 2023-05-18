@@ -13,7 +13,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
-/*  i18n: {
+  i18n: {
     defaultLocale: "en",
     locales: [
       "en",
@@ -25,7 +25,7 @@ const config = {
       "zh-CN",
       "zh-TW",
     ],
-  },*/
+  },
 
   presets: [
     [
@@ -111,10 +111,10 @@ const config = {
             position: "right",
             dropdownActiveClassDisabled: true,
           },
-/*          {
+          {
             type: "localeDropdown",
             position: "right",
-          },*/
+          },
         ],
       },
       footer: {
