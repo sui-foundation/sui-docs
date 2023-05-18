@@ -81,7 +81,7 @@ Tom decides to send 1 SUI coin to Alice. In this case, Object A is the input to 
 - Object A with 4 SUI coins that still belongs to Tom
 - new created Object C with 1 SUI coin that belongs now to Alice
 
-At the same time, John decides to send 2 SUI coins to Anna. Because [the relationship between objects and transactions is written in a directed acyclic graph (DAG)](objects.mdx#the-transaction-object-dag-relating-objects-and-transactions), and both transactions interact with different objects, this transaction executes in parallel with the transaction that sends coins from Tom to Alice. This transaction changes only the owner of Object B from John to Anna.
+At the same time, John decides to send 2 SUI coins to Anna. Because [the relationship between objects and transactions is written in a directed acyclic graph (DAG)](objects.mdx#transaction-object-DAG), and both transactions interact with different objects, this transaction executes in parallel with the transaction that sends coins from Tom to Alice. This transaction changes only the owner of Object B from John to Anna.
 
 After receiving 2 SUI coins, Anna sent them immediately to Tom. Now Tom has 6 SUI coins (4 from Object A and 2 from Object B).
 
