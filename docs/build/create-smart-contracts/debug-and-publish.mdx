@@ -3,7 +3,7 @@ title: Debug and Publish Move Packages
 slug: /debug-and-publish
 ---
 
-## Debugging a package
+## Debugging a package {#Debugging-a-package}
 
 At the moment, there isn't a debugger for Move. To aid with debugging, however, you can use the `std::debug` module to print out arbitrary values. To do so, first import the `debug` module in your source file:
 
@@ -37,14 +37,14 @@ You must remove all calls to functions in the `debug` module from no-test code b
 
 :::
 
-## Publishing a package
+## Publishing a package {#Publishing-a-package}
 
 For functions in a Sui Move package to actually be callable from Sui (rather than an emulated Sui execution scenario), you have to publish the package to the Sui [distributed ledger](../../learn/core-concepts/how-sui-works.mdx), where it is represented as an immutable Sui object.
 
 At this point, however, the `sui move` command does not support package publishing. In fact, it is not clear if it even makes sense to accommodate package publishing, which happens once per package creation, in the context of a unit testing framework. Instead, you can use the Sui CLI client to
 [publish](../setup/cli/client-cli.mdx#publish-packages) Move code and to [call](../setup/cli/client-cli.mdx#calling-move-code) that code. See the [Sui CLI client documentation](../setup/cli/client-cli.mdx) for information on how to publish the package created in this tutorial.
 
-### Module initializers
+### Module initializers {#Module-initializers}
 
 There is, however, an important aspect of publishing packages that affects Move code development in Sui - each module in a package can
 include a special _initializer function_ that runs at publication time. The goal of an initializer function is to pre-initialize module-specific data (to create singleton objects). The initializer function must have the following properties for it to execute at publication:

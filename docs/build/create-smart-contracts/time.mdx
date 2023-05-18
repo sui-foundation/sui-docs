@@ -5,7 +5,7 @@ slug: /time
 
 You have options when needing to access network-based time for your transactions. If you need a near real-time measurement (within a few seconds), use the immutable reference of time provided by the `Clock` module in Sui Move. The reference value from this module updates with every network checkpoint. If you don't need as current a time slice, use the `epoch_timestamp_ms` function to capture the precise moment the current epoch started.
 
-## The sui::clock::Clock module
+## The sui::clock::Clock module {#clock-module}
 
 To access a prompt timestamp, you must pass a read-only reference of `sui::clock::Clock` as an entry function parameter in your transactions. An instance of `Clock` is provided at address `0x6`, no new instances can be created.
 
@@ -88,7 +88,7 @@ module example::clock_tests {
 
 ```
 
-## Epoch timestamps
+## Epoch timestamps {#Epoch-timestamps}
 
 You can use the following function to access the timestamp for the start of the current epoch for all transactions (including ones that do not go through consensus):
 
