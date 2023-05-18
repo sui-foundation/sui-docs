@@ -12,7 +12,7 @@ Objects in Sui can have different types of [ownership](../../learn/core-concepts
 
 To convert an object into an immutable object, call the following function in the [transfer module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move):
 
-```rust
+```sui-move
 public native fun freeze_object<T: key>(obj: T);
 ```
 
@@ -20,7 +20,7 @@ This call makes the specified object immutable. This is a non-reversible operati
 
 Add an entry function to the [color_object module](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/objects_tutorial/sources/color_object.move) to turn an existing (owned) `ColorObject` into an immutable object:
 
-```rust
+```sui-move
 public entry fun freeze_object(object: ColorObject) {
     transfer::freeze_object(object)
 }
@@ -32,7 +32,7 @@ Note that the `transfer::freeze_object` function requires you to pass the object
 
 Alternatively, you can also provide an API that creates an immutable object at creation:
 
-```rust
+```sui-move
 public entry fun create_immutable(red: u8, green: u8, blue: u8, ctx: &mut TxContext) {
     let color_object = new(red, green, blue, ctx);
     transfer::freeze_object(color_object)
@@ -50,7 +50,7 @@ Once an object becomes immutable, the rules of who can use this object in Sui Mo
 
 In a preceding section, you defined a function that copies the value of one object to another:
 
-```rust
+```sui-move
 public entry fun copy_into(from_object: &ColorObject, into_object: &mut ColorObject);
 ```
 
@@ -66,7 +66,7 @@ To take an immutable object, use a new function: `test_scenario::take_immutable<
 
 To see it work in action, (`ColorObjectTests::test_immutable`):
 
-```rust
+```sui-move
 let sender1 = @0x1;
 let scenario_val = test_scenario::begin(sender1);
 let scenario = &mut scenario_val;
@@ -85,7 +85,7 @@ This test submits a transaction as `sender1`, which tries to create an immutable
 
 The `can_take_owned<ColorObject>` function no longer returns `true`, because the object is no longer owned. To take this object:
 
-```rust
+```sui-move
 // Any sender can work.
 let sender2 = @0x2;
 test_scenario::next_tx(scenario, sender2);
@@ -101,7 +101,7 @@ To show that this object is indeed not owned by anyone, start the next transacti
 
 To examine whether this object is immutable, add a function that tries to mutate a `ColorObject`:
 
-```rust
+```sui-move
 public entry fun update(
     object: &mut ColorObject,
     red: u8, green: u8, blue: u8,

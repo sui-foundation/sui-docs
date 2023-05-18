@@ -5,7 +5,7 @@ slug: /move-by-example/entry-functions
 
 An `entry` function visibility modifier allows a function to be called directly (eg in transaction). It is combinable with other visibility modifiers, such as `public` (which allows calling from other modules) and `public(friend)` for calling from _friend_ modules.
 
-```rust
+```sui-move
 module examples::object {
     use sui::transfer;
     use sui::object::{Self, UID};

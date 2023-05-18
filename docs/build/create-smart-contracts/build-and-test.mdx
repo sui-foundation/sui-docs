@@ -50,7 +50,7 @@ Test result: OK. Total tests: 0; passed: 0; failed: 0
 
 Add a basic test function to the `my_module.move` file, inside the module definition:
 
-```rust
+```sui-move
     #[test]
     public fun test_sword_create() {
         use sui::tx_context;
@@ -111,13 +111,13 @@ One of the solutions (as suggested in the error message), is to add the `drop` a
 To get the test to work, add the following line to the beginning of the testing function to import the
 [Transfer module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move):
 
-```rust
+```sui-move
 use sui::transfer;
 ```
 
 With the `Transfer` module imported, add the following lines to the end of the test function (after the `!assert` call) to transfer ownership of the sword to a freshly created dummy address:
 
-```rust
+```sui-move
 // Create a dummy address and transfer the sword
 let dummy_address = @0xCAFE;
 transfer::transfer(sword, dummy_address);
@@ -173,7 +173,7 @@ An instance of the `Scenario` struct contains a per-address object pool emulatin
 
 Update your `my_module.move` file to include [entry functions](./smart-contracts.mdx#entry-functions) callable from Sui that implement sword creation and transfer. With these in place, you can then add a multi-transaction test that uses the `test_scenario` module to test these new capabilities. Put these functions after the accessors (Part 5 in comments).
 
-```rust
+```sui-move
     public entry fun sword_create(magic: u64, strength: u64, recipient: address, ctx: &mut TxContext) {
         use sui::transfer;
 
@@ -198,7 +198,7 @@ The code of the new functions uses struct creation and Sui-internal modules (`Tx
 
 With the new entry functions included, add another test function to make sure they behave as expected.
 
-```rust
+```sui-move
     #[test]
     fun test_sword_transactions() {
         use sui::test_scenario;

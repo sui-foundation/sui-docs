@@ -11,7 +11,7 @@ We strongly advise to issue the `Publisher` object for most of the packages that
 
 To set up a Publisher, a One-Time-Witness (OTW) is required - this way we ensure the `Publisher` object is initialized only once for a specific module (but can be multiple for a package) as well as that the creation function is called in the publish transaction.
 
-```rust
+```sui-move
 /// A simple package that defines an OTW and claims a `Publisher`
 /// object for the sender.
 module examples::owner {

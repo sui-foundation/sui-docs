@@ -28,7 +28,7 @@ Unlike an object's regular fields whose names must be Move identifiers, dynamic 
 
 Dynamic fields are added with the following APIs:
 
-```rust
+```sui-move
 module sui::dynamic_field {
 
 public fun add<Name: copy + drop + store, Value: store>(
@@ -40,7 +40,7 @@ public fun add<Name: copy + drop + store, Value: store>(
 }
 ```
 
-```rust
+```sui-move
 module sui::dynamic_object_field {
 
 public fun add<Name: copy + drop + store, Value: key + store>(
@@ -56,7 +56,7 @@ These functions add a field with name `name` and value `value` to `object`. To s
 
 First, define two object types for the parent and the child:
 
-```rust
+```sui-move
 struct Parent has key {
     id: UID,
 }
@@ -69,7 +69,7 @@ struct Child has key, store {
 
 Next, define an API to add a `Child` object as a dynamic field of a `Parent` object:
 
-```rust
+```sui-move
 use sui::dynamic_object_field as ofield;
 
 public entry fun add_child(parent: &mut Parent, child: Child) {
@@ -88,7 +88,7 @@ It is an error to overwrite a field (attempt to add a field with the same Name t
 
 Dynamic fields can be accessed by reference using the following APIs:
 
-```rust
+```sui-move
 module sui::dynamic_field {
 
 public fun borrow<Name: copy + drop + store, Value: store>(
@@ -114,7 +114,7 @@ Where `object` is the UID of the object the field is defined on and `name` is th
 
 To use these APIs with the `Parent` and `Child` types defined earlier:
 
-```rust
+```sui-move
 use sui::dynamic_object_field as ofield;
 
 public entry fun mutate_child(child: &mut Child) {
@@ -147,7 +147,7 @@ Dynamic object field values _must_ be accessed through these APIs. A transaction
 
 Similar to unwrapping, an object held in a regular field, a dynamic field can be removed, exposing its value:
 
-```rust
+```sui-move
 module sui::dynamic_field {
 
 public fun remove<Name: copy + drop + store, Value: store>(
@@ -164,7 +164,7 @@ This function takes a mutable reference to the ID of the `object` the field is d
 
 The value that is returned can be interacted with just like any other value (because it is any other value). For example, removed dynamic object field values can then be `delete`-d or `transfer`-ed to an address (back to the sender):
 
-```rust
+```sui-move
 use sui::dynamic_object_field as ofield;
 use sui::{object, transfer, tx_context};
 use sui::tx_context::TxContext;

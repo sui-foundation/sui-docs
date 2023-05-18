@@ -47,7 +47,7 @@ Package upgrades must occur end-to-end in a single transaction block and are com
 
 While step 2 is a built-in command, steps 1 and 3 are implemented as Move functions. The Sui framework provides their most basic implementation:
 
-```rust
+```sui-move
 module sui::package {
     public fun authorize_upgrade(
         cap: &mut UpgradeCap,
@@ -73,7 +73,7 @@ Any pair of functions that produces an `UpgradeTicket` from an `UpgradeCap` and 
 
 The `UpgradeCap` is the central type responsible for coordinating package upgrades.
 
-```rust
+```sui-move
 module sui::package {
     struct UpgradeCap has key, store {
         id: UID,
@@ -99,7 +99,7 @@ And its API guarantees the following properties:
 
 ## UpgradeTicket
 
-```rust
+```sui-move
 module sui::package {
     struct UpgradeTicket {
         cap: ID,
@@ -145,7 +145,7 @@ BUILDING test
 
 ## UpgradeReceipt
 
-```rust
+```sui-move
 module sui::package {
     struct UpgradeReceipt {
         cap: ID,
@@ -187,7 +187,7 @@ The command creates a `policy` directory with a `sources` folder and `Move.toml`
 
 In the `sources` folder, create a source file named `day_of_week.move`. Copy and paste the following code into the file:
 
-```rust
+```sui-move
 module policy::day_of_week {
     use sui::object::{Self, UID};
     use sui::package;
@@ -217,7 +217,7 @@ This code includes a constructor and defines the object type for the custom upgr
 
 You then need to add a function to authorize an upgrade, if on the correct day of the week. First, define a couple of constants, one for the error code that identifies an attempted upgrade on a day the policy doesn't allow, and another to define the number of milliseconds in a day (to be used shortly). Add these definitions directly under the current `ENotWeekDay` one.
 
-```rust
+```sui-move
 // Request to authorize upgrade on the wrong day of the week.
 const ENotAllowedDay: u64 = 2;
 
@@ -226,7 +226,7 @@ const MS_IN_DAY: u64 = 24 * 60 * 60 * 1000;
 
 After the `new_policy` function, add a `week_day` function to get the current weekday. As promised, the function uses the `MS_IN_DAY` constant you defined earlier.
 
-```rust
+```sui-move
 fun week_day(ctx: &TxContext): u8 {
     let days_since_unix_epoch =
         tx_context::epoch_timestamp_ms(ctx) / MS_IN_DAY;
@@ -241,7 +241,7 @@ This function uses the epoch timestamp from `TxContext` rather than `Clock` beca
 
 Next, add an `authorize_upgrade` function that calls the previous function to get the current day of the week, then checks whether that value violates the policy, returning the `ENotAllowedDay` error value if it does.
 
-```rust
+```sui-move
 public fun authorize_upgrade(
     cap: &mut UpgradeCap,
     policy: u8,
@@ -257,7 +257,7 @@ The signature of a custom `authorize_upgrade` can be different from the signatur
 
 Finally, provide implementations of `commit_upgrade` and `make_immutable` that delegate to their respective functions in `sui::package`:
 
-```rust
+```sui-move
 public fun commit_upgrade(
     cap: &mut UpgradeCap,
     receipt: package::UpgradeReceipt,
@@ -274,7 +274,7 @@ public entry fun make_immutable(cap: UpgradeCap) {
 
 The final code in your `day_of_week.move` file should resemble the following:
 
-```rust
+```sui-move
 module policy::day_of_week {
     use sui::object::{Self, UID};
     use sui::package;
@@ -519,7 +519,7 @@ $ sui move new example
 
 In the `example/sources` directory, create an `example.move` file with the following code:
 
-```rust
+```sui-move
 module example::example {
     struct Event has copy, drop { x: u64 }
     entry fun nudge() {

@@ -19,7 +19,7 @@ As alluded to previously, all packages on the Sui network are immutable. Because
 
 For example, you might define an `increment` function in your original package:
 
-```rust
+```sui-move
 public entry fun increment(c: &mut Counter) {
     c.value = c.value + 1;
 }
@@ -27,7 +27,7 @@ public entry fun increment(c: &mut Counter) {
 
 Then, your package upgrade might add an emit event to the `increment` function:
 
-```rust
+```sui-move
 struct Progress has copy, drop {
     reached: u64
 }
@@ -53,7 +53,7 @@ When you create packages that involve shared objects, you need to think about up
 
 Considering the earlier `counter` example, which might have started life as follows:
 
-```rust
+```sui-move
 module example::counter {
     use sui::object::{Self, UID};
     use sui::transfer;
@@ -86,7 +86,7 @@ To ensure that upgrades to this package can limit access of the shared object to
 
 An upgrade-aware `counter` module that incorporates all these ideas looks as follows:
 
-```rust
+```sui-move
 module example::counter {
     use sui::object::{Self, ID, UID};
     use sui::transfer;
@@ -145,7 +145,7 @@ To upgrade a module using this pattern requires making two extra changes, on top
 
 The following module is an upgraded `counter` that emits `Progress` events as originally discussed, but also provides tools for an admin (`AdminCap` holder) to prevent accesses to the counter from older package versions:
 
-```rust
+```sui-move
 module example::counter {
     use sui::event;
     use sui::object::{Self, ID, UID};
@@ -522,7 +522,7 @@ Array [
 
 The result provides a new ID for the upgraded package. As was the case before the upgrade, you need to include that information in your manifest so any of your other packages that depend on your `sui_package` know where to find the on-chain bytecode for verification. Edit your manifest once again to provide the upgraded package ID for the `published-at` value, and return the original `sui_package` ID value in the `[addresses]` section:
 
-```rust
+```toml
 [package]
 name = "sui_package"
 version = "0.0.1"

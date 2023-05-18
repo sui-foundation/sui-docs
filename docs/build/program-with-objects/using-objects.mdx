@@ -13,7 +13,7 @@ There are two ways to pass objects by reference: read-only references (`&T`) and
 
 The `ColorObject` defined in the previous chapter looks like:
 
-```rust
+```sui-move
 struct ColorObject has key {
     id: UID,
     red: u8,
@@ -24,7 +24,7 @@ struct ColorObject has key {
 
 Now, add this function:
 
-```rust
+```sui-move
 /// Copies the values of `from_object` into `into_object`.
 public entry fun copy_into(from_object: &ColorObject, into_object: &mut ColorObject) {
     into_object.red = from_object.red;
@@ -45,7 +45,7 @@ The previous chapter introduced the `take_from_sender<T>` function, which takes 
 
 Create the test `test_copy_into` as shown in this example:
 
-```rust
+```sui-move
 let owner = @0x1;
 let scenario_val = test_scenario::begin(owner);
 let scenario = &mut scenario_val;
@@ -62,7 +62,7 @@ let (id1, id2) = {
 
 The preceding code creates two objects. Note that right after each call, it makes a call to `tx_context::last_created_object_id` to get the ID of the object the call created. At the end, `id1` and `id2` capture the IDs of the two objects. Next, retrieve both of them and test the `copy_into` function:
 
-```rust
+```sui-move
 test_scenario::next_tx(scenario, owner);
 {
     let obj1 = test_scenario::take_from_sender_by_id<ColorObject>(scenario, id1);
@@ -79,7 +79,7 @@ test_scenario::next_tx(scenario, owner);
 
 This uses `take_from_sender_by_id` to take both objects using different IDs. Use `copy_into` to update the value for `obj1` using the value for `obj2`. You can verify that the mutation works:
 
-```rust
+```sui-move
 test_scenario::next_tx(scenario, owner);
 {
     let obj1 = test_scenario::take_from_sender_by_id<ColorObject>(scenario, id1);
@@ -107,13 +107,13 @@ If the intention is to actually delete the object, unpack it. You can do this on
 
 However, the `id` field of a Sui object requires special handling. You must call the following API in the [object](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/object.move) module to signal Sui that you intend to delete this object:
 
-```rust
+```sui-move
 public fun delete(id: UID) { ... }
 ```
 
 Define a function in the `ColorObject` module that allows us to delete the object:
 
-```rust
+```sui-move
     public entry fun delete(object: ColorObject) {
         let ColorObject { id, red: _, green: _, blue: _ } = object;
         object::delete(id);
@@ -124,7 +124,7 @@ The object unpacks and generates individual fields. You can drop all of the u8 v
 
 To add a unit test for it:
 
-```rust
+```sui-move
 let owner = @0x1;
 // Create a ColorObject and transfer it to @owner.
 let scenario_val = test_scenario::begin(owner);
@@ -153,7 +153,7 @@ The first part of the example repeats the example used in [Object Basics](./obje
 
 The owner of the object might want to transfer it to another address. To support this, the `ColorObject` module needs to define a `transfer` function:
 
-```rust
+```sui-move
 public entry fun transfer(object: ColorObject, recipient: address) {
     transfer::transfer(object, recipient)
 }
@@ -163,7 +163,7 @@ You cannot call `transfer::transfer` directly as it is not an `entry` function.
 
 Add a test for transferring too. First, create an object in the account of the `owner`, and then transfer it to a different account `recipient`:
 
-```rust
+```sui-move
 let owner = @0x1;
 // Create a ColorObject and transfer it to @owner.
 let scenario_val = test_scenario::begin(owner);
@@ -184,7 +184,7 @@ test_scenario::next_tx(scenario, owner);
 
 Note that in the second transaction, the sender of the transaction should still be `owner`, because only the `owner` can transfer the object that it owns. After the transfer, you can verify that `owner` no longer owns the object, and `recipient` now owns it:
 
-```rust
+```sui-move
 // Check that owner no longer owns the object.
 test_scenario::next_tx(scenario, owner);
 {

@@ -112,7 +112,7 @@ module examples::my_hero {
 
 Display is created via the `display::new<T>` call, which can be performed either in a custom function (or a module initializer) or as a part of a programmable transaction.
 
-```rust
+```sui-move
 module sui::display {
     /// Get a new Display object for the `T`.
     /// Publisher must be the publisher of the T, `from_package`
@@ -123,7 +123,7 @@ module sui::display {
 
 Once acquired, the Display can be modified:
 
-```rust
+```sui-move
 module sui::display {
     /// Sets multiple fields at once
     public fun add_multiple(
@@ -142,7 +142,7 @@ module sui::display {
 
 To apply changes and set the Display for the T, one last call is required: `update_version` publishes version by emitting an event which Full Node listens to and uses to get a template for the type.
 
-```rust
+```sui-move
 module sui::display {
     /// Update the version of Display and emit an event
     public fun update_version(self: &mut Display) { /* ... */ }

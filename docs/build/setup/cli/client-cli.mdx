@@ -418,7 +418,7 @@ sui client split-coin --coin-id 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464
 The genesis state of the Sui platform includes Move code that is
 immediately ready to be called from Sui CLI.
 
-```rust
+```sui-move
 public entry fun transfer(c: coin::Coin<SUI>, recipient: address) {
     transfer::transfer(c, Address::new(recipient))
 }

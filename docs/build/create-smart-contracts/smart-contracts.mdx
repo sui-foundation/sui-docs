@@ -46,7 +46,7 @@ The Sui platform includes the Sui Framework, which includes the core on-chain li
 
 Let's see how module definition appears in the `Coin` module file:
 
-```rust
+```sui-move
 module sui::coin {
 ...
 }
@@ -78,7 +78,7 @@ sui = "0x2"
 
 The `Coin` module defines the `Coin` struct type that you can use to represent different types of user-defined coins as Sui objects:
 
-```rust
+```sui-move
 struct Coin<phantom T> has key, store {
     id: UID,
     value: u64
@@ -101,7 +101,7 @@ Learn about Move type parameters known as [generics](https://github.com/move-lan
 In particular, one type of custom coin already defined in Sui is `Coin<SUI>`, which represents a token used to pay for Sui
 computations (more generally known as _gas_) - in this case, the concrete type used to parameterize the `Coin` struct is the `SUI` struct in the [SUI module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/sui.move):
 
-```rust
+```sui-move
 struct SUI has drop {}
 ```
 
@@ -111,7 +111,7 @@ The [Write a Sui Move Package](write-move-packages.mdx) topic shows how to defin
 
 Similar to other popular programming languages, the main unit of computation in Move is a function. Let us look at one of the simplest functions defined in the [Coin module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/coin.move), that is the `value` function.
 
-```rust
+```sui-move
 public fun value<T>(self: &Coin<T>): u64 {
     self.value
 }
@@ -131,7 +131,7 @@ The Sui dialect of the Move language also defines _entry functions_. These must 
 
 One of the basic operations in Sui is a gas object transfer between [addresses](https://github.com/move-language/move/blob/main/language/documentation/book/src/address.mdx) representing individual users. The gas object transfer implementation in the [SUI module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/sui.move) is also an example of the use of an entry function:
 
-```rust
+```sui-move
 public entry fun transfer(c: coin::Coin<SUI>, recipient: address, _ctx: &mut TxContext) {
     ...
 }

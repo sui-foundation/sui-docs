@@ -7,25 +7,25 @@ slug: /debug-and-publish
 
 At the moment, there isn't a debugger for Move. To aid with debugging, however, you can use the `std::debug` module to print out arbitrary values. To do so, first import the `debug` module in your source file:
 
-```rust
+```sui-move
 use std::debug;
 ```
 
 Then in places where you want to print out a value `v`, regardless of its type, add the following code:
 
-```rust
+```sui-move
 debug::print(&v);
 ```
 
 or the following if `v` is already a reference:
 
-```rust
+```sui-move
 debug::print(v);
 ```
 
 The `debug` module also provides a function to print out the current stacktrace:
 
-```rust
+```sui-move
 debug::print_stack_trace();
 ```
 
@@ -58,7 +58,7 @@ While the `sui move` command does not support publishing explicitly, you can sti
 
 Continuing the fantasy game example, the `init` function should create a `Forge` object.
 
-```rust
+```sui-move
     // Module initializer to be executed when this module is published
     fun init(ctx: &mut TxContext) {
         let admin = Forge {
@@ -74,7 +74,7 @@ Continuing the fantasy game example, the `init` function should create a `Forge`
 The tests you have so far call the `init` function, but the initializer function itself isn't tested to ensure it properly creates a `Forge` object. To test this functionality, modify the `sword_create` function to take the forge as a parameter and to update the number of
 created swords at the end of the function:
 
-```rust
+```sui-move
     public entry fun sword_create(forge: &mut Forge, magic: u64, strength: u64, recipient: address, ctx: &mut TxContext) {
         ...
         forge.swords_created = forge.swords_created + 1;
@@ -83,7 +83,7 @@ created swords at the end of the function:
 
 Now, create a function to test the module initialization:
 
-```rust
+```sui-move
     #[test]
     public fun test_module_init() {
         use sui::test_scenario;

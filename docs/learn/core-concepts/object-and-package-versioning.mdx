@@ -47,7 +47,7 @@ Shared transaction inputs that you reference immutably participate in scheduling
 
 The `make_wrapped` function in the following example creates an `Inner` object, wrapped in an `Outer` object, which is sent back to the transaction sender.
 
-```rust
+```sui-move
 module example::wrapped {
     use sui::object::{Self, UID};
     use sui::transfer;

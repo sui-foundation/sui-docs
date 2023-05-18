@@ -7,7 +7,7 @@ slug: /object-basics
 
 In Sui Move, besides primitive data types, you can define organized data structures using `struct`. For example:
 
-```rust
+```sui-move
 struct Color {
     red: u8,
     green: u8,
@@ -18,7 +18,7 @@ struct Color {
 The `struct` defines a data structure to represent RGB color. You can use a `struct` like this to organize data with complicated semantics. However, an instance of a `struct`, such as `Color`, is not a Sui object yet.
 To define a struct that represents a Sui object type, you must add a `key` capability to the definition. The first field of the struct must be the `id` of the object with type `UID` from the [object module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/object.move) - a module from the core [Sui Framework](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/).
 
-```rust
+```sui-move
 use sui::object::UID;
 
 struct ColorObject has key {
@@ -45,7 +45,7 @@ After you define a Sui object type you can create or instantiate a Sui object. T
 
 To define a constructor for `ColorObject`:
 
-```rust
+```sui-move
 // object creates an alias to the object module, which allows you to call
 // functions in the module, such as the `new` function, without fully
 // qualifying, for example `sui::object::new`.
@@ -72,7 +72,7 @@ You now have a constructor for the `ColorObject`. If you call this constructor, 
 
 All of the APIs for adding objects to persistent storage are defined in the [`transfer`](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move) module. One key API is:
 
-```rust
+```sui-move
 public fun transfer<T: key>(obj: T, recipient: address)
 ```
 
@@ -86,7 +86,7 @@ To obtain the current signer's address, you can call `tx_context::sender(ctx)`.
 
 The following code sample creates a new `ColorObject` and sets the owner to the sender of the transaction:
 
-```rust
+```sui-move
 use sui::transfer;
 
 // This is an entry function that you can call directly by a Transaction.
@@ -104,7 +104,7 @@ Naming convention: Constructors are typically named `new`, which returns an inst
 
 You can also add a getter to `ColorObject` that returns the color values so that modules outside of `ColorObject` are able to read their values:
 
-```rust
+```sui-move
 public fun get_color(self: &ColorObject): (u8, u8, u8) {
     (self.red, self.green, self.blue)
 }
@@ -132,7 +132,7 @@ Next, write a test for the `create` function. Tests that need to use `test_scena
 
 Start the test with a hardcoded test address, which gives you a transaction context as if you sent the transaction that starts with `test_scenario::begin` from this address. You can then call the `create` function, which creates a `ColorObject` and transfers it to the test address:
 
-```rust
+```sui-move
 let owner = @0x1;
 // Create a ColorObject and transfer it to @owner.
 let scenario_val = test_scenario::begin(owner);
@@ -151,7 +151,7 @@ There is a "`;`" after "`}`". You must include `;` to sequence a series of expre
 
 After the first transaction completes (**and only after the first transaction completes**), address `@0x1` owns the object. First, make sure it's not owned by anyone else:
 
-```rust
+```sui-move
 let not_owner = @0x2;
 // Check that not_owner does not own the just-created ColorObject.
 test_scenario::next_tx(scenario, not_owner);
@@ -171,7 +171,7 @@ The second parameter of `assert!` is the error code. In non-test code, you usual
 
 Finally, check that `@0x1` owns the object and the object value is consistent:
 
-```rust
+```sui-move
 test_scenario::next_tx(scenario, owner);
 {
     let object = test_scenario::take_from_sender<ColorObject>(scenario);

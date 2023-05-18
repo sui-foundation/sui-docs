@@ -256,7 +256,7 @@ Sui supports the following API operations related to staking. You can find the s
 - `request_add_stake`
   Add user stake to a validator's staking pool.
 
-```rust
+```sui-move
 public entry fun request_add_stake(
    self: &mut SuiSystemState,
    stake: Coin<SUI>,
@@ -276,7 +276,7 @@ public entry fun request_add_stake(
 - `request_add_stake_mul_coin`
   Add user stake to a validator's staking pool using multiple coins.
 
-```rust
+```sui-move
 public entry fun request_add_stake_mul_coin(
    self: &mut SuiSystemState,
    delegate_stakes: vector<Coin<SUI>>,
@@ -292,7 +292,7 @@ public entry fun request_add_stake_mul_coin(
 - `request_add_stake_with_locked_coin`
   Add user stake to a validator's staking pool using a locked SUI coin.
 
-```rust
+```sui-move
 public entry fun request_add_stake_with_locked_coin(
    self: &mut SuiSystemState,
    stake: LockedCoin<SUI>,
@@ -307,7 +307,7 @@ public entry fun request_add_stake_with_locked_coin(
 - `request_withdraw_stake`
   Withdraw some portion of a user stake from a validator's staking pool.
 
-```rust
+```sui-move
 public entry fun request_withdraw_stake(
    self: &mut SuiSystemState,
    delegation: &mut Delegation,
