@@ -46,8 +46,8 @@ Alerts add emphasis to information. Use Admonitions, a Docusaurus feature, to in
 
 Use Note to add emphasis to information that the reader should know, but could be overlooked when scanning a topic or document. Provide information that prevents users from getting stuck.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 <Tabs>
 <TabItem value="example" label="Example" default>
@@ -72,7 +72,6 @@ The system processes updates only once every 24 hours at UTC 00:00.
 
 </TabItem>
 </Tabs>
-
 
 ### Tip {#tip}
 
@@ -103,7 +102,6 @@ Change your home directory after installing the IDE.
 </TabItem>
 </Tabs>
 
-
 ### Caution {#caution}
 
 Use Caution when the information could cause the user to lose data or to start over. If you instruct a user to delete something, warn them about what happens when they delete it.
@@ -132,7 +130,6 @@ Backup your configuration files before you delete your network.
 
 </TabItem>
 </Tabs>
-
 
 ## Capitalization {#capitalization}
 
@@ -194,7 +191,6 @@ The `display::new<T>` call creates a `Display`.
 
 </TabItem>
 </Tabs>
-
 
 ### Codeblocks {#codeblocks}
 
@@ -284,7 +280,7 @@ While this is technically accurate, it separates the person from the object of t
 
 In this example, when will the file be written to disk? It happens immediately upon clicking Save. If you check the timestamp on the file, the time reflects the moment at which you clicked Save, not a time after that moment.
 
-### Oxford / serial commas {#oxford--serial-commas}
+### Oxford / serial commas {#oxford-serial-commas}
 
 Do use serial commas.
 
@@ -300,11 +296,11 @@ Do use serial commas.
 
 > You must install Cargo, Rust, Docker, and the Sui CLI to create a Sui node.
 
-## Headings and titles {#headings-and-titles}
+## Headings and titles {#headings-titles}
 
 Use descriptive titles that include keywords to help readers find the information. Use shorter titles in the navigation pane.
 
-### Optimize for discoverability {#optimize-for-discoverability}
+### Optimize for discoverability {#optimize-discoverability}
 
 Use enough words in headings and titles to make it easy to know which link to click on a search results page. One word titles (Installing) do not provide enough information to determine the contents of a topic.
 
@@ -331,7 +327,6 @@ _Get Started with Sui_ is better, but users want to get started with a specific 
 </TabItem>
 </Tabs>
 
-
 ### Section headings {#section-headings}
 
 Use sentence casing for section headers.
@@ -353,8 +348,7 @@ Use sentence casing for section headers.
 </TabItem>
 </Tabs>
 
-
-## Images / Graphics {#images--graphics}
+## Images / Graphics {#images-graphics}
 
 Only use images and screenshots to supplement and help explain text. Images do not replace text. Readers should be able to understand the documentation without the images. However, images can help readers understand the text more clearly.
 
@@ -397,7 +391,7 @@ The Build section of the documentation includes the following topics:
 - Sui Tutorial
 - Sui Examples
 
-### Numbered or ordered lists {#numbered-or-ordered-lists}
+### Numbered or ordered lists {#numbered-ordered-lists}
 
 Use a numbered list when:
 
@@ -424,7 +418,6 @@ Use a numbered list when:
 
 </TabItem>
 </Tabs>
-
 
 ### Bulleted lists {#bulleted-lists}
 
@@ -455,7 +448,6 @@ Sui Explorer supports the following browsers:
 </TabItem>
 </Tabs>
 
-
 ### Term list {#term-list}
 
 Use a term list to define terms or concepts.
@@ -466,7 +458,6 @@ Use a term list to define terms or concepts.
 > **Term:** A description of the term.
 
 > **DAG:** A directed acyclic graph (DAG) is a data modeling or structuring tool typically used in data architectures.
-
 
 </TabItem>
 <TabItem value="markdown" label="Markdown">
@@ -481,7 +472,6 @@ Use a term list to define terms or concepts.
 </TabItem>
 </Tabs>
 
-
 ### Capitalization in lists {#capitalization-in-lists}
 
 Use initial / sentence capitalization in list items.
@@ -492,7 +482,6 @@ Use initial / sentence capitalization in list items.
 - First list item
 - Second list item
 
-
 </TabItem>
 <TabItem value="markdown" label="Markdown">
 
@@ -500,7 +489,7 @@ Use initial / sentence capitalization in list items.
 
 * First list item
 * Second list item
-  
+
 ```
 
 </TabItem>
@@ -512,7 +501,6 @@ Use initial / sentence capitalization in list items.
 1. First list item
 1. Second list item
 
-
 </TabItem>
 <TabItem value="markdown" label="Markdown">
 
@@ -520,12 +508,11 @@ Use initial / sentence capitalization in list items.
 
 1. First list item
 1. Second list item
-  
+
 ```
 
 </TabItem>
 </Tabs>
-
 
 ## Numbers {#numbers}
 
@@ -584,12 +571,11 @@ Use the topic title of the target topic as the link text for the link in a list 
 ```
 
 To learn more, see [Examples of Sui Smart Contracts](https://docs.sui.io/explore/examples).
-  
+
 ```
 
 </TabItem>
 </Tabs>
-
 
 Use keywords from the target topic title when using links inline.
 
@@ -604,14 +590,13 @@ Use keywords from the target topic title when using links inline.
 ```
 
 Before you install Sui, make sure to install the [prerequisites](https://docs.sui.io/build/install#prerequisites).
-  
+
 ```
 
 </TabItem>
 </Tabs>
 
-
-## Procedures / Tasks / Instructions {#procedures--tasks--instructions}
+## Procedures / Tasks / Instructions {#procedures-tasks-instructions}
 
 Introduce a procedure with an infinitive verb. Format procedures using a numbered or ordered list.
 
@@ -623,7 +608,7 @@ To get the latest version of the Sui Wallet extension:
 1. Open Google Chrome.
 1. Click **Extensions**, then click **Manage Extensions**.
 1. Click **Details** for the Sui Wallet extension, then click **View in Chrome Web Store**.
-  
+
 </TabItem>
 <TabItem value="markdown" label="Markdown">
 
@@ -640,8 +625,7 @@ To get the latest version of the Sui Wallet extension:
 </TabItem>
 </Tabs>
 
-  
-### Keyboard keys in procedures {#keyboard-keys-in-procedures}
+### Keyboard keys in procedures {#keyboard-keys-procedures}
 
 When you provide instructions to press keyboard keys, such as Press **Enter** to continue, use uppercase for the key name and format the key name as bold text.
 
@@ -716,7 +700,7 @@ Capitalize the first word in the heading. Center align the text. Bold labels in 
 | **Column one** | **Column two** | **Column three** | **Column four** |
 | :------------- | :------------: | :--------------: | :-------------- |
 | Metric name    |       10       |        X         | Text string.    |
-  
+
 </TabItem>
 <TabItem value="markdown" label="Markdown">
 
@@ -729,7 +713,6 @@ Capitalize the first word in the heading. Center align the text. Bold labels in 
 </TabItem>
 </Tabs>
 
-
 ### Table alignment {#table-alignment}
 
 Center align labels in the Heading row. Left align strings of text. Center align values and Xs or checkmarks.
@@ -740,7 +723,7 @@ Center align labels in the Heading row. Left align strings of text. Center align
 | **Column one** | **Column two** | **Column three** | **Column four** |
 | :------------- | :------------: | :--------------: | :-------------- |
 | Metric name    |       10       |        X         | Text string.    |
-  
+
 </TabItem>
 <TabItem value="markdown" label="Markdown">
 
@@ -753,7 +736,6 @@ Center align labels in the Heading row. Left align strings of text. Center align
 
 </TabItem>
 </Tabs>
-
 
 ### Table text {#table-text}
 
@@ -771,7 +753,7 @@ Format UI elements, such as field labels, button names, and menu commands, in bo
 
 > Click **More Transactions** to open the **Transactions** page.
 
-## URLs and web addresses {#urls-and-web-addresses}
+## URLs and web addresses {#urls-web-addresses}
 
 Add text and create a link to a site or URL. Provide the URL only when a reader needs to copy it, such as in example code or configuration files.
 
@@ -802,11 +784,11 @@ You can also just refer to a topic by title where it makes sense. See Installing
 
 Optionally use contractions to provide a more conversational tone. It’s OK to use them inconsistently. Be mindful that they can be confusing to non-native speakers.
 
-## New section template (Heading 2) {#new-section-template-heading-2}
+## New section template (Heading 2) {#heading-2}
 
 Describe the section.
 
-### Subsection or category (Heading 3) {#subsection-or-category-heading-3}
+### Subsection or category (Heading 3) {#heading-3}
 
 Describe the additional entry.
 
@@ -814,7 +796,7 @@ Describe the additional entry.
 <TabItem value="example" label="Example" default>
 
 > Indented example for the section. (Normal text, indented)
-  
+
 </TabItem>
 <TabItem value="markdown" label="Markdown">
 
@@ -826,7 +808,6 @@ Indented example for the section. (Roboto Mono Light)
 
 </TabItem>
 </Tabs>
-  
 
 ## Reference Style Guides {#reference-style-guides}
 

@@ -6,7 +6,7 @@ slug: /exchange-integration-guide
 
 This topic describes how to integrate SUI, the token native to the Sui network, into a cryptocurrency exchange. The specific requirements and processes to implement an integration vary between exchanges. Rather than provide a step-by-step guide, this topic provides information about the primary tasks necessary to complete an integration. After the guidance about how to configure an integration, you can also find information and code samples related to staking on the Sui network.
 
-## Requirements to configure a SUI integration {#requirements-to-configure-a-sui-integration}
+## Requirements to configure a SUI integration {#requirements-sui-integration}
 
 The requirements to configure a SUI integration include:
 
@@ -18,11 +18,11 @@ The requirements to configure a SUI integration include:
 
 For best results, run Sui Full nodes on Linux. Sui supports the Ubuntu and Debian distributions. You can also fun a Full node on macOS.
 
-## Configure a Sui Full node {#configure-a-sui-full-node}
+## Configure a Sui Full node {#configure-full-node}
 
 You can set up and configure a Sui Full node using Docker or directly from source code in the Sui GitHub repository.
 
-### Install a Sui Full node using Docker {#install-a-sui-full-node-using-docker}
+### Install a Sui Full node using Docker {#full-node-docker}
 
 Run the command in this section using the same branch of the repository for each. Replace `branch-name` with the branch you use. For example, use `devnet` to use the Sui Devnet network, or use `testnet` to use the Sui Testnet network. You must download all files to, and run all commands from, the same folder location.
 
@@ -54,7 +54,7 @@ Run the command in this section using the same branch of the repository for each
     docker-compose up -d
     ```
 
-## Install a Sui Full node from source {#install-a-sui-full-node-from-source}
+## Install a Sui Full node from source {#install-full-node-source}
 
 Use the steps in this section to install and configure a Sui Full node directly from the Sui GitHub repository. These steps use [Cargo](https://doc.rust-lang.org/cargo/), the Rust package manager.
 
@@ -85,7 +85,7 @@ Use the steps in this section to install and configure a Sui Full node directly 
     cargo run --release --bin sui-node -- --config-path fullnode.yaml
     ```
 
-## Set up Sui addresses {#set-up-sui-addresses}
+## Set up Sui addresses {#setup-sui-addresses}
 
 Sui addresses do not require on-chain initialization, you can spend from an address if it corresponds to your private key. You can derive a 32-byte Sui address by hashing the signature scheme flag byte concatenated with public key bytes `flag || pubkey` using the [BLAKE2b](https://www.blake2.net/) (256 bits output) hashing function.
 
@@ -107,7 +107,7 @@ let sui_address_string = hex::encode(arr);
 
 Sui supports both addresses with and without a 0x prefix. Sui recommends that you always include the 0x prefix in API calls and when you display user addresses.
 
-## Track balance changes for an address {#track-balance-changes-for-an-address}
+## Track balance changes for an address {#track-balance-changes}
 
 You can track balance changes by calling `sui_getBalance` at predefined intervals. This call returns the total balance for an address. The total includes any coin or token type, but this document focuses on SUI. You can track changes in the total balance for an address between subsequent `sui_getBalance` requests.
 
@@ -155,7 +155,7 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 ```
 
-## Use events to track balance changes for an address {#use-events-to-track-balance-changes-for-an-address}
+## Use events to track balance changes for an address {#events-balance-changes}
 
 You can also track the balance for an address by subscribing to all of the events emitted from it. Use a filter to include only the events related to SUI coins, such as when the address acquires a coin or pays for a gas fee.
 The following example demonstrates how to filter events for an address using bash and cURL:
@@ -210,7 +210,7 @@ You can merge and split SUI token objects to create token objects with specific 
 
 To transfer a specific amount of SUI, you need a SUI token worth that specific amount. To get a SUI token with that specific value, you might need to split or merge existing SUI tokens. Sui supports several methods to accomplish this, including some that do not require you to manually split or merge coins.
 
-## Sui API operations for transfers {#sui-api-operations-for-transfers}
+## Sui API operations for transfers {#api-operations-transfers}
 
 Sui supports the following API operations related to transferring SUI between addresses:
 

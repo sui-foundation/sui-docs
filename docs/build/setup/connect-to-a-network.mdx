@@ -87,7 +87,7 @@ Generated new keypair for address with scheme "ed25519" [0xb9c83a8b40d3263c9ba40
 Secret Recovery Phrase : [cap wheat many line human lazy few solid bored proud speed grocery raise erode there idea inform culture cousin shed sniff author spare carpet]
 ```
 
-### Connect to a custom RPC endpoint {#connect-to-a-custom-rpc-endpoint}
+### Connect to a custom RPC endpoint {#custom-rpc-endpoint}
 
 If you previously used `sui genesis` with the force option (`-f` or `--force`), your client.yaml file already includes two RPC endpoints: `localnet` at `http://0.0.0.0:9000` and `devnet` at `https://fullnode.devnet.sui.io:443`. You can view the defined environments with the `sui client envs` command, and switch between them with the `sui client switch` command.
 
@@ -131,7 +131,7 @@ In the following sections, the object IDs, addresses, and authority signatures u
 1.  Get your Sui client address: `sui client active-address`
 1.  Request test SUI tokens in the Sui [#devnet-faucet](https://discord.com/channels/916379725201563759/971488439931392130) or [#testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channel. Send the following message to the relevant channel with your client address: `!faucet <YOUR-CLIENT-ADDRESS>`. If you have a local network, programmatically request tokens from your [local faucet](local-network.mdx#use-the-local-faucet).
 
-## Publish a Move module {#publish-a-move-module}
+## Publish a Move module {#publish-move-module}
 
 This section describes how to publish a sample Move package using code developed in the [Sui Move tutorial](../../build/create-smart-contracts/write-move-packages.mdx). The instructions assume that you installed Sui in the default location.
 

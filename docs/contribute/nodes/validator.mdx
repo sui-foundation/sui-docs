@@ -5,7 +5,7 @@ slug: /run-a-validator
 
 Learn how to set up, configure, and manage a Sui Validator node, including staking, reference gas price, and tallying rules.
 
-## Requirements to run a validator on Sui {#requirements-to-run-a-validator-on-sui}
+## Requirements to run a validator on Sui {#requirements-validator}
 
 To run a Sui Validator, you must set up and configure a Sui Validator node. After you have a running node, you must have a minimum of 30 Million SUI in your staking pool to join the Validator set on the Sui network.
 
@@ -26,7 +26,7 @@ Specific steps you must take include:
 
 After you successfully join the validator set, you must maintain a staking pool with a minimum of 20 Million SUI staked. If, at any point, your staking pool falls below 15 Million SUI, your Validator node is removed from the committee at the next epoch boundary. Sui uses 24-hour epochs.
 
-## Validator consensus and voting power {#validator-consensus-and-voting-power}
+## Validator consensus and voting power {#validator-consensus-voting-power}
 
 The total voting power on Sui is always 10,000, regardless of the amount staked. Therefore, the quorum threshold is 6,667. There is no limit to the amount of SUI users can stake with a validator. Each validator has consensus voting power proportional to SUI in its staking pool, with one exception: the voting power of an individual validator is capped at 1,000 (10% of the total). If a validator accumulates more than 10% of total stake, the validator’s voting power remains fixed at 10%, and the remaining voting power is spread across the rest of the validator set.
 
@@ -40,7 +40,7 @@ The only difference between Sui staking pools and typical liquidity pools is tha
 
 The staking pool is implemented in a system-level smart contract (staking_pool.move) and is part of the Sui Framework.
 
-### User staking and withdrawals {#user-staking-and-withdrawals}
+### User staking and withdrawals {#user-staking-withdrawals}
 
 When users stake SUI tokens, these SUI objects are wrapped into `StakedSUI` objects. The calculation to determine each user’s relative ownership of the staking pool is done directly with the timestamp of the `StakedSUI` object (which determines the moment at which the deposit took place) and the change in the exchange rates between the deposit epoch and the withdrawal epoch. Each staking pool’s data structure contains a time series with that pool’s exchange rates. These exchange rates can be used to determine the withdrawals of any of the pool’s stakers.
 
@@ -56,7 +56,7 @@ _Exchange Rate at E+1 = ( 1 + ( Third-Party Staker Rewards at E / Third-Party St
 
 The distinction between third-party owned vs validator-owned rewards and stake is relevant in that validators earn commissions on the staking pool’s tokens but third-party stakers do not. This accounting enables Sui to keep track of the rewards accrued by both validators and third-party token holders using a single global exchange rate table.
 
-### Find the exchange rate {#find-the-exchange-rate}
+### Find the exchange rate {#find-exchange-rate}
 
 Each epoch change emits a `0x2::validator_set::ValidatorEpochInfo` event per validator with the exchange rate information. You can use the Events API to query events.
 
@@ -79,7 +79,7 @@ Stake rewards are made up of gas fees and stake subsidies. The total amount dist
 
 The total amount of gas fees collected corresponds to the sum of gas fees across all transactions processed in the epoch. During regular market conditions, the vast majority of transactions should have a `GasPrice` equal to the `ReferenceGasPrice`.
 
-### User staking and rewards {#user-staking-and-rewards}
+### User staking and rewards {#user-staking-rewards}
 
 A stake deposit request goes into a pending state immediately in the staking pool as soon as it is made. Sui Wallet reflects any pending stake deposit requests for the user’s account. However, pending stake deposit requests do not take effect until the end of the epoch during which the request is made.
 
@@ -108,7 +108,7 @@ sui client call --package 0x2 --module sui_system --function request_set_gas_pri
 
 Importantly, the gas object’s value persists across epochs so that a validator who does not update and submit a new quote uses the same quote from the previous epoch. Hence, a validator seeking to optimize its own operations should update its quote every epoch in response to changes in network operations and market conditions.
 
-## Validator slashing and tallying rule {#validator-slashing-and-tallying-rule}
+## Validator slashing and tallying rule {#validator-slashing-tallying}
 
 Sui is designed to encourage and enforce community monitoring of the validator set. This is done through the Tallying Rule by which each validator monitors and scores every other validator in order to ensure that everyone is operating efficiently and in the network’s best interest. Validators that receive a low score can be penalized with slashed stake rewards.
 

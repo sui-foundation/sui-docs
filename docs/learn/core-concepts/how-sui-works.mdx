@@ -56,7 +56,7 @@ Contrary to a typical blockchain, Sui does not stop the flow of transactions in 
 
 :::
 
-## Transactions on single-owner objects {#transactions-on-single-owner-objects}
+## Transactions on single-owner objects {#single-owner-objects}
 
 [Many transactions](https://eprint.iacr.org/2019/611.pdf) such as coin or object transfers, NFT minting, and smart contract publishing can be expressed as operations on _single-owner_ objects that can be used in transactions by only one address at a time. Sui automatically recognizes such transactions and leverages this observation to forgo [consensus](https://pmg.csail.mit.edu/papers/osdi99.pdf). Instead, Sui uses simpler algorithms based on [Byzantine Consistent Broadcast](https://link.springer.com/book/10.1007/978-3-642-15260-3). See our list of potential [single-writer apps](single-writer-apps.mdx) for examples of real-world simple transactions.
 
@@ -82,7 +82,7 @@ Note that the role of quorum driver does not require access to any private keys,
 
 :::
 
-## Transactions on shared objects {#transactions-on-shared-objects}
+## Transactions on shared objects {#shared-objects}
 
 Many use-cases require _shared_ objects that can be manipulated by two or more addresses at once--such as an auction with open bidding, or a central limit order book that accepts arbitrary trades. In such cases, Sui must sequence transactions that manipulate the same shared object using a [consensus](../../learn/core-concepts/consensus-engine.mdx) protocol. Sui uses [Narwhal](https://arxiv.org/abs/2105.11827) for high-throughput, horizontally scalable transaction dissemination and [Bullshark](https://arxiv.org/abs/2209.05633) for zero message overhead consensus.
 

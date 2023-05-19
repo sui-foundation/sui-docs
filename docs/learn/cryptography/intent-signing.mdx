@@ -78,7 +78,7 @@ Under the hood, the `new_secure` method in Rust and the `signData` method in Typ
 
 The authority signature is created using the protocol key. The data that it commits to is also an intent message `intent || message`. See all available intent scopes [in the source code](https://github.com/MystenLabs/sui/blob/0dc1a38f800fc2d8fabe11477fdef702058cf00d/crates/sui-types/src/intent.rs#L66)
 
-### How to Generate Proof of Possession for an Authority {#how-to-generate-proof-of-possession-for-an-authority}
+### How to Generate Proof of Possession for an Authority {#proof-of-possession}
 
 When an authority request to join the network, the protocol public key and its proof of possession (PoP) are required to be submitted. PoP is required to prevent [rogue key attack](https://crypto.stanford.edu/~dabo/pubs/papers/BLSmultisig.html).
 

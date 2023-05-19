@@ -82,7 +82,7 @@ Sui runs a leaderless protocol to process simple transactions (i.e. containing o
 
 Contrary to many traditional blockchains, Sui does not make strong synchrony assumptions on the network. This means that Sui maintains its security properties under bad network conditions (even excessively bad), network splits/partitions, or even powerful DoS attacks targeted on the validators. Sustained network attacks on synchronous blockchains (i.e., most proof-of-work based blockchains) can lead to double-spend of resources and deadlocks.
 
-### Efficient local read operations {#efficient-local-read-operations}
+### Efficient local read operations {#local-read-operations}
 
 The reading process of Sui enormously differs from other blockchains. Users interested in only a handful of objects and their history perform authenticated reads at a low granularity and low latency. Sui creates a narrow family tree of objects starting from the genesis, allowing it to read only objects tied to the sender of the transaction. Users requiring a global view of the system (e.g., to audit the system) can take advantage of checkpoints to improve performance.
 

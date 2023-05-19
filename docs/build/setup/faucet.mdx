@@ -10,18 +10,18 @@ Sui faucet is a helpful tool where Sui developers can get free test SUI tokens t
 
 To request tokens from the faucet, you must own a wallet address that can receive the SUI tokens. You can generate an address via the [Sui CLI tool](../setup/cli/client-cli.mdx#active-address) or the [Sui wallet](https://github.com/MystenLabs/mysten-app-docs/blob/main/mysten-sui-wallet.mdx).
 
-## 1. Request test tokens through Discord {#1-request-test-tokens-through-discord}
+## 1. Request test tokens through Discord {#1-request-discord}
 
 1. Join [Discord](https://discord.gg/sui).
    If you try to join the Sui Discord channel using a newly created Discord account, you may need to wait a few days for validation.
 1. Request test SUI tokens in the Sui [#devnet-faucet](https://discord.com/channels/916379725201563759/971488439931392130) or [#testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channels. Send the following message to the channel with your client address:
    `!faucet <Your client address>`
 
-## 2. Request test tokens through wallet {#2-request-test-tokens-through-wallet}
+## 2. Request test tokens through wallet {#2-request-wallet}
 
 You can request test tokens within [Sui Wallet](https://github.com/MystenLabs/mysten-app-docs/blob/main/mysten-sui-wallet.mdx#add-sui-tokens-to-your-sui-wallet).
 
-## 3. Request test tokens through cURL {#3-request-test-tokens-through-curl}
+## 3. Request test tokens through cURL {#3-request-curl}
 
 Use the following cURL command to request tokens directly from the faucet server:
 
@@ -37,7 +37,7 @@ curl --location --request POST 'https://faucet.devnet.sui.io/gas' \
 
 Replace `'https://faucet.devnet.sui.io/gas'` with `http://127.0.0.1:5003/gas` when working with a local network.
 
-## 4. Request test tokens through TypeScript SDK {#4-request-test-tokens-through-typescript-sdk}
+## 4. Request test tokens through TypeScript SDK {#4-request-typescript-sdk}
 
 You can also access the faucet through the TS-SDK.
 

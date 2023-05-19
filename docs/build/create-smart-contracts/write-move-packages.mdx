@@ -5,7 +5,7 @@ slug: /write-move-packages
 
 Before you can build a Sui Move package and run its code, you must first [install Sui binaries](../setup/cli/install-sui.mdx#install-or-update-sui-binaries) for your operating system.
 
-### Create the package {#Create-the-package}
+### Create the package {#create-the-package}
 
 To begin, open a terminal or console at the location you plan to store your package. Use the `sui move new` command to create an empty Sui Move package with the name `my_first_package`:
 
@@ -29,7 +29,7 @@ my_first_package = "0x0"
 sui = "0000000000000000000000000000000000000000000000000000000000000002"
 ```
 
-### Defining the package {#Defining-the-package}
+### Defining the package {#defining-the-package}
 
 You have a package now but it doesn't do anything. To make your package useful, you must add logic contained in `.move` source files that define _modules_. Use a text editor or the command line to create your first package source file named `my_module.move` in the `sources` directory of the package:
 
