@@ -69,7 +69,7 @@ access to a package `UpgradeCap` (and therefore to calls of these functions) beh
 Any pair of functions that produces an `UpgradeTicket` from an `UpgradeCap` and consumes an `UpgradeReceipt` to update an
 `UpgradeCap` constitutes a custom upgrade policy.
 
-## UpgradeCap {#upgradeCap}
+## UpgradeCap {#upgradecap}
 
 The `UpgradeCap` is the central type responsible for coordinating package upgrades.
 
@@ -97,7 +97,7 @@ And its API guarantees the following properties:
 - An upgrade can only be authorized for the extent of a single transaction; no one can `store` the `UpgradeTicket` that proves authorization.
 - Compatibility requirements for a package can be made only more restrictive over time.
 
-## UpgradeTicket {#upgradeTicket}
+## UpgradeTicket {#upgradeticket}
 
 ```sui-move
 module sui::package {
@@ -143,7 +143,7 @@ BUILDING test
 {"modules":[<MODULE-BYTES-BASE64>],"dependencies":[<DEPENDENCY-IDS>],"digest":[59,43,173,195,216,88,176,182,18,8,24,200,200,192,196,197,248,35,118,184,207,205,33,59,228,109,184,230,50,31,235,201]}
 ```
 
-## UpgradeReceipt {#UpgradeReceipt}
+## UpgradeReceipt {#upgradereceipt}
 
 ```sui-move
 module sui::package {
@@ -827,7 +827,7 @@ Array [
 
 If you used the example package provided, notice you have an `Events` section that contains a field `x` with value `41`.
 
-### Upgrading a package with custom policy {#Upgrading-custom-policy}
+### Upgrading a package with custom policy {#upgrading-custom-policy}
 
 With your package published, you can prepare an `upgrade.js` script to perform an upgrade using the new policy. It behaves identically to `publish.js` up until building the package. When building the package, the script also captures its `digest`, and the transaction now performs the three upgrade commands (authorize, execute, commit). The full script for `upgrade.js` follows:
 

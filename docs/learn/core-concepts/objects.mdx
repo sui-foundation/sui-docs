@@ -66,7 +66,7 @@ There are a few different ways to concisely refer to an object without specifyin
 - **Versioned ID:** an (ID, version) pair. Versioned ID describes the state of the object at a particular point in the object's history and is useful for asking what the value of the object was at some point in the past or determining how fresh some view of an object is now.
 - **Object Reference:** an (ID, version, object digest) triple. The object digest is the hash of the object's contents and metadata. An object reference provides an authenticated view of the object at a particular point in the object's history. Transactions require object inputs to be specified via object references to ensure the transaction's sender and a validator processing the transaction agree on the contents and metadata of the object.
 
-## The transaction-object DAG: Relating objects and transactions {#transaction-object-DAG}
+## The transaction-object DAG: Relating objects and transactions {#transaction-object-dag}
 
 Transactions (and thus, certificates) take objects as input, read/write/mutate these inputs, and produce mutated or freshly created objects as output. And as discussed previously, each object knows the (hash of the) last transaction that produced it as an output. Thus, a natural way to represent the relationship between objects and transactions is a directed acyclic graph (DAG) where:
 

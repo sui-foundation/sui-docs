@@ -48,7 +48,7 @@ If you still have an issue, run the following command:
 brew link --force libpq
 ```
 
-### Install Sui locally {#install-sui-locally}
+### Install Sui locally {#install-locally}
 
 Use the following command to clone the Sui repo, change to the Sui folder after the clone completes, and then use cargo to install the `sui-test-validator` and `sui` binaries from your local drive.
 
@@ -61,7 +61,7 @@ cd sui
 cargo build --bin sui-test-validator --bin sui
 ```
 
-### Install Sui from GitHub {#install-sui-from-github}
+### Install Sui from GitHub {#install-from-github}
 
 Use the following command to install Sui directly from the Sui GitHub repository:
 
@@ -71,7 +71,7 @@ cargo install --locked --git https://github.com/MystenLabs/sui.git --branch main
 
 The command uses the `main` branch of the Sui repository. To use a different branch, change the value for the `--branch` switch. For example, to use the `devnet` branch, specify `--branch devnet`.
 
-## Start the local network {#start-the-local-network}
+## Start the local network {#start-local}
 
 To start the local network, run the following command from the `sui` root folder.
 
@@ -167,7 +167,7 @@ The command returns:
 
 `local`
 
-## Show the current active address {#show-the-current-active-address}
+## Show the current active address {#show-current-address}
 
 The Sui Client CLI uses the active address for command if you don't specify one. Use the following command to show the active address on your local network.
 
@@ -187,7 +187,7 @@ The address returned when you run the command is unique and does not match the o
 
 :::
 
-## Use the local faucet {#use-the-local-faucet}
+## Use the local faucet {#use-local-faucet}
 
 Transactions on your local network require SUI coins to pay for gas fees just like other networks. To send coins to a Sui Wallet connected to your local network, see [Set up a local Sui Wallet](#set-up-a-local-sui-wallet). You can use the address for the local Sui Wallet with the faucet.
 
@@ -249,7 +249,7 @@ If successful, the response resembles the following:
 </details>
 ```
 
-### Check the gas coin objects for the active address {#check-the-gas-coin-objects-for-the-active-address}
+### Check the gas coin objects for the active address {#gas-coin-address}
 
 After yoo get coins from the faucet, use the following command to view the coin objects for the address:
 
