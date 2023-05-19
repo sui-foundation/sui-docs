@@ -5,7 +5,7 @@ slug: /transactions
 
 All updates to the Sui ledger happen via a transaction. This topic describes the transaction types supported by Sui and explains how their execution changes the ledger.
 
-## Transaction metadata
+## Transaction metadata {#transaction-metadata}
 
 All Sui transactions have the following common metadata:
 
@@ -18,7 +18,7 @@ All Sui transactions have the following common metadata:
 - Authenticator: A cryptographic signature on the [Binary Canonical Serialization (BCS)](https://docs.rs/bcs/latest/bcs/)-encoded bytes of the data above, and a public key that both verifies against the signature and is cryptographically committed to by the sender address.
 - Expiration: An epoch reference that sets a deadline after which validators will no longer consider the transaction valid. The optional expiration epoch reference enables users to define transactions that either execute and commit by a set time (current epoch less than or equal to expiration epoch), or never execute after the deadline passes. By default, there is no deadline for when a transaction must execute.
 
-## Move call transaction
+## Move call transaction {#move-call-transaction}
 
 This transaction type is a _smart contract call_ that invokes a function in a published Move package with objects owned by the sender and pure values (e.g., integers) as inputs. Executing a function may read, write, mutate, and transfer these input objects, as well as other objects created during execution.
 
@@ -31,17 +31,17 @@ In addition to the common metadata above, a call transaction includes the follow
 - Object Inputs: A list of unique object references pointing to objects that will be passed to this function. Each object must either be owned by the sender, immutable or shared. _The gas input object from above cannot also appear as an object input._
 - Pure Inputs: A list of BCS-encoded values that will be bound to the parameters of the function. Pure inputs must be primitive types (i.e. addresses, object IDs, strings, bytes, integers, or booleans)--they cannot be objects.
 
-## Move publish transaction
+## Move publish transaction {#move-publish-transaction}
 
 This transaction type publishes a new Sui Move package as an immutable object. Once the package has been published, its public functions and types can be used by future packages, and its entry point functions can be called by future transactions.
 
 In addition to the common metadata above, a publish transaction includes Package Bytes: A list of Sui Move bytecode modules topologically sorted by their dependency relationship (i.e., leaves in the dependency graph must appear earlier in the list). These modules will be deserialized, verified, and linked against their dependencies. In addition, each module's initializer function will be invoked in the order specified by the list.
 
-## Native transaction
+## Native transaction {#native-transaction}
 
 Native transactions are optimized versions of common Sui operations. Each native transaction is semantically equivalent to a specific Move call but has a lower gas cost.
 
-### Transfer object
+### Transfer object {#transfer-object}
 
 This transaction type transfers objects from the sender to the specified recipients.
 
@@ -50,7 +50,7 @@ In addition to the common metadata above, a transfer object transaction includes
 - Input: An object reference pointing to a mutable object owned by the sender. The object must be of type that allows for public transfers--that is, any type with the `store` ability. The gas input object from above cannot also appear as the object input.
 - Recipient: The address that will receive the object from this transfer.
 
-### Transfer SUI
+### Transfer SUI {#transfer-sui}
 
 This transaction type is similar to the Transfer Object transaction type, but the input object type must be a SUI coin--that is, an object of type `sui::coin::Coin<sui::sui::SUI>`. The benefit of this transaction type is that a separate coin object is not needed for gas. The gas payment is taken from the SUI coin being transferred.
 Optionally, an amount can be specified for partial transfers.
@@ -61,7 +61,7 @@ In addition to the common metadata above, a transfer SUI transaction includes th
 - (Optional) Amount: An unsigned integer encoding the amount that the recipient will receive. The amount will be debited from the input object, wrapped in a freshly created coin object, and sent to the corresponding recipient address. The value of the input object must be greater than or equal to the amount specified.
 - Recipient: The address that will receive the coin from this transfer.
 
-### Join
+### Join {#join}
 
 This transaction type combines several coin objects into one. It includes the following field:
 
@@ -110,7 +110,7 @@ flowchart LR
 
 Sui has some limits on transactions and data used in transactions, such as a maximum size and number of objects used. To view the full list of limits in source code, see [Transaction input limits](https://github.com/MystenLabs/sui/blob/main/crates/sui-protocol-config/src/lib.rs#L154).
 
-## Further reading
+## Further reading {#further-reading}
 
 - See the [Move tutorial](../../build/create-smart-contracts/smart-contracts.mdx) to develop Sui smart contracts.
 - Transactions take objects as input and produce objects as output--learn about the [objects](../core-concepts/objects.mdx), their structure and attributes.

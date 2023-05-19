@@ -8,7 +8,7 @@ The basic unit of storage in Sui is **object**. In contrast to many other blockc
 - _Sui Move Package_: a set of Sui Move bytecode modules. Each module has a name that's unique within the package. The combination of the package ID and the name of a module uniquely identify the module. When you publish smart contracts to Sui, a package is the unit of publishing. Once a package object is published, it is immutable and can never be changed or removed. A package object can depend on other package objects that were previously published to the Sui ledger.
 - _Sui Move Object_: typed data governed by a particular Sui Move [_module_](https://github.com/move-language/move/blob/main/language/documentation/book/src/modules-and-scripts.mdx) from a Sui Move package. Each object value is a [struct](https://github.com/move-language/move/blob/main/language/documentation/book/src/structs-and-resources.mdx) with fields that can contain primitive types (e.g. integers, addresses), other objects, and non-object structs. Each object value is mutable and owned by an address at the time of its creation, but can subsequently be _frozen_ and become permanently immutable, or be _shared_ and thus become accessible by other addresses.
 
-## Object metadata
+## Object metadata {#object-metadata}
 
 Each Sui object has the following metadata:
 
@@ -19,7 +19,7 @@ Each Sui object has the following metadata:
 
 In addition to common metadata, objects have a category-specific, variable-sized _contents_ field. For a data value, this contains the Move type of the object and its [Binary Canonical Serialization (BCS)](https://docs.rs/bcs/latest/bcs/)-encoded payload. For a package value, this contains the bytecode modules in the package.
 
-## Object ownership
+## Object ownership {#object-ownership}
 
 Every object has a _owner_ field that indicates how this object is being owned. The ownership dictates how an object can be used in transactions. There are 4 different types of ownership:
 
@@ -42,13 +42,13 @@ defines a object type `A` that contains a field whose type is another object typ
 
 Now back to the topic of object owned by another object. When an object is owned by another object, it's not wrapped. This means the child object still exists independently as a top-level object and can be accessed directly in the Sui storage. The ownership relationship is only tracked through the owner field of the child object. This can be useful if you still want to observe the child object or be able to use it in other transactions. Sui provides library APIs to make an object owned by another object. More details on how to do this can be found in the [Sui Move library](../../build/create-smart-contracts/sui-move-library.mdx).
 
-### Immutable
+### Immutable {#immutable}
 
 You can't mutate an immutable object, and an immutable object doesn't have an exclusive owner. Anyone can use an immutable object in a Sui Move call.
 
 All Sui Move packages are immutable objects: you can't change a Sui Move package after you publish it. You can convert a Sui Move object into an immutable object using the [_freeze_object_](../../build/create-smart-contracts/sui-move-library.mdx#immutable) operation. You can only pass an immutable object in Sui Move calls as a read-only reference (`&T`).
 
-### Shared
+### Shared {#shared}
 
 An object can be shared, meaning that anyone can read or write this object. In contrast to mutable owned objects (which are single-writer), shared objects require [consensus](../../learn/core-concepts/consensus-engine.mdx) to sequence reads and writes. For an example of creating and accessing a shared object, see [Shared Object](https://examples.sui.io/basics/shared-object.html).
 
@@ -58,7 +58,7 @@ In other blockchains, every object is shared. However, Sui programmers often hav
 - Auction: [Shared](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/nfts/sources/shared_auction.move), [Owned](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/nfts/sources/auction.move)
 - Tic Tac Toe: [Shared](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/games/sources/shared_tic_tac_toe.move), [Owned](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/games/sources/tic_tac_toe.move)
 
-## Referring to objects
+## Referring to objects {#referring-to-objects}
 
 There are a few different ways to concisely refer to an object without specifying its entire contents and metadata, each with slightly different use cases:
 

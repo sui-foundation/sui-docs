@@ -41,7 +41,7 @@ At some point, you can then take out the wrapped object and transfer it to an ad
 
 There are a few common ways to wrap a Sui object into another Sui object, and their use cases are typically different. This section describes three different ways to wrap a Sui object with typical use cases.
 
-### Direct wrapping
+### Direct wrapping {#direct-wrapping}
 
 If you put a Sui object type directly as a field in another Sui object type (as in the preceding example), it is called _direct wrapping_. The most important property achieved through direct wrapping is that the wrapped object cannot be unwrapped unless the wrapping object is destroyed. In the preceding example, to make `Bar` a standalone object again, delete (and hence [unpack](https://move-book.com/advanced-topics/struct.html#destructing-structures)) the `Foo` object. Direct wrapping is the best way to implement object locking, which is to lock an object with constrained access. You can unlock it only through specific contract calls.
 
@@ -179,7 +179,7 @@ Find the full source code in [trusted_swap.move](https://github.com/MystenLabs/s
 
 To view a more complex example of how to use direct wrapping, see [escrow.move](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/defi/sources/escrow.move).
 
-### Wrapping through `Option`
+### Wrapping through `Option` {#wrapping-through-option}
 
 When Sui object type `Bar` is directly wrapped into `Foo`, there is not much flexibility: a `Foo` object must have a `Bar` object in it, and to take out the `Bar` object you must destroy the `Foo` object. However, for more flexibility, the wrapping type might not always have the wrapped object in it, and the wrapped object might be replaced with a different object at some point.
 
@@ -240,7 +240,7 @@ Find the source code in [simple_warrior.move](https://github.com/MystenLabs/sui/
 
 To view a more complex example, see [hero.move](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/games/sources/hero.move).
 
-### Wrapping through `vector`
+### Wrapping through `vector` {#wrapping-through-vector}
 
 The concept of wrapping objects in a vector field of another Sui object is very similar to wrapping through `Option`: an object can contain 0, 1, or many of the wrapped objects of the same type.
 

@@ -39,7 +39,7 @@ The `pk` bytes is the bytes representation of the public key corresponding to th
 | ECDSA Secp256r1 | Compressed, 33 bytes                                      |
 | MultiSig        | BCS serialized all participating public keys, size varies |
 
-## Signature Requirements
+## Signature Requirements {#signature-requirements}
 
 The signature must commit to the hash of the intent message of the transaction data, which can be constructed by appending the 3-byte intent before the BCS serialized transaction data. To learn more on what is an intent and how to construct an intent message, see [Sui Intent signing](./intent-signing.mdx).
 
@@ -68,7 +68,7 @@ The Authority on Sui (collection of validators) holds three distinctive keypairs
 1.  Account keypair
 1.  Network keypair
 
-## Protocol Keypair
+## Protocol Keypair {#protocol-keypair}
 
 The Protocol keypair provides authority signatures on user-signed transactions if they are verified. When a stake of the authorities that provide signatures on user transactions passes the required two-thirds threshold, Sui executes the transaction. We currently chose the BLS12381 scheme for its fast verification on aggregated signatures for a given number of authorities. In particular, we decided to use the minSig BLS mode, according to which each individual public key is 96 bytes, while the signature is 48 bytes. The latter is important as typically validators register their keys once at the beginning of each epoch and then they continuously sign transactions; thus, we optimize on minimum signature size.
 
@@ -76,11 +76,11 @@ Note that with the BLS scheme, one can aggregate independent signatures resultin
 
 To counter potential rogue key attacks on BLS12381 aggregated signatures, proof of knowledge of the secret key (KOSK) is used during authority registration. When an authority requests to be added to the validator set, a proof of possession is submitted and verified. See [here](./intent-signing.mdx) on how to create a Proof of Possession. Unlike most standards, our proof of knowledge scheme commits to the address as well, which offers an extra protection against adversarial reuse of a validator;s BLS key from another malicious validator.
 
-## Account Keypair
+## Account Keypair {#account-keypair}
 
 The account that the authority uses to receive payments on staking rewards is secured by the account keypair. We use pure Ed25519 as the signing scheme.
 
-## Network Keypair
+## Network Keypair {#network-keypair}
 
 The private key is used to perform the TLS handshake required by QUIC for Narwhal primary and its worker network interface. The public key is used for validator peer ID. Pure Ed25519 is used as the signing scheme.
 

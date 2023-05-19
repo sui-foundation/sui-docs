@@ -3,7 +3,7 @@ title: Object Basics
 slug: /object-basics
 ---
 
-### Define Sui Object
+### Define Sui Object {#define-sui-object}
 
 In Sui Move, besides primitive data types, you can define organized data structures using `struct`. For example:
 
@@ -39,7 +39,7 @@ In both core Move and Sui Move, the [key ability](https://github.com/move-langua
 
 The `UID` type is internal to Sui, and you most likely won't need to deal with it directly. For curious readers, it contains the "unique ID" that defines an object on the Sui network. It is unique in the sense that no two values of type `UID` will ever have the same underlying set of bytes.
 
-### Create Sui object
+### Create Sui object {#create-sui-object}
 
 After you define a Sui object type you can create or instantiate a Sui object. To create a new Sui object from its type, you must assign an initial value to each of the fields, including `id`. The only way to create a new `UID` for a Sui object is to call `object::new`. The `new` function takes the current transaction context as an argument to generate unique IDs. The transaction context is of type `&mut TxContext` and should be passed down from an [entry function](../create-smart-contracts/smart-contracts.mdx#entry-functions). You can call `Entry` functions directly from a transaction.
 
@@ -66,7 +66,7 @@ fun new(red: u8, green: u8, blue: u8, ctx: &mut TxContext): ColorObject {
 
 Sui Move supports _field punning_, which allows you to skip the field values if the field name happens to be the same as the name of the value variable it is bound to. The preceding code example leverages this to write "`red,`" as shorthand for "`red: red,`".
 
-### Store Sui object
+### Store Sui object {#store-sui-object}
 
 You now have a constructor for the `ColorObject`. If you call this constructor, it puts the value in a local variable. The local variable can be returned from the current function, passed to other functions, or stored inside another struct. The object can be placed in persistent global storage, be read by anyone, and accessed in subsequent transactions.
 
@@ -118,7 +118,7 @@ To compile the code, make sure you have [installed Sui](../setup/cli/install-sui
 sui move build
 ```
 
-### Writing unit tests
+### Writing unit tests {#writing-unit-tests}
 
 After you define the `create` function, you can test it in Sui Move using unit tests without having to go all the way through sending Sui transactions. Since [Sui manages global storage separately outside of Move](../../learn/sui-overview/how-sui-move-differs.mdx#global-storage), there is no direct way to retrieve objects from global storage within Move. This poses a question: after calling the `create` function, how do you check that the object is properly transferred?
 
@@ -193,7 +193,7 @@ To run the test, run the following in the code root directory:
 sui move test
 ```
 
-### On-chain Interactions
+### On-chain Interactions {#on-chain-interactions}
 
 To call `create` in actual transactions, you need to start Sui and the Sui Client CLI. Follow the [Sui CLI client guide](../setup/cli/client-cli.mdx) to start the Sui network and set up the client.
 

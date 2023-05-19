@@ -16,7 +16,7 @@ The steps to install Sui include:
 
 You can also download the [source code](#source-code) to have local access to files.
 
-## Sui repository
+## Sui repository {#sui-repository}
 
 The Sui repository includes primary branches, `devnet`, `testnet`, `mainnet`, and `main`.
 
@@ -25,11 +25,11 @@ The Sui repository includes primary branches, `devnet`, `testnet`, `mainnet`, an
 - The `mainnet` branch includes the code running on the Sui Mainnet network.
 - The `main` branch includes the most recent changes and updates. Use the `main` branch if you want to contribute to the Sui project. The `main` branch may include unreleased changes, or introduce changes that cause issues in apps created using an earlier version.
 
-## Documentation in the Sui repository
+## Documentation in the Sui repository {#documentation-in-the-sui-repository}
 
 The source for the documentation published on this site also resides in the Sui repository. The site displays the **Mainnet** version of the documentation by default. The content on the site differs between the branches of the repository just like the Sui source code. Use the version of the documentation that corresponds to the Sui network you plan to use. For example, to use the Sui Devnet network, use the **Devnet** version of the documentation. To use the Sui Testnet network, use the **Testnet** version of the documentation.
 
-## Supported operating systems
+## Supported operating systems {#supported-operating-systems}
 
 Sui supports the following operating systems:
 
@@ -37,7 +37,7 @@ Sui supports the following operating systems:
 - macOS - macOS Monterey
 - Microsoft Windows - Windows 11
 
-## Prerequisites
+## Prerequisites {#prerequisites}
 
 Install the following prerequisites and tools you need to work with Sui.
 
@@ -56,7 +56,7 @@ Install the following prerequisites and tools you need to work with Sui.
 | C++ build tools |                       |                      | [X](#additional-tools-for-windows) |
 | LLVM Compiler   |                       |                      | [X](#additional-tools-for-windows) |
 
-### Rust and Cargo
+### Rust and Cargo {#rust-and-cargo}
 
 Sui requires Rust and Cargo (Rust's package manager) on all supported operating systems. The suggested method to install Rust is with `rustup` using cURL.
 
@@ -86,7 +86,7 @@ After you install Rust, proceed to the prerequisites for your operating system.
 - [macOS prerequisites](#macos-prerequisites)
 - [Windows prerequisites](#windows-prerequisites)
 
-## Linux prerequisites
+## Linux prerequisites {#linux-prerequisites}
 
 :::info
 
@@ -100,7 +100,7 @@ Install the prerequisites listed in this section. Use the following command to u
 sudo apt-get update
 ```
 
-### cURL
+### cURL {#curl}
 
 Install cURL with the following command:
 
@@ -114,7 +114,7 @@ Verify that cURL installed correctly with the following command:
 curl --version
 ```
 
-### Git CLI
+### Git CLI {#git-cli}
 
 Run the following command to install Git, including the [Git CLI](https://cli.github.com/):
 
@@ -124,7 +124,7 @@ sudo apt-get install git-all
 
 For more information, see [Install Git on Linux](https://github.com/git-guides/install-git#install-git-on-linux) on the GitHub website.
 
-### CMake
+### CMake {#cmake}
 
 Use the following command to install CMake.
 
@@ -134,7 +134,7 @@ sudo apt-get install cmake
 
 To customize the installation, see [Installing CMake](https://cmake.org/install/) on the CMake website.
 
-### GCC
+### GCC {#gcc}
 
 Use the following command to install the GNU Compiler Collection, `gcc`:
 
@@ -142,7 +142,7 @@ Use the following command to install the GNU Compiler Collection, `gcc`:
 sudo apt-get install gcc
 ```
 
-### libssl-dev
+### libssl-dev {#libssl-dev}
 
 Use the following command to install `libssl-dev`:
 
@@ -158,7 +158,7 @@ If the version of Linux you use doesn't support `libssl-dev`, find an equivalent
 sudo apt-get install pkg-config
 ```
 
-### libclang-dev
+### libclang-dev {#libclang-dev}
 
 Use the following command to install `libclang-dev`:
 
@@ -168,7 +168,7 @@ sudo apt-get install libclang-dev
 
 If the version of Linux you use doesn't support `libclang-dev`, find an equivalent package for it on the [ROS Index](https://index.ros.org/d/libclang-dev/).
 
-### libpq-dev
+### libpq-dev {#libpq-dev}
 
 Use the following command to install `libpq-dev`:
 
@@ -178,7 +178,7 @@ sudo apt-get install libpq-dev
 
 If the version of Linux you use doesn't support `libpq-dev`, find an equivalent package for it on the [ROS Index](https://index.ros.org/d/libpq-dev/).
 
-### build-essential
+### build-essential {#build-essential}
 
 Use the following command to install `build-essential`"
 
@@ -188,11 +188,11 @@ sudo apt-get install build-essential
 
 Proceed to [Install Sui binaries](#install-sui-binaries) to continue installing Sui.
 
-## macOS prerequisites
+## macOS prerequisites {#macos-prerequisites}
 
 macOS includes a version of cURL you can use to install Brew. Use Brew to install other tools, including a newer version of cURL.
 
-### Brew
+### Brew {#brew}
 
 Use the following command to install [Brew](https://brew.sh/):
 
@@ -200,7 +200,7 @@ Use the following command to install [Brew](https://brew.sh/):
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### cURL
+### cURL {#curl-1}
 
 Use the following command to update the default [cURL](https://curl.se) on macOS:
 
@@ -208,7 +208,7 @@ Use the following command to update the default [cURL](https://curl.se) on macOS
 brew install curl
 ```
 
-### CMake
+### CMake {#cmake-1}
 
 Use the following command to install CMake:
 
@@ -218,7 +218,7 @@ brew install cmake
 
 To customize the installation, see [Installing CMake](https://cmake.org/install/) on the CMake website.
 
-### Git CLI
+### Git CLI {#git-cli-1}
 
 Use the following command to install Git:
 
@@ -230,27 +230,27 @@ After installing Git, download and install the [Git command line interface](http
 
 Proceed to [Install Sui binaries](#install-sui-binaries) to continue installing Sui.
 
-## Windows prerequisites
+## Windows prerequisites {#windows-prerequisites}
 
 Install the following prerequisites to work with Sui on Microsoft Windows 11.
 
-### cURL
+### cURL {#curl-2}
 
 Windows 11 ships with a Microsoft version of [cURL](https://curl.se/windows/microsoft.html) already installed. If you want to use the curl project version instead, download and install it from [https://curl.se/windows/](https://curl.se/windows/).
 
-### Git CLI
+### Git CLI {#git-cli-2}
 
 Download and install the [Git command line interface](https://git-scm.com/download/).
 
-### CMake
+### CMake {#cmake-2}
 
 Download and install [CMake](https://cmake.org/download/) from the CMake website.
 
-### Protocol Buffers
+### Protocol Buffers {#protocol-buffers}
 
 Download [Protocol Buffers](https://github.com/protocolbuffers/protobuf/releases) (protoc-xx.x-win32.zip or protoc-xx.x-win64.zip) and add the \bin directory to your Windows PATH environment variable.
 
-### Additional tools for Windows
+### Additional tools for Windows {#additional-tools-for-windows}
 
 Sui requires the following additional tools on computers running Windows.
 
@@ -260,7 +260,7 @@ Sui requires the following additional tools on computers running Windows.
 
 **Known issue** - The `sui console` command does not work in PowerShell.
 
-## Install Sui binaries
+## Install Sui binaries {#install-sui-binaries}
 
 Run the following command to install Sui binaries from the `devnet` branch:
 
@@ -278,11 +278,11 @@ rustup update stable
 
 The command installs Sui components in the `~/.cargo/bin` folder.
 
-### Confirm the installation
+### Confirm the installation {#confirm-the-installation}
 
 To confirm that Sui installed correctly, type `sui` and press Enter. You should see a message about the Sui version installed and help for using Sui commands.
 
-## Integrated development environment
+## Integrated development environment {#integrated-development-environment}
 
 The recommended IDE for Move development is [Visual Studio Code](https://code.visualstudio.com/) with the move-analyzer extension. Follow the Visual Studio Marketplace instructions to install the [move-analyzer extension](https://marketplace.visualstudio.com/items?itemName=move.move-analyzer), then install the move-analyzer language server passing `address32` using the `--features` flag and passing `sui-move` to the `branch` flag:
 
@@ -292,7 +292,7 @@ cargo install --git https://github.com/move-language/move move-analyzer --branch
 
 See more [IDE options](https://github.com/MystenLabs/awesome-move#ides) in the [Awesome Move](https://github.com/MystenLabs/awesome-move) documentation.
 
-## SUI tokens
+## SUI tokens {#sui-tokens}
 
 You need SUI tokens to perform transactions on a Sui network. You can get test tokens from the Sui faucet in Discord, or directly in the [Sui Wallet](https://github.com/MystenLabs/mysten-app-docs/blob/main/mysten-sui-wallet.mdx).
 
@@ -311,7 +311,7 @@ sui client active-address
 `
     A bot on the channel distributes tokens to your address.
 
-## Source code
+## Source code {#source-code}
 
 View the Sui repository on GitHub:
 https://github.com/MystenLabs/sui

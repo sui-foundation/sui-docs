@@ -4,7 +4,7 @@ sidebar_label: ZK Proof Verification
 slug: /groth16
 ---
 
-## Overview
+## Overview {#overview}
 
 A zero-knowledge proof allows a prover to prove that a statement is true without revealing any information about the inputs, for example a prover can prove that they know the solution to a sudoku puzzle without revealing the solution.
 
@@ -17,11 +17,11 @@ There are high-level languages for expressing these statements, such as [Circom]
 
 Note that Groth16 requires a trusted setup for each circuit to generate the verification key. The API is not pinning any particular verification key. and each user can generate their own parameters or use an existing verification to their dapps.
 
-## Usage
+## Usage {#usage}
 
 The following example demonstrates how to create a Groth16 proof from a statement written in Circom and then verify it using the Sui Move API. The API currently supports up to eight public inputs.
 
-## Create circuit
+## Create circuit {#create-circuit}
 
 The proof demonstrates that we know a secret input to a hash function which gives a certain public output.
 
@@ -49,7 +49,7 @@ circom main.circom --r1cs --wasm
 
 This outputs the constraints in R1CS format and the circuit in Wasm format.
 
-## Generate proof
+## Generate proof {#generate-proof}
 
 In order to generate a proof that can be verified in Sui, we need to generate a witness. Here, we show an example of how to do this using Arkworks' [ark-circom](https://github.com/gakonst/ark-circom) Rust library. The code below constructs a witness for the circuit and generates a proof for it for a given input. Finally, it verifies that the proof is correct.
 

@@ -29,7 +29,7 @@ A user-initiated sponsored transaction involves the following steps:
 1.  The sponsor sends the signed `TransactionData` and the sponsor `Signature` back to the user.
 1.  The user verifies and then signs `TransactionData` and sends the dual-signed transaction to Sui network through a Full node or the sponsor.
 
-### GasLessTransactionData
+### GasLessTransactionData {#gaslesstransactiondata}
 
 `GasLessTransactionData` is basically `TransactionData` without `GasData`. It is not a sui-core data structure, but it is only an interface between user and sponsor.
 
@@ -82,7 +82,7 @@ Depending on the nature of the Gas Station, sponsors can apply different authori
 - Rate limit gas request per account or per IP address
 - Only accept requests with a valid authorization header, which has separate rate limits
 
-### Abuse Detection
+### Abuse Detection {#abuse-detection}
 
 For all gas objects that the sponsor gives out, track if users ever try to equivocate and lock objects. If such behavior is detected, block list this user or requestor accordingly.
 

@@ -13,7 +13,7 @@ One of Sui’s most powerful core developer primitives is Programmable Transacti
 
 With the power and convenience of Programmable Transaction blocks, developers on Sui are constructing increasingly sophisticated blocks customized for their applications. Sui’s programmability was highly expressive even before Programmable Transaction blocks. Now, a single execution can perform up to 1,024 heterogeneous operations. On most other blockchains, each of the 1,024 operations would be an individual transaction.
 
-## Get Started
+## Get Started {#get-started}
 
 To get started using Programmable Transaction blocks, make sure that you have the latest TypeScript SDK installed.
 
@@ -66,7 +66,7 @@ After you have the transaction block defined, you can directly execute it with a
 signer.signAndExecuteTransactionBlock({ transactionBlock: txb });
 ```
 
-## Inputs and transactions
+## Inputs and transactions {#inputs-and-transactions}
 
 Programmable Transaction blocks have two key concepts: inputs and transactions.
 
@@ -74,14 +74,14 @@ Inputs are values that are used as arguments to the transactions in the transact
 
 Transactions are steps of execution in the transaction block. You can also use the result of previous transaction as an argument to future transactions. By combining multiple transactions together, Programmable Transaction blocks provide a flexible way to create complex transactions.
 
-## Constructing inputs
+## Constructing inputs {#constructing-inputs}
 
 Inputs are how you provide external values to transaction blocks. For example, defining an amount of Sui to transfer, or which object to pass into a Move call, or a shared object. There are currently two ways to define inputs:
 
 - **For objects:** the `txb.object(objectId)` function is used to construct an input that contains an object reference.
 - **For pure values:** the `txb.pure(rawValue)` function is used, and returns an input reference that you use in transactions.
 
-## Available transactions
+## Available transactions {#available-transactions}
 
 Sui supports following transactions:
 
@@ -153,7 +153,7 @@ const bytes = getTransactionBlockBytesFromSomewhere();
 const txb = TransactionBlock.from(bytes);
 ```
 
-## Building Offline
+## Building Offline {#building-offline}
 
 In the event that you want to build a transaction block offline (i.e. with no `provider` required), you need to fully define all of your input values, and gas configuration (see the following example). For pure values, you can provide a `Uint8Array` which will be used directly in the transaction. For objects, you can use the `Inputs` helper to construct an object reference.
 
@@ -172,11 +172,11 @@ txb.object(Inputs.SharedObjectRef({ objectId, initialSharedVersion, mutable }));
 
 You can then omit the `provider` object when calling `build` on the transaction. If there is any required data that is missing, this will throw an error.
 
-## Gas Configuration
+## Gas Configuration {#gas-configuration}
 
 The new transaction builder comes with default behavior for all gas logic, including automatically setting the gas price, budget, and selecting coins to be used as gas. This behavior can be customized.
 
-### Gas Price
+### Gas Price {#gas-price}
 
 By default, the gas price is set to the reference gas price of the network. You can also explicitly set the gas price of the transaction block by calling `setGasPrice` on the transaction builder.
 
@@ -184,7 +184,7 @@ By default, the gas price is set to the reference gas price of the network. You 
 txb.setGasPrice(gasPrice);
 ```
 
-### Budget
+### Budget {#budget}
 
 By default, the gas budget is automatically derived by executing a dry-run of the transaction block beforehand. The dry run gas consumption is then used to determine a balance for the transaction. You can override this behavior by explicitly setting a gas budget for the transaction, by calling `setGasBudget` on the transaction builder.
 
@@ -198,7 +198,7 @@ The gas budget is represented in Sui, and should take the gas price of the trans
 txb.setGasBudget(gasBudgetAmount);
 ```
 
-### Gas Payment
+### Gas Payment {#gas-payment}
 
 By default, the gas payment is automatically determined by the SDK. The SDK selects all of the users coins that are not used as inputs in the transaction block.
 
@@ -238,7 +238,7 @@ function handleSignRequest(input) {
 }
 ```
 
-## Sponsored transaction blocks
+## Sponsored transaction blocks {#sponsored-transaction-blocks}
 
 The transaction block builder can support sponsored transaction blocks by using the `onlyTransactionKind` flag when building the transaction block.
 

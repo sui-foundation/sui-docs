@@ -7,7 +7,7 @@ To learn more about gas fees in the context of Sui Tokenomics, see [Gas in Sui](
 
 This topic provides a summary of the changes to the Sui Gas model for Sui Mainnet.
 
-## Transaction Input: GasData
+## Transaction Input: GasData {#transaction-input-gasdata}
 
 A transaction takes a `GasData` structure that defines all information about the gas provided for a transaction.
 
@@ -33,7 +33,7 @@ Merging of gas coins (known as “gas smashing”) is performed irrespective of 
 
 System values can (and will) change over time. Indexers, wallets and full nodes should be able to provide information on what those values are at any time.
 
-## Budget Consumption
+## Budget Consumption {#budget-consumption}
 
 Gas usage is proportional to the resources used. Specifically, it is proportional to **execution**, in terms of computation and memory, and **DB access**, in terms of Sui object reads and writes.
 
@@ -42,7 +42,7 @@ There are 2 main values defined in the system that contribute to gas consumption
 - **RGP** (Reference Gas Price): set up at the beginning of each epoch by the validator committee. RGP is a multiplier applied to each unit of computation. Initial **RGP** at genesis is 1,000 MIST.
 - **Storage Price**: set up in the system and intended to be more stable than RGP, it is a multiplier for the number of bytes written to storage. This is a one-time charge for the life of the object on the network. Initial **Storage Price** at genesis is **76** MIST.
 
-## Transaction Output: GasCostSummary
+## Transaction Output: GasCostSummary {#transaction-output-gascostsummary}
 
 On transaction output, Sui provides the following information about gas:
 
@@ -66,7 +66,7 @@ At the end of execution, all created object contribute to `storage_cost` with th
 
 All deleted objects storage values are added together and refunded to the user (`storage_rebate`), except for a small percentage of the rebate that is charged by the system and goes into the `non_refundable_storage_fee`. That percentage is currently 1.0%.
 
-## Out Of Gas Model
+## Out Of Gas Model {#out-of-gas-model}
 
 _Out Of Gas_ is possibly the most challenging aspect of gas charging. The gas charges model is well defined when there is enough gas for all operations in a transaction.
 

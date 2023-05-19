@@ -16,7 +16,7 @@ See announcements about Sui in the [#announcements](https://discord.com/channels
 
 See the [terms of service](https://sui.io/terms/) for using Sui networks.
 
-## Tools
+## Tools {#tools}
 
 Sui provides the following tools to interact with Sui networks:
 
@@ -26,7 +26,7 @@ Sui provides the following tools to interact with Sui networks:
   - Call and publish Move modules
 - [Sui Explorer](https://github.com/MystenLabs/sui/blob/main/apps/explorer/README.mdx) to view transactions and objects on the network
 
-## Environment set up
+## Environment set up {#environment-set-up}
 
 First, [Install Sui](../../build/setup/cli/install-sui.mdx#install-sui-binaries). After you install Sui, [request SUI test tokens](#request-gas-tokens) through Discord for the network you are using: [Devnet](https://discordapp.com/channels/916379725201563759/971488439931392130) or [Testnet](https://discord.com/channels/916379725201563759/1037811694564560966). If connected to Localnet, use cURL to request tokens from your [local faucet](local-network.mdx#use-the-local-faucet).
 
@@ -40,7 +40,7 @@ If Sui is installed, the command returns the path to the Sui binary. If Sui is n
 
 See the [Sui Releases](https://github.com/MystenLabs/sui/releases) page to view the changes in each Sui release.
 
-## Configure Sui client
+## Configure Sui client {#configure-sui-client}
 
 If you previously ran `sui genesis` to create a local network, it created a Sui client configuration file (client.yaml) that connects to `localhost` at `http://0.0.0.0:9000`. See [Connect to custom RPC endpoint](#connect-to-a-custom-rpc-endpoint) to update the client.yaml file.
 
@@ -87,7 +87,7 @@ Generated new keypair for address with scheme "ed25519" [0xb9c83a8b40d3263c9ba40
 Secret Recovery Phrase : [cap wheat many line human lazy few solid bored proud speed grocery raise erode there idea inform culture cousin shed sniff author spare carpet]
 ```
 
-### Connect to a custom RPC endpoint
+### Connect to a custom RPC endpoint {#connect-to-a-custom-rpc-endpoint}
 
 If you previously used `sui genesis` with the force option (`-f` or `--force`), your client.yaml file already includes two RPC endpoints: `localnet` at `http://0.0.0.0:9000` and `devnet` at `https://fullnode.devnet.sui.io:443`. You can view the defined environments with the `sui client envs` command, and switch between them with the `sui client switch` command.
 
@@ -120,18 +120,18 @@ sui client switch --env <ALIAS>
 
 If you encounter an issue, delete the Sui configuration directory (`~/.sui/sui_config`) and reinstall the latest [Sui binaries](../../build/setup/cli/install-sui.mdx#install-sui-binaries).
 
-## Validating
+## Validating {#validating}
 
 In the following sections, the object IDs, addresses, and authority signatures used are example values only. Sui generates unique values for each of these, so you see different values when you run the commands.
 
-## Request test tokens
+## Request test tokens {#request-test-tokens}
 
 1.  Join [Discord](https://discord.gg/sui).
     If you try to join the Sui Discord channel using a newly created Discord account you may need to wait a few days for validation.
 1.  Get your Sui client address: `sui client active-address`
 1.  Request test SUI tokens in the Sui [#devnet-faucet](https://discord.com/channels/916379725201563759/971488439931392130) or [#testnet-faucet](https://discord.com/channels/916379725201563759/1037811694564560966) Discord channel. Send the following message to the relevant channel with your client address: `!faucet <YOUR-CLIENT-ADDRESS>`. If you have a local network, programmatically request tokens from your [local faucet](local-network.mdx#use-the-local-faucet).
 
-## Publish a Move module
+## Publish a Move module {#publish-a-move-module}
 
 This section describes how to publish a sample Move package using code developed in the [Sui Move tutorial](../../build/create-smart-contracts/write-move-packages.mdx). The instructions assume that you installed Sui in the default location.
 
@@ -253,7 +253,7 @@ You can check the details of each object using the `sui client object <OBJECT-ID
 
 When you publish a package, the IDs for the objects the compiler creates are different than the ones displayed in this example. The remainder of this topic uses `<PACKAGE-ID>` and `<FORGE-ID>` to represent the IDs for the created objects (except for console output examples). You must replace these with the values for your package.
 
-## Make a Move call
+## Make a Move call {#make-a-move-call}
 
 This section describes how to call into functions defined in the package published in the previous section. Use the (`<PACKAGE-ID>`) and (`<FORGE-ID>`) values from your package to create swords and transfer them to other players.
 

@@ -8,7 +8,7 @@ Browser extension wallets built for Sui are defined using the [Wallet Standard](
 
 If you are building a wallet, we publish a helper library `@mysten/wallet-standard` which provides types and utilities that make it simple to get started.
 
-### Creating a wallet interface
+### Creating a wallet interface {#creating-a-wallet-interface}
 
 You need to create a class that represents your wallet. You can use the `Wallet` interface from `@mysten/wallet-standard` to help ensure your class adheres to the standard.
 
@@ -33,7 +33,7 @@ class YourWallet implements Wallet {
 }
 ```
 
-### Implementing features
+### Implementing features {#implementing-features}
 
 Features are standard methods consumers can use to interact with a wallet. To be listed in the Sui wallet adapter, you must implement the following features in your wallet:
 
@@ -107,7 +107,7 @@ class YourWallet implements Wallet {
 }
 ```
 
-### Exposing accounts
+### Exposing accounts {#exposing-accounts}
 
 The last requirement of the wallet interface is to expose an `acccounts` interface. This should expose all of the accounts that a connected dApp has access to. It can be empty prior to initiating a connection through the `standard:connect` feature.
 
