@@ -5,11 +5,11 @@ slug: /client-cli
 
 Learn how to set up, configure, and use the Sui Client Command Line Interface (CLI). You can use the CLI to experiment with Sui features using a command line interface.
 
-## Set up
+## Set up {#set-up}
 
 The Sui Client CLI installs when you install Sui. See the [Install Sui](./install-sui.mdx) topic for prerequisites and installation instructions.
 
-## Using the Sui client
+## Using the Sui client {#using-the-sui-client}
 
 The Sui Client CLI supports the following commands:
 
@@ -52,7 +52,7 @@ Use `sui help <command>` to see more information on each command.
 
 You can start the client in two modes: interactive shell or command line interface [Configure Sui client](../connect-to-a-network.mdx#configure-sui-client).
 
-### Interactive shell
+### Interactive shell {#interactive-shell}
 
 To start the interactive shell:
 
@@ -72,7 +72,7 @@ The Sui interactive client console supports the following shell functionality:
 - _Tab completion_ - supported for all commands using Tab and Ctrl-I keys.
 - _Environment variable substitution_ - the console substitutes input prefixed with `$` with environment variables. Use the `env` command to print out the entire list of variables and use `echo` to preview the substitution without invoking any commands.
 
-### Command line mode
+### Command line mode {#command-line-mode}
 
 You can use the client without the interactive shell. This is useful if
 you want to pipe the output of the client to another application or invoke client
@@ -102,7 +102,7 @@ The response resembles the following:
 
 The `<=` indicates the active address.
 
-### Active address
+### Active address {#active-address}
 
 You can specify an active address or default address to use to execute commands.
 
@@ -132,7 +132,7 @@ Active address switched to 0xa3c00467938b392a12355397bdd3d319cea5c9b8f4fc9c51b46
 
 All commands use the active address if you don't specify an `address`.
 
-### Paying For transactions with gas objects
+### Paying For transactions with gas objects {#paying}
 
 All Sui transactions require a gas object for gas fees. If you don't specify a gas object, Sui uses a gas object with sufficient SUI to cover the gas fee.
 
@@ -149,11 +149,11 @@ Specify an address to check an address other than the active address.
 sui client gas 0x4e049913233eb918c11638af89d575beb99003d30a245ac74a02e26e45cb80ee
 ```
 
-## Create new account addresses
+## Create new account addresses {#create-account-addresses}
 
 Sui Client CLI includes 1 address by default. You can create new addresses for the client with the `new-address` command, or add existing accounts to the client.yaml.
 
-### Create a new account address
+### Create a new account address {#new-account-address}
 
 ```bash
 sui client new-address secp256k1
@@ -168,13 +168,13 @@ Created new keypair for address with scheme Secp256k1: [0x338567a5fe29132d68fade
 Secret Recovery Phrase : [guilty coast nephew hurt announce speak kiwi travel churn airport universe escape thrive switch lean lab giraffe gospel punch school dance cloud type gift]
 ```
 
-### Add existing accounts to client.yaml
+### Add existing accounts to client.yaml {#accounts-clientyaml}
 
 To add existing account addresses to your client, such as from a previous installation, edit the client.yaml file and add the accounts section. You must also add the key pair to the keystore file.
 
 Restart the Sui console after you save the changes to the client.yaml file.
 
-## View objects an address owns
+## View objects an address owns {#view-objects-an-address-owns}
 
 Use the `objects` command to view the objects an address owns.
 
@@ -288,7 +288,7 @@ The response resembles the following:
 </details>
 ```
 
-## Transfer objects
+## Transfer objects {#transfer-objects}
 
 You can transfer mutable objects you own to another address using the command below
 
@@ -322,13 +322,13 @@ the object ID of the object to transfer, and, optionally, the ID of the coin obj
 sui client transfer --to 0xcd2630011f6cb9aef960ed42d95b04e063c44a6143083ef89a35ea02b85c61b7 --object-id 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --gas-budget 1000
 ```
 
-## Merge and split coin objects
+## Merge and split coin objects {#merge-and-split}
 
 You can merge coins to reduce the number of separate coin objects in an account, or split coins to create smaller coin objects to use for transfers or gas payments.
 
 You can use the `merge-coin` command and `split-coin` command to consolidate or split coins, respectively.
 
-### Merge coins
+### Merge coins {#merge-coins}
 
 ```bash
 sui client merge-coin [OPTIONS] --primary-coin <PRIMARY_COIN> --coin-to-merge <COIN_TO_MERGE> --gas-budget <GAS_BUDGET>
@@ -368,7 +368,7 @@ Use the IDs returned from the previous command in the `merge-coin` command.
 sui client merge-coin --primary-coin 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --coin-to-merge 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760 --gas-budget 1000
 ```
 
-### Split coins
+### Split coins {#split-coins}
 
 ```bash
 sui client split-coin [OPTIONS] --coin-id <COIN_ID> --gas-budget <GAS_BUDGET> (--amounts <AMOUNTS>... | --count <COUNT>)
@@ -413,7 +413,7 @@ The following example splits a coin into three equal parts. To split a coin even
 sui client split-coin --coin-id 0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760 --count 3 --gas-budget 1000
 ```
 
-## Calling Move code
+## Calling Move code {#calling-move-code}
 
 The genesis state of the Sui platform includes Move code that is
 immediately ready to be called from Sui CLI.
@@ -482,7 +482,7 @@ If you use a shell that interprets square brackets ([ ]) as special characters (
 To include multiple object IDs, enclose the IDs in double quotes. For example,
 `'["0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427","0x11af4b844ff94b3fbef6e36b518da3ad4c5856fa686464524a876b463d129760"]'`
 
-## Publish packages
+## Publish packages {#publish-packages}
 
 You must publish packages to the Sui [distributed ledger](../../../learn/core-concepts/how-sui-works.mdx#architecture) for the code you developed to be available in Sui. To publish packages with the Sui client, use the `publish` command.
 
@@ -589,7 +589,7 @@ If the publishing attempt results in an error regarding verification failure, [b
 
 :::
 
-## Verify source
+## Verify source {#verify-source}
 
 Supply a package path to `verify-source` (or run from package root) to have the CLI compile the package and check that all its modules match their on-chain counterparts.
 
@@ -603,7 +603,7 @@ The `sui client verify-source` command expects package on-chain addresses to be 
 
 If successful, the command returns a `0` exit code and prints `Source verification succeeded!` to the console. If it fails, it returns a non-zero exit code and prints an error message to the console.
 
-## Customize genesis
+## Customize genesis {#customize-genesis}
 
 You can provide a genesis configuration file using the `--config` flag to customize the genesis process.
 

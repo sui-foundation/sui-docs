@@ -9,7 +9,7 @@ The inability to change package objects, however, becomes a problem when conside
 
 This topic examines how to upgrade packages using the Sui Client CLI. Move developers can reference the [package module documentation](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/docs/package.mdx) for options on working with package upgrades on a code level.
 
-## Upgrade considerations
+## Upgrade considerations {#upgrade-considerations}
 
 There are some details of the process that you should consider before upgrading your packages.
 
@@ -47,7 +47,7 @@ Similar to mismatched function definitions, you might also run into issues maint
 
 Another example of having users update to the latest package is when you have a bookkeeping shared object in your package that you discover has flawed logic so is not functioning as expected. As in the previous example, you want users to use only the object defined in the upgraded package with the correct logic, so you add a new type and migration function to your package upgrade. This process requires a couple of transactions, one for the upgrade and another that you call from the upgraded package to set up the new shared object that replaces the existing one. To protect the setup function, you would need to create an `AdminCap` object or similar as part of your package to make sure you, as the package owner, are the only authorized initiator of that function. Perhaps even more useful, you might include a flag in the shared object that allows you, as the package owner, to toggle the enabled state of that shared object. You can add a check for the enabled state to prevent access to that object from the on-chain public while you perform the migration. Of course, you would probably create this flag only if you expected to perform this migration at some point in the future, not because you're intentionally developing objects with flawed logic.
 
-### Versioned shared objects
+### Versioned shared objects {#versioned-shared-objects}
 
 When you create packages that involve shared objects, you need to think about upgrades and versioning from the start given that **all prior versions of a package still exist on-chain**. A useful pattern is to introduce versioning to the shared object and using a version check to guard access to functions in the package. This enables you to limit access to the shared object to only the latest version of a package.
 
@@ -220,7 +220,7 @@ Upgrading to this version of the package requires performing the package upgrade
 
 After a successful upgrade, calls to `increment` on the previous version of the package aborts on the version check, while calls on the later version should succeed.
 
-### Extensions
+### Extensions {#extensions}
 
 This pattern forms the basis for upgradeable packages involving shared objects, but you can extend it in a number of ways, depending on your package's needs:
 
@@ -233,7 +233,7 @@ This pattern forms the basis for upgradeable packages involving shared objects, 
   - Run the migration over the course of multiple transactions (e.g. if a large volume of objects need to be moved, it is best to do this in batches, to avoid hitting transaction limits).
   - Set the version of the shared object back to a usable value.
 
-## Requirements
+## Requirements {#requirements}
 
 To upgrade a package, your package must satisfy the following requirements:
 
@@ -252,7 +252,7 @@ If you have a package with a dependency, and that dependency is upgraded, your p
 
 :::
 
-## Upgrading
+## Upgrading {#upgrading}
 
 Use the `sui client upgrade` command to upgrade packages that meet the previous requirements, providing values for the following flags:
 
@@ -263,7 +263,7 @@ Developers upgrading packages using Move code have access to types and functions
 
 When you use the Sui Client CLI, the `upgrade` command handles generating the upgrade digest, authorizing the upgrade with the `UpgradeCap` to get an `UpgradeTicket`, and updating the `UpgradeCap` with the `UpgradeReceipt` after a successful upgrade. To learn more about these processes, see the Move documentation for the [package module](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/docs/package.mdx).
 
-## Example
+## Example {#example}
 
 You develop a package named `sui_package`. Its manifest looks like the following:
 

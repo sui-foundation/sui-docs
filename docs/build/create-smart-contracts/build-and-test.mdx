@@ -5,7 +5,7 @@ slug: /build-and-test
 
 If you followed the previous topic, you have a basic module that you need to build.
 
-## Building your package
+## Building your package {#building-your-package}
 
 Make sure your terminal or console is is in the directory that contains your package (`my_first_package` if you're following along). Use the following command to build your package:
 
@@ -26,7 +26,7 @@ If the build fails, you can use the verbose error messaging in output to trouble
 
 Now that you have designed your asset and its accessor functions, it's time to test the package code before publishing.
 
-## Testing a package
+## Testing a package {#testing-a-package}
 
 Sui includes support for the
 [Move testing framework](https://github.com/move-language/move/blob/main/language/documentation/book/src/unit-testing.mdx) that enables you to write unit tests that analyzes Move code much like test frameworks for other languages (e.g., the built-in [Rust testing framework](https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html) or the [JUnit framework](https://junit.org/) for Java).
@@ -158,7 +158,7 @@ sui move test -h
 
 ---
 
-### Sui-specific testing
+### Sui-specific testing {#sui-specific-testing}
 
 The previous testing example is largely _pure Move_ and isn't specific to Sui beyond using some Sui packages, such as `sui::tx_context` and `sui::transfer`. While this style of testing is already useful for writing Move code for Sui, you might also want to test additional Sui-specific features. In particular, a Move call in Sui is encapsulated in a Sui
 [transaction](../../learn/core-concepts/transactions.mdx), and you might want to test interactions between different transactions within a single test (for example, one transaction creating an

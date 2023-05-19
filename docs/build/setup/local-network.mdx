@@ -6,11 +6,11 @@ slug: /local-network
 
 Use a Sui local network to test your dApps against the latest changes to Sui, and to prepare for the next Sui release to the Devnet or Testnet network. To set up a local network, Sui provides the `sui-test-validator` binary. The `sui-test-validator` starts a local network that includes a Sui Full node, a Sui validator, and a Sui faucet. You can use the included faucet to get test SUI to use on the local network.
 
-## Prerequisites
+## Prerequisites {#prerequisites}
 
 Install the necessary [prerequisites](../../build/setup/cli/install-sui.mdx#prerequisites) for Sui.
 
-## Install Sui
+## Install Sui {#install-sui}
 
 Use the steps in this section to install the `sui-test-validator` to run a local network. To install Sui to build or for other purposes, use the steps in the [Install Sui](../setup/cli/install-sui.mdx) topic.
 
@@ -48,7 +48,7 @@ If you still have an issue, run the following command:
 brew link --force libpq
 ```
 
-### Install Sui locally
+### Install Sui locally {#install-locally}
 
 Use the following command to clone the Sui repo, change to the Sui folder after the clone completes, and then use cargo to install the `sui-test-validator` and `sui` binaries from your local drive.
 
@@ -61,7 +61,7 @@ cd sui
 cargo build --bin sui-test-validator --bin sui
 ```
 
-### Install Sui from GitHub
+### Install Sui from GitHub {#install-from-github}
 
 Use the following command to install Sui directly from the Sui GitHub repository:
 
@@ -71,7 +71,7 @@ cargo install --locked --git https://github.com/MystenLabs/sui.git --branch main
 
 The command uses the `main` branch of the Sui repository. To use a different branch, change the value for the `--branch` switch. For example, to use the `devnet` branch, specify `--branch devnet`.
 
-## Start the local network
+## Start the local network {#start-local}
 
 To start the local network, run the following command from the `sui` root folder.
 
@@ -103,7 +103,7 @@ OPTIONS:
 
 Use `sui-validator-test --help` to see these options in your console.
 
-### Access your local Full node
+### Access your local Full node {#access-your-local-full-node}
 
 Use the following command to retrieve the total transaction count from your local network:
 
@@ -139,7 +139,7 @@ If successful, the response resembles the following:
 </details>
 ```
 
-## Connect the Sui Client CLI to your local network
+## Connect the Sui Client CLI to your local network {#connect-the-sui-client-cli-to-your-local-network}
 
 You can use the Sui Client CLI with any Sui network. By default it connects to Sui Devnet. To connect to your local network, create a new environment alias named `local` that sets the RPC URL the client uses to your local network.
 
@@ -167,7 +167,7 @@ The command returns:
 
 `local`
 
-## Show the current active address
+## Show the current active address {#show-current-address}
 
 The Sui Client CLI uses the active address for command if you don't specify one. Use the following command to show the active address on your local network.
 
@@ -187,7 +187,7 @@ The address returned when you run the command is unique and does not match the o
 
 :::
 
-## Use the local faucet
+## Use the local faucet {#use-local-faucet}
 
 Transactions on your local network require SUI coins to pay for gas fees just like other networks. To send coins to a Sui Wallet connected to your local network, see [Set up a local Sui Wallet](#set-up-a-local-sui-wallet). You can use the address for the local Sui Wallet with the faucet.
 
@@ -249,7 +249,7 @@ If successful, the response resembles the following:
 </details>
 ```
 
-### Check the gas coin objects for the active address
+### Check the gas coin objects for the active address {#gas-coin-address}
 
 After yoo get coins from the faucet, use the following command to view the coin objects for the address:
 
@@ -281,7 +281,7 @@ The response resembles the following, but with different IDs:
 </details>
 ```
 
-## Install Sui Wallet and Sui Explorer locally
+## Install Sui Wallet and Sui Explorer locally {#install-locally}
 
 To install and use the apps locally, you must first install [pnpm](https://pnpm.io/installation). Use the instructions appropriate for your operating system.
 
@@ -299,7 +299,7 @@ pnpm turbo build
 
 If you encounter an error from turbo build, confirm that there is no `package-lock.json`. If the file exists, remove it and then run the command again.
 
-### Set up Sui Explorer on your local network
+### Set up Sui Explorer on your local network {#local-network}
 
 To connect the live Sui Explorer to your local network, open the URL:[https://suiexplorer.com/?network=local](https://suiexplorer.com/?network=local). The live version of Sui Explorer may not include recent updates added to the `main` branch of the Sui repo. To use Sui Explorer that includes the most recent updates, install and run Sui Explorer from your local clone of the Sui repo.
 
@@ -319,7 +319,7 @@ After the command completes, open your local Sui Explorer at the following URL: 
 
 For more details about Sui Explorer, see the [Explorer README](https://github.com/MystenLabs/sui/blob/main/apps/explorer/README.mdx#set-up).
 
-## Set up a local Sui Wallet
+## Set up a local Sui Wallet {#local-sui-wallet}
 
 You can also use a local Sui Wallet to test with your local network. You can then see transactions executed from your local Sui Wallet on your local Sui Explorer.
 
@@ -337,7 +337,7 @@ Run the following command from the `sui` root folder to start Sui Wallet on your
 pnpm wallet start
 ```
 
-### Add local Sui Wallet to Chrome
+### Add local Sui Wallet to Chrome {#add-wallet-chrome}
 
 After you build your local version of Sui Wallet, you can add the extension to Chrome:
 
@@ -347,7 +347,7 @@ After you build your local version of Sui Wallet, you can add the extension to C
 
 Consult the Sui Wallet [Readme](https://github.com/MystenLabs/sui/blob/main/apps/wallet/README.mdx#install-the-extension-to-chrome) for more information on working with a locally built wallet on Chrome.
 
-## Generate example data
+## Generate example data {#generate-example-data}
 
 Use the TypeScript SDK to add example data to your network.
 
@@ -365,7 +365,7 @@ pnpm sdk test:e2e
 
 For additional information about example data for testing, see [https://github.com/MystenLabs/sui/tree/main/sdk/typescript#testing](https://github.com/MystenLabs/sui/tree/main/sdk/typescript#testing).
 
-## Troubleshooting
+## Troubleshooting {#troubleshooting}
 
 If you do not use [Node.js 18](https://nodejs.org/de/blog/announcements/v18-release-announce), you might see the following message:
 
@@ -373,6 +373,6 @@ If you do not use [Node.js 18](https://nodejs.org/de/blog/announcements/v18-rele
 
 To resolve this, switch or update to Node.js 18 and then try again.
 
-## Test with the Sui TypeScript SDK
+## Test with the Sui TypeScript SDK {#typescript-sdk}
 
 The published version of the Sui TypeScript SDK might be an earlier version than the version of Sui you installed for your local network. To make sure you're using the latest version of the SDK, use the `experimental`-tagged version (for example, `0.0.0-experimental-20230317184920`) in the [Current Tags](https://www.npmjs.com/package/@mysten/sui.js/v/0.0.0-experimental-20230127130009?activeTab=versions) section of the Sui NPM registry.

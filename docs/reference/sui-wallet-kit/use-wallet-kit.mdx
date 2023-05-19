@@ -4,7 +4,7 @@ sidebar_label: useWalletKit
 slug: /use-wallet-kit
 ---
 
-# `useWalletKit`
+## `useWalletKit` {#usewalletkit}
 
 The `useWalletKit` hook can be used to interact with wallets. This must be used in a component under `WalletKitProvider`.
 
@@ -23,7 +23,7 @@ function AccountDisplay() {
 }
 ```
 
-### Wallet Kit Properties
+### Wallet Kit Properties {#wallet-kit-properties}
 
 - `wallets` - A list of wallets that are currently detected and can be connected to.
 - `currentWallet` - The currently connected wallet. Defaults to `null` if there is no connected wallet.
@@ -37,7 +37,7 @@ Additionally, there are three booleans for convenience that are derived from the
 - `isConnected` - If the status is `CONNECTED`
 - `isError` - If the status is `ERROR`
 
-### Wallet Kit Functions
+### Wallet Kit Functions {#wallet-kit-functions}
 
 In addition to the hook return’s properties, there are also functions that can be used to interact with the wallet:
 

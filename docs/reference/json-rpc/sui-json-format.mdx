@@ -16,7 +16,7 @@ This table shows the restrictions placed on JSON types to make them SuiJSON comp
 | Null | Not allowed | N/A |
 | Object | Not allowed | N/A |
 
-## Type coercion reasoning
+## Type coercion reasoning {#type-coercion-reasoning}
 
 Due to the loosely typed nature of JSON/SuiJSON and the strongly typed nature of Move types, you sometimes need to overload SuiJSON types to represent multiple Move types.
 
@@ -26,7 +26,7 @@ Which type you coerce depends on the expected Move type. For example, if the Mov
 
 Additionally, Move supports u128 and u256 but JSON doesn't. As a result Sui allows encoding numbers as strings.
 
-## Type coercion rules
+## Type coercion rules {#type-coercion-rules}
 
 | Move Type 	| SuiJSON Representations 	| Valid Examples 	| Invalid Examples 	|
 |:---:	|:---:	|:---:	|:---:	|

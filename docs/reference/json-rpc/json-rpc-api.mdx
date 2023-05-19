@@ -17,7 +17,7 @@ You can connect to a Sui Full node on a Sui network. Follow the guidance in the 
 
 To configure your own Sui Full node, see [Configure a Sui Full node](../../contribute/nodes/full-node.mdx).
 
-## Sui SDKs
+## Sui SDKs {#sui-sdks}
 
 You can sign transactions and interact with the Sui network using any of the following:
 
@@ -29,7 +29,7 @@ You can sign transactions and interact with the Sui network using any of the fol
 
 The following sections demonstrate how to use the Sui JSON-RPC API with cURL commands. See the [Sui API Reference](https://docs.sui.io/sui-jsonrpc) for the latest list of all available methods.
 
-### RPC discover
+### RPC discover {#rpc-discover}
 
 Sui RPC server supports OpenRPC’s [service discovery method](https://spec.open-rpc.org/#service-discovery-method).
 A `rpc.discover` method is added to provide documentation describing our JSON-RPC APIs service.
@@ -40,7 +40,7 @@ curl --location --request POST $SUI_RPC_HOST \
 --data-raw '{ "jsonrpc":"2.0", "method":"rpc.discover","id":1}'
 ```
 
-### Transfer object
+### Transfer object {#transfer-object}
 
 The examples in this section demonstrate how to create transfer transactions. To use the example commands, replace the values between double brackets ({{ example_ID }} with actual values.
 
@@ -112,7 +112,7 @@ curl --location --request POST $SUI_RPC_HOST \
 
 Native transfer by `sui_transferObject` supports any object that allows for public transfers. Some objects cannot be transferred natively and require a [Move call](#sui_movecall). See [Transactions](../../learn/core-concepts/transactions.mdx#native-transaction) for more information about native transfers.
 
-### Invoke Move functions
+### Invoke Move functions {#invoke-move-functions}
 
 The example command in this section demonstrate how to call Move functions.
 
@@ -151,7 +151,7 @@ purpose as ([`sui_transferObject`](#sui_TransferObject)). It is used for illustr
 
 To learn more about which `args` a Move call accepts, see [SuiJSON](../json-rpc/sui-json-rpc.mdx).
 
-### Publish a Move package
+### Publish a Move package {#publish-move-package}
 
 ```bash
 curl --location --request POST $SUI_RPC_HOST \

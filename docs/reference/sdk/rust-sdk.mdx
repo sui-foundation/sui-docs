@@ -3,21 +3,21 @@ title: Rust SDK
 slug: /rust-sdk
 ---
 
-## Overview
+## Overview {#overview}
 
 The [Sui SDK](https://github.com/MystenLabs/sui/tree/main/crates/sui-sdk) is a collection of Rust language JSON-RPC wrapper and crypto utilities you can use to interact with Sui.
 
 Use the [`SuiClient`](../../build/setup/cli/client-cli.mdx) to create an HTTP or a WebSocket client (`SuiClient::new`). See the [JSON-RPC](../json-rpc/json-rpc-api.mdx#sui-json-rpc-methods) documentation for the list of available methods.
 
 :::tip
-The WebSocket client supports only [subscription](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-to-sui-events); use the HTTP client for other API methods.
+The WebSocket client supports only [subscription](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-events); use the HTTP client for other API methods.
 :::
 
-## References
+## References {#references}
 
 View the documentation for the [crates used in Sui](https://mystenlabs.github.io/sui/).
 
-## Configuration
+## Configuration {#configuration}
 
 Add the `sui-sdk` crate in your [`Cargo.toml`](https://doc.rust-lang.org/cargo/reference/manifest.html) file:
 
@@ -111,7 +111,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
 ## Example 3 - Event subscription {#example3}
 
-Use the WebSocket client to [subscribe to events](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-to-sui-events).
+Use the WebSocket client to [subscribe to events](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-events).
 
 ```rust
 use futures::StreamExt;

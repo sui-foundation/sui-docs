@@ -7,7 +7,7 @@ The [Object Basics](./object-basics.mdx) chapter covered how to define, create a
 
 Sui authentication mechanisms ensure only you can use objects owned by you in Sui Move calls. To use an object in Sui Move calls, pass them as parameters to an [entry function](../create-smart-contracts/smart-contracts.mdx#entry-functions). Similar to Rust, there are a few ways to pass parameters, as described in the following sections.
 
-### Pass objects by reference
+### Pass objects by reference {#pass-objects-by-reference}
 
 There are two ways to pass objects by reference: read-only references (`&T`) and mutable references (`&mut T`). Read-only references allow you to read data from the object, while mutable references allow you to mutate the data in the object. To add a function that allows you to update one of the values of `ColorObject` with another value of `ColorObject`. This exercises both using read-only references and mutable references.
 
@@ -90,7 +90,7 @@ test_scenario::next_tx(scenario, owner);
 test_scenario::end(scenario_val);
 ```
 
-### Pass objects by value
+### Pass objects by value {#pass-objects-by-value}
 
 You can also pass objects by value into an entry function. By doing so, the object is moved out of Sui storage. It is then up to the Sui Move code to decide where this object should go.
 
@@ -101,7 +101,7 @@ There are two ways to handle a pass-by-value Sui object in Move:
 - delete the object
 - transfer the object
 
-#### Delete the object
+#### Delete the object {#delete-the-object}
 
 If the intention is to actually delete the object, unpack it. You can do this only in the module that defined the struct type, due to Move's [privileged struct operations rules](https://github.com/move-language/move/blob/main/language/documentation/book/src/structs-and-resources.mdx#privileged-struct-operations). If any field is also of struct type, you must use recursive unpacking and deletion when you unpack the object.
 
@@ -149,7 +149,7 @@ test_scenario::end(scenario_val);
 
 The first part of the example repeats the example used in [Object Basics](./object-basics.mdx#writing-unit-tests), and creates a new `ColorObject` and puts it in the owner's account. The second transaction gets tested. It retrieves the object from the storage and then delete it. Since the object is deleted, there is no need (in fact, it is impossible) to return it to the storage. The last part of the test checks that the object is indeed no longer in the global storage and hence cannot be retrieved from there.
 
-#### Option 2. Transfer the object
+#### Option 2. Transfer the object {#option-2}
 
 The owner of the object might want to transfer it to another address. To support this, the `ColorObject` module needs to define a `transfer` function:
 
@@ -198,7 +198,7 @@ test_scenario::next_tx(scenario, recipient);
 test_scenario::end(scenario_val);
 ```
 
-### On-chain interactions
+### On-chain interactions {#on-chain-interactions}
 
 Next, try this out on-chain. Assuming you followed the instructions in [Object Basics](./object-basics.mdx#on-chain-interactions), you should have a published package and a new object created.
 

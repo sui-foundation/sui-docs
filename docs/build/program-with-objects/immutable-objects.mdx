@@ -8,7 +8,7 @@ Chapters 1 and 2 describe how to create and use objects owned by an address. Thi
 Objects in Sui can have different types of [ownership](../../learn/core-concepts/objects.mdx#object-ownership), with two broad categories: immutable objects and mutable objects. An immutable object is an object that can't be mutated, transferred or deleted. Immutable objects have no owner, so anyone can use them.
 
 
-### Create immutable object
+### Create immutable object {#create-immutable-object}
 
 To convert an object into an immutable object, call the following function in the [transfer module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move):
 
@@ -41,7 +41,7 @@ public entry fun create_immutable(red: u8, green: u8, blue: u8, ctx: &mut TxCont
 
 This function creates a new `ColorObject` and immediately makes it immutable before it has an owner.
 
-### Use immutable object
+### Use immutable object {#use-immutable-object}
 
 Once an object becomes immutable, the rules of who can use this object in Sui Move calls change:
 
@@ -58,7 +58,7 @@ In this function, anyone can pass an immutable object as the first argument `fro
 
 Since immutable objects can never be mutated, there's no data race, even when multiple transactions are using the same immutable object at the same time. Hence, the existence of immutable objects does not pose any requirement on consensus.
 
-### Test immutable object
+### Test immutable object {#test-immutable-object}
 
 Previously, you used the `test_scenario::take_from_sender<T>` function to take an object from the global storage that's owned by the sender of the transaction in a unit test. And `take_from_sender` returns an object by value, which allows you to mutate, delete, or transfer it.
 
@@ -117,7 +117,7 @@ This section introduced two new functions to interact with immutable objects in 
 - `test_scenario::take_immutable<T>` to take an immutable object wrapper from global storage.
 - `test_scenario::return_immutable` to return the wrapper back to the global storage.
 
-### On-chain interactions
+### On-chain interactions {#on-chain-interactions}
 
 First, view the objects you own:
 

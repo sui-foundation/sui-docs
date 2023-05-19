@@ -18,7 +18,7 @@ The Sui Consensus Engine approach can offer dramatic scalability benefits in the
 - a blockchain that has experimented with larger and larger blocks and has measured runaway latencies before the execution phase
 - a blockchain with fast execution (e.g., focused on transactions or with an UTXO data model), but which mempool and consensus do not keep up
 
-## Features
+## Features {#features}
 
 The Narwhal mempool offers:
 
@@ -28,7 +28,7 @@ The Narwhal mempool offers:
 
 The [consensus](https://github.com/MystenLabs/sui/blob/main/narwhal/consensus) component offers a zero-message overhead consensus algorithm, leveraging graph traversals.
 
-## Architecture
+## Architecture {#architecture}
 
 A Narwhal instance sets up a message-passing system comprised of a set of $3f+1$ units of stake divided amongst a set of nodes, and assumes a computationally bounded adversary that controls the network and can corrupt parties holding up to f units of stake. The validators collaborate in forming a leaderless graph of batches of transactions - which the literature (in the context of DAG-based consensus) designates as _blocks_ and that Sui labels _collections_ - to emphasize that this happens in a context where the mempool data is used by an unspecified consensus algorithm.
 
@@ -70,21 +70,21 @@ flowchart TB
   D2 --> B1 & C1
 ```
 
-## How it works
+## How it works {#how-it-works}
 
 - The graph construction allows inserting more transactions in the system at each authority and at each round.
 - The certificates prove the data availability of each collection, or block, at each round.
 - Their contents constitute a DAG that can be traversed identically at each honest node.
 
-## Dependencies
+## Dependencies {#dependencies}
 
 Narwhal is implemented using [Tokio](https://github.com/tokio-rs/tokio), [RocksDB](https://github.com/facebook/rocksdb/) and generic cryptography implemented in [fastcrypto](https://github.com/MystenLabs/fastcrypto).
 
-## Configuration
+## Configuration {#configuration}
 
 To conduct a fresh deployment of Sui Consensus Engine, follow the instructions at [Running Benchmarks](https://github.com/MystenLabs/sui/blob/main/narwhal/benchmark).
 
-## Further reading
+## Further reading {#further-reading}
 
 Narwhal and Tusk (Danezis et al. 2021) is a consensus system leveraging directed acyclic graphs (DAG). DAG-based consensus has been developed over the last 30 years, and some of the history is summarized in (Wang & al. 2020). The closest theoretical ancestor of Narwhal & Tusk is DAG-Rider (Keidar & al. 2021).
 
@@ -100,7 +100,7 @@ A simplified version of Bullshark that is used in Sui today.
 
 [DAG Meets BFT - The Next Generation of BFT Consensus](https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/) - Explains the evolution of the consensus protocol used by Sui.
 
-### Bibliography
+### Bibliography {#bibliography}
 
 - Danezis, G., Kogias, E. K., Sonnino, A., & Spiegelman, A. (2021). Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus. ArXiv:2105.11827 [Cs]. http://arxiv.org/abs/2105.11827
 - Giridharan, N., Kokoris-Kogias, L., Sonnino, A., & Spiegelman, A. (2022). Bullshark: DAG BFT Protocols Made Practical. ArXiv:2201.05677 [Cs]. http://arxiv.org/abs/2201.05677
