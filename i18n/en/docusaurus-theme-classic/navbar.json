@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Sui Documentation",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Sui Docs Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Learn": {
+    "message": "Learn",
+    "description": "Navbar item with label Learn"
+  },
+  "item.label.Build": {
+    "message": "Build",
+    "description": "Navbar item with label Build"
+  },
+  "item.label.Reference": {
+    "message": "Reference",
+    "description": "Navbar item with label Reference"
+  },
+  "item.label.Contribute": {
+    "message": "Contribute",
+    "description": "Navbar item with label Contribute"
+  }
+}

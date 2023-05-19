@@ -1,0 +1,62 @@
+{
+  "link.title.Documentation": {
+    "message": "Documentation",
+    "description": "The title of the footer links column with title=Documentation in the footer"
+  },
+  "link.title.Resources": {
+    "message": "Resources",
+    "description": "The title of the footer links column with title=Resources in the footer"
+  },
+  "link.title.Community": {
+    "message": "Community",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.item.label.Learn": {
+    "message": "Learn",
+    "description": "The label of footer link with label=Learn linking to https://docs.sui.io/learn"
+  },
+  "link.item.label.Build": {
+    "message": "Build",
+    "description": "The label of footer link with label=Build linking to https://docs.sui.io/build"
+  },
+  "link.item.label.Contribute": {
+    "message": "Contribute",
+    "description": "The label of footer link with label=Contribute linking to https://docs.sui.io/contribute"
+  },
+  "link.item.label.Reference": {
+    "message": "Reference",
+    "description": "The label of footer link with label=Reference linking to https://docs.sui.io/reference"
+  },
+  "link.item.label.Developer Portal": {
+    "message": "Developer Portal",
+    "description": "The label of footer link with label=Developer Portal linking to https://sui.io/developers"
+  },
+  "link.item.label.Developer Grants": {
+    "message": "Developer Grants",
+    "description": "The label of footer link with label=Developer Grants linking to https://sui.io/developer-grants"
+  },
+  "link.item.label.Forums": {
+    "message": "Forums",
+    "description": "The label of footer link with label=Forums linking to https://forums.sui.io/"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/SuiNetwork"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/MystenLabs/sui"
+  },
+  "link.item.label.Telegram": {
+    "message": "Telegram",
+    "description": "The label of footer link with label=Telegram linking to https://t.me/+mODLY50r0BEyM2Ux"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/sui"
+  },
+  "copyright": {
+    "message": "© 2023 Sui Foundation | Documentation distributed under <a href=\"https://github.com/sui-foundation/sui-docs/blob/main/LICENSE\">CC BY 4.0</a>",
+    "description": "The footer copyright"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "version.label": {
+    "message": "Latest",
+    "description": "The label for version current"
+  },
+  "sidebar.learnSidebar.category.Sui": {
+    "message": "Sui",
+    "description": "The label for category Sui in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Core Concepts": {
+    "message": "Core Concepts",
+    "description": "The label for category Core Concepts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Economics": {
+    "message": "Economics",
+    "description": "The label for category Economics in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Cryptography": {
+    "message": "Cryptography",
+    "description": "The label for category Cryptography in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.link.Connect to Sui": {
+    "message": "Connect to Sui",
+    "description": "The label for link Connect to Sui in sidebar learnSidebar, linking to /connect-to-a-network"
+  },
+  "sidebar.learnSidebar.link.Move Quickstart": {
+    "message": "Move Quickstart",
+    "description": "The label for link Move Quickstart in sidebar learnSidebar, linking to /about-sui-move"
+  },
+  "sidebar.learnSidebar.link.Tic Tac Toe in Move": {
+    "message": "Tic Tac Toe in Move",
+    "description": "The label for link Tic Tac Toe in Move in sidebar learnSidebar, linking to /tutorials"
+  },
+  "sidebar.learnSidebar.link.Running a Node on Sui": {
+    "message": "Running a Node on Sui",
+    "description": "The label for link Running a Node on Sui in sidebar learnSidebar, linking to /full-node"
+  },
+  "sidebar.learnSidebar.link.Sui Whitepaper": {
+    "message": "Sui Whitepaper",
+    "description": "The label for link Sui Whitepaper in sidebar learnSidebar, linking to https://github.com/MystenLabs/sui/blob/main/doc/paper/tokenomics.pdf/"
+  },
+  "sidebar.buildSidebar.category.Quickstart": {
+    "message": "Quickstart",
+    "description": "The label for category Quickstart in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Environment Setup": {
+    "message": "Environment Setup",
+    "description": "The label for category Environment Setup in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Setup the CLI": {
+    "message": "Setup the CLI",
+    "description": "The label for category Setup the CLI in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Smart Contracts with Move": {
+    "message": "Smart Contracts with Move",
+    "description": "The label for category Smart Contracts with Move in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Program With Objects": {
+    "message": "Program With Objects",
+    "description": "The label for category Program With Objects in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.link.Move Book": {
+    "message": "Move Book",
+    "description": "The label for link Move Book in sidebar buildSidebar, linking to https://move-language.github.io/move/"
+  },
+  "sidebar.referenceSidebar.category.Sui Move by Example": {
+    "message": "Sui Move by Example",
+    "description": "The label for category Sui Move by Example in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.Sui Basics": {
+    "message": "Sui Basics",
+    "description": "The label for category Sui Basics in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.Patterns": {
+    "message": "Patterns",
+    "description": "The label for category Patterns in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.Samples": {
+    "message": "Samples",
+    "description": "The label for category Samples in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.Sui Framework": {
+    "message": "Sui Framework",
+    "description": "The label for category Sui Framework in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.JSON-RPC": {
+    "message": "JSON-RPC",
+    "description": "The label for category JSON-RPC in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.SDKs": {
+    "message": "SDKs",
+    "description": "The label for category SDKs in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.Sui Wallet Kit": {
+    "message": "Sui Wallet Kit",
+    "description": "The label for category Sui Wallet Kit in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.Advanced": {
+    "message": "Advanced",
+    "description": "The label for category Advanced in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.DeepBook": {
+    "message": "DeepBook",
+    "description": "The label for category DeepBook in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.category.DeepBook SDK": {
+    "message": "DeepBook SDK",
+    "description": "The label for category DeepBook SDK in sidebar referenceSidebar"
+  },
+  "sidebar.referenceSidebar.link.Typescript/Javascript SDK": {
+    "message": "Typescript/Javascript SDK",
+    "description": "The label for link Typescript/Javascript SDK in sidebar referenceSidebar, linking to https://github.com/MystenLabs/sui/tree/main/sdk/typescript"
+  },
+  "sidebar.contributeSidebar.category.Contribute": {
+    "message": "Contribute",
+    "description": "The label for category Contribute in sidebar contributeSidebar"
+  },
+  "sidebar.contributeSidebar.category.Run a Node on Sui": {
+    "message": "Run a Node on Sui",
+    "description": "The label for category Run a Node on Sui in sidebar contributeSidebar"
+  },
+  "sidebar.contributeSidebar.link.Submit a SIP": {
+    "message": "Submit a SIP",
+    "description": "The label for link Submit a SIP in sidebar contributeSidebar, linking to https://sips.sui.io"
+  }
+}
