@@ -149,7 +149,7 @@ test_scenario::end(scenario_val);
 
 The first part of the example repeats the example used in [Object Basics](./object-basics.mdx#writing-unit-tests), and creates a new `ColorObject` and puts it in the owner's account. The second transaction gets tested. It retrieves the object from the storage and then delete it. Since the object is deleted, there is no need (in fact, it is impossible) to return it to the storage. The last part of the test checks that the object is indeed no longer in the global storage and hence cannot be retrieved from there.
 
-#### Option 2. Transfer the object {#option-2-transfer-the-object}
+#### Option 2. Transfer the object {#option-2}
 
 The owner of the object might want to transfer it to another address. To support this, the `ColorObject` module needs to define a `transfer` function:
 

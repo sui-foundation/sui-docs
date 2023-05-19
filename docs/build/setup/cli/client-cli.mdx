@@ -132,7 +132,7 @@ Active address switched to 0xa3c00467938b392a12355397bdd3d319cea5c9b8f4fc9c51b46
 
 All commands use the active address if you don't specify an `address`.
 
-### Paying For transactions with gas objects {#paying-for-transactions-with-gas-objects}
+### Paying For transactions with gas objects {#paying}
 
 All Sui transactions require a gas object for gas fees. If you don't specify a gas object, Sui uses a gas object with sufficient SUI to cover the gas fee.
 
@@ -149,11 +149,11 @@ Specify an address to check an address other than the active address.
 sui client gas 0x4e049913233eb918c11638af89d575beb99003d30a245ac74a02e26e45cb80ee
 ```
 
-## Create new account addresses {#create-new-account-addresses}
+## Create new account addresses {#create-account-addresses}
 
 Sui Client CLI includes 1 address by default. You can create new addresses for the client with the `new-address` command, or add existing accounts to the client.yaml.
 
-### Create a new account address {#create-a-new-account-address}
+### Create a new account address {#new-account-address}
 
 ```bash
 sui client new-address secp256k1
@@ -168,7 +168,7 @@ Created new keypair for address with scheme Secp256k1: [0x338567a5fe29132d68fade
 Secret Recovery Phrase : [guilty coast nephew hurt announce speak kiwi travel churn airport universe escape thrive switch lean lab giraffe gospel punch school dance cloud type gift]
 ```
 
-### Add existing accounts to client.yaml {#add-existing-accounts-to-clientyaml}
+### Add existing accounts to client.yaml {#accounts-clientyaml}
 
 To add existing account addresses to your client, such as from a previous installation, edit the client.yaml file and add the accounts section. You must also add the key pair to the keystore file.
 
@@ -322,7 +322,7 @@ the object ID of the object to transfer, and, optionally, the ID of the coin obj
 sui client transfer --to 0xcd2630011f6cb9aef960ed42d95b04e063c44a6143083ef89a35ea02b85c61b7 --object-id 0x33e3e1d64f76b71a80ec4f332f4d1a6742c537f2bb32473b01b1dcb1caac9427 --gas-budget 1000
 ```
 
-## Merge and split coin objects {#merge-and-split-coin-objects}
+## Merge and split coin objects {#merge-and-split}
 
 You can merge coins to reduce the number of separate coin objects in an account, or split coins to create smaller coin objects to use for transfers or gas payments.
 
