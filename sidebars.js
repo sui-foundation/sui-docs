@@ -87,6 +87,52 @@ const sidebars = {
       ],
     },
   ],
+  examplesSidebar: [
+    {
+      type: 'category',
+      label: 'Sui Move by Example',
+      items: [
+        'examples/move-by-example/intro',
+        {
+          type: 'category',
+          label: 'Sui Basics',
+          items: [
+            'examples/move-by-example/move-toml',
+            'examples/move-by-example/init',
+            'examples/move-by-example/entry-functions',
+            'examples/move-by-example/strings',
+            'examples/move-by-example/shared-objects',
+            'examples/move-by-example/transfer',
+            'examples/move-by-example/custom-transfer',
+            'examples/move-by-example/events',
+            'examples/move-by-example/otw',
+            'examples/move-by-example/publisher',
+            'examples/move-by-example/object-display',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Patterns',
+          items: [
+            'examples/move-by-example/capability',
+            'examples/move-by-example/witness',
+            'examples/move-by-example/transferrable-witness',
+            'examples/move-by-example/hot-potato',
+            'examples/move-by-example/id-pointer',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Samples',
+          items: [
+            'examples/move-by-example/create-an-nft',
+            'examples/move-by-example/create-a-coin',
+          ],
+        },
+        'examples/move-by-example/additional-resources',
+      ],
+    },
+  ],
   buildSidebar: [
     {
       type: 'category',
@@ -152,50 +198,6 @@ const sidebars = {
     }
   ],
   referenceSidebar: [
-    {
-      type: 'category',
-      label: 'Sui Move by Example',
-      items: [
-        'reference/move-by-example/intro',
-        {
-          type: 'category',
-          label: 'Sui Basics',
-          items: [
-            'reference/move-by-example/move-toml',
-            'reference/move-by-example/init',
-            'reference/move-by-example/entry-functions',
-            'reference/move-by-example/strings',
-            'reference/move-by-example/shared-objects',
-            'reference/move-by-example/transfer',
-            'reference/move-by-example/custom-transfer',
-            'reference/move-by-example/events',
-            'reference/move-by-example/otw',
-            'reference/move-by-example/publisher',
-            'reference/move-by-example/object-display',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Patterns',
-          items: [
-            'reference/move-by-example/capability',
-            'reference/move-by-example/witness',
-            'reference/move-by-example/transferrable-witness',
-            'reference/move-by-example/hot-potato',
-            'reference/move-by-example/id-pointer',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Samples',
-          items: [
-            'reference/move-by-example/create-an-nft',
-            'reference/move-by-example/create-a-coin',
-          ],
-        },
-        'reference/move-by-example/additional-resources',
-      ],
-    },
     {
       type: 'category',
       label: 'Sui Framework',
