@@ -98,7 +98,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "examples/move-by-example/intro",
+            docId: "examples/intro",
             label: "Examples",
           },
           {

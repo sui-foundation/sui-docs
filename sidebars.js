@@ -88,50 +88,44 @@ const sidebars = {
     },
   ],
   examplesSidebar: [
+    'examples/intro',
     {
       type: 'category',
-      label: 'Sui Move by Example',
+      label: 'Sui Basics',
       items: [
-        'examples/move-by-example/intro',
-        {
-          type: 'category',
-          label: 'Sui Basics',
-          items: [
-            'examples/move-by-example/move-toml',
-            'examples/move-by-example/init',
-            'examples/move-by-example/entry-functions',
-            'examples/move-by-example/strings',
-            'examples/move-by-example/shared-objects',
-            'examples/move-by-example/transfer',
-            'examples/move-by-example/custom-transfer',
-            'examples/move-by-example/events',
-            'examples/move-by-example/otw',
-            'examples/move-by-example/publisher',
-            'examples/move-by-example/object-display',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Patterns',
-          items: [
-            'examples/move-by-example/capability',
-            'examples/move-by-example/witness',
-            'examples/move-by-example/transferrable-witness',
-            'examples/move-by-example/hot-potato',
-            'examples/move-by-example/id-pointer',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Samples',
-          items: [
-            'examples/move-by-example/create-an-nft',
-            'examples/move-by-example/create-a-coin',
-          ],
-        },
-        'examples/move-by-example/additional-resources',
+        'examples/movetoml',
+        'examples/init',
+        'examples/entry-functions',
+        'examples/strings',
+        'examples/shared-objects',
+        'examples/transfer',
+        'examples/custom-transfer',
+        'examples/events',
+        'examples/otw',
+        'examples/publisher',
+        'examples/object-display',
       ],
     },
+    {
+      type: 'category',
+      label: 'Patterns',
+      items: [
+        'examples/capability',
+        'examples/witness',
+        'examples/transferrable-witness',
+        'examples/hot-potato',
+        'examples/id-pointer',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Samples',
+      items: [
+        'examples/create-an-nft',
+        'examples/create-a-coin',
+      ],
+    },
+    'examples/additional-resources',
   ],
   buildSidebar: [
     {
