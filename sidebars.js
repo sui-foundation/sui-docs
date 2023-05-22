@@ -87,6 +87,46 @@ const sidebars = {
       ],
     },
   ],
+  examplesSidebar: [
+    'examples/intro',
+    {
+      type: 'category',
+      label: 'Sui Move Basics',
+      items: [
+        'examples/movetoml',
+        'examples/init',
+        'examples/entry-functions',
+        'examples/strings',
+        'examples/shared-objects',
+        'examples/transferring-objects',
+        'examples/custom-transfer',
+        'examples/events',
+        'examples/otw',
+        'examples/publisher',
+        'examples/object-display',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Patterns',
+      items: [
+        'examples/capability',
+        'examples/witness',
+        'examples/transferrable-witness',
+        'examples/hot-potato',
+        'examples/id-pointer',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Samples',
+      items: [
+        'examples/create-an-nft',
+        'examples/create-a-coin',
+      ],
+    },
+    'examples/additional-resources',
+  ],
   buildSidebar: [
     {
       type: 'category',
@@ -153,50 +193,6 @@ const sidebars = {
     }
   ],
   referenceSidebar: [
-    {
-      type: 'category',
-      label: 'Sui Move by Example',
-      items: [
-        'reference/move-by-example/intro',
-        {
-          type: 'category',
-          label: 'Sui Basics',
-          items: [
-            'reference/move-by-example/move-toml',
-            'reference/move-by-example/init',
-            'reference/move-by-example/entry-functions',
-            'reference/move-by-example/strings',
-            'reference/move-by-example/shared-objects',
-            'reference/move-by-example/transfer',
-            'reference/move-by-example/custom-transfer',
-            'reference/move-by-example/events',
-            'reference/move-by-example/otw',
-            'reference/move-by-example/publisher',
-            'reference/move-by-example/object-display',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Patterns',
-          items: [
-            'reference/move-by-example/capability',
-            'reference/move-by-example/witness',
-            'reference/move-by-example/transferrable-witness',
-            'reference/move-by-example/hot-potato',
-            'reference/move-by-example/id-pointer',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Samples',
-          items: [
-            'reference/move-by-example/create-an-nft',
-            'reference/move-by-example/create-a-coin',
-          ],
-        },
-        'reference/move-by-example/additional-resources',
-      ],
-    },
     {
       type: 'category',
       label: 'JSON-RPC',

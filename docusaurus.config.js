@@ -98,7 +98,12 @@ const config = {
           },
           {
             type: "doc",
-            docId: "reference/move-by-example/intro",
+            docId: "examples/intro",
+            label: "Examples",
+          },
+          {
+            type: "doc",
+            docId: "reference/sui-framework/sui-framework-reference",
             label: "Reference",
           },
           {

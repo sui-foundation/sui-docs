@@ -1,9 +1,9 @@
 ---
 title: Custom Transfer
-slug: /move-by-example/custom-transfer
+slug: /custom-transfer
 ---
 
-In Sui Move, objects defined with only the `key` ability can not be transferred by default. To enable transfers, the publisher has to create a custom transfer function. This function can include any arguments, for example a fee, that users have to pay to transfer.
+Objects defined with only the `key` ability in Sui Move cannot be transferred by default. To enable transfers, the publisher has to create a custom transfer function. This function can include any arguments, for example a fee, that users have to pay to transfer.
 
 ```sui-move
 module examples::restricted_transfer {
