@@ -105,6 +105,7 @@ const sidebars = {
         'build/setup/faucet',
         'build/setup/local-network',
         'build/setup/gas-changes',
+        'build/setup/using-the-api',
         'build/setup/object-display-standard',
         {
           type: 'category',
@@ -198,6 +199,14 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'JSON-RPC',
+      items: [
+        'reference/json-rpc/json-rpc-format',
+        'reference/json-rpc/json-rpc-api',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Sui Framework',
       items: [
         'reference/sui-framework/sui-framework-reference',
@@ -207,15 +216,6 @@ const sidebars = {
         'reference/sui-framework/sui-compared',
         'reference/sui-framework/sui-glossary',
         'reference/sui-framework/research-papers',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'JSON-RPC',
-      items: [
-        'reference/json-rpc/json-rpc-api',
-        'reference/json-rpc/sui-json-format',
-        'reference/json-rpc/sui-json-rpc',
       ],
     },
     {
