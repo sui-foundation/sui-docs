@@ -103,7 +103,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "reference/sui-framework/sui-framework-reference",
+            docId: "reference/json-rpc/json-rpc-api",
             label: "Reference",
           },
           {
