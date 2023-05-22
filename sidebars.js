@@ -4,7 +4,7 @@ const sidebars = {
   learnSidebar: [
     {
       type: 'category',
-      label: 'Sui',
+      label: 'Sui Overview',
       link: {
         type: 'doc',
         id: 'learn/sui-overview/sui-overview',
@@ -13,32 +13,6 @@ const sidebars = {
         'learn/sui-overview/sui-overview',
         'learn/sui-overview/why-move',
         'learn/sui-overview/how-sui-move-differs',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Getting Started',
-      items: [
-        {
-          type: 'link',
-          label: 'Connect to Sui',
-          href: '/connect-to-a-network',
-        },
-        {
-          type: 'link',
-          label: 'Move Quickstart',
-          href: '/about-sui-move',
-        },
-        {
-          type: 'link',
-          label: 'Tic Tac Toe in Move',
-          href: '/tutorials',
-        },
-        {
-          type: 'link',
-          label: 'Running a Node on Sui',
-          href: '/full-node',
-        },
       ],
     },
     {
@@ -237,7 +211,7 @@ const sidebars = {
   referenceSidebar: [
     {
       type: 'category',
-      label: 'JSON-RPC',
+      label: 'JSON-RPC API',
       link: {
         type: 'doc',
         id: 'reference/json-rpc/json-rpc-api',
@@ -331,7 +305,7 @@ const sidebars = {
         'reference/deepbook/design',
         {
           type: 'category',
-          label: 'DeepBook SDK',
+          label: 'SDK',
           link: {
             type: 'doc',
             id: 'reference/deepbook/trade-and-swap',
