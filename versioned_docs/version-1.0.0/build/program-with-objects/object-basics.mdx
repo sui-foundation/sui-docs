@@ -187,20 +187,20 @@ To call `create` in actual transactions, you need to start Sui and the Sui Clien
 
 Before you start, check the active address on the client as that address eventually owns the object):
 
-```
-$ sui client active-address
+```bash
+sui client active-address
 ```
 
 To publish the code on-chain, use the following command:
 
-```
-$ sui client publish $ROOT/sui_programmability/examples/objects_tutorial --gas-budget 10000
+```bash
+sui client publish $ROOT/sui_programmability/examples/objects_tutorial --gas-budget 10000
 ```
 
 or from the root of the package folder:
 
-```
-$ sui client publish --gas-budget 10000
+```bash
+sui client publish --gas-budget 10000
 ```
 
 These examples assume that the path to the root of the repository containing Sui source code is $ROOT.
@@ -274,8 +274,8 @@ red: 0
 
 You can also request the content of the object in json format by adding the `--json` parameter:
 
-```
-$ sui client object $OBJECT --json
+```bash
+sui client object $OBJECT --json
 ```
 
 To continue learning about programming with objects in Sui, see [Using Objects](using-objects.mdx).
