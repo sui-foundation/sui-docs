@@ -5,6 +5,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Sui',
+      link: {
+        type: 'doc',
+        id: 'learn/sui-overview/sui-overview',
+      },
       items: [
         'learn/sui-overview/sui-overview',
         'learn/sui-overview/why-move',
@@ -40,6 +44,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Core Concepts',
+      link: {
+        type: 'doc',
+        id: 'learn/core-concepts/how-sui-works',
+      },
       items: [
         'learn/core-concepts/how-sui-works',
         'learn/core-concepts/objects',
@@ -54,6 +62,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Economics',
+      link: {
+        type: 'doc',
+        id: 'learn/economics/sui-tokenomics',
+      },
       items: [
         'learn/economics/sui-tokenomics',
         'learn/economics/sui-token',
@@ -71,6 +83,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Cryptography',
+      link: {
+        type: 'doc',
+        id: 'learn/cryptography/cryptography',
+      },
       items: [
         'learn/cryptography/cryptography',
         'learn/cryptography/keys-and-addresses',
@@ -90,6 +106,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Sui Move Basics',
+      link: {
+        type: 'doc',
+        id: 'examples/movetoml',
+      },
       items: [
         'examples/movetoml',
         'examples/init',
@@ -107,6 +127,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Patterns',
+      link: {
+        type: 'doc',
+        id: 'examples/capability',
+      },
       items: [
         'examples/capability',
         'examples/witness',
@@ -118,6 +142,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Samples',
+      link: {
+        type: 'doc',
+        id: 'examples/create-an-nft',
+      },
       items: [
         'examples/create-an-nft',
         'examples/create-a-coin',
@@ -129,6 +157,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Quickstart',
+      link: {
+        type: 'doc',
+        id: 'build/quickstart/about',
+      },
       items: [
         'build/quickstart/about',
         'build/quickstart/examples',
@@ -138,6 +170,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Environment Setup',
+      link: {
+        type: 'doc',
+        id: 'build/setup/connect-to-a-network',
+      },
       items: [
         'build/setup/connect-to-a-network',
         'build/setup/faucet',
@@ -148,6 +184,10 @@ const sidebars = {
         {
           type: 'category',
           label: 'Setup the CLI',
+          link: {
+            type: 'doc',
+            id: 'build/setup/cli/install-sui',
+          },
           items: [
             'build/setup/cli/install-sui',
             'build/setup/cli/client-cli',
@@ -158,6 +198,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Smart Contracts with Move',
+      link: {
+        type: 'doc',
+        id: 'build/create-smart-contracts/smart-contracts',
+      },
       items: [
         'build/create-smart-contracts/smart-contracts',
         'build/create-smart-contracts/write-move-packages',
@@ -175,6 +219,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Program With Objects',
+      link: {
+        type: 'doc',
+        id: 'build/program-with-objects/object-basics',
+      },
       items: [
         'build/program-with-objects/object-basics',
         'build/program-with-objects/using-objects',
@@ -190,14 +238,22 @@ const sidebars = {
     {
       type: 'category',
       label: 'JSON-RPC',
+      link: {
+        type: 'doc',
+        id: 'reference/json-rpc/json-rpc-api',
+      },
       items: [
-        'reference/json-rpc/json-rpc-format',
         'reference/json-rpc/json-rpc-api',
+        'reference/json-rpc/json-rpc-format',
       ],
     },
     {
       type: 'category',
       label: 'Sui Framework',
+      link: {
+        type: 'doc',
+        id: 'reference/sui-framework/sui-framework-reference',
+      },
       items: [
         'reference/sui-framework/sui-framework-reference',
         'reference/sui-framework/exchange-integration-guide',
@@ -211,6 +267,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'SDKs',
+      link: {
+        type: 'doc',
+        id: 'reference/sdk/rust-sdk',
+      },
       items: [
         'reference/sdk/rust-sdk',
         {
@@ -223,12 +283,20 @@ const sidebars = {
     {
       type: 'category',
       label: 'Sui Wallet Kit',
+      link: {
+        type: 'doc',
+        id: 'reference/sui-wallet-kit/introduction',
+      },
       items: [
         'reference/sui-wallet-kit/introduction',
         'reference/sui-wallet-kit/getting-started',
         {
           type: 'category',
           label: 'API',
+          link: {
+            type: 'doc',
+            id: 'reference/sui-wallet-kit/wallet-kit-provider',
+          },
           items: [
             'reference/sui-wallet-kit/wallet-kit-provider',
             'reference/sui-wallet-kit/connect-button',
@@ -238,6 +306,10 @@ const sidebars = {
         {
           type: 'category',
           label: 'Advanced',
+          link: {
+            type: 'doc',
+            id: 'reference/sui-wallet-kit/programmatic-connection',
+          },
           items: [
             'reference/sui-wallet-kit/programmatic-connection',
             'reference/sui-wallet-kit/wallet-adapters',
@@ -251,11 +323,19 @@ const sidebars = {
     {
       type: 'category',
       label: 'DeepBook',
+      link: {
+        type: 'doc',
+        id: 'reference/deepbook/design',
+      },
       items: [
         'reference/deepbook/design',
         {
           type: 'category',
           label: 'DeepBook SDK',
+          link: {
+            type: 'doc',
+            id: 'reference/deepbook/trade-and-swap',
+          },
           items: [
             'reference/deepbook/trade-and-swap',
             'reference/deepbook/routing-a-swap',
@@ -271,6 +351,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Contribute',
+      link: {
+        type: 'doc',
+        id: 'contribute/contribution-process',
+      },
       items: [
         'contribute/contribution-process',
         'contribute/contribute-to-sui-repos',
@@ -287,6 +371,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Run a Node on Sui',
+      link: {
+        type: 'doc',
+        id: 'contribute/nodes/full-node',
+      },
       items: [
         'contribute/nodes/full-node',
         'contribute/nodes/validator',
