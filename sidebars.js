@@ -49,8 +49,6 @@ const sidebars = {
         'learn/core-concepts/single-writer-apps',
         'learn/core-concepts/validators',
         'learn/core-concepts/consensus-engine',
-        'learn/core-concepts/event-query-and-subscription',
-        'learn/core-concepts/programmable-tx-blocks',
       ],
     },
     {
@@ -172,11 +170,6 @@ const sidebars = {
         'build/create-smart-contracts/custom-upgrade-policies',
         'build/create-smart-contracts/dependency-overrides',
         'build/create-smart-contracts/sui-move-library',
-        {
-          type: 'link',
-          label: 'Move Book',
-          href: 'https://move-language.github.io/move/',
-        },
       ],
     },
     {
@@ -190,7 +183,8 @@ const sidebars = {
         'build/program-with-objects/dynamic-fields',
         'build/program-with-objects/collections',
       ],
-    }
+    },
+    'build/programmable-tx-blocks',
   ],
   referenceSidebar: [
     {
@@ -271,6 +265,7 @@ const sidebars = {
         },
       ],
     },
+    'reference/event-query-and-subscription',
   ],
   contributeSidebar: [
     {
