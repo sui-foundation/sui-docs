@@ -135,7 +135,7 @@ bytecode or source code for ahead of time. Sui calculates the digest as follows:
 Refer to the [implementation for digest calculation](https://github.com/MystenLabs/sui/blob/d8cb153d886d54752763fbdab631b062da7d894b/crates/sui-types/src/move_package.rs#L232-L251) for more information, but in most cases, you can rely on the Move toolchain to output the digest as part of the build, when passing the `--dump-bytecode-as-base64` flag:
 
 ```bash
-$ sui move build --dump-bytecode-as-base64
+sui move build --dump-bytecode-as-base64
 FETCHING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
@@ -180,7 +180,7 @@ Time to put everything into practice by writing a toy upgrade policy that only a
 Start by creating a new Move package for the upgrade policy:
 
 ```bash
-$ sui move new policy
+sui move new policy
 ```
 
 The command creates a `policy` directory with a `sources` folder and `Move.toml` manifest.
@@ -514,7 +514,7 @@ With a policy now available on chain, you need a package to upgrade. This topic 
 If you don't have a package available, use the `sui move new` command to create the template for a new package called `example`.
 
 ```bash
-$ sui move new example
+sui move new example
 ```
 
 In the `example/sources` directory, create an `example.move` file with the following code:
@@ -542,7 +542,7 @@ Create a new directory to store a Node.js project. You can use the `npm init` fu
 Open a terminal or console to the root of your Node.js project. Run the following command to add the Sui TypeScript SDK as a dependency:
 
 ```bash
-$ npm install @mysten/sui.js
+npm install @mysten/sui.js
 ```
 
 ### Publishing a package with custom policy {#publishing-custom-policy}
@@ -656,7 +656,7 @@ console.log(result)
 Save your `publish.js` file, and then use Node.js to run the script:
 
 ```bash
-$ node publish.js
+node publish.js
 ```
 
 If the script is successful, the console prints the following response:
@@ -740,7 +740,7 @@ If you receive a `ReferenceError: fetch is not defined` error, use Node.js versi
 Use the CLI to test that your newly published package works:
 
 ```bash
-$ sui client call --gas-budget 10000000 \
+sui client call --gas-budget 10000000 \
     --package '<EXAMPLE-PACKAGE-ID>' \
     --module 'example' \
     --function 'nudge' \
