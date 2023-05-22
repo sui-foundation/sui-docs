@@ -74,6 +74,9 @@ const sidebars = {
         'learn/cryptography/ecvrf',
       ],
     },
+    'learn/sui-compared',
+    'learn/sui-security',
+    'learn/sui-bridging',
   ],
   examplesSidebar: [
     'examples/intro',
@@ -154,7 +157,6 @@ const sidebars = {
         'build/setup/local-network',
         'build/setup/gas-changes',
         'build/setup/using-the-api',
-        'build/setup/object-display-standard',
         {
           type: 'category',
           label: 'Setup the CLI',
@@ -204,6 +206,7 @@ const sidebars = {
         'build/program-with-objects/object-wrapping',
         'build/program-with-objects/dynamic-fields',
         'build/program-with-objects/collections',
+        'build/program-with-objects/object-display-standard',
       ],
     },
     'build/programmable-tx-blocks',
@@ -231,9 +234,6 @@ const sidebars = {
       items: [
         'reference/sui-framework/sui-framework-reference',
         'reference/sui-framework/exchange-integration-guide',
-        'reference/sui-framework/sui-bridging',
-        'reference/sui-framework/sui-security',
-        'reference/sui-framework/sui-compared',
         'reference/sui-framework/sui-glossary',
         'reference/sui-framework/research-papers',
       ],
