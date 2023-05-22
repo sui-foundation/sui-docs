@@ -229,6 +229,7 @@ const sidebars = {
     'reference/sui-compared',
     'reference/sui-glossary',
     'reference/research-papers',
+    'reference/dev-cheat-sheet',
     {
       type: 'category',
       label: 'SDKs',
