@@ -10,7 +10,7 @@ The [Sui SDK](https://github.com/MystenLabs/sui/tree/main/crates/sui-sdk) is a c
 Use the [`SuiClient`](../../build/setup/cli/client-cli.mdx) to create an HTTP or a WebSocket client (`SuiClient::new`). See the [JSON-RPC](../json-rpc/json-rpc-api.mdx) documentation for the list of available methods.
 
 :::tip
-The WebSocket client supports only [subscription](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-events); use the HTTP client for other API methods.
+The WebSocket client supports only [subscription](reference/event-query-and-subscription.mdx#subscribe-events); use the HTTP client for other API methods.
 :::
 
 ## References {#references}
@@ -111,7 +111,7 @@ async fn main() -> Result<(), anyhow::Error> {
 
 ## Example 3 - Event subscription {#example3}
 
-Use the WebSocket client to [subscribe to events](../../learn/core-concepts/event-query-and-subscription.mdx#subscribe-events).
+Use the WebSocket client to [subscribe to events](../event-query-and-subscription.mdx#subscribe-events).
 
 ```rust
 use futures::StreamExt;
