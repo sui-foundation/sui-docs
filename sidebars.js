@@ -203,6 +203,7 @@ const sidebars = {
         'build/program-with-objects/object-wrapping',
         'build/program-with-objects/dynamic-fields',
         'build/program-with-objects/collections',
+        'build/program-with-objects/object-display-standard',
       ],
     },
     'build/programmable-tx-blocks',
@@ -228,7 +229,6 @@ const sidebars = {
     'reference/sui-compared',
     'reference/sui-glossary',
     'reference/research-papers',
-    'reference/object-display-standard',
     {
       type: 'category',
       label: 'SDKs',
