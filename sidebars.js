@@ -154,7 +154,6 @@ const sidebars = {
         'build/setup/local-network',
         'build/setup/gas-changes',
         'build/setup/using-the-api',
-        'build/setup/object-display-standard',
         {
           type: 'category',
           label: 'Setup the CLI',
@@ -221,23 +220,15 @@ const sidebars = {
         'reference/json-rpc/json-rpc-format',
       ],
     },
-    {
-      type: 'category',
-      label: 'Sui Framework',
-      link: {
-        type: 'doc',
-        id: 'reference/sui-framework/sui-framework-reference',
-      },
-      items: [
-        'reference/sui-framework/sui-framework-reference',
-        'reference/sui-framework/exchange-integration-guide',
-        'reference/sui-framework/sui-bridging',
-        'reference/sui-framework/sui-security',
-        'reference/sui-framework/sui-compared',
-        'reference/sui-framework/sui-glossary',
-        'reference/sui-framework/research-papers',
-      ],
-    },
+    'reference/sui-framework-reference',
+    'reference/event-query-and-subscription',
+    'reference/exchange-integration-guide',
+    'reference/sui-bridging',
+    'reference/sui-security',
+    'reference/sui-compared',
+    'reference/sui-glossary',
+    'reference/research-papers',
+    'reference/object-display-standard',
     {
       type: 'category',
       label: 'SDKs',
@@ -319,7 +310,6 @@ const sidebars = {
         },
       ],
     },
-    'reference/event-query-and-subscription',
   ],
   contributeSidebar: [
     {
