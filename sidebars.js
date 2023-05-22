@@ -91,14 +91,14 @@ const sidebars = {
     'examples/intro',
     {
       type: 'category',
-      label: 'Sui Basics',
+      label: 'Sui Move Basics',
       items: [
         'examples/movetoml',
         'examples/init',
         'examples/entry-functions',
         'examples/strings',
         'examples/shared-objects',
-        'examples/transfer',
+        'examples/transferring-objects',
         'examples/custom-transfer',
         'examples/events',
         'examples/otw',

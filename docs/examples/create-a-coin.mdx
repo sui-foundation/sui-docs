@@ -1,5 +1,6 @@
 ---
-title: Create a coin
+title: Create a Coin in Sui Move
+sidebar_label: Create a Coin
 slug: /create-a-coin
 ---
 
@@ -27,4 +28,4 @@ module examples::mycoin {
 }
 ```
 
-The `Coin<T>` is a generic implementation of a Coin on Sui. Owner of the `TreasuryCap` gets control over the minting and burning of coins. Further transactions can be sent directly to the `sui::coin::Coin` with `TreasuryCap` object as authorization.
+The `Coin<T>` is a generic implementation of a Coin on Sui. The owner of the `TreasuryCap` gets control over the minting and burning of coins. Further transactions can be sent directly to the `sui::coin::Coin` with `TreasuryCap` object as authorization.
