@@ -7,7 +7,6 @@ Chapters 1 and 2 describe how to create and use objects owned by an address. Thi
 
 Objects in Sui can have different types of [ownership](../../learn/core-concepts/objects.mdx#object-ownership), with two broad categories: immutable objects and mutable objects. An immutable object is an object that can't be mutated, transferred or deleted. Immutable objects have no owner, so anyone can use them.
 
-
 ### Create immutable object
 
 To convert an object into an immutable object, call the following function in the [transfer module](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/sui-framework/sources/transfer.move):
@@ -122,8 +121,11 @@ This section introduced two new functions to interact with immutable objects in 
 First, view the objects you own:
 
 ```bash
-$ export ADDR=`sui client active-address`
-$ sui client objects $ADDR
+export ADDR=`sui client active-address`
+```
+
+```bash
+sui client objects $ADDR
 ```
 
 Publish the `ColorObject` code on-chain using the Sui Client CLI:
@@ -141,25 +143,25 @@ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --f
 Set the newly created object ID to `$OBJECT`. To view the objects in the current active address:
 
 ```bash
-$ sui client objects $ADDR
+sui client objects $ADDR
 ```
 
 You should see an object with the ID you used for `$OBJECT`. To turn it into an immutable object:
 
 ```bash
-$ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "freeze_object" --args \"$OBJECT\"
+sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "freeze_object" --args \"$OBJECT\"
 ```
 
 View the list of objects again:
 
 ```bash
-$ sui client objects $ADDR
+sui client objects $ADDR
 ```
 
 `$OBJECT` is no longer listed. It's no longer owned by anyone. You can see that it's now immutable by querying the object information:
 
 ```bash
-$ sui client object $OBJECT
+sui client object $OBJECT
 ```
 
 The response includes:
@@ -171,7 +173,7 @@ Owner: Immutable
 If you try to mutate it:
 
 ```
-$ sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "update" --args \"$OBJECT\" 0 0 0
+sui client call --gas-budget 1000 --package $PACKAGE --module "color_object" --function "update" --args \"$OBJECT\" 0 0 0
 ```
 
 The response indicates that you can't pass an immutable object to a mutable argument.

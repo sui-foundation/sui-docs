@@ -145,6 +145,7 @@ const sidebars = {
         'build/setup/faucet',
         'build/setup/local-network',
         'build/setup/gas-changes',
+        'build/setup/using-the-api',
         'build/setup/object-display-standard',
         {
           type: 'category',
@@ -194,6 +195,58 @@ const sidebars = {
   referenceSidebar: [
     {
       type: 'category',
+      label: 'Sui Move by Example',
+      items: [
+        'reference/move-by-example/intro',
+        {
+          type: 'category',
+          label: 'Sui Basics',
+          items: [
+            'reference/move-by-example/move-toml',
+            'reference/move-by-example/init',
+            'reference/move-by-example/entry-functions',
+            'reference/move-by-example/strings',
+            'reference/move-by-example/shared-objects',
+            'reference/move-by-example/transfer',
+            'reference/move-by-example/custom-transfer',
+            'reference/move-by-example/events',
+            'reference/move-by-example/otw',
+            'reference/move-by-example/publisher',
+            'reference/move-by-example/object-display',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Patterns',
+          items: [
+            'reference/move-by-example/capability',
+            'reference/move-by-example/witness',
+            'reference/move-by-example/transferrable-witness',
+            'reference/move-by-example/hot-potato',
+            'reference/move-by-example/id-pointer',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Samples',
+          items: [
+            'reference/move-by-example/create-an-nft',
+            'reference/move-by-example/create-a-coin',
+          ],
+        },
+        'reference/move-by-example/additional-resources',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'JSON-RPC',
+      items: [
+        'reference/json-rpc/json-rpc-format',
+        'reference/json-rpc/json-rpc-api',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Sui Framework',
       items: [
         'reference/sui-framework/sui-framework-reference',
@@ -203,15 +256,6 @@ const sidebars = {
         'reference/sui-framework/sui-compared',
         'reference/sui-framework/sui-glossary',
         'reference/sui-framework/research-papers',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'JSON-RPC',
-      items: [
-        'reference/json-rpc/json-rpc-api',
-        'reference/json-rpc/sui-json-format',
-        'reference/json-rpc/sui-json-rpc',
       ],
     },
     {
