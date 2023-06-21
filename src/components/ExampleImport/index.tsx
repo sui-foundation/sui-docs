@@ -17,6 +17,7 @@ export default function ExampleImport(props) {
     const [example, setExample] = useState(null);
     const {file, type, lineStart, lineEnd, showLineNumbers, appendToCode, prependToCode} = props;
     const fileUrl = BASE + file;
+    const fileExt = file.split('.').pop();
     const prefix = file
                     .replaceAll('/', '_')
                     .replaceAll('.', '_')
@@ -24,9 +25,9 @@ export default function ExampleImport(props) {
     const subStart = lineStart - 1 || 0;
     const subEnd = lineEnd || 0;
 
-    let highlight:LangExt = 'tsx'; //default
+    let highlight:LangExt = fileExt; //default
     
-    if (type == 'move'){
+    if (type == 'move' || highlight == 'move' as LangExt){
         highlight = 'rust'; //move is not an option
     } else if ( typeof(type) != "undefined" ) {
         highlight = type;
