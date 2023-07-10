@@ -1,0 +1,125 @@
+---
+title: Write API
+sidebar_label: Write API
+slug: /write-api
+---
+
+### `sui_devInspectTransactionBlock`
+
+Runs the transaction in dev-inspect mode. Which allows for nearly any transaction (or Move call) with any arguments. Detailed results are provided, including both the transaction effects and any return values.
+
+#### Parameters
+
+| Name | Required | Format | Description
+|---|---|---|---|
+| `sender_address` | True | `<SuiAddress>` | |
+| `tx_bytes` | True | `<Base64>` | BCS encoded TransactionKind(as opposed to TransactionData, which include gasBudget and gasPrice) |
+| `gas_price` | False | `<BigInt_for_uint64>` | Gas is not charged, but gas usage is still calculated. Default to use reference gas price |
+| `epoch` | False | `<BigInt_for_uint64>` | The epoch to perform the call. Will be set from the system state object if not provided |
+
+#### Result
+
+##### `<DevInspectResults>`
+
+| Name | Required | Format | Description
+|---|---|---|---|
+| `effects` | True | `<[TransactionBlockEffects]>` | Summary of effects that likely would be generated if the transaction is actually run. Note however, that not all dev-inspect transactions are actually usable as transactions so it might not be possible actually generate these effects from a normal transaction. |
+| `error` | False | `<string,null>` | Execution error from executing the transactions |
+| `events` | True | `<[Event]>` | Events that likely would be generated if the transaction is actually run. |
+| `results` | False | `<[SuiExecutionResult]>` | Execution results (including return values) from executing the transactions |
+
+#### Example
+
+Runs the transaction in dev-inspect mode. Which allows for nearly any transaction (or Move call) with any arguments. Detailed results are provided, including both the transaction effects and any return values.
+
+```mdx-code-block
+<details>
+  <summary>
+  Request
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "sui_devInspectTransactionBlock",
+  "params": [
+    "0xd70420418b84502e506794227f897237764dde8d79a01ab2104bf742a277a2ab",
+    "AAACACBnxtMcbJcOVn8D72fYEaT4Q2ZbjePygvpIs+AQO6m77QEAagYVO5/EhuEB8OnicDrIZm0GrsxN3355JqNhlwxlpbECAAAAAAAAACDoQ3EipycU+/EOvBcDPFtMkZiSbdzWAw3CwdmQCAtBWAEBAQEBAAEAAC9cVD1xauQ9RT3rOxmbva8bxwMMdoL4dwPc5DEkj+3gASxDgF0Nb1QCp60Npb3sVJx83qBrxKHTOaIlIe6pM7iJAgAAAAAAAAAgnvsgc1pPauyCE27/c+aBnHN3fSsxRAWdEJYzYFOryNAvXFQ9cWrkPUU96zsZm72vG8cDDHaC+HcD3OQxJI/t4AoAAAAAAAAAAC0xAQAAAAAA",
+    1000,
+    8888
+  ]
+}
+```
+
+```mdx-code-block
+</details>
+```
+
+```mdx-code-block
+<details>
+  <summary>
+  Response
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "effects": {
+      "messageVersion": "v1",
+      "status": {
+        "status": "success"
+      },
+      "executedEpoch": "0",
+      "gasUsed": {
+        "computationCost": "100",
+        "storageCost": "100",
+        "storageRebate": "10",
+        "nonRefundableStorageFee": "0"
+      },
+      "transactionDigest": "76gyHCk7FRrGACRqXM7Ybj5uJLtAzgEMJ5P9CeEzxZSG",
+      "mutated": [
+        {
+          "owner": {
+            "AddressOwner": "0x2f5c543d716ae43d453deb3b199bbdaf1bc7030c7682f87703dce431248fede0"
+          },
+          "reference": {
+            "objectId": "0x2c43805d0d6f5402a7ad0da5bdec549c7cdea06bc4a1d339a22521eea933b889",
+            "version": 2,
+            "digest": "BhbWpBeESxuRWvmvLMyb2JNUuFa6j4aG1T4WUiPgKAHm"
+          }
+        },
+        {
+          "owner": {
+            "AddressOwner": "0x67c6d31c6c970e567f03ef67d811a4f843665b8de3f282fa48b3e0103ba9bbed"
+          },
+          "reference": {
+            "objectId": "0x6a06153b9fc486e101f0e9e2703ac8666d06aecc4ddf7e7926a361970c65a5b1",
+            "version": 2,
+            "digest": "GdfET1avZReDftpJNB8LSuHJ2cKUheSbEaLMzuPVXHsM"
+          }
+        }
+      ],
+      "gasObject": {
+        "owner": {
+          "ObjectOwner": "0x2f5c543d716ae43d453deb3b199bbdaf1bc7030c7682f87703dce431248fede0"
+        },
+        "reference": {
+          "objectId": "0x2c43805d0d6f5402a7ad0da5bdec549c7cdea06bc4a1d339a22521eea933b889",
+          "version": 2,
+          "digest": "BhbWpBeESxuRWvmvLMyb2JNUuFa6j4aG1T4WUiPgKAHm"
+        }
+      },
+      "eventsDigest": "6kerMphN4S5QTfd9TAhwMiFq1q9c2YwfpheBfWm85vUq"
+    },
+    "events": []
+  }
+}
+```
+
+```mdx-code-block
+</details>
+```

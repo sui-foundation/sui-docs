@@ -1,0 +1,29 @@
+---
+title: Transaction Builder API
+sidebar_label: Transaction Builder API
+slug: /transaction-builder-api
+---
+
+### `unsafe_batchTransaction`
+
+Create an unsigned batched transaction.
+
+#### Parameters
+
+| Name | Required | Format | Description
+|---|---|---|---|
+| `signer` | True | `<SuiAddress>` | the transaction signer's Sui address |
+| `single_transaction_params` | True | `<[RPCTransactionRequestParams]>` | list of transaction request parameters |
+| `gas` | False | `<ObjectID>` | gas object to be used in this transaction, node will pick one from the signer's possession if not provided |
+| `gas_budget` | True | `<BigInt_for_uint64>` | the gas budget, the transaction will fail if the gas cost exceed the budget |
+| `txn_builder_mode` | False | `<SuiTransactionBlockBuilderMode>` | Whether this is a regular transaction or a Dev Inspect Transaction |
+
+#### Result
+
+##### `<TransactionBlockBytes>`
+
+| Name | Required | Format | Description
+|---|---|---|---|
+| `gas` | True | `<[ObjectRef]>` | the gas objects to be used |
+| `inputObjects` | True | `<[InputObjectKind]>` | objects to be used in this transaction |
+| `txBytes` | True | `<[Base64]>` | BCS serialized transaction data bytes without its type tag, as base-64 encoded string. |
