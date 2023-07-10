@@ -1,0 +1,57 @@
+---
+title: Read API
+sidebar_label: Read API
+slug: /read-api
+---
+
+### `sui_getChainIdentifier`
+
+Return the first four bytes of the chain's genesis checkpoint digest.
+
+#### Parameters
+
+| Name     | Required | Format     | Description |
+| -------- | -------- | ---------- | ----------- |
+| `String` | True     | `<string>` |             |
+
+#### Example
+
+Gets the identifier for the chain receiving the POST.
+
+```mdx-code-block
+<details>
+  <summary>
+  Request
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "sui_getChainIdentifier",
+  "params": []
+}
+```
+
+```mdx-code-block
+</details>
+```
+
+```mdx-code-block
+<details>
+  <summary>
+  Response
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "4c78adac"
+}
+```
+
+```mdx-code-block
+</details>
+```
