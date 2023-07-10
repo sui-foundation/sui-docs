@@ -1,0 +1,89 @@
+---
+title: Move Utils API
+sidebar_label: Move Utils API
+slug: /move-utils-api
+---
+
+### `sui_getMoveFunctionArgTypes`
+
+Return the argument types of a Move function, based on normalized Type.
+
+#### Parameters
+
+| Name       | Required | Format       | Description |
+| ---------- | -------- | ------------ | ----------- |
+| `package`  | True     | `<ObjectID>` |             |
+| `module`   | True     | `<string>`   |             |
+| `function` | False    | `<string>`   |             |
+
+#### Result
+
+##### `<DevInspectResults>`
+
+| Name                       | Required | Format                    | Description |
+| -------------------------- | -------- | ------------------------- | ----------- |
+| `Vec<MoveFunctionArgType>` | True     | `<[MoveFunctionArgType]>` |             |
+
+#### Example
+
+Returns the argument types for the package and function the request provides.
+
+```mdx-code-block
+<details>
+  <summary>
+  Request
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "sui_getMoveFunctionArgTypes",
+  "params": [
+    "0x007efb0f94f1e64d2e8090c619a39299d87ee8070b5f56bb10bafa0e2261d819",
+    "suifrens",
+    "mint"
+  ]
+}
+```
+
+```mdx-code-block
+</details>
+```
+
+```mdx-code-block
+<details>
+  <summary>
+  Response
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "Object": "ByMutableReference"
+    },
+    "Pure",
+    "Pure",
+    {
+      "Object": "ByValue"
+    },
+    {
+      "Object": "ByImmutableReference"
+    },
+    {
+      "Object": "ByValue"
+    },
+    {
+      "Object": "ByMutableReference"
+    }
+  ]
+}
+```
+
+```mdx-code-block
+</details>
+```
