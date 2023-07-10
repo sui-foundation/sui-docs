@@ -103,7 +103,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "reference/json-rpc/json-rpc-api",
+            docId: "reference/json-rpc/read-api",
             label: "Reference",
           },
           {

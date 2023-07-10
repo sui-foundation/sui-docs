@@ -214,10 +214,16 @@ const sidebars = {
       label: 'JSON-RPC API',
       link: {
         type: 'doc',
-        id: 'reference/json-rpc/json-rpc-api',
+        id: 'reference/json-rpc/read-api',
       },
       items: [
-        'reference/json-rpc/json-rpc-api',
+        'reference/json-rpc/read-api',
+        'reference/json-rpc/write-api',
+        'reference/json-rpc/extended-api',
+        'reference/json-rpc/coin-query-api',
+        'reference/json-rpc/governance-read-api',
+        'reference/json-rpc/transaction-builder-api',
+        'reference/json-rpc/move-utils-api',
         'reference/json-rpc/json-rpc-format',
       ],
     },

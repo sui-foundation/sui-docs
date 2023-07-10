@@ -1,0 +1,73 @@
+---
+title: Coin Query API
+sidebar_label: Coin Query API
+slug: /coin-query-api
+---
+
+### `suix_getAllBalances`
+
+Return the total coin balance for all coin type, owned by the address owner.
+
+#### Parameters
+
+| Name | Required | Format | Description
+|---|---|---|---|
+| `owner` | True | `<SuiAddress>` | the owner's Sui address |
+
+#### Result
+
+
+| Name | Required | Format | Description
+|---|---|---|---|
+| `Vec<Balance>` | True | `<[Balance]>` | |
+
+#### Example
+
+Gets all balances for the address in the request.
+
+```mdx-code-block
+<details>
+  <summary>
+  Request
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "suix_getAllBalances",
+  "params": [
+    "0x94f1a597b4e8f709a396f7f6b1482bdcd65a673d111e49286c527fab7c2d0961"
+  ]
+}
+```
+
+```mdx-code-block
+</details>
+```
+
+```mdx-code-block
+<details>
+  <summary>
+  Response
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "coinType": "0x2::sui::SUI",
+      "coinObjectCount": 15,
+      "totalBalance": "3000000000",
+      "lockedBalance": {}
+    }
+  ]
+}
+```
+
+```mdx-code-block
+</details>
+```
