@@ -139,6 +139,7 @@ const sidebars = {
         'build/quickstart/about',
         'build/quickstart/examples',
         'build/quickstart/tutorials',
+        'build/quickstart/test',
         ],
     },
     {
