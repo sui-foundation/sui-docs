@@ -3,6 +3,8 @@ title: Hot Potato
 slug: /hot-potato
 ---
 
+import ExampleImport from '@site/src/components/ExampleImport';
+
 A Hot Potato is the name of a struct that has no abilities, hence it can only be packed and unpacked in its module. In this struct, you must call function B after function A in the case where function A returns a potato and function B consumes it.
 
 ```sui-move
@@ -70,6 +72,6 @@ module examples::trade_in {
 }
 ```
 
-This pattern is used in these examples:
+The Sui repository includes [several examples](https://github.com/MystenLabs/sui/tree/main/sui_programmability/examples) that demonstrate Sui capabilities. The following [Flash Loan](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/defi/sources/flash_lender.move) code from the set of examples demonstrates the pattern this topic describes: 
 
--   [Flash Loan](https://github.com/MystenLabs/sui/blob/main/sui_programmability/examples/defi/sources/flash_lender.move)
+<ExampleImport file="/sui_programmability/examples/defi/sources/flash_lender.move" type="move" />
