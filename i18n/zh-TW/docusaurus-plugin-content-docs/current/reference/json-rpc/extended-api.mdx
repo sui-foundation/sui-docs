@@ -1,0 +1,93 @@
+---
+title: Extended API
+sidebar_label: Extended API
+slug: /extended-api
+---
+
+### `suix_getDynamicFieldObject`
+
+Return the dynamic field object information for a specified object
+
+#### Parameters
+
+| Name               | Required | Format               | Description                         |
+| ------------------ | -------- | -------------------- | ----------------------------------- |
+| `parent_object_id` | True     | `<ObjectID>`         | The ID of the queried parent object |
+| `name`             | True     | `<DynamicFieldName>` | The Name of the dynamic field       |
+
+#### Result
+
+##### `<SuiObjectResponse>`
+
+| Name    | Required | Format                    | Description                                                                                                                                                                                                                                                          |
+| ------- | -------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data`  | False    | `<[ObjectData]>`          | Summary of effects that likely would be generated if the transaction is actually run. Note however, that not all dev-inspect transactions are actually usable as transactions so it might not be possible actually generate these effects from a normal transaction. |
+| `error` | False    | `<[ObjectResponseError]>` | Execution error from executing the transactions                                                                                                                                                                                                                      |
+
+#### Example
+
+Gets the information for the dynamic field the request provides.
+
+```mdx-code-block
+<details>
+  <summary>
+  Request
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "suix_getDynamicFieldObject",
+  "params": [
+    "0xc8359b6b5e3bfeab524e5edaad3a204b4053745b2d45d1f00cd8d24e5b697607",
+    {
+      "type": "0x0000000000000000000000000000000000000000000000000000000000000009::test::TestField",
+      "value": "some_value"
+    }
+  ]
+}
+
+```
+
+```mdx-code-block
+</details>
+```
+
+```mdx-code-block
+<details>
+  <summary>
+  Response
+  </summary>
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "data": {
+      "objectId": "0xc8359b6b5e3bfeab524e5edaad3a204b4053745b2d45d1f00cd8d24e5b697607",
+      "version": "1",
+      "digest": "2VivvkBoFVwEg8oXq3tK9r3d3ybvMACtk9QwpFnkM6v2",
+      "type": "0x0000000000000000000000000000000000000000000000000000000000000009::test::TestField",
+      "owner": {
+        "AddressOwner": "0xc055d5c23e2f6c69e6aacf5b4664b570cb20d4feace07fc863a2eef286c3e95e"
+      },
+      "previousTransaction": "FJjAr8fdpuQvVZgd9VswXxz9jZcFGEAgKgdi8d6zXE3S",
+      "storageRebate": "100",
+      "content": {
+        "dataType": "moveObject",
+        "type": "0x0000000000000000000000000000000000000000000000000000000000000009::test::TestField",
+        "hasPublicTransfer": true,
+        "fields": {}
+      }
+    }
+  }
+}
+
+```
+
+```mdx-code-block
+</details>
+```
